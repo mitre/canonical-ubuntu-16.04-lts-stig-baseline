@@ -51,5 +51,10 @@ Edit/Modify the following line in the \"/etc/login.defs\" file and set
 \"[ENCRYPT_METHOD]\" to SHA512.
 
 ENCRYPT_METHOD SHA512"
+
+  describe file("/etc/login.defs") do
+    it { should exist }
+    its("content") { should match /^[\s]*ENCRYPT_METHOD[\s]+SHA512[\s]*$/ }
+  end
 end
 

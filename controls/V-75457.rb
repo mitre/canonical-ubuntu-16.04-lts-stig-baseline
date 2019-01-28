@@ -51,5 +51,18 @@ Add or update the following line in the \"/etc/security/pwquality.conf\" file
 to include the \"difok=8\" parameter:
 
 difok=8"
+
+  describe package('libpam-pwquality') do
+    it { should be_installed }
+  end
+
+  describe file("/etc/security/pwquality.conf") do
+    it { should exist }
+  end
+
+  describe command('grep -i difok /etc/security/pwquality.conf') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^[\s]*difok[\s]*=[\s]*([8-9]|[1-9][\d]*)$/ }
+  end
 end
 

@@ -50,5 +50,15 @@ to include the sha512 option for pam_unix.so:
 
 password        [success=1 default=ignore]      pam_unix.so obscure sha512
 shadow remember=5"
+
+  describe file("/etc/pam.d/common-password") do
+    it { should exist }
+  end
+
+  describe command("grep rounds /etc/pam.d/common-password") do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^[\s]*password[\s]+\[[\s]*success=1[\s]+default=ignore[\s]*\].*[\s]+sha512($|[\s]+.*$)/ }
+  end
+
 end
 

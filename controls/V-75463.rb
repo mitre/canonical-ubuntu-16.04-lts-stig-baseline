@@ -50,5 +50,15 @@ Edit/modify the following line in the \"/etc/pam.d/common-password\" file and
 set \"rounds\" to a value no lower than \"5000\":
 
 password  [success=1 default=ignore]  pam_unix.so obscure sha512 rounds=5000"
+
+  describe file("/etc/pam.d/common-password") do
+    it { should exist }
+  end
+
+  describe command("grep rounds /etc/pam.d/common-password") do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^[\s]*password[\s]+\[[\s]*success=1[\s]+default=ignore[\s]*\].*[\s]+rounds=([5-9]\d\d\d|[1-9]\d\d\d\d+)($|[\s]+.*$)/ }
+  end
+
 end
 

@@ -46,5 +46,9 @@ If \"vlock\" is not installed, this is a finding."
 running the following command:
 
 # sudo apt-get install vlock"
+
+  describe package('vlock') do
+    it { should be_installed }
+  end
 end
 

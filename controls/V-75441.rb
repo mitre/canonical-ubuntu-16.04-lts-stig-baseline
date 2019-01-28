@@ -49,5 +49,12 @@ Add the following lines to the \"/etc/profile.d/autologout.sh\" script:
 TMOUT=900
 readonly TMOUT
 export TMOUT"
+
+  describe file('/etc/profile.d/autologout.sh') do
+    it { should exist }
+    its('content') { should match /^[\s]*TMOUT=900[\s]*$/ }
+    its('content') { should match /^[\s]*readonly[\s]+TMOUT[\s]*$/ }
+    its('content') { should match /^[\s]*export[\s]+TMOUT[\s]*$/ }
+  end
 end
 

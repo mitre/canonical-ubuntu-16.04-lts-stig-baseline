@@ -47,5 +47,18 @@ Add or update the following line in the \"/etc/security/pwquality.conf\" file
 to contain the \"lcredit\" parameter:
 
 lcredit=-1"
+
+  describe package('libpam-pwquality') do
+    it { should be_installed }
+  end
+
+  describe file("/etc/security/pwquality.conf") do
+    it { should exist }
+  end
+
+  describe command('grep -i lcredit /etc/security/pwquality.conf') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^[\s]*lcredit[\s]*=[\s]*-[1-9][\d]*$/ }
+  end
 end
 

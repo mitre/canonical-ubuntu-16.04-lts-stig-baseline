@@ -49,5 +49,20 @@ passwords with a strong cryptographic hash.
 
 Lock all interactive user accounts not using SHA-512 hashing until the
 passwords can be regenerated."
+
+  describe file("/etc/shadow") do
+    it { should exist }
+  end
+
+  describe command("sudo cut -d: -f2 /etc/shadow") do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^(\s*\$6|\s*!|\s*\*).*$/ }
+  end
+
+  # Using the shadow resource
+  describe shadow do
+    its('passwords') { should match /^(\s*\$6|\s*!|\s*\*).*$/ }
+  end
+
 end
 

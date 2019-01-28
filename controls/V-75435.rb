@@ -142,5 +142,12 @@ communications, or work product, related to personal representation or services
 by attorneys, psychotherapists, or clergy, and their assistants. Such
 communications and work product are private and confidential. See User
 Agreement for details.\""
+
+    banner_text = file('/etc/issue').content.gsub(%r{[\r\n\s]}, '')
+
+    describe "Banner text" do
+      subject { banner_text }
+      it { should eq attribute('banner_text').gsub(%r{[\r\n\s]}, '') }
+    end
 end
 
