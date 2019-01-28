@@ -37,7 +37,7 @@ determine the time difference.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Network Time Protocol (NTP) is running in
+  desc "check", "Verify that Network Time Protocol (NTP) is running in
 continuous mode.
 
 Check that NTP is running in continuous mode with the following command:

@@ -25,7 +25,7 @@ for unprivileged users to attain unauthorized administrative access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify file systems that are being Network File System (NFS)
+  desc "check", "Verify file systems that are being Network File System (NFS)
 imported are mounted with the \"nosuid\" option.
 
 Find the file system(s) that contain the directories being exported with the

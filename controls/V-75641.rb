@@ -30,7 +30,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit logs are group-owned by \"root\". First
+  desc "check", "Verify the audit logs are group-owned by \"root\". First
 determine where the audit logs are stored with the following command:
 
 # sudo grep -iw log_file /etc/audit/auditd.conf

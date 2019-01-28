@@ -28,7 +28,7 @@ partitioning.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system is configured to use TCP
+  desc "check", "Verify the Ubuntu operating system is configured to use TCP
 syncookies.
 
 Check the value of TCP syncookies with the following command:

@@ -46,7 +46,7 @@ requirement.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system, for PKI-based
+  desc "check", "Verify the Ubuntu operating system, for PKI-based
 authentication, had valid certificates by constructing a certification path
 (which includes status information) to an accepted trust anchor.
 

@@ -54,7 +54,7 @@ Ubuntu operating system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit service is configured to produce audit
+  desc "check", "Verify the audit service is configured to produce audit
 records.
 
 Check that the audit service is installed properly with the following command:

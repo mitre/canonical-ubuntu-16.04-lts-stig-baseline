@@ -51,7 +51,7 @@ limitation is not required for this use of discretionary access control.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system is configured to allow
+  desc "check", "Verify the Ubuntu operating system is configured to allow
 system administrators to pass information to any other Ubuntu operating system
 administrator or user.
 

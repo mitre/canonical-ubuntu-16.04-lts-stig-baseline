@@ -23,7 +23,7 @@ across the network."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system is not performing packet
+  desc "check", "Verify the Ubuntu operating system is not performing packet
 forwarding, unless the system is a router.
 
 Check to see if IP forwarding is enabled using the following command:

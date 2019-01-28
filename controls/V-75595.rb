@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the /var/log directory is owned by root.
+  desc "check", "Verify the /var/log directory is owned by root.
 
 Check that the /var/log directory is owned by root with the following command:
 

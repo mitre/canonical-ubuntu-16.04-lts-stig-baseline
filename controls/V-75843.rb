@@ -20,7 +20,7 @@ service may be compromised."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH public host key files have mode \"0644\" or less
+  desc "check", "Verify the SSH public host key files have mode \"0644\" or less
 permissive.
 
 Note: SSH public key files may be found in other directories on the system

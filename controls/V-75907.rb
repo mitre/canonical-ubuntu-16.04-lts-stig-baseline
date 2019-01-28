@@ -49,7 +49,7 @@ configuring the device itself (management).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system implements certificate
+  desc "check", "Verify the Ubuntu operating system implements certificate
 status checking for multifactor authentication.
 
 Check that certificate status checking for multifactor authentication is

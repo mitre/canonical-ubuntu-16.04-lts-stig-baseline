@@ -27,7 +27,7 @@ during initial installation of the Ubuntu operating system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system allocates audit record
+  desc "check", "Verify the Ubuntu operating system allocates audit record
 storage capacity to store at least one week's worth of audit records when audit
 records are not immediately sent to a central audit record storage facility.
 

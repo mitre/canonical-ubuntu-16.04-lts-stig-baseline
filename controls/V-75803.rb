@@ -37,7 +37,7 @@ servers, workstations, notebook computers, smartphones, and tablets).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Uncomplicated Firewall is installed.
+  desc "check", "Verify that the Uncomplicated Firewall is installed.
 
 Check that the Uncomplicated Firewall is installed with the following command:
 

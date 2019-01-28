@@ -24,7 +24,7 @@ is a password that is not changed as per policy requirements."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system prevents passwords from
+  desc "check", "Verify that the Ubuntu operating system prevents passwords from
 being reused for a minimum of five generations by running the following command:
 
 # grep -i remember /etc/pam.d/common-password

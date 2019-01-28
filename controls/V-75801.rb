@@ -36,7 +36,7 @@ password could be compromised.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the rsh-server package is not installed on the
+  desc "check", "Verify that the rsh-server package is not installed on the
 Ubuntu operating system.
 
 Check to see if the rsh-server package is installed with the following command:

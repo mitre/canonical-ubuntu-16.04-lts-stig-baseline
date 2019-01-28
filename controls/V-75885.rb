@@ -23,7 +23,7 @@ possibly revealing portions of the network topology."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system does not send Internet
+  desc "check", "Verify the Ubuntu operating system does not send Internet
 Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect
 messages.
 

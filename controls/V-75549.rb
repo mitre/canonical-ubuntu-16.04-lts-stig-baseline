@@ -24,7 +24,7 @@ account."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Check the Ubuntu operating system for duplicate User ID (UID)
+  desc "check", "Check the Ubuntu operating system for duplicate User ID (UID)
 \"0\" assignments with the following command:
 
 # awk -F: '$3 == 0 {print $1}' /etc/passwd

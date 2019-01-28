@@ -24,7 +24,7 @@ capacity expansion."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system notifies the System
+  desc "check", "Verify the Ubuntu operating system notifies the System
 Administrator (SA) and Information System Security Officer (ISSO) (at a
 minimum) when allocated audit record storage volume reaches 75% of the
 repository maximum audit record storage capacity.

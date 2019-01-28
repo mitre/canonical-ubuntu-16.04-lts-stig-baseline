@@ -21,7 +21,7 @@ facilitates user recognition and reporting of unauthorized account use."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify users are provided with feedback on when account
+  desc "check", "Verify users are provided with feedback on when account
 accesses last occurred.
 
 Check that \"pam_lastlog\" is used and not silent with the following command:

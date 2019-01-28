@@ -28,7 +28,7 @@ must be documented with the Information System Security Officer (ISSO).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the system is using a DoD-approved virus scan program
+  desc "check", "Verify the system is using a DoD-approved virus scan program
 and the virus definition file is less than seven days old.
 
 Check for the presence of \"McAfee VirusScan Enterprise for Linux\" with the

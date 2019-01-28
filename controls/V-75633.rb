@@ -24,7 +24,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit system authenticates off-loading audit records
+  desc "check", "Verify the audit system authenticates off-loading audit records
 to a different system.
 
 Check that the off-loading of audit records to a different system is

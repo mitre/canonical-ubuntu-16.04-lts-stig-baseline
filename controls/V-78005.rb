@@ -30,7 +30,7 @@ configured to scan all received mail.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the system is using a DoD-approved virus scan program.
+  desc "check", "Verify the system is using a DoD-approved virus scan program.
 
 
 Check for the presence of \"McAfee VirusScan Enterprise for Linux\" with the

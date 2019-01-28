@@ -21,7 +21,7 @@ without a valid group owner."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify all files and directories on the Ubuntu operating system
+  desc "check", "Verify all files and directories on the Ubuntu operating system
 have a valid group.
 
 Check the owner of all files and directories with the following command:

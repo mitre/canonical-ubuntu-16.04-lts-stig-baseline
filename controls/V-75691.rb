@@ -41,7 +41,7 @@ Ubuntu operating system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system generates audit records when
+  desc "check", "Verify the Ubuntu operating system generates audit records when
 successful/unsuccessful attempts to use the \"su\" command occur.
 
 Check for the following system call being audited by performing the following

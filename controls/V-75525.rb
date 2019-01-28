@@ -37,7 +37,7 @@ manipulated, or replaced. An example is a checksum hash of the file or files.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Advanced Intrusion Detection Environment (AIDE) to
+  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE) to
 properly configured to use cryptographic mechanisms to protect the integrity of
 audit tools.
 

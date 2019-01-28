@@ -23,7 +23,7 @@ or for the use of two-factor authentication."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify there are no \".shosts\" files on the Ubuntu operating
+  desc "check", "Verify there are no \".shosts\" files on the Ubuntu operating
 system.
 
 Check the system for the existence of these files with the following command:

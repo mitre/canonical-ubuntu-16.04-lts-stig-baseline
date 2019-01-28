@@ -29,7 +29,7 @@ validated.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the system is configured to run in FIPS mode.
+  desc "check", "Verify the system is configured to run in FIPS mode.
 
 Check that the system is configured to run in FIPS mode with the following
 command:

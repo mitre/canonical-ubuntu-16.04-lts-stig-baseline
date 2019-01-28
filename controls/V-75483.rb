@@ -22,7 +22,7 @@ increasing the opportunity for successful guesses and brute-force attacks."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the \"passwd\" command uses the common-password settings.
+  desc "check", "Verify the \"passwd\" command uses the common-password settings.
 
 Check that the \"passwd\" command uses the common-password option with the
 following command:

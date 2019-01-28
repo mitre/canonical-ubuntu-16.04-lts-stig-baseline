@@ -28,7 +28,7 @@ password.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system enforces a minimum
+  desc "check", "Verify that the Ubuntu operating system enforces a minimum
 \"15\" character password length, by running the following command:
 
 # grep -i minlen /etc/security/pwquality.conf

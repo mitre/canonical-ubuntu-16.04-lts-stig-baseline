@@ -31,7 +31,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the audit log files have a mode of \"0640\" or less
+  desc "check", "Verify that the audit log files have a mode of \"0640\" or less
 permissive.
 
 Check where the audit logs are stored on the system using the following command:

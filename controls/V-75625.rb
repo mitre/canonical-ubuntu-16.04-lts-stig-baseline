@@ -33,7 +33,7 @@ storage repositories combined), or both.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the System Administrator (SA) and Information
+  desc "check", "Verify that the System Administrator (SA) and Information
 System Security Officer (ISSO) (at a minimum) are notified in the event of an
 audit processing failure.
 

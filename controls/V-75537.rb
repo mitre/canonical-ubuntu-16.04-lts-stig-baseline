@@ -39,7 +39,7 @@ an SA through shared resources.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system is configured to employ a
+  desc "check", "Verify the Ubuntu operating system is configured to employ a
 deny-all, permit-by-exception policy to allow the execution of authorized
 software programs and access to user home directories.
 

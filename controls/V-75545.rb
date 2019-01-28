@@ -22,7 +22,7 @@ applications not installed on the system."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify all accounts on the system are assigned to an active
+  desc "check", "Verify all accounts on the system are assigned to an active
 system, application, or user account.
 
 Obtain the list of authorized system accounts from the Information System

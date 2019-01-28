@@ -34,7 +34,7 @@ information system (e.g., module or policy filter).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that an audit event is generated for any
+  desc "check", "Verify that an audit event is generated for any
 successful/unsuccessful use of the \"crontab\" command.
 
 Check for the following system call being audited by performing the following

@@ -34,7 +34,7 @@ as Remote Desktop Protocol (RDP), on a variety of information system components
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system monitors all remote
+  desc "check", "Verify that the Ubuntu operating system monitors all remote
 access methods.
 
 Check that remote access methods are being logged by running the following

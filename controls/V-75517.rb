@@ -37,7 +37,7 @@ functionality.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Advanced Intrusion Detection Environment (AIDE)
+  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE)
 performs a verification of the operation of security functions every 30 days.
 
 Note: A file integrity tool other than AIDE may be used, but the tool must be

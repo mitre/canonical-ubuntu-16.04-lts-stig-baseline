@@ -22,7 +22,7 @@ space on the target file system partition."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that kernel core dumps are disabled unless needed.
+  desc "check", "Verify that kernel core dumps are disabled unless needed.
 
 Check the status of the \"kdump\" service with the following command:
 

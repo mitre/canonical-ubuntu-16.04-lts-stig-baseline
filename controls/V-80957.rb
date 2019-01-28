@@ -25,7 +25,7 @@ reduced because the user will be prompted before any action is taken."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system is not configured to reboot
+  desc "check", "Verify the Ubuntu operating system is not configured to reboot
 the system when Ctrl-Alt-Delete is pressed when using GNOME.
 
 Check that the \"logout\" target is not bound to an action with the following

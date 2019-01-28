@@ -41,7 +41,7 @@ have to be employed, and vice versa.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the \"ssh\" meta-package is installed.
+  desc "check", "Verify the \"ssh\" meta-package is installed.
 
 Check that the ssh package is installed with the following command:
 

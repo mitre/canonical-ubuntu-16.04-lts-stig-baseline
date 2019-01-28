@@ -24,7 +24,7 @@ users to attain unauthorized administrative access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify file systems that contain user home directories are
+  desc "check", "Verify file systems that contain user home directories are
 mounted with the \"nosuid\" option.
 
 Note: If a separate file system has not been created for the user home

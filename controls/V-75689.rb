@@ -30,7 +30,7 @@ from insider threats and the advanced persistent threat.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system audits the execution of
+  desc "check", "Verify the Ubuntu operating system audits the execution of
 privilege functions.
 
 Verify if the Ubuntu operating system is configured to audit the execution of

@@ -32,7 +32,7 @@ functionality.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Advanced Intrusion Detection Environment (AIDE) is
+  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE) is
 installed and verifies the correct operation of all security functions.
 
 Check that the AIDE package is installed with the following command:

@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the \"/var/log/syslog\" file has mode \"0640\" or
+  desc "check", "Verify that the \"/var/log/syslog\" file has mode \"0640\" or
 less permissive.
 
 Check that \"/var/log/syslog\" has mode \"0640\" or less permissive with the

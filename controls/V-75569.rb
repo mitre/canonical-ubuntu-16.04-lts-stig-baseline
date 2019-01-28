@@ -21,7 +21,7 @@ accounts upon logon."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that all local initialization files have a mode of
+  desc "check", "Verify that all local initialization files have a mode of
 \"0740\" or less permissive.
 
 Check the mode on all local initialization files with the following command:

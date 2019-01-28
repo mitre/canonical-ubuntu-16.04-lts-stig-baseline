@@ -21,7 +21,7 @@ allow unauthorized access to user files by other users."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the assigned home directory of all local interactive
+  desc "check", "Verify the assigned home directory of all local interactive
 users has a mode of \"0750\" or less permissive.
 
 Check the home directory assignment for all non-privileged users with the

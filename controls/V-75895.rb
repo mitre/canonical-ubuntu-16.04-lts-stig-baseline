@@ -24,7 +24,7 @@ methods must be used in place of this service."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify a File Transfer Protocol (FTP) server has not been
+  desc "check", "Verify a File Transfer Protocol (FTP) server has not been
 installed on the system.
 
 Check to see if a FTP server has been installed with the following commands:

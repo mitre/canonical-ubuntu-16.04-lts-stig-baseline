@@ -27,7 +27,7 @@ application identifiers after 35 days of inactivity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the account identifiers (individuals, groups, roles, and
+  desc "check", "Verify the account identifiers (individuals, groups, roles, and
 devices) are disabled after \"35\" days of inactivity with the following
 command:
 

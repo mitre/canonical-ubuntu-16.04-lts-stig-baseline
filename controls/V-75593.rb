@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the \"/var/log\" directory is group-owned by syslog.
+  desc "check", "Verify the \"/var/log\" directory is group-owned by syslog.
 
 Check that the \"/var/log\" directory is group owned by syslog with the
 following command:

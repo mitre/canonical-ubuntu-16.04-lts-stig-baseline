@@ -20,7 +20,7 @@ impacts Ubuntu operating system security."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that unattended or automatic login via ssh is disabled.
+  desc "check", "Verify that unattended or automatic login via ssh is disabled.
 
 Check that unattended or automatic login via ssh is disabled with the following
 command:

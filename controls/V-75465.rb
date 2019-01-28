@@ -31,7 +31,7 @@ general purpose computing system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that pam_unix.so auth is configured to use sha512.
+  desc "check", "Verify that pam_unix.so auth is configured to use sha512.
 
 Check that pam_unix.so auth is configured to use sha512 with the following
 command:

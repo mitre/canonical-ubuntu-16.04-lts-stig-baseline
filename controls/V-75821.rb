@@ -28,7 +28,7 @@ hardware providing the greater strength of mechanism.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system implements address space
+  desc "check", "Verify the Ubuntu operating system implements address space
 layout randomization (ASLR).
 
 Check that ASLR is configured on the system with the following command:

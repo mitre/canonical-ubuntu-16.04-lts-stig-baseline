@@ -34,7 +34,7 @@ storage repositories combined), or both.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the administrators are notified in the event of an
+  desc "check", "Verify that the administrators are notified in the event of an
 audit processing failure.
 
 Note: If postfix is not installed, this is Not Applicable.

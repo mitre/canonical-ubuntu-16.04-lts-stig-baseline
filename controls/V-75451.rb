@@ -29,7 +29,7 @@ compromised.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system enforces password complexity
+  desc "check", "Verify the Ubuntu operating system enforces password complexity
 by requiring that at least one lower-case character be used.
 
 Determine if the field \"lcredit\" is set in the

@@ -23,7 +23,7 @@ may not be able to access files that they legitimately should."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the assigned home directory of all local interactive
+  desc "check", "Verify the assigned home directory of all local interactive
 users is group-owned by that user’s primary Group Identifier (GID).
 
 Check the home directory assignment for all non-privileged users on the system

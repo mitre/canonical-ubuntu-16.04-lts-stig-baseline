@@ -25,7 +25,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the audit system takes appropriate action if the
+  desc "check", "Verify that the audit system takes appropriate action if the
 network cannot be used to off-load audit records.
 
 Check what action will take place if the network connection fails with the

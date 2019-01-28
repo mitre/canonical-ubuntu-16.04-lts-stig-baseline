@@ -36,7 +36,7 @@ information system (e.g., module or policy filter).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system generates audit records for
+  desc "check", "Verify the Ubuntu operating system generates audit records for
 all account creations, modifications, disabling, and termination events that
 affect \"/etc/group\".
 

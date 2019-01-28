@@ -69,7 +69,7 @@ c 3", "Rev_4"]
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system security patches and updates
+  desc "check", "Verify the Ubuntu operating system security patches and updates
 are installed and up to date. Updates are required to be applied with a
 frequency determined by the site or Program Management Office (PMO).
 

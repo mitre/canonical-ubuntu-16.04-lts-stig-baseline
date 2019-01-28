@@ -40,7 +40,7 @@ synchronize the local audit data with the collection server.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system takes the appropriate action
+  desc "check", "Verify the Ubuntu operating system takes the appropriate action
 when the audit storage volume is full.
 
 Check that the Ubuntu operating system takes the appropriate action when the

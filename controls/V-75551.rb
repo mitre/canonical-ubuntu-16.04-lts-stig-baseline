@@ -29,7 +29,7 @@ authenticated.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify a policy exists that ensures when a user account is
+  desc "check", "Verify a policy exists that ensures when a user account is
 created, it is created using a method that forces a user to change their
 password upon their next login.
 

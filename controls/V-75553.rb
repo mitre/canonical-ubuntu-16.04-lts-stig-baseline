@@ -21,7 +21,7 @@ the authentication information may be questionable."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Pluggable Authentication Module (PAM) prohibits the
+  desc "check", "Verify that Pluggable Authentication Module (PAM) prohibits the
 use of cached authentications after one day.
 
 Note: If smart card authentication is not being used on the system this item is

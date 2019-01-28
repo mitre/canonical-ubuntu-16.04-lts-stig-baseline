@@ -27,7 +27,7 @@ of layered protection for national security systems.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system accepts Personal Identity
+  desc "check", "Verify the Ubuntu operating system accepts Personal Identity
 Verification (PIV) credentials.
 
 Check that the \"opensc-pcks11\" package is installed on the system with the

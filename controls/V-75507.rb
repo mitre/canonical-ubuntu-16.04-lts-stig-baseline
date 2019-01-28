@@ -39,7 +39,7 @@ files, records, processes, programs, and domains) in the information system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that an encrypted root password is set. This is only
+  desc "check", "Verify that an encrypted root password is set. This is only
 applicable on Ubuntu operating systems that use UEFI.
 
 Run the following command to verify the encrypted password is set:

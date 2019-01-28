@@ -35,7 +35,7 @@ data structures (e.g., files, records, or fields).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system prevents unauthorized
+  desc "check", "Verify the Ubuntu operating system prevents unauthorized
 disclosure or modification of all information requiring at rest protection by
 using disk encryption.
 

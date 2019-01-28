@@ -21,7 +21,7 @@ mode and must be verified by file integrity tools."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the file integrity tool is configured to verify Access
+  desc "check", "Verify the file integrity tool is configured to verify Access
 Control Lists (ACLs).
 
 Use the following command to determine if the file is in a location other than

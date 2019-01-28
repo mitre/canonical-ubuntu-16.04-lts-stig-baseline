@@ -34,7 +34,7 @@ compromise.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system generates an audit record
+  desc "check", "Verify the Ubuntu operating system generates an audit record
 when successful/unsuccessful attempts to use the \"ssh-keysign\" command occur.
 
 Check that the following calls are being audited by performing the following

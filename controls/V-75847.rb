@@ -21,7 +21,7 @@ files, they may be able to log on to the system as another user."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH daemon performs strict mode checking of home
+  desc "check", "Verify the SSH daemon performs strict mode checking of home
 directory configuration files.
 
 Check that the SSH daemon performs strict mode checking of home directory

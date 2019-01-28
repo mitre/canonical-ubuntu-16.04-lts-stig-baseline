@@ -30,7 +30,7 @@ initiating changes, including upgrades and modifications.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the system-wide shared library files contained in the
+  desc "check", "Verify the system-wide shared library files contained in the
 following directories have mode \"0755\" or less permissive.
 
 Check that the system-wide shared library files contained in the following

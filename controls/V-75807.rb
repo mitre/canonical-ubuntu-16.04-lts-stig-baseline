@@ -26,7 +26,7 @@ connections that may facilitate exfiltration of DoD data.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Uncomplicated Firewall is configured to employ a
+  desc "check", "Verify the Uncomplicated Firewall is configured to employ a
 deny-all, allow-by-exception policy for allowing connections to other systems.
 
 Check the Uncomplicated Firewall configuration with the following command:

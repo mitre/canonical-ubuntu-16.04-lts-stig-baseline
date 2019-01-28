@@ -23,7 +23,7 @@ root privileges."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH daemon performs compression after a user
+  desc "check", "Verify the SSH daemon performs compression after a user
 successfully authenticates.
 
 Check that the SSH daemon performs compression after a user successfully

@@ -30,7 +30,7 @@ initiating changes, including upgrades and modifications.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the system commands contained in the following
+  desc "check", "Verify the system commands contained in the following
 directories are owned by \"root\".
 
 Check that the system command files contained in the following directories are

@@ -24,7 +24,7 @@ time to defeat the organization's policy regarding password reuse."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system enforces a 24 hours/1
+  desc "check", "Verify that the Ubuntu operating system enforces a 24 hours/1
 day minimum password lifetime for new user accounts by running the following
 command:
 

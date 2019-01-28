@@ -25,7 +25,7 @@ external storage, and printers.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that automatic mounting of the Universal Serial Bus
+  desc "check", "Verify that automatic mounting of the Universal Serial Bus
 (USB) mass storage driver has been disabled.
 
 Check that the USB mass storage drive has not been loaded with the following

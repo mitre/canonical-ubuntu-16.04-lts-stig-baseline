@@ -20,7 +20,7 @@ risk of the accidental (or intentional) activation of NIS or NIS+ services."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Network Information Service (NIS) package is
+  desc "check", "Verify that the Network Information Service (NIS) package is
 not installed on the Ubuntu operating system.
 
 Check to see if the NIS package is installed with the following command:

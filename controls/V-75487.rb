@@ -27,7 +27,7 @@ brute-forcing, is reduced. Limits are imposed by locking the account.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system automatically locks an
+  desc "check", "Verify the Ubuntu operating system automatically locks an
 account until the account lock is released by an administrator when three
 unsuccessful logon attempts are made.
 

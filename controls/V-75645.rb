@@ -30,7 +30,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit log directory is group-owned by \"root\" to
+  desc "check", "Verify the audit log directory is group-owned by \"root\" to
 prevent unauthorized read access.
 
 Determine where the audit logs are stored with the following command:

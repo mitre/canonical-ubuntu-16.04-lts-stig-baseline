@@ -29,7 +29,7 @@ re-authenticate.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that \"/etc/sudoers\" has no occurrences of \"NOPASSWD\"
+  desc "check", "Verify that \"/etc/sudoers\" has no occurrences of \"NOPASSWD\"
 or \"!authenticate\".
 
 Check that the \"/etc/sudoers\" file has no occurrences of \"NOPASSWD\" or

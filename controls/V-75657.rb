@@ -36,7 +36,7 @@ generators.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit tools are group-owned by \"root\" to prevent
+  desc "check", "Verify the audit tools are group-owned by \"root\" to prevent
 any unauthorized access, deletion, or modification.
 
 Check the owner of each audit tool by running the following commands:

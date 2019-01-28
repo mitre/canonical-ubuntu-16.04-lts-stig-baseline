@@ -21,7 +21,7 @@ the cron facility by unauthorized and malicious users."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that \"rsyslog\" is configured to log cron events.
+  desc "check", "Verify that \"rsyslog\" is configured to log cron events.
 
 Check the configuration of \"/etc/rsyslog.d/50-default.conf\" for the cron
 facility with the following commands:

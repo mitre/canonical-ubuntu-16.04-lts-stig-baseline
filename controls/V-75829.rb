@@ -33,7 +33,7 @@ a mechanism is selected based on the security categorization of the information.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH daemon is configured to only implement
+  desc "check", "Verify the SSH daemon is configured to only implement
 DoD-approved encryption.
 
 Check the SSH daemon's current configured ciphers by running the following

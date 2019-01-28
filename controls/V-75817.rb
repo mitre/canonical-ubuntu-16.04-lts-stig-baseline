@@ -28,7 +28,7 @@ UTC.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "The time zone must be configured to use Coordinated Universal
+  desc "check", "The time zone must be configured to use Coordinated Universal
 Time (UTC) or Greenwich Mean Time (GMT). To verify run the following command.
 
 # sudo timedatectl status | grep -i \"time zone\"

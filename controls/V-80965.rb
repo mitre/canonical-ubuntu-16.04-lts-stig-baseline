@@ -25,7 +25,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit system off-loads audit records to a different
+  desc "check", "Verify the audit system off-loads audit records to a different
 system or storage media from the system being audited.
 
 Check that the records are being off-loaded to a remote server with the

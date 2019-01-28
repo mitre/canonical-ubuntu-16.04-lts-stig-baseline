@@ -49,7 +49,7 @@ configuring the device itself (management).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system has the packages required
+  desc "check", "Verify the Ubuntu operating system has the packages required
 for multifactor authentication installed.
 
 Check for the presence of the packages required to support multifactor

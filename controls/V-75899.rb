@@ -21,7 +21,7 @@ copying, transferring, or overwriting system files."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Trivial File Transfer Protocol (TFTP) daemon is
+  desc "check", "Verify the Trivial File Transfer Protocol (TFTP) daemon is
 configured to operate in secure mode.
 
 Check to see if a TFTP server has been installed with the following commands:

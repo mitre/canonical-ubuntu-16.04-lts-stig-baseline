@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the /var/log/syslog file is owned by syslog.
+  desc "check", "Verify that the /var/log/syslog file is owned by syslog.
 
 Check that the /var/log/syslog file is owned by syslog with the following
 command:

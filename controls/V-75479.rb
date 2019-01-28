@@ -22,7 +22,7 @@ should never be used in operational environments."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "To verify that null passwords cannot be used, run the following
+  desc "check", "To verify that null passwords cannot be used, run the following
 command:
 
 # grep pam_unix.so /etc/pam.d/* | grep nullok

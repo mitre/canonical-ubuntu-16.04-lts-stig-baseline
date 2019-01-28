@@ -44,7 +44,7 @@ taken with group account knowledge.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system prevents direct logins to
+  desc "check", "Verify the Ubuntu operating system prevents direct logins to
 the root account.
 
 Check that the Ubuntu operating system prevents direct logins to the root

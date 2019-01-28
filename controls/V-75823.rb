@@ -39,7 +39,7 @@ challenge-response one-time authenticators.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system enforces SSH protocol 2
+  desc "check", "Verify that the Ubuntu operating system enforces SSH protocol 2
 for network access.
 
 Check the protocol versions that SSH allows with the following command:

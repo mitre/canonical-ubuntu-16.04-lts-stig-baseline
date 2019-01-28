@@ -29,7 +29,7 @@ global read/write access.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify all world-writable directories are group-owned by root,
+  desc "check", "Verify all world-writable directories are group-owned by root,
 sys, bin, or an application group.
 
 Check the system for world-writable directories with the following command:

@@ -36,7 +36,7 @@ exceed access control policy requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that temporary accounts have been provisioned with an
+  desc "check", "Verify that temporary accounts have been provisioned with an
 expiration date for 72 hours.
 
 For every existing temporary account, run the following command to obtain its

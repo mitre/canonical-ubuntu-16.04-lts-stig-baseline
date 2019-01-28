@@ -21,7 +21,7 @@ vulnerabilities in the unprivileged section."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Check that the SSH daemon performs privilege separation with
+  desc "check", "Check that the SSH daemon performs privilege separation with
 the following command:
 
 # grep UsePrivilegeSeparation /etc/ssh/sshd_config

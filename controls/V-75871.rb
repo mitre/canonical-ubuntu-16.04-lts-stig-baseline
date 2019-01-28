@@ -23,7 +23,7 @@ time synchronization, centralized authentication, and remote system logging."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Determine whether the Ubuntu operating system is using local or
+  desc "check", "Determine whether the Ubuntu operating system is using local or
 Domain Name Server (DNS) name resolution with the following command:
 
 # grep hosts /etc/nsswitch.conf

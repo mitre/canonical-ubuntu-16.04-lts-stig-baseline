@@ -50,7 +50,7 @@ configuring the device itself (management).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system uses multifactor
+  desc "check", "Verify the Ubuntu operating system uses multifactor
 authentication for local access to accounts.
 
 Check that the \"pam_pkcs11.so\" option is configured in the

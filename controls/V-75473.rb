@@ -24,7 +24,7 @@ be compromised."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system enforces a 60-day
+  desc "check", "Verify that the Ubuntu operating system enforces a 60-day
 maximum password lifetime for new user accounts by running the following
 command:
 

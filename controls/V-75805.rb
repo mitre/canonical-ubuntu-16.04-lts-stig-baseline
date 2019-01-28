@@ -21,7 +21,7 @@ applications are allowed to communicate over the network."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Uncomplicated Firewall is enabled on the system by
+  desc "check", "Verify the Uncomplicated Firewall is enabled on the system by
 running the following command:
 
 # sudo systemctl is-enabled ufw

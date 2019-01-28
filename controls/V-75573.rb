@@ -23,7 +23,7 @@ compromise the system at the root and network level."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that local initialization files do not execute
+  desc "check", "Verify that local initialization files do not execute
 world-writable programs.
 
 Check the system for world-writable files with the following command:

@@ -48,7 +48,7 @@ encryption of the data may not be required.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that there are no wireless interfaces configured on the
+  desc "check", "Verify that there are no wireless interfaces configured on the
 system.
 
 Check that the system does not have active wireless interfaces with the

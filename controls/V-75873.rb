@@ -24,7 +24,7 @@ forwarding is enabled and the system is functioning as a router."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system does not accept IPv4
+  desc "check", "Verify the Ubuntu operating system does not accept IPv4
 source-routed packets.
 
 Check the value of the accept source route variable with the following command:

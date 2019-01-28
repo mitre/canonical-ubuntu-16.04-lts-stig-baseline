@@ -25,7 +25,7 @@ unknown devices, thereby facilitating malicious activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system disables the ability to
+  desc "check", "Verify the Ubuntu operating system disables the ability to
 automount devices.
 
 Check to see if automounter service is active with the following command:

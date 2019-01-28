@@ -24,7 +24,7 @@ have access control rules established."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify a Trivial File Transfer Protocol (TFTP) server has not
+  desc "check", "Verify a Trivial File Transfer Protocol (TFTP) server has not
 been installed.
 
 Check to see if a TFTP server has been installed with the following command:

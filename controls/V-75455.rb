@@ -30,7 +30,7 @@ include: ~ ! @ # $ % ^ *.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system enforces password complexity
+  desc "check", "Verify the Ubuntu operating system enforces password complexity
 by requiring that at least one special character be used.
 
 Determine if the field \"ocredit\" is set in the

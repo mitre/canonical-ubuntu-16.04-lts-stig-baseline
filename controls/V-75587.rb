@@ -21,7 +21,7 @@ system from failures resulting from a file system becoming full or failing."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that a separate file system/partition has been created
+  desc "check", "Verify that a separate file system/partition has been created
 for non-privileged local interactive user home directories.
 
 Check the home directory assignment for all non-privileged users, users with a

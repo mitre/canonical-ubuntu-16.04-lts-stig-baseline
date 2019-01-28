@@ -21,7 +21,7 @@ accounts are created they do not have unnecessary access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system defines default permissions
+  desc "check", "Verify the Ubuntu operating system defines default permissions
 for all authenticated users in such a way that the user can only read and
 modify their own files.
 

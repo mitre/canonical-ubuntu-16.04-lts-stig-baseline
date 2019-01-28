@@ -24,7 +24,7 @@ man-in-the-middle attack."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system ignores Internet Protocol
+  desc "check", "Verify the Ubuntu operating system ignores Internet Protocol
 version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect messages.
 
 Check the value of the \"accept_redirects\" variables with the following

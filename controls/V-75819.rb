@@ -28,7 +28,7 @@ hardware providing the greater strength of mechanism.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the NX (no-execution) bit flag is set on the system.
+  desc "check", "Verify the NX (no-execution) bit flag is set on the system.
 
 Check that the no-execution bit flag is set with the following commands:
 

@@ -25,7 +25,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit event multiplexor is configured to off-load
+  desc "check", "Verify the audit event multiplexor is configured to off-load
 audit records to a different system or storage media from the system being
 audited.
 

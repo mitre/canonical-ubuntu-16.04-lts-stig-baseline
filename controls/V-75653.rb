@@ -36,7 +36,7 @@ generators.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit tools are protected from unauthorized access,
+  desc "check", "Verify the audit tools are protected from unauthorized access,
 deletion, or modification by checking the permissive mode.
 
 Check the octal permission of each audit tool by running the following command:

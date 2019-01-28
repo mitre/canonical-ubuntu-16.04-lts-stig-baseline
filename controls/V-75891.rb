@@ -22,7 +22,7 @@ unauthorized activity."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Determine if \"postfix\" is installed with the following
+  desc "check", "Determine if \"postfix\" is installed with the following
 commands:
 
 Note: If postfix is not installed, this is Not Applicable.

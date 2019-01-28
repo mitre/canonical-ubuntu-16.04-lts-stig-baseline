@@ -33,7 +33,7 @@ require the change of at least 8 characters.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system requires the change of at
+  desc "check", "Verify the Ubuntu operating system requires the change of at
 least \"8\" characters when passwords are changed.
 
 Determine if the field \"difok\" is set in the \"/etc/security/pwquality.conf\"

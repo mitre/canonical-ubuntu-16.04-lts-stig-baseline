@@ -36,7 +36,7 @@ endpoints).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "The system clock must be configured to compare the system clock
+  desc "check", "The system clock must be configured to compare the system clock
 at least every 24 hours to the authoritative time source.
 
 Note: If the system is not networked this item is Not Applicable.

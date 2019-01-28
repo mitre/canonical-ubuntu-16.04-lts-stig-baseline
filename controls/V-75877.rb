@@ -23,7 +23,7 @@ attacks."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system does not respond to IPv4
+  desc "check", "Verify the Ubuntu operating system does not respond to IPv4
 Internet Control Message Protocol (ICMP) echoes sent to a broadcast address.
 
 Check the value of the \"icmp_echo_ignore_broadcasts\" variable with the

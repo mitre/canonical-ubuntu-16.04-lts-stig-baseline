@@ -34,7 +34,7 @@ physical vicinity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system has the 'vlock' package
+  desc "check", "Verify the Ubuntu operating system has the 'vlock' package
 installed, by running the following command:
 
 # dpkg -l | grep vlock

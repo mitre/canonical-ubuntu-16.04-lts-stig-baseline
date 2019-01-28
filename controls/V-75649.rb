@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit log files are owned by \"root\".
+  desc "check", "Verify the audit log files are owned by \"root\".
 
 Check where the audit logs are stored on the system using the following command:
 

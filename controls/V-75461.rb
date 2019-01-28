@@ -30,7 +30,7 @@ plainly read (i.e., clear text) and easily compromised.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the shadow password suite configuration is set to
+  desc "check", "Verify the shadow password suite configuration is set to
 encrypt interactive user passwords using a strong cryptographic hash with the
 following command:
 

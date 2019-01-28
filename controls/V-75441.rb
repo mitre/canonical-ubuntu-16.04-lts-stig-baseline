@@ -23,7 +23,7 @@ to the machine while the user is away."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system initiates a session logout
+  desc "check", "Verify the Ubuntu operating system initiates a session logout
 after a \"15\" minutes of inactivity.
 
 Check that the proper auto logout script exists with the following command:

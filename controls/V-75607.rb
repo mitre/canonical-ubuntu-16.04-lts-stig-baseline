@@ -30,7 +30,7 @@ initiating changes, including upgrades and modifications.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the system-wide shared library files are owned by
+  desc "check", "Verify the system-wide shared library files are owned by
 \"root\".
 
 Check that the system-wide shared library files are owned by \"root\" with the

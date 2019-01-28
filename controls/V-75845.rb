@@ -20,7 +20,7 @@ host could be impersonated."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH private host key files have mode \"0600\" or
+  desc "check", "Verify the SSH private host key files have mode \"0600\" or
 less permissive.
 
 Check the mode of the private host key files under \"/etc/ssh\" file with the

@@ -29,7 +29,7 @@ documented with the Information System Security Officer (ISSO)."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that all local interactive user initialization files'
+  desc "check", "Verify that all local interactive user initialization files'
 executable search path statements do not contain statements that will reference
 a working directory other than the users’ home directory or the system default.
 

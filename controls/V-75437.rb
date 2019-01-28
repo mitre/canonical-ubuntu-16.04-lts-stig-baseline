@@ -32,7 +32,7 @@ the system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the operating system allows a user to lock the current
+  desc "check", "Verify the operating system allows a user to lock the current
 graphical user interface (GUI) session.
 
 Note: If the Ubuntu operating system does not have GNOME installed, this

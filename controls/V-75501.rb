@@ -23,7 +23,7 @@ the use of two-factor authentication."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify there are no \"shosts.equiv\" files on the Ubuntu
+  desc "check", "Verify there are no \"shosts.equiv\" files on the Ubuntu
 operating system.
 
 Check for the existence of these files with the following command:

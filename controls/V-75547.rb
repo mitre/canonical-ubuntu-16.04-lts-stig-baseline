@@ -40,7 +40,7 @@ accounts) or for detailed accountability of individual activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system contains no duplicate
+  desc "check", "Verify that the Ubuntu operating system contains no duplicate
 User IDs (UIDs) for interactive users.
 
 Check that the Ubuntu operating system contains no duplicate UIDs for

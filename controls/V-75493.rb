@@ -21,7 +21,7 @@ reduces the chances that an unauthorized user may gain access to an account."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system enforces a delay of at least
+  desc "check", "Verify the Ubuntu operating system enforces a delay of at least
 4 seconds between logon prompts following a failed logon attempt.
 
 Check that the Ubuntu operating system enforces a delay of at least 4 seconds

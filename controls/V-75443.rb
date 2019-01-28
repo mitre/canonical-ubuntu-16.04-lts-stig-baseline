@@ -29,7 +29,7 @@ based upon mission needs and the operational environment for each system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the Ubuntu operating system limits the number of
+  desc "check", "Verify that the Ubuntu operating system limits the number of
 concurrent sessions to \"10\" for all accounts and/or account types by running
 the following command:
 

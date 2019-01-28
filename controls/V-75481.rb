@@ -22,7 +22,7 @@ increasing the opportunity for successful guesses and brute-force attacks."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system prevents the use of
+  desc "check", "Verify the Ubuntu operating system prevents the use of
 dictionary words for passwords.
 
 Check that the Ubuntu operating system uses the cracklib library to prevent the

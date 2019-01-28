@@ -22,7 +22,7 @@ unless approved and documented."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that if X Windows is installed it is authorized.
+  desc "check", "Verify that if X Windows is installed it is authorized.
 
 Check for the X11 package with the following command:
 

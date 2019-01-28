@@ -23,7 +23,7 @@ software automatically from the information system."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify Advance package Tool (APT) is configured to remove all
+  desc "check", "Verify Advance package Tool (APT) is configured to remove all
 software components after updated versions have been installed.
 
 Check that APT is configured to remove all software components after updating

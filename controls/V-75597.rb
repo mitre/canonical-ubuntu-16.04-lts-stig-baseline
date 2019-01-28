@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the \"/var/log\" directory has a mode of \"0770\"
+  desc "check", "Verify that the \"/var/log\" directory has a mode of \"0770\"
 or less.
 
 Check the mode of the \"/var/log\" directory with the following command:

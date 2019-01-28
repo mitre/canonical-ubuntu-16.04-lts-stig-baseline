@@ -37,7 +37,7 @@ storage) that may be assessed on specific information system components.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that all world writable directories have the sticky bit
+  desc "check", "Verify that all world writable directories have the sticky bit
 set.
 
 Check to see that all world writable directories have the sticky bit set by

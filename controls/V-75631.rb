@@ -25,7 +25,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the action that the audit system takes when the storage
+  desc "check", "Verify the action that the audit system takes when the storage
 volume becomes full.
 
 Check the action that the audit system takes when the storage volume becomes

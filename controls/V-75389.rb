@@ -22,7 +22,7 @@ discovered in the system software."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the version of the Ubuntu operating system is vendor
+  desc "check", "Verify the version of the Ubuntu operating system is vendor
 supported.
 
 Check the version of the Ubuntu operating system with the following command:

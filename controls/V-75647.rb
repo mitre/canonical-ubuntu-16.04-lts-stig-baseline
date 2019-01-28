@@ -26,7 +26,7 @@ to an incident or identify those responsible for one."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the /etc/audit/audit.rule and
+  desc "check", "Verify that the /etc/audit/audit.rule and
 /etc/audit/auditd.conf file have a mode of 0640 or less permissive by using the
 following command:
 

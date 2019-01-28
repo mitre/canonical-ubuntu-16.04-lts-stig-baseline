@@ -55,7 +55,7 @@ all direct access to the information system;
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify if the Ubuntu operating system is configured to audit
+  desc "check", "Verify if the Ubuntu operating system is configured to audit
 the execution of the module management program \"insmod\", by running the
 following command:
 

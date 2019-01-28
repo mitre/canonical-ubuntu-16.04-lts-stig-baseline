@@ -65,7 +65,7 @@ limitations on the number of characters that can be displayed in the banner:
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system displays the Standard
+  desc "check", "Verify the Ubuntu operating system displays the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the Ubuntu
 operating system via a ssh logon.
 

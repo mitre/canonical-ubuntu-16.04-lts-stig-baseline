@@ -20,7 +20,7 @@ impacts Ubuntu operating system security."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that unattended or automatic login via the GUI is
+  desc "check", "Verify that unattended or automatic login via the GUI is
 disabled.
 
 Check that unattended or automatic login is disabled with the following command:

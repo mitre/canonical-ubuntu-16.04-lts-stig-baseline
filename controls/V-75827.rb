@@ -23,7 +23,7 @@ individual accountability of actions performed on the system."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify remote access using SSH prevents users from logging on
+  desc "check", "Verify remote access using SSH prevents users from logging on
 directly as \"root\".
 
 Check that SSH prevents users from logging on directly as \"root\" with the

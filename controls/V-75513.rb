@@ -30,7 +30,7 @@ global read/write access.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that all world-writable directories are group-owned by
+  desc "check", "Verify that all world-writable directories are group-owned by
 root to prevent unauthorized and unintended information transferred via shared
 system resources.
 

@@ -27,7 +27,7 @@ Officer (ISSO) and restricted to only authorized personnel.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify network interfaces are not in promiscuous mode unless
+  desc "check", "Verify network interfaces are not in promiscuous mode unless
 approved by the Information System Security Officer (ISSO) and documented.
 
 Check for the status with the following command:

@@ -36,7 +36,7 @@ storage) that may be assessed on specific information system components.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that all public directories are owned by root to prevent
+  desc "check", "Verify that all public directories are owned by root to prevent
 unauthorized and unintended information transferred via shared system resources.
 
 Check to see that all public directories have the public sticky bit set by

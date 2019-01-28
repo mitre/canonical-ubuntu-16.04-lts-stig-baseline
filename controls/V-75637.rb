@@ -30,7 +30,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit log directories have a mode of \"0750\" or
+  desc "check", "Verify the audit log directories have a mode of \"0750\" or
 less permissive by first determining where the audit logs are stored with the
 following command:
 

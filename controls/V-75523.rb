@@ -49,7 +49,7 @@ detection.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Advanced Intrusion Detection Environment (AIDE)
+  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE)
 notifies the system administrator when anomalies in the operation of any
 security functions are discovered.
 

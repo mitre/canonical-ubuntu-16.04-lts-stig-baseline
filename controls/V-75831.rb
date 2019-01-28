@@ -36,7 +36,7 @@ maintaining the confidentiality of the secret key used to generate the hash.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH daemon is configured to only use Message
+  desc "check", "Verify the SSH daemon is configured to only use Message
 Authentication Codes (MACs) that employ FIPS 140-2 approved ciphers.
 
 Check that the SSH daemon is configured to only use MACs that employ FIPS 140-2

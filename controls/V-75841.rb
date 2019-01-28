@@ -22,7 +22,7 @@ of misconfiguration elsewhere."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the SSH daemon does not allow authentication using known
+  desc "check", "Verify the SSH daemon does not allow authentication using known
 hosts authentication.
 
 To determine how the SSH daemon's \"IgnoreUserKnownHosts\" option is set, run

@@ -21,7 +21,7 @@ and file metadata with security implications."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the file integrity tool is configured to verify extended
+  desc "check", "Verify the file integrity tool is configured to verify extended
 attributes.
 
 Check to see if Advanced Intrusion Detection Environment (AIDE) is installed

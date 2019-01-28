@@ -24,7 +24,7 @@ them visibility to system files they normally would not be able to access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the assigned home directory of all local interactive
+  desc "check", "Verify the assigned home directory of all local interactive
 users on the Ubuntu operating system exists.
 
 Check the home directory assignment for all local interactive non-privileged

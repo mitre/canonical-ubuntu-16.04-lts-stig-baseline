@@ -33,7 +33,7 @@ access cryptographic modules utilize authentication that meets DoD requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the shadow password suite configuration is set to
+  desc "check", "Verify that the shadow password suite configuration is set to
 encrypt password with a FIPS 140-2 approved cryptographic hashing algorithm.
 
 Check the hashing algorithm that is being used to hash passwords with the

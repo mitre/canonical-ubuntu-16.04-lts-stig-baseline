@@ -30,7 +30,7 @@ plainly read (i.e., clear text) and easily compromised.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the shadow password suite configuration is set to create
+  desc "check", "Verify the shadow password suite configuration is set to create
 passwords using a strong cryptographic hash with the following command:
 
 Check that a minimum number of hash rounds is configured by running the

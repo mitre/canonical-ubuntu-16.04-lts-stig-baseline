@@ -24,7 +24,7 @@ possibly revealing portions of the network topology."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system does not allow interfaces to
+  desc "check", "Verify the Ubuntu operating system does not allow interfaces to
 perform Internet Protocol version 4 (IPv4) Internet Control Message Protocol
 (ICMP) redirects by default.
 

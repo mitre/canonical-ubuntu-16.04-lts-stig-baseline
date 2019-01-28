@@ -33,7 +33,7 @@ functions, ports, protocols, services, and remote connections.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit service is active.
+  desc "check", "Verify the audit service is active.
 
 Check that the audit service is active with the following command:
 

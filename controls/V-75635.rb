@@ -30,7 +30,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the audit logs have a mode of \"0600\" or less
+  desc "check", "Verify the audit logs have a mode of \"0600\" or less
 permissive.
 
 First determine where the audit logs are stored with the following command:

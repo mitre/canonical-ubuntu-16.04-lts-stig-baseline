@@ -21,7 +21,7 @@ there is no place for the storage and control of files they should own."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify local interactive users on the Ubuntu operating system
+  desc "check", "Verify local interactive users on the Ubuntu operating system
 have a home directory assigned.
 
 Check for missing local interactive user home directories with the following

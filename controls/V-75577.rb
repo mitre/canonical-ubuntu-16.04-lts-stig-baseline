@@ -24,7 +24,7 @@ for unprivileged users to attain unauthorized administrative access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify file systems that are used for removable media are
+  desc "check", "Verify file systems that are used for removable media are
 mounted with the \"nosuid\" option.
 
 Check the file systems that are mounted at boot time with the following command:

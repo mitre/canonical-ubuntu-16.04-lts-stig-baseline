@@ -40,7 +40,7 @@ used to verify the software must be from an approved CA.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that Advance package Tool (APT) is configured to prevent
+  desc "check", "Verify that Advance package Tool (APT) is configured to prevent
 the installation of patches, service packs, device drivers, or Ubuntu operating
 system components without verification they have been digitally signed using a
 certificate that is recognized and approved by the organization.

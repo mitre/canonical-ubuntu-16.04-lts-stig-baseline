@@ -20,7 +20,7 @@ commands remotely."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify remote X connections for interactive users are encrypted.
+  desc "check", "Verify remote X connections for interactive users are encrypted.
 
 Check that remote X connections are encrypted with the following command:
 

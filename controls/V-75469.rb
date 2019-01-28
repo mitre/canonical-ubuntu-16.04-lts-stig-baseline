@@ -40,7 +40,7 @@ exceed access control policy requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the Ubuntu operating system is configured such that the
+  desc "check", "Verify the Ubuntu operating system is configured such that the
 emergency administrator account is never automatically removed or disabled.
 
 Check to see if the root account password or account expires with the following

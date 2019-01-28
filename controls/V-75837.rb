@@ -41,7 +41,7 @@ additional assurance.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that all network connections associated with SSH traffic
+  desc "check", "Verify that all network connections associated with SSH traffic
 are automatically terminated at the end of the session or after \"10\" minutes
 of inactivity.
 

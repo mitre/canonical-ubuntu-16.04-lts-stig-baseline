@@ -22,7 +22,7 @@ use."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify SSH provides users with feedback on when account
+  desc "check", "Verify SSH provides users with feedback on when account
 accesses last occurred.
 
 Check that \"PrintLastLog\" keyword in the sshd daemon configuration file is

@@ -33,7 +33,7 @@ susceptibility to some DoS attacks.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify an application firewall is configured to rate limit any
+  desc "check", "Verify an application firewall is configured to rate limit any
 connection to the system.
 
 Check that the Uncomplicated Firewall is configured to rate limit any

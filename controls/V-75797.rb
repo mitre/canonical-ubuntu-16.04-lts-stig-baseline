@@ -37,7 +37,7 @@ mission, but which cannot be disabled.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify that the telnet package is not installed on the Ubuntu
+  desc "check", "Verify that the telnet package is not installed on the Ubuntu
 operating system.
 
 Check that the telnet daemon is not installed on the Ubuntu operating system by

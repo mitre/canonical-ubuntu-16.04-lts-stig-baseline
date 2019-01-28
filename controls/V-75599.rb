@@ -30,7 +30,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  tag "check": "Verify the \"/var/log/syslog\" file is group-owned by \"adm\".
+  desc "check", "Verify the \"/var/log/syslog\" file is group-owned by \"adm\".
 
 Check that \"/var/log/syslog\" is group-owned by \"adm\" with the following
 command:
