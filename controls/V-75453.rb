@@ -58,7 +58,7 @@ dcredit=-1"
 
   describe command('grep -i dcredit /etc/security/pwquality.conf') do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[\s]*dcredit[\s]*=[\s]*-[1-9][\d]*$/ }
+    its('stdout') { should match /^\s*dcredit\s*=\s*-[1-9][\d]*\s*$/ }
   end
 end
 

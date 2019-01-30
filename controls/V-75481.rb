@@ -40,5 +40,17 @@ dictionary words for passwords.
 Edit the file \"/etc/security/pwquality.conf\" by adding a line such as:
 
 dictcheck=1"
+
+  describe package('libpam-pwquality') do
+    it { should be_installed }
+  end
+
+  describe file("/etc/security/pwquality.conf") do
+    it { should exist }
+  end
+
+  describe command('grep dictcheck /etc/security/pwquality.conf') do
+    its('stdout.strip') { should match /^dictceck\s*=\s*1$/ }
+  end
 end
 

@@ -36,5 +36,9 @@ without authenticating.
 
 Remove any instances of the \"nullok\" option in files under \"/etc/pam.d/\" to
 prevent logons with empty passwords."
+
+  describe command("grep pam_unix.so /etc/pam.d/* | grep nullok") do
+    its('stdout.strip') { should be_empty }
+  end
 end
 

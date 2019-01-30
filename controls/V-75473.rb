@@ -39,5 +39,14 @@ password lifetime.
 Add, or modify the following line in the \"/etc/login.defs\" file:
 
 PASS_MAX_DAYS    60"
+
+  describe file("/etc/login.defs") do
+    it { should exist }
+  end
+
+  describe command("grep -i pass_max_days /etc/login.defs") do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^\s*PASS_MAX_DAYS\s+[6-9][\d]+/ }
+  end
 end
 

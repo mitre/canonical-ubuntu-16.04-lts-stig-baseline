@@ -57,7 +57,7 @@ shadow remember=5"
 
   describe command("grep rounds /etc/pam.d/common-password") do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[\s]*password[\s]+\[[\s]*success=1[\s]+default=ignore[\s]*\].*[\s]+sha512($|[\s]+.*$)/ }
+    its('stdout') { should match /^\s*password\s+\[\s*success=1\s+default=ignore\s*\].*\s+sha512($|\s+.*$)/ }
   end
 
 end

@@ -57,7 +57,7 @@ password  [success=1 default=ignore]  pam_unix.so obscure sha512 rounds=5000"
 
   describe command("grep rounds /etc/pam.d/common-password") do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[\s]*password[\s]+\[[\s]*success=1[\s]+default=ignore[\s]*\].*[\s]+rounds=([5-9]\d\d\d|[1-9]\d\d\d\d+)($|[\s]+.*$)/ }
+    its('stdout') { should match /^\s*password\s+\[\s*success=1\s+default=ignore\s*\].*\s+rounds=([5-9]\d\d\d|[1-9]\d\d\d\d+)($|\s+.*$)/ }
   end
 
 end

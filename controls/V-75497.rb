@@ -39,5 +39,15 @@ configuration options in \"/etc/pam.d/postlogin-ac\".
 Add the following line to the top of \"/etc/pam.d/login\":
 
 session required pam_lastlog.so showfailed"
+
+  describe file("/etc/pam.d/login") do
+    it { should exist }
+  end
+
+  describe command("grep pam_lastlog /etc/pam.d/login") do
+    its('exit_status') { should eq 0 }
+    its('stdout.strip') { should match /^\s*session\s+required\s+pam_lastlog.so/ }
+    its('stdout.strip') { should_not match /^\s*session\s+required\s+pam_lastlog.so[\s\w\d\=]+.*silent/ }
+  end
 end
 

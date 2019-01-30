@@ -39,5 +39,14 @@ dictionary words for passwords.
 Edit the file \"/etc/pam.d/passwd\" and add the following line:
 
 @ include common-password"
+
+  describe file("/etc/pam.d/passwd") do
+    it { should exist }
+  end
+
+  describe command("grep common-password /etc/pam.d/passwd") do
+    its('exit_status') { should eq 0 }
+    its('stdout.strip') { should match /^@\s*include\s+common-password$/ }
+  end
 end
 

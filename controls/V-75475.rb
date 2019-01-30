@@ -42,5 +42,14 @@ Add or modify the \"remember\" parameter value to the following line in
 
 password [success=1 default=ignore]      pam_unix.so obscure sha512 remember=5
 rounds=5000"
+
+  describe file("/etc/pam.d/common-password") do
+    it { should exist }
+  end.
+
+  describe command("grep -i remember /etc/pam.d/common-password") do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^\s*password\s+\[\s*success=1\s+default=ignore\s*\].*\s+remember=([5-9]|[1-9][\d]+)($|\s+.*$)/ }
+  end
 end
 

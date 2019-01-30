@@ -59,7 +59,7 @@ ocredit=-1"
 
   describe command('grep -i ocredit /etc/security/pwquality.conf') do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[\s]*ocredit[\s]*=[\s]*-[1-9][\d]*$/ }
+    its('stdout') { should match /^\s*ocredit\s*=\s*-[1-9][\d]*\s*$/ }
   end
 end
 

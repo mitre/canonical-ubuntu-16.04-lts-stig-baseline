@@ -54,5 +54,11 @@ Set the owner of all public directories as root using the command, replace
 \"[Public Directory]\" with any directory path not owned by root:
 
 # sudo chown root [Public Directory]"
+
+  command("sudo find / -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n").each do |entry|
+    describe directory(entry) do
+      its('owner') { should eq 'root' }
+    end
+  end
 end
 

@@ -53,5 +53,19 @@ set an expiration date on it. Substitute \"system_account_name\" with the
 account to be created.
 
 # sudo chage -E `date -d \"+3 days\" +%Y-%m-%d` system_account_name"
+
+  temporary_accounts = attribute('temporary_accounts')
+
+  if temporary_accounts.empty?
+    describe "Temporary accounts" do
+      it { should_be empty }
+    end
+  else
+    temporary_accounts.each do |acct|
+      describe command("sudo chage -l #{acct} | grep 'Account expires'") do
+        its('stdout.strip') { should_not match %r{:\s*never} }
+      end
+    end
+  end
 end
 

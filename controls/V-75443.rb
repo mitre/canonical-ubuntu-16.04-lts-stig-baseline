@@ -51,13 +51,13 @@ Add the following line to the top of the /etc/security/limits.conf:
   # Using file resource
   describe file('/etc/security/limits.conf') do
     it { should exist }
-    its('content') { should match /^\*[\s]+hard[\s]+maxlogins[\s]+\b(10|0?[\d])\b/ }
+    its('content') { should match /^\*\s+hard\s+maxlogins\s+\b(10|0?[\d])\b/ }
   end
 
   # Using command resource
   describe command('grep maxlogins /etc/security/limits.conf') do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^\*[\s]+hard[\s]+maxlogins[\s]+\b(10|0?[\d])\b/ }
+    its('stdout') { should match /^\*\s+hard\s+maxlogins\s+\b(10|0?[\d])\b/ }
   end
 
   # Using limits_conf resource - same as in stig-disa-rhel6-baseline

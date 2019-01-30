@@ -62,7 +62,7 @@ difok=8"
 
   describe command('grep -i difok /etc/security/pwquality.conf') do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[\s]*difok[\s]*=[\s]*([8-9]|[1-9][\d]*)$/ }
+    its('stdout') { should match /^\s*difok\s*=\s*([8-9]|[1-9][\d]*)\s*$/ }
   end
 end
 

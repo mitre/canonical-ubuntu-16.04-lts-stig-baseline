@@ -47,5 +47,14 @@ bin, or an application group with the following command, replacing
 \"[world-writable Directory]\":
 
 # sudo chgrp root [world-writable Directory]"
+
+  user_groups = attribute('user_groups')
+
+  command("sudo find / -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").each do |entry|
+    describe directory(entry) do
+      its('group') { should be_in ['root','sys', 'bin'] }
+      its('group') { should_not be_in user_groups }
+    end
+  end
 end
 

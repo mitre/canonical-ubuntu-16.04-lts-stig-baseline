@@ -44,5 +44,14 @@ kernel parameter during the Ubuntu operating systems install.
 Enabling a FIPS mode on a pre-existing system involves a number of
 modifications to the Ubuntu operating system. Refer to the Ubuntu Server 16.04
 FIPS 140-2 security policy document for instructions."
+
+  describe file("/proc/sys/crypto/fips_enabled") do
+    it { should exist }
+  end
+
+  describe command("grep -i 1 /proc/sys/crypto/fips_enabled") do
+    its('exit_status') { should eq 0 }
+    its('stdout.strip') { should match /^1$/ }
+  end
 end
 

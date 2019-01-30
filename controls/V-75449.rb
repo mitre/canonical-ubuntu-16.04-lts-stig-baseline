@@ -58,7 +58,7 @@ ucredit=-1"
 
   describe command('grep -i ucredit /etc/security/pwquality.conf') do
     its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[\s]*ucredit[\s]*=[\s]*-[1-9][\d]*$/ }
+    its('stdout') { should match /^\s*ucredit\s*=\s*-[1-9][\d]*\s*$/ }
   end
 end
 

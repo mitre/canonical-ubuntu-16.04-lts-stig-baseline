@@ -43,5 +43,18 @@ Add, or modify the \"minlen\" parameter value to the following line in
 \"/etc/security/pwquality.conf\" file:
 
 minlen=15"
+
+  describe package('libpam-pwquality') do
+    it { should be_installed }
+  end
+
+  describe file("/etc/security/pwquality.conf") do
+    it { should exist }
+  end
+
+  describe command('grep -i minlen /etc/security/pwquality.conf') do
+    its('exit_status') { should eq 0 }
+    its('stdout.strip') { should match /^minlen\s*=\s*([1][5-9]|[2-9][\d]+|[1-9][\d][\d]+)$/ }
+  end
 end
 

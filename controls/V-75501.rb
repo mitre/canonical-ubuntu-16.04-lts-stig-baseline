@@ -35,5 +35,10 @@ If a \"shosts.equiv\" file is found, this is a finding."
 system.
 
 # rm /etc/ssh/shosts.equiv"
+
+  describe command("sudo find / -name shosts.equiv") do
+    its('exit_status') { should eq 0 }
+    its('stdout.strip') { should be_empty }
+  end
 end
 

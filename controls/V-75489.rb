@@ -43,5 +43,9 @@ If any occurrences of \"NOPASSWD\" or \"!authenticate\" return from the
 command, this is a finding."
   tag "fix": "Remove any occurrence of \"NOPASSWD\" or \"!authenticate\" found
 in \"/etc/sudoers\" file or files in the \"/etc/sudoers.d\" directory."
+
+  describe command("sudo egrep -r -i '(nopasswd|!authenticate)' /etc/sudoers.d/ /etc/sudoers") do
+    its('stdout.strip') { should be_empty }
+  end
 end
 
