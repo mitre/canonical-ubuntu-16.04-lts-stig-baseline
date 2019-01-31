@@ -54,5 +54,9 @@ The audit daemon must be restarted for the changes to take effect. To restart
 the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
+
+  describe command('sudo grep -w chcon /etc/audit/audit.rules') do
+    its('stdout') { should match '^-a always,exit -F path=\/usr\/bin\/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng$' }
+  end
 end
 
