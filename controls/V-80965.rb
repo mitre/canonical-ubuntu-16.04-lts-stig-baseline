@@ -51,7 +51,7 @@ The audit daemon can be restarted with the following command:
 # sudo systemctl restart auditd.service"
 
   describe command('sudo grep -i remote_server /etc/audisp/audisp-remote.conf') do
-    its('stdout') { should match '^remote_server = \b(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\b$' }    
+    its('stdout') { should match '^remote_server = ' }    
   end
 end
 
