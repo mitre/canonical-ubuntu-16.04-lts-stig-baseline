@@ -61,7 +61,7 @@ cert_policy = ca,signature,ocsp_on;
 
 If \"cert_policy\" is not set to \"ocsp_on\", has a value of \"none\", or the
 line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to certificate status
+  desc "fix", "Configure the Ubuntu operating system to certificate status
 checking for multifactor authentication.
 
 Modify all of the cert_policy lines in \"/etc/pam_pkcs11/pam_pkcs11.conf\" to

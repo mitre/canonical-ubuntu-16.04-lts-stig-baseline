@@ -47,7 +47,7 @@ daemon.notice /var/log/messages
 
 If \"auth.*\", \"authpriv.*\" or \"daemon.*\" are not configured to be logged,
 this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to monitor all remote
+  desc "fix", "Configure the Ubuntu operating system to monitor all remote
 access methods by adding the following lines to the
 \"/etc/rsyslog.d/50-default.conf\" file:
 

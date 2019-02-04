@@ -30,7 +30,7 @@ UsePrivilegeSeparation yes
 
 If the \"UsePrivilegeSeparation\" keyword is set to \"no\", is missing, or the
 returned line is commented out, this is a finding."
-  tag "fix": "Configure SSH to use privilege separation. Uncomment the
+  desc "fix", "Configure SSH to use privilege separation. Uncomment the
 \"UsePrivilegeSeparation\" keyword in \"/etc/ssh/sshd_config\" and set the
 value to \"yes\":
 

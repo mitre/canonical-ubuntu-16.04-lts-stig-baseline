@@ -34,7 +34,7 @@ ii tftpd-hpa 5.2+20150808-1Ubuntu1.16.04.1
 
 If TFTP is installed and the requirement for TFTP is not documented with the
 Information System Security Officer (ISSO), this is a finding."
-  tag "fix": "Remove the Trivial File Transfer Protocol (TFTP) package from the
+  desc "fix", "Remove the Trivial File Transfer Protocol (TFTP) package from the
 system with the following command:
 
 # sudo apt-get remove tftpd-hpa"

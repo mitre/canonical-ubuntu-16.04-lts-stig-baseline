@@ -44,7 +44,7 @@ following command:
 ENCRYPT_METHOD SHA512
 
 If \"ENCRYPT_METHOD\" does not equal SHA512 or greater, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to encrypt all stored
+  desc "fix", "Configure the Ubuntu operating system to encrypt all stored
 passwords.
 
 Edit/Modify the following line in the \"/etc/login.defs\" file and set

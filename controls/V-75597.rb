@@ -40,7 +40,7 @@ Check the mode of the \"/var/log\" directory with the following command:
 770
 
 If a value of \"0770\" or less permissive is not returned, this is a finding."
-  tag "fix": "Change the permissions of the directory \"/var/log\" to \"0770\"
+  desc "fix", "Change the permissions of the directory \"/var/log\" to \"0770\"
 by running the following command:
 
 # sudo chmod 0770 /var/log"

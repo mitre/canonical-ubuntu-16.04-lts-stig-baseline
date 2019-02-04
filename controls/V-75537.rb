@@ -58,7 +58,7 @@ apparmor module is loaded.
 
 If the defined profiles do not match the organization’s list of authorized
 software, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to employ a deny-all,
+  desc "fix", "Configure the Ubuntu operating system to employ a deny-all,
 permit-by-exception policy to allow the execution of authorized software
 programs.
 

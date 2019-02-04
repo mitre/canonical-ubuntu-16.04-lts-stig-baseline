@@ -39,7 +39,7 @@ ii opensc-pkcs11:amd64 0.15.0-1Ubuntu1 amd64 Smart card utilities with support
 for PKCS#15 compatible cards
 
 If the \"opensc-pcks11\" package is not installed, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to accept Personal Identity
+  desc "fix", "Configure the Ubuntu operating system to accept Personal Identity
 Verification (PIV) credentials.
 
 Install the \"opensc-pkcs11\" package using the following command:

@@ -58,7 +58,7 @@ If \"ClientAliveInterval\" or \"ClientAliveCountMax\" does not exist,
 \"ClientAliveInterval\" is not set to a value of \"600\" or less and
 \"ClientAliveCountMax\" is not set to a value of \"1\" or greater in
 \"/etc/ssh/sshd_config\", or either line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to automatically terminate
+  desc "fix", "Configure the Ubuntu operating system to automatically terminate
 all network connections associated with SSH traffic at the end of a session or
 after a \"10\" minute period of inactivity.
 

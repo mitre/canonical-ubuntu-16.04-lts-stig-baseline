@@ -41,7 +41,7 @@ Check that the audit service is active with the following command:
 Active: active (running)
 
 If the service is not active this is a finding."
-  tag "fix": "Start the auditd service, and enable the auditd service with the
+  desc "fix", "Start the auditd service, and enable the auditd service with the
 following commands:
 
 Start the audit service.

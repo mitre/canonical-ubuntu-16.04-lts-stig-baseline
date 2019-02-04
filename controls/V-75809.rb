@@ -52,7 +52,7 @@ Status: active
 
 If any services, ports, or applications are \"allowed\" and are not documented
 with the organization, this is a finding."
-  tag "fix": "Add/Modify the Ubuntu operating system's firewall settings and/or
+  desc "fix", "Add/Modify the Ubuntu operating system's firewall settings and/or
 running services to comply with the Ports, Protocols, and Services Management
 (PPSM) Category Assignments List (CAL)."
 end

@@ -34,7 +34,7 @@ Compression delayed
 
 If the \"Compression\" keyword is set to \"yes\", is missing, or the returned
 line is commented out, this is a finding."
-  tag "fix": "Configure SSH to use compression. Uncomment the \"Compression\"
+  desc "fix", "Configure SSH to use compression. Uncomment the \"Compression\"
 keyword in \"/etc/ssh/sshd_config\" on the system and set the value to
 \"delayed\" or \"no\":
 

@@ -57,7 +57,7 @@ space_left = 250
 
 If the value of the \"space_left\" keyword is not set to 25% of the total
 partition size, this is a finding."
-  tag "fix": "Configure the operating system to immediately notify the SA and
+  desc "fix", "Configure the operating system to immediately notify the SA and
 ISSO (at a minimum) when allocated audit record storage volume reaches 75% of
 the repository maximum audit record storage capacity.
 

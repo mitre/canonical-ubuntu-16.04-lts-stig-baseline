@@ -38,6 +38,6 @@ system/partition on the system, then grep for that file system/partition.
 
 If a separate file system/partition does not exist for the system audit data
 path, this is a finding."
-  tag "fix": "Migrate the system audit data path onto a separate file system."
+  desc "fix", "Migrate the system audit data path onto a separate file system."
 end
 

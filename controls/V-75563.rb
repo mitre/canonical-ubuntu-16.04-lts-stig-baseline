@@ -46,7 +46,7 @@ user 'smithj': directory '/home/smithj' does not exist
 
 If any home directories referenced in \"/etc/passwd\" are returned as not
 defined, this is a finding."
-  tag "fix": "Create home directories to all local interactive users that
+  desc "fix", "Create home directories to all local interactive users that
 currently do not have a home directory assigned. Use the following commands to
 create the user home directory assigned in \"/etc/ passwd\":
 

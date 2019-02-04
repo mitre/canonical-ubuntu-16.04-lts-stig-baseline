@@ -48,7 +48,7 @@ ls -lad /var/log/audit/audit.log | cut -d' ' -f1
 
 If the audit log file does not have a mode of \"0640\" or less permissive, this
 is a finding."
-  tag "fix": "Configure the octal permission value of the audit log to \"0640\"
+  desc "fix", "Configure the octal permission value of the audit log to \"0640\"
 or less permissive.
 
 Use the following command to find where the audit log files are stored on the

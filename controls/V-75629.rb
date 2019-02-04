@@ -52,7 +52,7 @@ disk_full_action = HALT
 
 If the value of the \"disk_full_action\" option is not \"SYSLOG\", \"SINGLE\",
 or \"HALT\", or the line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to shut down by default
+  desc "fix", "Configure the Ubuntu operating system to shut down by default
 upon audit failure (unless availability is an overriding concern).
 
 Add or update the following line (depending on configuration

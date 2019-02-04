@@ -45,7 +45,7 @@ admin:x:250:smithj,jonesj,jacksons
 
 If the user home directory referenced in \"/etc/passwd\" is not group-owned by
 that user’s primary GID, this is a finding."
-  tag "fix": "Change the group owner of a local interactive user’s home
+  desc "fix", "Change the group owner of a local interactive user’s home
 directory to the group found in \"/etc/passwd\". To change the group owner of a
 local interactive user’s home directory, use the following command:
 

@@ -36,7 +36,7 @@ enable_krb5 = yes
 
 If “enable_krb5” option is not set to \"yes\" or the line is commented out,
 this is a finding."
-  tag "fix": "Configure the audit system to authenticate off-loading audit
+  desc "fix", "Configure the audit system to authenticate off-loading audit
 records to a different system.
 
 Uncomment the \"enable_krb5\" option in \"/etc/audisp/audisp-remote.conf\" and

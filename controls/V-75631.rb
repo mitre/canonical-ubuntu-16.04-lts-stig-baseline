@@ -37,7 +37,7 @@ disk_full_action = single
 
 If the value of the \"disk_full_action\" option is not \"syslog\", \"single\",
 or \"halt\", or the line is commented out, this is a finding."
-  tag "fix": "Configure the audit system to take an appropriate action when the
+  desc "fix", "Configure the audit system to take an appropriate action when the
 audit storage is full.
 
 Add, edit or uncomment the \"disk_full_action\" option in

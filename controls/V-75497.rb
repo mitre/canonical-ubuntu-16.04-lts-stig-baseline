@@ -32,7 +32,7 @@ session required pam_lastlog.so showfailed
 
 If \"pam_lastlog\" is missing from \"/etc/pam.d/login\" file, or the \"silent\"
 option is present, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to provide users with
+  desc "fix", "Configure the Ubuntu operating system to provide users with
 feedback on when account accesses last occurred by setting the required
 configuration options in \"/etc/pam.d/postlogin-ac\".
 

@@ -31,7 +31,7 @@ Check for the existence of these files with the following command:
 # find / -name shosts.equiv
 
 If a \"shosts.equiv\" file is found, this is a finding."
-  tag "fix": "Remove any found \"shosts.equiv\" files from the Ubuntu operating
+  desc "fix", "Remove any found \"shosts.equiv\" files from the Ubuntu operating
 system.
 
 # rm /etc/ssh/shosts.equiv"

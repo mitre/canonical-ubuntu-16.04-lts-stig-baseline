@@ -47,7 +47,7 @@ Check that NTP is running in continuous mode with the following command:
   if ntpdate -u -s -b -p 4 -t 5 $NTPSERVER ; then
 
 If the option \"-q\" is present, this is a finding."
-  tag "fix": "The Network Time Protocol (NTP) will run in continuous mode by
+  desc "fix", "The Network Time Protocol (NTP) will run in continuous mode by
 default. If the query only option (-q) has been added to the ntpdate command in
 /etc/init.d/ntpd it must be removed."
 end

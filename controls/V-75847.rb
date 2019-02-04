@@ -33,7 +33,7 @@ StrictModes yes
 
 If \"StrictModes\" is set to \"no\", is missing, or the returned line is
 commented out, this is a finding."
-  tag "fix": "Configure SSH to perform strict mode checking of home directory
+  desc "fix", "Configure SSH to perform strict mode checking of home directory
 configuration files. Uncomment the \"StrictModes\" keyword in
 \"/etc/ssh/sshd_config\" and set the value to \"yes\":
 

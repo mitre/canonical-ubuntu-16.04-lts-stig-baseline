@@ -60,7 +60,7 @@ cert_policy = ca,signature,ocsp_on;
 
 If \"cert_policy\" is not set to \"ca\",  has a value of \"none\", or the line
 is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system, for PKI-based
+  desc "fix", "Configure the Ubuntu operating system, for PKI-based
 authentication, to validate certificates by constructing a certification path
 (which includes status information) to an accepted trust anchor.
 

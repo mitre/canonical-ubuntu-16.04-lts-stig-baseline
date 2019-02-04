@@ -34,7 +34,7 @@ PASS_MIN_DAYS    1
 
 If the \"PASS_MIN_DAYS\" parameter value is less than or equal to \"1\", or
 commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to enforce a 24 hours/1 day
+  desc "fix", "Configure the Ubuntu operating system to enforce a 24 hours/1 day
 minimum password lifetime.
 
 Add, or modify the following line in the \"/etc/login.defs\" file:

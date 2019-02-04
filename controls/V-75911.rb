@@ -61,7 +61,7 @@ auth [success=2 default=ignore] pam_pkcs11.so
 
 If \"pam_pkcs11.so\" is not set in \"/etc/pam.d/common-auth\", this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to use multifactor
+  desc "fix", "Configure the Ubuntu operating system to use multifactor
 authentication for local access to accounts.
 
 Add or update \"pam_pkcs11.so\" in \"/etc/pam.d/common-auth\" to match the

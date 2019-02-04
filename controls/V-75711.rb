@@ -65,7 +65,7 @@ following command:
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to audit the execution of
+  desc "fix", "Configure the Ubuntu operating system to audit the execution of
 the module management program \"rmmod\", by adding the following line to
 \"/etc/audit/audit.rules\":
 

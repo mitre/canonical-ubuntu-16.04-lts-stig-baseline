@@ -54,7 +54,7 @@ privileged-priv_change
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to generate audit records
+  desc "fix", "Configure the Ubuntu operating system to generate audit records
 when successful/unsuccessful attempts to use the \"su\" command occur.
 
 Add or update the following rule in \"/etc/audit/audit.rules\":

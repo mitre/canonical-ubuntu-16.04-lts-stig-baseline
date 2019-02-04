@@ -47,7 +47,7 @@ MACs hmac-sha2-256,hmac-sha2-512
 
 If any ciphers other than \"hmac-sha2-256\" or \"hmac-sha2-512\" are listed, or
 the retuned line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to allow the SSH daemon to
+  desc "fix", "Configure the Ubuntu operating system to allow the SSH daemon to
 only use Message Authentication Codes (MACs) that employ FIPS 140-2 approved
 ciphers.
 

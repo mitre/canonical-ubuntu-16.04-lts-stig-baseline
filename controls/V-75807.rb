@@ -39,7 +39,7 @@ Status: active
 
 If any services, ports, or applications are \"allowed\" and are not documented
 with the organization, this is a finding."
-  tag "fix": "Configure the Uncomplicated Firewall to employ a deny-all,
+  desc "fix", "Configure the Uncomplicated Firewall to employ a deny-all,
 allow-by-exception policy for allowing connections to other systems.
 
 Remove any service that is not needed or documented by the organization with

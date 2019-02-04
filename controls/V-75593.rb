@@ -40,7 +40,7 @@ following command:
 syslog
 
 If \"syslog\" is not returned as a result, this is a finding."
-  tag "fix": "Change the group of the directory \"/var/log\" to \"syslog\" by
+  desc "fix", "Change the group of the directory \"/var/log\" to \"syslog\" by
 running the following command:
 
 # sudo chgrp syslog /var/log "

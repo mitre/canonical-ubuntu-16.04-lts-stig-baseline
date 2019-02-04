@@ -57,7 +57,7 @@ will be sufficient.
 
 If the audit record partition is not allocated for sufficient storage capacity,
 this is a finding."
-  tag "fix": "Allocate enough storage capacity for at least one week's worth of
+  desc "fix", "Allocate enough storage capacity for at least one week's worth of
 audit records when audit records are not immediately sent to a central audit
 record storage facility.
 

@@ -56,7 +56,7 @@ root L 11/11/2017 0 99999 7 -1
 
 If any output is returned and the second field is not an \"L\", this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to prevent direct logins to
+  desc "fix", "Configure the Ubuntu operating system to prevent direct logins to
 the root account.
 
 Run the following command to lock the root account:

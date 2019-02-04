@@ -52,7 +52,7 @@ Password expires :never
 
 If \"Password expires\" or \"Account expires\" is set to anything other than
 \"never\", this is a finding."
-  tag "fix": "Replace \"[Emergency_Administrator]\" in the following command
+  desc "fix", "Replace \"[Emergency_Administrator]\" in the following command
 with the correct emergency administrator account. Run the following command as
 an administrator:
 

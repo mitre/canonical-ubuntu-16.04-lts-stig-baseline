@@ -50,7 +50,7 @@ UUID=333ada18    /home                   ext4    noatime,nobarrier,nodev  1 2
 If a separate entry for the file system/partition that contains the
 non-privileged interactive users' home directories does not exist, this is a
 finding."
-  tag "fix": "Migrate the \"/home\" directory onto a separate file
+  desc "fix", "Migrate the \"/home\" directory onto a separate file
 system/partition."
 end
 

@@ -57,7 +57,7 @@ server 0.us.pool.ntp.org iburst
 
 If the parameter \"server\" is not set, is not set to an authoritative DoD time
 source, or is commented out, this is a finding."
-  tag "fix": "Note: If the system is not networked this item is Not Applicable.
+  desc "fix", "Note: If the system is not networked this item is Not Applicable.
 
 To configure the system clock to compare the system clock at least every 24
 hours to the authoritative time source, edit the \"/etc/ntp.conf\" file. Add or

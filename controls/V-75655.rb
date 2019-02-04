@@ -46,7 +46,7 @@ Check the owner of each audit tool by running the following command:
 -rwxr-xr-x 1 root root 97128 Jan 18 2016 /sbin/augenrules
 
 If any of the audit tools are not owned by \"root\", this is a finding."
-  tag "fix": "Configure the audit tools to be owned by \"root\", by running the
+  desc "fix", "Configure the audit tools to be owned by \"root\", by running the
 following command:
 
 # sudo chown root [audit_tool]

@@ -37,7 +37,7 @@ drwxr-x--- 2 smithj admin 4096 Jun 5 12:41 smithj
 
 If home directories referenced in \"/etc/passwd\" do not have a mode of
 \"0750\" or less permissive, this is a finding."
-  tag "fix": "Change the mode of interactive user’s home directories to
+  desc "fix", "Change the mode of interactive user’s home directories to
 \"0750\". To change the mode of a local interactive user’s home directory, use
 the following command:
 

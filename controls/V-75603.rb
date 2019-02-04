@@ -41,7 +41,7 @@ following command:
 640 /var/log/syslog
 
 If a value of \"640\" or less permissive is not returned, this is a finding."
-  tag "fix": "Change the permissions of the file \"/var/log/syslog\" to
+  desc "fix", "Change the permissions of the file \"/var/log/syslog\" to
 \"0640\" by running the following command:
 
 # sudo chmod 0640 /var/log"

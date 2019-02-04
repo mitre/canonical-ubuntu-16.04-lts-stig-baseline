@@ -49,7 +49,7 @@ drwxrwxrwxt 7 root root 4096 Jul 26 11:19 /tmp
 
 If any of the returned directories are world writable and do not have the
 sticky bit set, this is a finding."
-  tag "fix": "Configure all world writable directories have the sticky bit set
+  desc "fix", "Configure all world writable directories have the sticky bit set
 to prevent unauthorized and unintended information transferred via shared
 system resources.
 

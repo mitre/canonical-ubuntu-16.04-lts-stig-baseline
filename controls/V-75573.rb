@@ -40,7 +40,7 @@ directories in the \"/home\" directory.
 
 If any local initialization files are found to reference world-writable files,
 this is a finding."
-  tag "fix": "Set the mode on files being executed by the local initialization
+  desc "fix", "Set the mode on files being executed by the local initialization
 files with the following command:
 
 # chmod 0755 <file>"

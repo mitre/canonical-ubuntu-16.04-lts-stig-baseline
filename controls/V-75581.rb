@@ -39,7 +39,7 @@ If a file system found in \"/etc/fstab\" refers to NFS and it does not have the
 \"noexec\" option set, and use of NFS exported binaries is not documented with
 the Information System Security Officer (ISSO) as an operational requirement,
 this is a finding."
-  tag "fix": "Configure the \"/etc/fstab\" to use the \"noexec\" option on file
+  desc "fix", "Configure the \"/etc/fstab\" to use the \"noexec\" option on file
 systems that are being imported via Network File System (NFS)."
 end
 

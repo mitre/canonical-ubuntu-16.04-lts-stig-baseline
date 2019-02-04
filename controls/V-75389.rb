@@ -36,7 +36,7 @@ DISTRIB_DESCRIPTION=\"Ubuntu 16.04.1 LTS\"
 Current End of Life for Ubuntu 16.04 LTS is April 2021.
 
 If the release is not supported by the vendor, this is a finding."
-  tag "fix": "Upgrade to a supported version of the Ubuntu operating system."
+  desc "fix", "Upgrade to a supported version of the Ubuntu operating system."
 
   describe file('/etc/lsb-release') do
     its('content') { should match /DISTRIB_RELEASE=16.04/ }

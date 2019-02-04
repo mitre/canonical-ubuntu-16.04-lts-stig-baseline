@@ -41,7 +41,7 @@ group-owned by \"root\" with the following command:
 
 If the command returns any files that are not group-owned by \"root\", and if
 they are not SGID and owned by a privileged group, this is a finding."
-  tag "fix": "Configure the system commands to be protected from unauthorized
+  desc "fix", "Configure the system commands to be protected from unauthorized
 access.
 
 Run the following command, replacing \"[FILE]\" with any system command file

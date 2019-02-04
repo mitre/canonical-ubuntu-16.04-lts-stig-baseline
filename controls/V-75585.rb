@@ -35,7 +35,7 @@ the service is required and documented with the Information System Security
 Officer (ISSO).
 
 If the service is active and is not documented, this is a finding."
-  tag "fix": "If kernel core dumps are not required, disable the \"kdump\"
+  desc "fix", "If kernel core dumps are not required, disable the \"kdump\"
 service with the following command:
 
 # systemctl disable kdump.service

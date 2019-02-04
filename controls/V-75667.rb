@@ -49,7 +49,7 @@ command:
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to generate audit records
+  desc "fix", "Configure the Ubuntu operating system to generate audit records
 for all account creations, modifications, disabling, and termination events
 that affect \"/etc/shadow\".
 

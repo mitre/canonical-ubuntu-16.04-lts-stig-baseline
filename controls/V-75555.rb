@@ -29,7 +29,7 @@ Check the owner of all files and directories with the following command:
 # sudo find / -nouser
 
 If any files on the system do not have an assigned owner, this is a finding."
-  tag "fix": "Either remove all files and directories from the system that do
+  desc "fix", "Either remove all files and directories from the system that do
 not have a valid user, or assign a valid user to all unowned files and
 directories on the Ubuntu operating system with the \"chown\" command:
 

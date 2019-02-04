@@ -34,7 +34,7 @@ rounds=5000
 
 If the \"remember\" parameter value is not greater than or equal to \"5\", is
 commented out, or is not set at all this is a finding."
-  tag "fix": "Configure the Ubuntu operating system prevents passwords from
+  desc "fix", "Configure the Ubuntu operating system prevents passwords from
 being reused for a minimum of five generations.
 
 Add or modify the \"remember\" parameter value to the following line in

@@ -33,7 +33,7 @@ requirement.
 
 If the use of X Windows on the system is not documented with the Information
 System Security Officer (ISSO), this is a finding."
-  tag "fix": "Document the requirement for an X Windows server with the
+  desc "fix", "Document the requirement for an X Windows server with the
 Information System Security Officer (ISSO) or remove the related packages with
 the following commands:
 

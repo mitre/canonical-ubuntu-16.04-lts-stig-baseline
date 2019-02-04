@@ -46,7 +46,7 @@ Note: Replace \"[directory]\" with one of the following paths:
 
 If any system-wide shared library file is found to be group-writable or
 world-writable, this is a finding."
-  tag "fix": "Configure the library files to be protected from unauthorized
+  desc "fix", "Configure the library files to be protected from unauthorized
 access. Run the following command, replacing \"[file]\" with any library file
 with a mode more permissive than 0755.
 

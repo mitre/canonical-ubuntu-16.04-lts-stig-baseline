@@ -41,7 +41,7 @@ drwxrwsrwt 2 root whoops 4096 Jul 19  2016 /var/metrics
 
 If any world-writable directories are not owned by root, sys, bin, or an
 application group associated with the directory, this is a finding."
-  tag "fix": "Change the group of the world-writable directories to root with
+  desc "fix", "Change the group of the world-writable directories to root with
 the following command:
 
 # chgrp root <directory>"

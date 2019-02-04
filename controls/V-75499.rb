@@ -31,7 +31,7 @@ Check the system for the existence of these files with the following command:
 # sudo find / -name '*.shosts'
 
 If any \".shosts\" files are found, this is a finding."
-  tag "fix": "Remove any found \".shosts\" files from the Ubuntu operating
+  desc "fix", "Remove any found \".shosts\" files from the Ubuntu operating
 system.
 
 # rm /[path]/[to]/[file]/.shosts"

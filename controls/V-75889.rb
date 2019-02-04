@@ -36,7 +36,7 @@ Check for the status with the following command:
 
 If network interfaces are found on the system in promiscuous mode and their use
 has not been approved by the ISSO and documented, this is a finding."
-  tag "fix": "Configure network interfaces to turn off promiscuous mode unless
+  desc "fix", "Configure network interfaces to turn off promiscuous mode unless
 approved by the Information System Security Officer (ISSO) and documented.
 
 Set the promiscuous mode of an interface to \"off\" with the following command:

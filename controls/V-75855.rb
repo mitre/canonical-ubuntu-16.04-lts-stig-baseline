@@ -52,7 +52,7 @@ source mask: 255.255.255.255
 
 If any service is not rate limited by the Uncomplicated Firewall, this is a
 finding."
-  tag "fix": "Configure the application firewall to protect against or limit
+  desc "fix", "Configure the application firewall to protect against or limit
 the effects of Denial of Service (DoS) attacks by ensuring the Ubuntu operating
 system is implementing rate-limiting measures on impacted network interfaces.
 

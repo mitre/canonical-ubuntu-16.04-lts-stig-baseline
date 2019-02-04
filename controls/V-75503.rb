@@ -38,7 +38,7 @@ command:
 1
 
 If a value of \"1\" is not returned, this is a finding."
-  tag "fix": "Configure the system to run in FIPS mode. Add \"fips=1\" to the
+  desc "fix", "Configure the system to run in FIPS mode. Add \"fips=1\" to the
 kernel parameter during the Ubuntu operating systems install.
 
 Enabling a FIPS mode on a pre-existing system involves a number of

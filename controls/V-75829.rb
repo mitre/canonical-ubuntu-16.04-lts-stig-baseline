@@ -46,7 +46,7 @@ Ciphers aes128-ctr aes192-ctr, aes256-ctr
 If any ciphers other than \"aes128-ctr\", \"aes192-ctr\", or \"aes256-ctr\" are
 listed, the \"Ciphers\" keyword is missing, or the retuned line is commented
 out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to allow the SSH daemon to
+  desc "fix", "Configure the Ubuntu operating system to allow the SSH daemon to
 only implement DoD-approved encryption.
 
 Edit the SSH daemon configuration \"/etc/ssh/sshd_config\" and remove any

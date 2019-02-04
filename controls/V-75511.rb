@@ -47,7 +47,7 @@ running the following command:
 drwxrwxrwxt 7 root root 4096 Jul 26 11:19 /tmp
 
 If any of the returned directories are not owned by root, this is a finding."
-  tag "fix": "Configure all public directories to be owned by root to prevent
+  desc "fix", "Configure all public directories to be owned by root to prevent
 unauthorized and unintended information transferred via shared system resources.
 
 Set the owner of all public directories as root using the command, replace

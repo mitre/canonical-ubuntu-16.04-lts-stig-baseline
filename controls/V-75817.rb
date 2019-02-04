@@ -35,7 +35,7 @@ Time (UTC) or Greenwich Mean Time (GMT). To verify run the following command.
 Time zone: UTC (UTC, +0000)
 
 If \"Time zone\" is not set to UTC or GMT, this is a finding."
-  tag "fix": "To configure the system time zone to use Coordinated Universal
+  desc "fix", "To configure the system time zone to use Coordinated Universal
 Time (UTC) or Greenwich Mean Time (GMT), run the following command replacing
 [ZONE] with UTC or GMT.
 

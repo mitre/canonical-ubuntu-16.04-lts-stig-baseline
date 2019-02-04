@@ -40,7 +40,7 @@ lcredit=-1
 
 If the \"lcredit\" parameter is not equal to \"-1\", or is commented out, this
 is a finding."
-  tag "fix": "Configure the Ubuntu operating system to enforce password
+  desc "fix", "Configure the Ubuntu operating system to enforce password
 complexity by requiring that at least one lower-case character be used.
 
 Add or update the following line in the \"/etc/security/pwquality.conf\" file

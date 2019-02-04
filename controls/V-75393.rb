@@ -94,7 +94,7 @@ Vulnerability Alert (IAVA) notifications from JFHQ-DoDIN.
 
 If the Ubuntu operating system is in non-compliance with the Information
 Assurance Vulnerability Management (IAVM) process, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to display the Standard
+  desc "fix", "Configure the Ubuntu operating system to display the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the system.
 
 Create a database that will contain the system wide graphical user logon
@@ -107,5 +107,6 @@ Add the following line to the \"[org/gnome/login-screen]\" section of the
 
 [org/gnome/login-screen]
 banner-message-enable=true"
+# TODO
 end
 

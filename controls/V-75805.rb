@@ -33,7 +33,7 @@ If the above command returns the status as \"disabled\", this is a finding.
 If the Uncomplicated Firewall is not installed, ask the System Administrator if
 another application firewall is installed. If no application firewall is
 installed this is a finding."
-  tag "fix": "Enable the Uncomplicated Firewall by using the following commands:
+  desc "fix", "Enable the Uncomplicated Firewall by using the following commands:
 
 # sudo systemctl start ufw
 

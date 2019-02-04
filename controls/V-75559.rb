@@ -42,7 +42,7 @@ command:
 
 If any interactive users do not have a home directory assigned, this is a
 finding."
-  tag "fix": "Assign home directories to all local interactive users on the
+  desc "fix", "Assign home directories to all local interactive users on the
 Ubuntu operating system that currently do not have a home directory assigned."
 end
 

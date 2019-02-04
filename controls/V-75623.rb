@@ -59,7 +59,7 @@ administrator(s) and/or ISSO, this is a finding.
 
 Note: If the email address of the system administrator is on a remote system a
 mail package must be available."
-  tag "fix": "Configure the operating system to immediately notify the SA and
+  desc "fix", "Configure the operating system to immediately notify the SA and
 ISSO (at a minimum) via email when allocated audit record storage volume
 reaches 75% of the repository maximum audit record storage capacity.
 

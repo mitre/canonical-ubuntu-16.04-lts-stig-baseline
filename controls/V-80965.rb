@@ -37,7 +37,7 @@ remote_server = 10.0.1.2
 
 If \"remote_server\" is not configured, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the audit system to off-load audit records to a
+  desc "fix", "Configure the audit system to off-load audit records to a
 different system or storage media from the system being audited.
 
 Set the \"remote_server\" option in \"/etc/audisp/audisp-remote.conf\" with the

@@ -36,7 +36,7 @@ net.ipv4.conf.all.send_redirects=0
 
 If the returned line does not have a value of \"0\", or a line is not returned,
 this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to not allow interfaces to
+  desc "fix", "Configure the Ubuntu operating system to not allow interfaces to
 perform Internet Protocol version 4 (IPv4) Internet Control Message Protocol
 (ICMP) redirects with the following command:
 

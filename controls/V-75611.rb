@@ -41,7 +41,7 @@ mode \"0755\" or less permissive with the following command:
 
 If any system commands are found to be group-writable or world-writable, this
 is a finding."
-  tag "fix": "Configure the system commands to be protected from unauthorized
+  desc "fix", "Configure the system commands to be protected from unauthorized
 access.
 
 Run the following command, replacing \"[FILE]\" with any system command with a

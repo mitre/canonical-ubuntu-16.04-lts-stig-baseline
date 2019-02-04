@@ -112,7 +112,7 @@ Agreement for details.”
 
 If the banner text does not match the Standard Mandatory DoD Notice and Consent
 Banner exactly, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to display the Standard
+  desc "fix", "Configure the Ubuntu operating system to display the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the system
 via SSH logon.
 

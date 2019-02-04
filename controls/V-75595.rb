@@ -39,7 +39,7 @@ Check that the /var/log directory is owned by root with the following command:
 root
 
 If \"root\" is not returned as a result, this is a finding."
-  tag "fix": "Change the owner of the directory /var/log to root by running the
+  desc "fix", "Change the owner of the directory /var/log to root by running the
 following command:
 
 # sudo chown root /var/log"

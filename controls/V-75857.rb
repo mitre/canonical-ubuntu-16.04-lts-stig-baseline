@@ -67,7 +67,7 @@ Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled)
 Active: active (running) since Sun 2016-06-05 23:46:29 CDT; 1h 4min ago
 
 If \"sshd.service\" is not active or loaded, this is a finding."
-  tag "fix": "Install the \"ssh\" meta-package on the system with the following
+  desc "fix", "Install the \"ssh\" meta-package on the system with the following
 command:
 
 # sudo apt install ssh

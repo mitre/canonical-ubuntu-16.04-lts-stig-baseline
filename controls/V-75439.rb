@@ -42,7 +42,7 @@ installed, by running the following command:
 vlock_2.2.2-7
 
 If \"vlock\" is not installed, this is a finding."
-  tag "fix": "Install the \"vlock\" (if it is not already installed) package by
+  desc "fix", "Install the \"vlock\" (if it is not already installed) package by
 running the following command:
 
 # sudo apt-get install vlock"

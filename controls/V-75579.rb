@@ -38,7 +38,7 @@ rw,nosuid                                                    0 0
 
 If a file system found in \"/etc/fstab\" refers to NFS and it does not have the
 \"nosuid\" option set, this is a finding."
-  tag "fix": "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
+  desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that are being imported via Network File System (NFS)."
 end
 

@@ -34,7 +34,7 @@ net.ipv4.icmp_echo_ignore_broadcasts=1
 
 If the returned line does not have a value of \"1\", a line is not returned, or
 the retuned line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to not respond to Internet
+  desc "fix", "Configure the Ubuntu operating system to not respond to Internet
 Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP) echoes sent
 to a broadcast address with the following command:
 

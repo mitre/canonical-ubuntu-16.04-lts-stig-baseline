@@ -42,7 +42,7 @@ drwxrwxrwxt 7 root root 4096 Jul 26 11:19 /tmp
 
 If any world-writable directories are not owned by root, sys, bin, or an
 application group associated with the directory, this is a finding."
-  tag "fix": "Change the group of the world-writable directories to root, sys,
+  desc "fix", "Change the group of the world-writable directories to root, sys,
 bin, or an application group with the following command, replacing
 \"[world-writable Directory]\":
 

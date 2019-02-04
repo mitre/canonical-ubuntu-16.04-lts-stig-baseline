@@ -37,7 +37,7 @@ following command:
 
 If the \"/etc/audit/audit.rule\" or \"/etc/audit/auditd.conf\" file have a mode
 more permissive than \"0640\", this is a finding."
-  tag "fix": "Configure the /etc/audit/audit.rule and /etc/audit/auditd.conf
+  desc "fix", "Configure the /etc/audit/audit.rule and /etc/audit/auditd.conf
 file to have a mode of 0640 with the following command:
 
 # sudo chmod 0640 /etc/audit/audit.rule

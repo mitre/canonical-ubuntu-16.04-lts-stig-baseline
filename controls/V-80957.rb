@@ -37,7 +37,7 @@ logout=''
 
 If the \"logout\" key is bound to an action, is commented out, or is missing,
 this is a finding."
-  tag "fix": "Configure the system to disable the Ctrl-Alt-Delete sequence when
+  desc "fix", "Configure the system to disable the Ctrl-Alt-Delete sequence when
 using GNOME by creating or editing the /etc/dconf/db/local.d/00-disable-CAD
 file.
 

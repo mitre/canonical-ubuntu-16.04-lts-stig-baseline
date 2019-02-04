@@ -33,7 +33,7 @@ PrintLastLog yes
 
 If the \"PrintLastLog\" keyword is set to \"no\", is missing, or is commented
 out, this is a finding."
-  tag "fix": "Add or edit the following lines in the \"/etc/ssh/sshd_config\"
+  desc "fix", "Add or edit the following lines in the \"/etc/ssh/sshd_config\"
 file:
 
 PrintLastLog yes

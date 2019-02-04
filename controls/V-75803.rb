@@ -48,7 +48,7 @@ ii  ufw         0.35-0Ubuntu2 [installed]
 If the \"ufw\" package is not installed, ask the System Administrator if
 another application firewall is installed. If no application firewall is
 installed this is a finding."
-  tag "fix": "Install Uncomplicated Firewall with the following command:
+  desc "fix", "Install Uncomplicated Firewall with the following command:
 
 # sudo apt-get install ufw"
 end

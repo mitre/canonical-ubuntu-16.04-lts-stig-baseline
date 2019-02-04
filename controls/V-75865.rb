@@ -44,7 +44,7 @@ Look for the following entry:
 
 If \"rsyslog\" is not logging messages for the cron facility or all facilities,
 this is a finding."
-  tag "fix": "Configure \"rsyslog\" to log all cron messages by adding or
+  desc "fix", "Configure \"rsyslog\" to log all cron messages by adding or
 updating the following line to \"/etc/rsyslog.d/50-default.conf\":
 
 cron.* /var/log/cron.log
