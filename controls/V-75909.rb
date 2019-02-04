@@ -71,5 +71,11 @@ Determine which pkcs11 module is being used via the \"use_pkcs11_module\" in
 Add or update the \"cert_policy\" to ensure \"ca\" is enabled:
 
 cert_policy = ca,signature,ocsp_on;"
+
+  describe parse_config_file('/etc/pam_pkcs11/pam_pkcs11.conf') do
+    its('use_pkcs11_module') { should_not be_nil }
+    its('cert_policy') { should include 'ca' }
+  end
+
 end
 

@@ -38,5 +38,10 @@ Information System Security Officer (ISSO) or remove the related packages with
 the following commands:
 
 # sudo apt-get purge lightdm"
+
+  describe package('lightdm') do
+    it { should_not be_installed }
+  end
+
 end
 

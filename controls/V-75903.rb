@@ -66,5 +66,10 @@ authentication by installing the required packages.
 Install the \"libpam-pkcs11\" package on the system with the following command:
 
 # sudo apt install libpam-pkcs11"
+
+  describe package('libpam-pkcs-11') do
+    it { should be_installed }
+  end
+  
 end
 

@@ -45,5 +45,10 @@ Verification (PIV) credentials.
 Install the \"opensc-pkcs11\" package using the following command:
 
 # sudo apt-get install opensc-pkcs11"
+
+  describe package('opensc-pkcs11') do
+    it { should be_installed }
+  end
+
 end
 
