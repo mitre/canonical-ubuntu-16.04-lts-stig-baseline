@@ -36,7 +36,7 @@ export TMOUT
 If the file \"/etc/profile.d/autologout.sh\" does not exist, the timeout values
 are commented out, the output from the function call are not the same, this is
 a finding."
-  tag "fix": "Configure the Ubuntu operating system to initiate a session
+  desc "fix", "Configure the Ubuntu operating system to initiate a session
 logout after a \"15\" minutes of inactivity.
 
 Create a file to contain the system-wide session auto logout script (if it does

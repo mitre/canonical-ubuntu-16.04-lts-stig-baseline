@@ -45,7 +45,7 @@ Check that the \"/etc/aliases\" file has a defined value for \"root\".
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to notify administrators in
+  desc "fix", "Configure the Ubuntu operating system to notify administrators in
 the event of an audit processing failure.
 
 Add/update the following line in \"/etc/aliases\":

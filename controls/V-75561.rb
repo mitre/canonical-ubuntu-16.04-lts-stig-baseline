@@ -32,7 +32,7 @@ CREATE_HOME yes
 
 If the value for \"CREATE_HOME\" parameter is not set to \"yes\", the line is
 missing, or the line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to assign home directories
+  desc "fix", "Configure the Ubuntu operating system to assign home directories
 to all new local interactive users by setting the \"CREATE_HOME\" parameter in
 \"/etc/login.defs\" to \"yes\" as follows.
 

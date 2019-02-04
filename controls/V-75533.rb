@@ -41,7 +41,7 @@ Check to see if automounter service is active with the following command:
 If the \"autofs\" status is set to \"active\" and is not documented with the
 Information System Security Officer (ISSO) as an operational requirement, this
 is a finding."
-  tag "fix": "Configure the Ubuntu operating system to disable the ability to
+  desc "fix", "Configure the Ubuntu operating system to disable the ability to
 automount devices.
 
 Turn off the automount service with the following command:

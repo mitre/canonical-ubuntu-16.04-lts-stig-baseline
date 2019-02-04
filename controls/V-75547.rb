@@ -50,7 +50,7 @@ interactive users with the following command:
 
 If output is produced, and the accounts listed are interactive user accounts,
 this is a finding."
-  tag "fix": "Edit the file \"/etc/passwd\" and provide each interactive user
+  desc "fix", "Edit the file \"/etc/passwd\" and provide each interactive user
 account that has a duplicate User ID (UID) with a unique UID."
 end
 

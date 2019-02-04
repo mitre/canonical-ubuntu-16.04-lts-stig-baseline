@@ -44,7 +44,7 @@ difok=8
 
 If the \"difok\" parameter is less than \"8\", or is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to require the change of at
+  desc "fix", "Configure the Ubuntu operating system to require the change of at
 least \"8\" characters when passwords are changed.
 
 Add or update the following line in the \"/etc/security/pwquality.conf\" file

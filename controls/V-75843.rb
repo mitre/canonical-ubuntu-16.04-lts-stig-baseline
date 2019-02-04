@@ -36,7 +36,7 @@ The following command will find all SSH public key files on the system:
 
 If any key.pub file has a mode more permissive than \"0644\", this is a
 finding."
-  tag "fix": "Note: SSH public key files may be found in other directories on
+  desc "fix", "Note: SSH public key files may be found in other directories on
 the system depending on the installation.
 
 Change the mode of public host key files under \"/etc/ssh\" to \"0644\" with

@@ -34,7 +34,7 @@ IgnoreUserKnownHosts yes
 
 If the value is returned as \"no\", the returned line is commented out, or no
 output is returned, this is a finding."
-  tag "fix": "Configure the SSH daemon to not allow authentication using known
+  desc "fix", "Configure the SSH daemon to not allow authentication using known
 hosts authentication.
 
 Add the following line in \"/etc/ssh/sshd_config\", or uncomment the line and

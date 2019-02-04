@@ -39,7 +39,7 @@ INACTIVE=35
 
 If \"INACTIVE\" is not set to a value \"0<[VALUE]<=35\", or is commented out,
 this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to disable account
+  desc "fix", "Configure the Ubuntu operating system to disable account
 identifiers after 35 days of inactivity after the password expiration.
 
 Run the following command to change the configuration for useradd:

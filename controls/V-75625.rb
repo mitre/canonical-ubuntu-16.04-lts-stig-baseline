@@ -47,7 +47,7 @@ action_mail_acct = root
 If the value of the \"action_mail_acct\" keyword is not set to \"root\" and/or
 other accounts for security personnel, the \"action_mail_acct\" keyword is
 missing, or the retuned line is commented out, this is a finding."
-  tag "fix": "Configure \"auditd\" service to notify the System Administrator
+  desc "fix", "Configure \"auditd\" service to notify the System Administrator
 (SA) and Information System Security Officer (ISSO) in the event of an audit
 processing failure.
 

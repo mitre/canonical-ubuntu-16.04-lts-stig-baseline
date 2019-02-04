@@ -46,7 +46,7 @@ determine the permissions for the audit log folder:
 
 If the audit log directory has a mode more permissive than \"0750\", this is a
 finding."
-  tag "fix": "Configure the audit log directory to be protected from
+  desc "fix", "Configure the audit log directory to be protected from
 unauthorized read access by setting the correct permissive mode with the
 following command:
 

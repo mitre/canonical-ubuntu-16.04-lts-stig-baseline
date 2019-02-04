@@ -36,7 +36,7 @@ password.
 
 If \"minlen\" parameter value is not \"15\" or higher, or is commented out,
 this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to enforce a minimum
+  desc "fix", "Configure the Ubuntu operating system to enforce a minimum
 15-character password length.
 
 Add, or modify the \"minlen\" parameter value to the following line in

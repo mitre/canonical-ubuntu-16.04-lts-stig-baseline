@@ -32,7 +32,7 @@ account."
 root
 
 If any accounts other than root have a UID of \"0\", this is a finding."
-  tag "fix": "Change the User ID (UID) of any account on the system, other than
+  desc "fix", "Change the User ID (UID) of any account on the system, other than
 root, that has a UID of \"0\".
 
 If the account is associated with system commands or applications, the UID

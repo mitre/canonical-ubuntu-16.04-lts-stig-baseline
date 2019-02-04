@@ -40,7 +40,7 @@ command:
 adm
 
 If \"adm\" is not returned as a result, this is a finding."
-  tag "fix": "Change the group of the file \"/var/log/syslog\" to \"adm\" by
+  desc "fix", "Change the group of the file \"/var/log/syslog\" to \"adm\" by
 running the following command:
 
 # sudo chgrp adm /var/log/syslog"

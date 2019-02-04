@@ -42,7 +42,7 @@ password        [success=1 default=ignore]      pam_unix.so obscure sha512
 
 If \"sha512\" is not an option of the output, or is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to use a FIPS 140-2
+  desc "fix", "Configure the Ubuntu operating system to use a FIPS 140-2
 approved cryptographic hashing algorithm for system authentication.
 
 Edit/modify the following line in the file \"/etc/pam.d/common-password\" file

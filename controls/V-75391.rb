@@ -55,7 +55,7 @@ Vulnerability Alert (IAVA) notifications from JFHQ-DoDIN.
 
 If the Ubuntu operating system is in non-compliance with the Information
 Assurance Vulnerability Management (IAVM) process, this is a finding."
-  tag "fix": "Install the Ubuntu operating system patches or updated packages
+  desc "fix", "Install the Ubuntu operating system patches or updated packages
 available from Canonical within 30 days or sooner as local policy dictates."
 
   describe command('/usr/lib/update-notifier/apt-check --human-readable') do

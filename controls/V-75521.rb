@@ -56,10 +56,14 @@ VarFile = OwnerMode+n+l+X+xattrs
 If the \"xattrs\" rule is not being used on all selection lines in the
 \"/etc/aide.conf\" file, or extended attributes are not being checked by
 another file integrity tool, this is a finding."
-  tag "fix": "Configure the file integrity tool to check file and directory
+  desc "fix", "Configure the file integrity tool to check file and directory
 extended attributes.
 
 If AIDE is installed, ensure the \"xattrs\" rule is present on all file and
 directory selection lists."
+
+  describe aide_conf.all_have_rule('xattr') do
+    it { should eq true }
+  end
 end
 

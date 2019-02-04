@@ -78,7 +78,7 @@ apparmor module is loaded.
 
 If all loaded profiles are not in \"enforce\" mode, or there are any profiles
 in \"complain\" mode, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to allow system
+  desc "fix", "Configure the Ubuntu operating system to allow system
 administrators to pass information to any other Ubuntu operating system
 administrator or user.
 

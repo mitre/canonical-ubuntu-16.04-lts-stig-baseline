@@ -43,7 +43,7 @@ the \"execve\" system call, by running the following command:
 
 If the command does not return both lines, or the line is commented out, this
 is a finding. "
-  tag "fix": "Configure the Ubuntu operating system to audit the execution of
+  desc "fix", "Configure the Ubuntu operating system to audit the execution of
 the \"execve\" system call.
 
 Add or update the following file system rules to \"/etc/audit/audit.rules\":

@@ -53,7 +53,7 @@ Check that the \"AllowUnauthenticated\" variable is not set at all or set to
 
 If any of the files returned from the command with \"AllowUnauthenticated\" set
 to \"true\", this is a finding."
-  tag "fix": "Configure Advance package Tool (APT) to prevent the installation
+  desc "fix", "Configure Advance package Tool (APT) to prevent the installation
 of patches, service packs, device drivers, or Ubuntu operating system
 components without verification they have been digitally signed using a
 certificate that is recognized and approved by the organization.

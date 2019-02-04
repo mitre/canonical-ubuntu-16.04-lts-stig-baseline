@@ -29,7 +29,7 @@ X11Forwarding yes
 
 If the \"X11Forwarding\" keyword is set to \"no\", is missing, or is commented
 out, this is a finding."
-  tag "fix": "Configure SSH to encrypt connections for interactive users.
+  desc "fix", "Configure SSH to encrypt connections for interactive users.
 
 Edit the \"/etc/ssh/sshd_config\" file to uncomment or add the line for the
 \"X11Forwarding\" keyword and set its value to \"yes\":

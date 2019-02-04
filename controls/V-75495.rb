@@ -31,7 +31,7 @@ AutomaticLoginEnable=false
 
 If the \"AutomaticLoginEnable\" parameter is not set to \"false\", or is
 commented out, this is a finding."
-  tag "fix": "Configure the GUI to not allow unattended or automatic login to
+  desc "fix", "Configure the GUI to not allow unattended or automatic login to
 the system.
 
 Add or edit the following line in the \"/etc/gdm3/custom.conf\" file directly

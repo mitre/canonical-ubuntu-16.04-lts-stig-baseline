@@ -43,7 +43,7 @@ smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject
 If the \"smtpd_relay_restrictions\" parameter contains any entries other than
 \"permit_mynetworks\", \"permit_sasl_authenticated\" and \"reject\", is
 missing, or is commented out, this is a finding."
-  tag "fix": "If \"postfix\" is installed, modify the \"/etc/postfix/main.cf\"
+  desc "fix", "If \"postfix\" is installed, modify the \"/etc/postfix/main.cf\"
 file to restrict client connections to the local network with the following
 command:
 

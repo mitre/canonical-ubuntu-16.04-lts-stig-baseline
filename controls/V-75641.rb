@@ -43,7 +43,7 @@ group-owned by \"root\" using the following command:
 rw------- 2 root root 8096 Jun 26 11:56 /var/log/audit/audit.log
 
 If the audit log is not group-owned by \"root\", this is a finding."
-  tag "fix": "Configure the audit log to be protected from unauthorized read
+  desc "fix", "Configure the audit log to be protected from unauthorized read
 access, by setting the correct group-owner as \"root\" with the following
 command:
 

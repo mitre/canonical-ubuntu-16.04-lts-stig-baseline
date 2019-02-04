@@ -46,7 +46,7 @@ GUI session with the following command:
 true
 
 If \"lock-enabled\" is not set to \"true\", this is a finding."
-  tag "fix": "Configure the Ubuntu operating system so that it allows a user to
+  desc "fix", "Configure the Ubuntu operating system so that it allows a user to
 lock the current GUI session.
 
 Note: If the Ubuntu operating system does not have GNOME installed, this
@@ -59,5 +59,20 @@ Note: The command must be performed from a terminal window inside the graphical
 user interface (GUI).
 
 # sudo gsettings set org.gnome.desktop.lock-enabled true"
+
+  # TODO
+  # describe package('libgnome2-common') do
+  #   it { should be_installed }
+  # end
+  # describe package('gnome-shell') do
+  #   it { should be_installed }
+  # end
+  # gnmoe_installed = command('apt list libgnome2-common').exit_status
+  # gnmoe_shell_installed = command('apt list gnome-shell').exit_status
+
+  # if gnmoe_installed != 0 || gnmoe_shell_installed != 0
+  #    # gnome shell is installed. Check whether gsettings is installed.
+  #    gsettings_installed = command('apt list libglib2.0-bin')
+  # end
 end
 

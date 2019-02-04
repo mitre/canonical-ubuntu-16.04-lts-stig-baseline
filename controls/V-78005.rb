@@ -69,6 +69,6 @@ system.
 
 
 If no antivirus scan program is active on the system, this is a finding."
-  tag "fix": "Install an approved DoD antivirus solution on the system."
+  desc "fix", "Install an approved DoD antivirus solution on the system."
 end
 

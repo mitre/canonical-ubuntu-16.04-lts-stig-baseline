@@ -44,7 +44,7 @@ $6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX
 Password hashes \"!\" or \"*\" indicate inactive accounts not available for
 logon and are not evaluated. If any interactive user password hash does not
 begin with \"$6\", this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to encrypt all stored
+  desc "fix", "Configure the Ubuntu operating system to encrypt all stored
 passwords with a strong cryptographic hash.
 
 Lock all interactive user accounts not using SHA-512 hashing until the

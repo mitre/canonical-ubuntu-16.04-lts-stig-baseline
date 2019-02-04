@@ -37,7 +37,7 @@ severity raised to a CAT I.
 
 If the value of \"UMASK\" is not set to \"077\", \"UMASK\" is commented out or
 \"UMASK\" is missing completely, this is a finding."
-  tag "fix": "Configure the system to define the default permissions for all
+  desc "fix", "Configure the system to define the default permissions for all
 authenticated users in such a way that the user can only read and modify their
 own files.
 

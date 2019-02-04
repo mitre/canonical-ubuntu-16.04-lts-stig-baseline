@@ -43,7 +43,7 @@ with the following command:
 install /bin/true
 
 If “install /bin/true” is not returned, this is a finding."
-  tag "fix": "Disable the mounting of the Universal Serial Bus (USB) mass
+  desc "fix", "Disable the mounting of the Universal Serial Bus (USB) mass
 storage driver by running the following command:
 
 # sudo echo “install usb-storage /bin/true” >> /etc/modprobe.d/DISASTIG.conf"

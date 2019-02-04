@@ -38,7 +38,7 @@ active = yes
 
 If \"active\" is not set to \"yes\", or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the audit event multiplexor to off-load audit records
+  desc "fix", "Configure the audit event multiplexor to off-load audit records
 to a different system or storage media from the system being audited.
 
 Set the \"active\" option in \"/etc/audisp/plugins.d/au-remote.conf\" to

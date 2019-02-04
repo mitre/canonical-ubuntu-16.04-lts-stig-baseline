@@ -50,7 +50,7 @@ Protocol 2
 
 If the returned line allows for use of protocol \"1\", is commented out, or the
 line is missing, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to enforce SSHv2 for
+  desc "fix", "Configure the Ubuntu operating system to enforce SSHv2 for
 network access to all accounts.
 
 Add or update the following line in the \"/etc/ssh/sshd_config\" file:

@@ -48,7 +48,7 @@ nameserver 192.168.1.3
 
 If less than two lines are returned that are not commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to use two or more name
+  desc "fix", "Configure the Ubuntu operating system to use two or more name
 servers for Domain Name Server (DNS) resolution.
 
 Edit the \"/etc/resolv.conf\" file to uncomment or add the two or more

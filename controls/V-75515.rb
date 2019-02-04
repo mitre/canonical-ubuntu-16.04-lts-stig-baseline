@@ -46,8 +46,12 @@ checks are performed on the system.
 
 If there is no application installed to perform integrity checks, this is a
 finding."
-  tag "fix": "Install the AIDE package by running the following command:
+  desc "fix", "Install the AIDE package by running the following command:
 
 # sudo apt-get install aide"
+
+  describe package('aide') do
+    it { should be_installed }
+  end
 end
 

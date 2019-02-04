@@ -40,7 +40,7 @@ owned by \"root\" with the following command:
 -user root | xargs ls -la
 
 If any system commands are returned, this is a finding."
-  tag "fix": "Configure the system commands to be protected from unauthorized
+  desc "fix", "Configure the system commands to be protected from unauthorized
 access.
 
 Run the following command, replacing \"[FILE]\" with any system command file

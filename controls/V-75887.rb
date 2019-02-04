@@ -34,7 +34,7 @@ net.ipv4.ip_forward=0
 If IP forwarding value is \"1\" and is not documented with the Information
 System Security Officer (ISSO) as an operational requirement , this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to not allow packet
+  desc "fix", "Configure the Ubuntu operating system to not allow packet
 forwarding, unless the system is a router with the following command:
 
 # sudo sysctl -w net.ipv4.ip_forward=0

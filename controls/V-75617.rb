@@ -70,7 +70,7 @@ the following command:
 active
 
 If the command above returns \"inactive\", this is a finding."
-  tag "fix": "Configure the audit service to produce audit records containing
+  desc "fix", "Configure the audit service to produce audit records containing
 the information needed to establish when (date and time) an event occurred.
 
 Install the audit service (if the audit service is not already installed) with

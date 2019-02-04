@@ -32,7 +32,7 @@ PermitUserEnvironment no
 
 If \"PermitEmptyPasswords\" or \"PermitUserEnvironment\" keywords are not set
 to \"no\", is missing completely, or they are commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to allow the SSH daemon to
+  desc "fix", "Configure the Ubuntu operating system to allow the SSH daemon to
 not allow unattended or automatic login to the system.
 
 Add or edit the following lines in the \"/etc/ssh/sshd_config\" file:

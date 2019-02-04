@@ -50,7 +50,7 @@ auid!=4294967295 -k perm_access
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the audit system to generate an audit event for any
+  desc "fix", "Configure the audit system to generate an audit event for any
 successful/unsuccessful use of the \"open\" command.
 
 Add or update the following rules in the \"/etc/audit/audit.rules\" file:

@@ -40,7 +40,7 @@ command:
 syslog
 
 If \"syslog\" is not returned as a result, this is a finding."
-  tag "fix": "Change the owner of the file /var/log/syslog to syslog by running
+  desc "fix", "Change the owner of the file /var/log/syslog to syslog by running
 the following command:
 
 # sudo chown syslog /var/log/syslog"

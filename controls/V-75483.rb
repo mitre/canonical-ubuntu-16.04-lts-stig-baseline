@@ -33,7 +33,7 @@ following command:
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the Ubuntu operating system to prevent the use of
+  desc "fix", "Configure the Ubuntu operating system to prevent the use of
 dictionary words for passwords.
 
 Edit the file \"/etc/pam.d/passwd\" and add the following line:

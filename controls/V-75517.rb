@@ -52,10 +52,15 @@ command:
 
 If the \"/etc/cron.daily/aide\" file does not exist or the cron job is not
 configured to run at least every 30 days, this is a finding."
-  tag "fix": "The cron file for AIDE is fairly complex as it creates the
+  desc "fix", "The cron file for AIDE is fairly complex as it creates the
 report. The easiest way to create the file is to update the AIDE package with
 the following command:
 
 # sudo apt-get install aide"
+
+  # Checking if a cron file for aide exists
+  describe file('/etc/cron.daily/aide') do
+    it { should exist }
+  end
 end
 

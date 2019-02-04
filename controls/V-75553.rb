@@ -36,7 +36,7 @@ timestamp_timeout=86400
 
 If \"timestamp_timeout\" is not set to a value of \"86400\" or less, or is
 commented out, this is a finding."
-  tag "fix": "Configure Pluggable Authentication Module (PAM) to prohibit the
+  desc "fix", "Configure Pluggable Authentication Module (PAM) to prohibit the
 use of cached authentications after one day.
 
 Add or change the following line in \"/etc/pam.d/common-auth\" or

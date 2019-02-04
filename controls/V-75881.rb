@@ -36,7 +36,7 @@ net.ipv4.conf.all.accept_redirects=0
 
 If both of the returned lines do not have a value of \"0\", or a line is not
 returned, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to ignore Internet Protocol
+  desc "fix", "Configure the Ubuntu operating system to ignore Internet Protocol
 version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect messages
 with the following command:
 

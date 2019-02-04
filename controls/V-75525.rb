@@ -56,7 +56,7 @@ following command:
 
 If any of the seven audit tools does not have an appropriate selection line,
 this is a finding."
-  tag "fix": "Add or update the following selection lines to
+  desc "fix", "Add or update the following selection lines to
 \"/etc/aide/aide.conf\", in order to protect the integrity of the audit tools.
 
 # Audit Tools
@@ -67,5 +67,9 @@ this is a finding."
 /usr/sbin/autrace p+i+n+u+g+s+b+acl+xattr+sha512
 /usr/sbin/audispd p+i+n+u+g+s+b+acl+xattr+sha512
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattr+sha512"
+
+  describe aide_conf.all_have_rule('xattr') do
+    it { should eq true }
+  end
 end
 

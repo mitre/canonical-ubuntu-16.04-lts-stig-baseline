@@ -34,7 +34,7 @@ following command:
 
 If any private host key file has a mode more permissive than \"0600\", this is
 a finding."
-  tag "fix": "Configure the mode of SSH private host key files under
+  desc "fix", "Configure the mode of SSH private host key files under
 \"/etc/ssh\" to \"0600\" with the following command:
 
 #sudo chmod 0600 /etc/ssh/ssh_host*key

@@ -41,7 +41,7 @@ The result must contain the following line:
 
 If the \"maxlogins\" item is missing or the value is not set to \"10\" or less,
 or is commented out,  this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to limit the number of
+  desc "fix", "Configure the Ubuntu operating system to limit the number of
 concurrent sessions to ten for all accounts and/or account types.
 
 Add the following line to the top of the /etc/security/limits.conf:

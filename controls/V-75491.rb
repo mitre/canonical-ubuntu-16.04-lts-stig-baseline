@@ -47,7 +47,7 @@ account expiration information.
 Verify each of these accounts has an expiration date set within 72 hours.
 If any temporary accounts have no expiration date set or do not expire within
 72 hours, this is a finding."
-  tag "fix": "If a temporary account must be created configure the system to
+  desc "fix", "If a temporary account must be created configure the system to
 terminate the account after a 72 hour time period with the following command to
 set an expiration date on it. Substitute \"system_account_name\" with the
 account to be created.

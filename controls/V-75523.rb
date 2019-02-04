@@ -63,10 +63,19 @@ SILENTREPORTS=no
 If the \"/etc/cron.daily/aide\" file does not exist, the cron job is configured
 with the \"SILENTREPORTS=yes\" option, or the line is commented out, this is a
 finding."
-  tag "fix": "Modify the \"SILENTREPORTS\" parameter in \"/etc/default/aide\"
+  desc "fix", "Modify the \"SILENTREPORTS\" parameter in \"/etc/default/aide\"
 file with a value \"no\" of if it does not already exist:
 
 SILENTREPORTS=no
 "
+
+  # Checking if a cron file for aide exists
+  describe file('/etc/cron.daily/aide') do
+    it { should exist }
+  end
+
+  describe parse_config_file('/etc/default/aide').params['SILENTREPORTS'] do
+    it { should eq "yes" }
+  end
 end
 

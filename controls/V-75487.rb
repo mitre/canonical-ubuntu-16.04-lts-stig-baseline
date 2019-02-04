@@ -40,7 +40,7 @@ auth required pam_tally2.so onerr=fail deny=3
 
 If \"onerr=fail deny=3\" is not used in \"/etc/pam.d/common-auth\" or is called
 with \"unlock_time\", this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to automatically lock an
+  desc "fix", "Configure the Ubuntu operating system to automatically lock an
 account until the locked account is released by an administrator when three
 unsuccessful logon attempts are made by appending the following line to the
 \"/etc/pam.d/common-auth file\":

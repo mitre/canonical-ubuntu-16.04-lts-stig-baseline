@@ -45,7 +45,7 @@ If nothing is returned; we must verify the kernel parameter
 kernel.randomize_va_space = 2
 
 If \"kernel.randomize_va_space\" is not set to \"2\", this is a finding."
-  tag "fix": "Configure the operating system implement virtual address space
+  desc "fix", "Configure the operating system implement virtual address space
 randomization.
 
 Set the system to the required kernel parameter by adding the following line to

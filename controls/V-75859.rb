@@ -37,7 +37,7 @@ network_failure_action = stop
 
 If the value of the “network_failure_action” option is not \"syslog\",
 \"single\", or \"halt\", or the line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to take appropriate action
+  desc "fix", "Configure the Ubuntu operating system to take appropriate action
 when the network cannot be used to off-load audit records.
 
 Add, edit or uncomment the \"network_failure_action\" option in

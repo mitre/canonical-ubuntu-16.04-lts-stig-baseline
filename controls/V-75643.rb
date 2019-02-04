@@ -46,7 +46,7 @@ directory path:
 drwxr-x--- 2 root root 8096 Jun 26 11:56 /var/log/audit
 
 If the audit log directory is not owned by \"root\", this is a finding."
-  tag "fix": "Configure the audit log to be protected from unauthorized read
+  desc "fix", "Configure the audit log to be protected from unauthorized read
 access, by setting the correct owner as \"root\" with the following command:
 
 # sudo chown root [audit_log_directory]

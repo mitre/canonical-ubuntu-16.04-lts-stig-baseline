@@ -43,7 +43,7 @@ password  [success=1 default=ignore]  pam_unix.so obscure sha512 rounds=5000
 If \"rounds\" has a value below \"5000\", or is commented out, this is a
 finding.
 "
-  tag "fix": "Configure the Ubuntu operating system to encrypt all stored
+  desc "fix", "Configure the Ubuntu operating system to encrypt all stored
 passwords with a strong cryptographic hash.
 
 Edit/modify the following line in the \"/etc/pam.d/common-password\" file and

@@ -47,7 +47,7 @@ auid!=4294967295 -k privileged-ssh
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  tag "fix": "Configure the audit system to generate an audit event for any
+  desc "fix", "Configure the audit system to generate an audit event for any
 successful/unsuccessful use of the \"ssh-agent\" command.
 
 Add or update the following rules in the \"/etc/audit/audit.rules\" file:

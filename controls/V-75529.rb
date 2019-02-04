@@ -34,7 +34,7 @@ Unattended-Upgrade::Remove-Unused-Dependencies \"true\";
 
 If the \"Remove-Unused-Dependencies\" parameter is not set to \"true\", or is
 missing, this is a finding."
-  tag "fix": "Configure APT to remove all software components after updated
+  desc "fix", "Configure APT to remove all software components after updated
 versions have been installed.
 
 Add or updated the following option to the

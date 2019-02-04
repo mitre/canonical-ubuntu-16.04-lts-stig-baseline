@@ -48,7 +48,7 @@ rw,relatime,discard,data=ordered,nosuid 0 2
 
 If a file system found in \"/etc/fstab\" refers to the user home directory file
 system and it does not have the \"nosuid\" option set, this is a finding."
-  tag "fix": "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
+  desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that contain user home directories for interactive users."
 end
 

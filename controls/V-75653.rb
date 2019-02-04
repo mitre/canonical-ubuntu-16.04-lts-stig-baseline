@@ -48,7 +48,7 @@ Check the octal permission of each audit tool by running the following command:
 
 If any of the audit tools has a mode more permissive than \"0755\", this is a
 finding."
-  tag "fix": "Configure the audit tools to be protected from unauthorized
+  desc "fix", "Configure the audit tools to be protected from unauthorized
 access by setting the correct permissive mode using the following command:
 
 # sudo chmod 0755 [audit_tool]

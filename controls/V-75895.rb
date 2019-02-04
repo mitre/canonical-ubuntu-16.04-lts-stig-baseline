@@ -34,7 +34,7 @@ ii vsftpd 3.0.3-3Ubuntu2
 
 If \"vsftpd\" is installed and is not documented with the Information System
 Security Officer (ISSO) as an operational requirement, this is a finding."
-  tag "fix": "Document the \"vsftpd\" package with the Information System
+  desc "fix", "Document the \"vsftpd\" package with the Information System
 Security Officer (ISSO) as an operational requirement or remove it from the
 system with the following command:
 

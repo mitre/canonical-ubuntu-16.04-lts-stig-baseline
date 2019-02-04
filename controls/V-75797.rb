@@ -46,7 +46,7 @@ running the following command:
 # sudo apt list telnetd
 
 If the package is installed, this is a finding."
-  tag "fix": "Remove the telnet package from the Ubuntu operating system by
+  desc "fix", "Remove the telnet package from the Ubuntu operating system by
 running the following command:
 
 # sudo apt-get remove telnetd"

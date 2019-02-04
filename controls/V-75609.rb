@@ -39,7 +39,7 @@ with the following command:
 # sudo find /lib /usr/lib /lib64 ! -group root | xargs ls -la
 
 If any system wide shared library file is returned, this is a finding."
-  tag "fix": "Configure the library files to be protected from unauthorized
+  desc "fix", "Configure the library files to be protected from unauthorized
 access.
 
 Run the following command, replacing \"[FILE]\" with any library file not

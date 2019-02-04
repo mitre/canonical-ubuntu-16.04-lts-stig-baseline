@@ -34,7 +34,7 @@ dictcheck=1
 
 If the \"dictcheck\" parameter is not set to \"1\", or is commented out, this
 is a finding."
-  tag "fix": "Configure the Ubuntu operating system to prevent the use of
+  desc "fix", "Configure the Ubuntu operating system to prevent the use of
 dictionary words for passwords.
 
 Edit the file \"/etc/security/pwquality.conf\" by adding a line such as:

@@ -34,7 +34,7 @@ PermitRootLogin no
 
 If the \"PermitRootLogin\" keyword is set to \"yes\", is missing, or is
 commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to stop users from logging
+  desc "fix", "Configure the Ubuntu operating system to stop users from logging
 on remotely as the \"root\" user via SSH.
 
 Edit the appropriate  \"/etc/ssh/sshd_config\" file to uncomment or add the

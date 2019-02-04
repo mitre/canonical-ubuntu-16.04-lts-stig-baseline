@@ -61,7 +61,7 @@ ii libpam-pkcs11 0.6.8-4 amd64 Fully featured PAM module for using PKCS#11
 smart cards
 
 If the \"libpam-pkcs11\" package is not installed, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to implement multifactor
+  desc "fix", "Configure the Ubuntu operating system to implement multifactor
 authentication by installing the required packages.
 Install the \"libpam-pkcs11\" package on the system with the following command:
 

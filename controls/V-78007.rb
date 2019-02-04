@@ -83,7 +83,7 @@ DatabaseDirectory /var/lib/clamav
 If the database file has a date older than seven days from the current date,
 this is a finding.
 "
-  tag "fix": "Update the approved DoD virus scan software and virus definition
+  desc "fix", "Update the approved DoD virus scan software and virus definition
 files."
 end
 

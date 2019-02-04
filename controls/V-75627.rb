@@ -53,7 +53,7 @@ max_log_file_action=syslog
 
 If the value of the \"max_log_file_action\" option is set to \"ignore\",
 \"rotate\", or \"suspend\", or the line is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to notify the System
+  desc "fix", "Configure the Ubuntu operating system to notify the System
 Administrator (SA) and Information System Security Officer (ISSO) when the
 audit storage volume is full by configuring the \"max_log_file_action\"
 parameter in the \"/etc/audit/auditd.conf\" file with the a value of \"syslog\"

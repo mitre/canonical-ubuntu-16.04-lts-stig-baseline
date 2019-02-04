@@ -47,7 +47,7 @@ Using the location of the audit log file, check if the audit log has a mode of
 600 /var/log/audit/audit.log
 
 If the audit log has a mode more permissive than \"0600\", this is a finding."
-  tag "fix": "Configure the audit log to be protected from unauthorized read
+  desc "fix", "Configure the audit log to be protected from unauthorized read
 access by setting the correct permissive mode with the following command:
 
 # sudo chmod 0600 [audit_log_file]

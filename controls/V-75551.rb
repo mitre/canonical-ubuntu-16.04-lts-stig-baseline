@@ -34,7 +34,7 @@ created, it is created using a method that forces a user to change their
 password upon their next login.
 
 If a policy does not exist, this is a finding."
-  tag "fix": "Create a policy that ensures when a user is created, it is
+  desc "fix", "Create a policy that ensures when a user is created, it is
 created using a method that forces a user to change their password upon their
 next login.
 

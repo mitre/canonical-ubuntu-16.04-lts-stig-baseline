@@ -44,7 +44,7 @@ following command:
 root
 
 If the audit logs are not group-owned by \"root\", this is a finding."
-  tag "fix": "Change the owner of the audit log file by running the following
+  desc "fix", "Change the owner of the audit log file by running the following
 command:
 
 Use the following command to get the audit log path:

@@ -36,7 +36,7 @@ noauto,owner,ro,nosuid 0 0
 
 If a file system found in \"/etc/fstab\" refers to removable media and it does
 not have the \"nosuid\" option set, this is a finding."
-  tag "fix": "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
+  desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that are associated with removable media."
 end
 

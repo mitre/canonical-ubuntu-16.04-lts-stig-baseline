@@ -43,6 +43,6 @@ the cpuinfo settings with the following command:
 flags       : fpu vme de pse tsc ms nx rdtscp lm constant_tsc
 
 If \"flags\" does not contain the \"nx\" flag, this is a finding."
-  tag "fix": "The NX bit execute protection must be enabled in the system BIOS."
+  desc "fix", "The NX bit execute protection must be enabled in the system BIOS."
 end
 

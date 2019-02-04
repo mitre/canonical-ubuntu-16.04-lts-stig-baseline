@@ -37,7 +37,7 @@ Check the value of TCP syncookies with the following command:
 net.ipv4.tcp_syncookies = 1
 
 If the value is not \"1\", this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to use TCP syncookies, by
+  desc "fix", "Configure the Ubuntu operating system to use TCP syncookies, by
 running the following command:
 
 # sudo sysctl -w net.ipv4.tcp_syncookies=1

@@ -44,7 +44,7 @@ Check to see if the rsh-server package is installed with the following command:
 # sudo apt list rsh-server
 
 If the rsh-server package is installed, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to disable non-essential
+  desc "fix", "Configure the Ubuntu operating system to disable non-essential
 capabilities by removing the rsh-server package from the system with the
 following command:
 

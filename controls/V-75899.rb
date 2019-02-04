@@ -37,7 +37,7 @@ following command:
 TFTP_OPTIONS=\"--secure\"
 
 If \"--secure\" is not listed in the TFTP_OPTIONS, this is a finding."
-  tag "fix": "Configure the Trivial File Transfer Protocol (TFTP) daemon to
+  desc "fix", "Configure the Trivial File Transfer Protocol (TFTP) daemon to
 operate in the secure mode by adding the \"--secure\" option to TFTP_OPTIONS in
 /etc/default/tftpd-hpa and restart the tftpd daemon."
 end

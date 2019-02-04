@@ -30,7 +30,7 @@ If this produces any output, it may be possible to log on with accounts with
 empty passwords.
 
 If null passwords can be used, this is a finding."
-  tag "fix": "If an account is configured for password authentication but does
+  desc "fix", "If an account is configured for password authentication but does
 not have an assigned password, it may be possible to log on to the account
 without authenticating.
 

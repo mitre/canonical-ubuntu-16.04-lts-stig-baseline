@@ -29,7 +29,7 @@ Check the owner of all files and directories with the following command:
 # sudo find / -nogroup
 
 If any files on the system do not have an assigned group, this is a finding."
-  tag "fix": "Either remove all files and directories from the Ubuntu operating
+  desc "fix", "Either remove all files and directories from the Ubuntu operating
 system that do not have a valid group, or assign a valid group to all files and
 directories on the system with the \"chgrp\" command:
 

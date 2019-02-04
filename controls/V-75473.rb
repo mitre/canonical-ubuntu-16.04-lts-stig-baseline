@@ -33,7 +33,7 @@ PASS_MAX_DAYS    60
 
 If the \"PASS_MAX_DAYS\" parameter value is less than \"60\", or commented out,
 this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to enforce a 60-day maximum
+  desc "fix", "Configure the Ubuntu operating system to enforce a 60-day maximum
 password lifetime.
 
 Add, or modify the following line in the \"/etc/login.defs\" file:

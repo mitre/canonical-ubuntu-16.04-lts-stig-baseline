@@ -37,7 +37,7 @@ reboot.target - Reboot
      Docs: man:systemd.special(7)
 
 If the \"ctrl-alt-del.target\" is active, this is a finding."
-  tag "fix": "Configure the system to disable the Ctrl-Alt-Delete sequence for
+  desc "fix", "Configure the system to disable the Ctrl-Alt-Delete sequence for
 the command line with the following command:
 
 # sudo systemctl mask ctrl-alt-del.target

@@ -47,7 +47,7 @@ If any local interactive user initialization files have executable search path
 statements that include directories outside of their home directory, and the
 additional path statements are not documented with the Information System
 Security Officer (ISSO) as an operational requirement, this is a finding."
-  tag "fix": "Edit the local interactive user initialization files to change
+  desc "fix", "Edit the local interactive user initialization files to change
 any PATH variable statements for executables that reference directories other
 than their home directory or the system default. If a local interactive user
 requires path variables to reference a directory owned by the application, it

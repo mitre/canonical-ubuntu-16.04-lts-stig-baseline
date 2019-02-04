@@ -36,7 +36,7 @@ Note: The example will be for the smithj user, who has a home directory of
 
 If any local initialization files have a mode more permissive than \"0740\",
 this is a finding."
-  tag "fix": "Set the mode of the local initialization files to \"0740\" with
+  desc "fix", "Set the mode of the local initialization files to \"0740\" with
 the following command:
 
 Note: The example will be for the smithj user, who has a home directory of

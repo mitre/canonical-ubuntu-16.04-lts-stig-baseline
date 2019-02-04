@@ -53,7 +53,7 @@ Verify that the system partitions are all encrypted with the following command:
 Every persistent disk partition present must have an entry in the file. If any
 partitions other than pseudo file systems (such as /proc or /sys) are not
 listed, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to prevent unauthorized
+  desc "fix", "Configure the Ubuntu operating system to prevent unauthorized
 modification of all information at rest by using disk encryption.
 
 Encrypting a partition in an already-installed system is more difficult,

@@ -74,7 +74,7 @@ inet6 addr: ::1/128 Scope:Host
 
 If a wireless interface is configured and has not been documented and approved
 by the Information System Security Officer (ISSO), this is a finding."
-  tag "fix": "Configure the system to disable all wireless network interfaces
+  desc "fix", "Configure the system to disable all wireless network interfaces
 with the following command:
 
 # sudo ifdown [ADAPTER_NAME]"

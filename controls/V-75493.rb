@@ -32,7 +32,7 @@ between logon prompts with the following command:
 auth required pam_faildelay.so delay=4000000
 
 If the line is not present, or is commented out, this is a finding."
-  tag "fix": "Configure the Ubuntu operating system to enforce a delay of at
+  desc "fix", "Configure the Ubuntu operating system to enforce a delay of at
 least 4 seconds between logon prompts following a failed logon attempt.
 
 Edit the file \"/etc/pam.d/common-auth\" and set the parameter

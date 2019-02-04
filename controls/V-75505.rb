@@ -49,7 +49,7 @@ password_pbkdf2 root grub.pbkdf2.sha512.10000.MFU48934NJA87HF8NSD34493GDHF84NG
 
 If the root password entry does not begin with “password_pbkdf2”, this is a
 finding."
-  tag "fix": "Configure the system to require a password for authentication
+  desc "fix", "Configure the system to require a password for authentication
 upon booting into single-user and maintenance modes.
 
 Generate an encrypted (grub) password for root with the following command:

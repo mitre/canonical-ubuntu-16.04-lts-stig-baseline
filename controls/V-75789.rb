@@ -43,7 +43,7 @@ auid!=4294967295 -k privileged-pam_timestamp_check
 
 If the above command does not return the exact same output displayed in the
 example, this is a finding."
-  tag "fix": "Configure the audit system to generate an audit event for any
+  desc "fix", "Configure the audit system to generate an audit event for any
 successful/unsuccessful uses of the \"pam_timestamp_check\" command. Add or
 update the following rules in the \"/etc/audit/audit.rules\" file:
 

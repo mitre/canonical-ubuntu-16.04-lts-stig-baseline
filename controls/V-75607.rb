@@ -39,7 +39,7 @@ following command:
 # sudo find /lib /usr/lib /lib64 ! -user root | xargs ls -la
 
 If any system wide shared library file is returned, this is a finding."
-  tag "fix": "Configure the system-wide shared library files (/lib, /usr/lib,
+  desc "fix", "Configure the system-wide shared library files (/lib, /usr/lib,
 /lib64) to be protected from unauthorized access.
 
 Run the following command, replacing \"[FILE]\" with any library file not owned
