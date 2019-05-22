@@ -41,5 +41,14 @@ Add or updated the following option to the
 \"/etc/apt/apt.conf.d/50unattended-upgrades\" file:
 
 Unattended-Upgrade::Remove-Unused-Dependencies \"true\";"
+
+  describe directory('/etc/apt/apt.conf.d') do
+    it { should exist }
+  end
+
+  describe command('grep -i remove-unused /etc/apt/apt.conf.d/50unattended-upgrades').stdout.strip do
+    it {should match /^\s*([^\s]*::Remove-Unused-Dependencies)\s*\\"true\\"\s*;$/}
+  end
+
 end
 

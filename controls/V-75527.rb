@@ -64,5 +64,23 @@ entirely from each file. Below is an example of setting the
 \"AllowUnauthenticated\" variable to \"false\":
 
 APT::Get::AllowUnauthenticated \"false\";"
+
+  describe directory('/etc/apt/apt.conf.d') do
+    it { should exist }
+  end
+
+  apt_allowuanuth = command('grep -i allowunauth /etc/apt/apt.conf.d/*').stdout.strip.split("\n") 
+  if apt_allowuanuth.empty? 
+    describe "apt conf files do not contain AllowUnauthenticated" do
+      # Do Nothing
+    end
+  else
+    apt_allowuanuth.each do |line|
+      describe "#{line} contains AllowUnauthenctication" do
+        subject {line}
+        it {should_not match /.*false.*/ }
+      end
+    end
+  end
 end
 
