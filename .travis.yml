@@ -32,6 +32,7 @@ before_script:
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
   - bundle update --bundler
+  - bundle install
   - chef --version
   - cookstyle --version
   - foodcritic --version
