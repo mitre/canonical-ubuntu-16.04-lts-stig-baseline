@@ -30,7 +30,7 @@ env:
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
-  - gem install bundler
+  - gem install bundler:2.0.1
   - bundle update --bundler
   - chef --version
   - cookstyle --version
