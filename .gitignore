@@ -93,6 +93,9 @@ vendor/cookbooks
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 .idea/
 
+# Visual Studio Code
+.vscode
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
