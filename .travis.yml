@@ -14,10 +14,6 @@ addons:
       - chefdk
   #artifacts: true
 
-#before_install:
-#    - gem update --system
-#    - gem install bundler
-    
 # Don't `bundle install` which takes about 1.5 mins
 install:
 
@@ -40,5 +36,6 @@ before_script:
 
 script: 
   - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE}
-  - ($PWD)
+  - echo $PWD
+  - ls results/*
   - inspec_tools compliance -j test.json -i '{compliance.min: 5}'
