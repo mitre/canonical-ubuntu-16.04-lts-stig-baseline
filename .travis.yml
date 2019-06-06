@@ -1,5 +1,8 @@
 sudo: required
 
+language: ruby
+cache: bundler
+
 addons:
   apt:
     sources:
@@ -7,9 +10,13 @@ addons:
     packages:
       - chefdk
   #artifacts: true
+
+before_install:
+    - gem update --system
+    - gem install bundler
     
 # Don't `bundle install` which takes about 1.5 mins
-install: bundle install
+install:
 
 services: docker
 
