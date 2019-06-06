@@ -4,6 +4,7 @@
 
 !Gemfile.lock
 .attribute.yml
+Berksfile.lock
 
 /.config
 /coverage/
