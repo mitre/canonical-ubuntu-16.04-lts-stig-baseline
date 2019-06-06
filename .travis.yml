@@ -1,6 +1,9 @@
 sudo: required
 
 language: ruby
+rvm:
+  - 2.6.1
+
 cache: bundler
 
 addons:
