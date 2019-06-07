@@ -98,5 +98,19 @@ Start \"Apparmor\" with the following command:
 Note: Pam_Apparmor must have properly configured profiles. All configurations
 will be based on the actual system setup and organization. See the
 \"Pam_Apparmor\" documentation for more information on configuring profiles."
+
+  describe package('libpam-apparmor') do
+    it { should be_installed }
+  end
+
+  num_loaded_profiles = inspec.command('sudo apparmor_status | grep "profiles are loaded." | cut -f 1 -d " "').stdout
+  num_enforced_profiles = inspec.command('sudo apparmor_status | grep "profiles are in enforce mode." | cut -f 1 -d " "').stdout
+
+  describe 'AppArmor Profiles' do
+    it 'loaded and enforced' do
+     # Remove `nil`s from the list and count remaining
+      expect(num_loaded_profiles).to eq(num_enforced_profiles)
+    end
+  end
 end
 

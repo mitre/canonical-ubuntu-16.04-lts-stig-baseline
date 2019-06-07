@@ -50,5 +50,9 @@ Turn off the automount service with the following command:
 
 If \"autofs\" is required for Network File System (NFS), it must be documented
 with the Information System Security Officer (ISSO)."
+
+  describe service("autofs") do
+    it { should_not be_enabled }
+  end
 end
 

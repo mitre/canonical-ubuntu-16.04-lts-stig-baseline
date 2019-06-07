@@ -45,5 +45,9 @@ Edit the \"UMASK\" parameter in the \"/etc/login.defs\" file to match the
 example below:
 
 UMASK 077"
+
+  describe login_defs do
+    its('UMASK') { should eq '077' }
+  end
 end
 

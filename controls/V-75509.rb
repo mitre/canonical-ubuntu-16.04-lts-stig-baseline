@@ -59,5 +59,9 @@ modification of all information at rest by using disk encryption.
 Encrypting a partition in an already-installed system is more difficult,
 because you need to resize and change existing partitions. To encrypt an entire
 partition, dedicate a partition for encryption in the partition layout."
+
+  describe "Manual test" do
+    skip "This control must be reviewed manually"
+  end
 end
 

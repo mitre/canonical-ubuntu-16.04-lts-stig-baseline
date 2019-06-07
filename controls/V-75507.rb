@@ -71,5 +71,9 @@ following commands:
 
 # grub-mkconfig --output=/tmp/grub2.cfg
 # mv /tmp/grub2.cfg /boot/efi/EFI/grub.cfg"
+
+  describe file('/boot/efi/EFI/grub.cfg') do
+    its('content') { should match "^password_pbkdf2" }
+  end
 end
 

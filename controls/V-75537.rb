@@ -79,5 +79,9 @@ Note: Apparmor must have properly configured profiles for applications and home
 directories. All configurations will be based on the actual system setup and
 organization and normally are on a per role basis. See the \"Apparmor\"
 documentation for more information on configuring profiles."
+
+  describe "Manual test" do
+    skip "This control must be reviewed manually"
+  end
 end
 

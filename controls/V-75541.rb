@@ -55,5 +55,10 @@ Add the setting to disable the Ctrl-Alt-Delete sequence for GNOME:
 
 [org/gnome/settings-daemon/plugins/media-keys]
 logout=’’"
+
+  describe service('ctrl-alt-del.target') do
+    it { should_not be_running }
+    it { should_not be_enabled }
+  end
 end
 

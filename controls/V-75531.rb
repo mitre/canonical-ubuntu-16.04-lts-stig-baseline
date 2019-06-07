@@ -47,5 +47,13 @@ If “install /bin/true” is not returned, this is a finding."
 storage driver by running the following command:
 
 # sudo echo “install usb-storage /bin/true” >> /etc/modprobe.d/DISASTIG.conf"
+
+  describe kernel_module('usb-storage') do
+    it { should_not be_loaded }
+  end
+
+  describe command('sudo modprobe -vn usb-storage') do
+    its('stdout') { should match (/install \/bin\/true/) }
+ end
 end
 
