@@ -37,4 +37,4 @@ before_script:
 script: 
   - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE}
   - export RESULTS=$(ls results/*.json)
-  - inspec_tools compliance -j $RESULTS -i '{compliance.min: 5}'
+  - inspec_tools compliance -j $RESULTS -f threshold.yml
