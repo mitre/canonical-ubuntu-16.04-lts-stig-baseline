@@ -1,5 +1,16 @@
 sudo: required
 
+# blocklist
+#branches:
+#  except:
+#  - development
+
+# safelist
+#branches:
+#  only:
+#  - master
+#  - stable
+
 language: ruby
 rvm:
   - 2.6.1
