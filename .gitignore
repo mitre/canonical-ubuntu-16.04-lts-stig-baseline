@@ -2,7 +2,7 @@
 *.gem
 *.rbc
 
-!Gemfile.lock
+Gemfile.lock
 .attribute.yml
 Berksfile.lock
 
