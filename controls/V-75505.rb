@@ -74,6 +74,6 @@ following commands:
 
   describe file('/boot/grub/grub.cfg') do
     its('content') { should match "^password_pbkdf2" }
-  ends
+  end
 end
 

@@ -48,5 +48,15 @@ Remove accounts that do not support approved system activities or that allow
 for a normal user to perform administrative-level actions.
 
 Document all authorized accounts on the system."
+
+  describe user('games') do
+    it { should_not exist }
+  end
+  describe user('gopher') do
+    it { should_not exist }
+  end
+  describe "Manual test" do
+    skip "This control must be reviewed manually"
+  end
 end
 

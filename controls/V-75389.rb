@@ -38,16 +38,25 @@ Current End of Life for Ubuntu 16.04 LTS is April 2021.
 If the release is not supported by the vendor, this is a finding."
   desc "fix", "Upgrade to a supported version of the Ubuntu operating system."
 
-  describe file('/etc/lsb-release') do
-    its('content') { should match /DISTRIB_RELEASE=16.04/ }
+  os_release = "16.04"
+  supported_until = Date.new(2021,4,1)
+  today = Date.today
+
+  describe os.release do
+    it { should eq os_release }
   end
 
   describe file('/etc/lsb-release') do
-    its('content') { should match /DISTRIB_CODENAME=xenial/ }
+    its('content') { should match 'xenial' }
   end
 
   describe file('/etc/lsb-release') do
-    its('content') { should match /DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"/ }
+    its('content') { should match /Ubuntu 16.04\.\d LTS/ }
+  end
+
+  describe "The current #{os.name.capitalize} #{os.release} release is supported until #{supported_until}" do
+    subject { supported_until }
+    it { should be > today }
   end
 end
 

@@ -2,9 +2,10 @@
 *.gem
 *.rbc
 
-!Gemfile.lock
+Gemfile.lock
 .attribute.yml
 Berksfile.lock
+results.json
 
 /.config
 /coverage/

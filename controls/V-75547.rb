@@ -52,5 +52,9 @@ If output is produced, and the accounts listed are interactive user accounts,
 this is a finding."
   desc "fix", "Edit the file \"/etc/passwd\" and provide each interactive user
 account that has a duplicate User ID (UID) with a unique UID."
+
+  describe passwd do
+    its('count') { should eq passwd.uids.uniq.count }
+  end
 end
 
