@@ -34,5 +34,9 @@ not have a valid user, or assign a valid user to all unowned files and
 directories on the Ubuntu operating system with the \"chown\" command:
 
 # sudo chown <user> <file>"
+
+  describe command('find / -nouser') do
+    its('stdout') { should cmp '' }
+  end
 end
 

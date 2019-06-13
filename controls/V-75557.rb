@@ -34,5 +34,9 @@ system that do not have a valid group, or assign a valid group to all files and
 directories on the system with the \"chgrp\" command:
 
 # sudo chgrp <group> <file>"
+
+  describe command('find / -nogroup') do
+    its('stdout') { should cmp '' }
+  end
 end
 

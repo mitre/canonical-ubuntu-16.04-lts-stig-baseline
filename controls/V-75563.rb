@@ -1,3 +1,15 @@
+EXEMPT_HOME_USERS = attribute(
+  'exempt_home_users',
+  description: 'These are `home dir` exempt interactive accounts',
+  default: []
+)
+
+NON_INTERACTIVE_SHELLS = attribute(
+  'non_interactive_shells',
+  description: 'These shells do not allow a user to login',
+  default: ["/sbin/nologin","/sbin/halt","/sbin/shutdown","/bin/false","/bin/sync"]
+)
+
 control "V-75563" do
   title "All local interactive user home directories defined in the /etc/passwd
 file must exist."
@@ -58,5 +70,14 @@ of \"users assigned\" in \"/etc/passwd\".
 # chown smithj /home/smithj
 # chgrp users /home/smithj
 # chmod 0750 /home/smithj"
+
+  IGNORE_SHELLS = NON_INTERACTIVE_SHELLS.join('|')
+
+  users.where{ !shell.match(IGNORE_SHELLS) && (uid >= 1000 || uid == 0)}.entries.each do |user_info|
+    next if EXEMPT_HOME_USERS.include?("#{user_info.username}")
+    describe directory(user_info.home) do
+      it { should exist }
+    end
+  end
 end
 

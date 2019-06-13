@@ -43,5 +43,15 @@ Add or change the following line in \"/etc/pam.d/common-auth\" or
 \"/etc/pam.d/common-session\" just below the line \"[pam]\".
 
 timestamp_timeout = 86400"
+
+  describe.one do
+    describe parse_config_file('/etc/pam.d/common-auth') do
+      its('timestamp_timeout') { should be <= '86400' }
+    end
+
+    describe parse_config_file('/etc/pam.d/common-session') do
+      its('timestamp_timeout') { should be <= '86400' }
+    end
+  end
 end
 

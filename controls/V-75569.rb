@@ -1,3 +1,15 @@
+EXEMPT_HOME_USERS = attribute(
+  'exempt_home_users',
+  description: 'These are `home dir` exempt interactive accounts',
+  default: []
+)
+
+NON_INTERACTIVE_SHELLS = attribute(
+  'non_interactive_shells',
+  description: 'These shells do not allow a user to login',
+  default: ["/sbin/nologin","/sbin/halt","/sbin/shutdown","/bin/false","/bin/sync"]
+)
+
 control "V-75569" do
   title "All local initialization files must have mode 0740 or less permissive."
   desc  "Local initialization files are used to configure the user's shell
@@ -43,5 +55,16 @@ Note: The example will be for the smithj user, who has a home directory of
 \"/home/smithj\".
 
 # chmod 0740 /home/smithj/.<INIT_FILE>"
+
+  IGNORE_SHELLS = NON_INTERACTIVE_SHELLS.join('|')
+
+  findings = Set[]
+  users.where{ !shell.match(IGNORE_SHELLS) && (uid >= 1000 || uid == 0)}.entries.each do |user_info|
+    findings = findings + command("find #{user_info.home} -xdev -maxdepth 1 -name '.*' -type f -perm /037").stdout.split("\n")
+  end
+  describe "All local initialization files have a mode of 0740 or less permissive" do
+    subject { findings.to_a }
+    it { should be_empty }
+  end
 end
 

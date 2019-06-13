@@ -1,3 +1,15 @@
+EXEMPT_HOME_USERS = attribute(
+  'exempt_home_users',
+  description: 'These are `home dir` exempt interactive accounts',
+  default: []
+)
+
+NON_INTERACTIVE_SHELLS = attribute(
+  'non_interactive_shells',
+  description: 'These shells do not allow a user to login',
+  default: ["/sbin/nologin","/sbin/halt","/sbin/shutdown","/bin/false","/bin/sync"]
+)
+
 control "V-75567" do
   title "All local interactive user home directories must be group-owned by the
 home directory owners primary group."
@@ -53,5 +65,17 @@ Note: The example will be for the user \"smithj\", who has a home directory of
 \"/home/smithj\", and has a primary group of users.
 
 # chgrp users /home/smithj"
+
+  IGNORE_SHELLS = NON_INTERACTIVE_SHELLS.join('|')
+
+  findings = Set[]
+  users.where{ !shell.match(IGNORE_SHELLS) && (uid >= 1000 || uid == 0)}.entries.each do |user_info|
+    next if EXEMPT_HOME_USERS.include?("#{user_info.username}")
+    findings = findings + command("find #{user_info.home} -maxdepth 0 -not -gid #{user_info.gid}").stdout.split("\n")
+  end
+  describe "Home directories that are not group-owned by the user's primary GID" do
+    subject { findings.to_a }
+    it { should be_empty }
+  end
 end
 
