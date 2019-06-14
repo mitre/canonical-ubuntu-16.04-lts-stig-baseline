@@ -1,0 +1,35 @@
+driver:
+  name: dokken
+  privileged: true
+
+transport:
+  name: dokken
+
+provisioner:
+  name: ansible_playbook
+  hosts: all
+  require_ansible_repo: false
+  require_ansible_omnibus: true
+  require_chef_for_busser: false
+  require_ruby_for_busser: false
+  ansible_verbose: true
+  roles_path: ../stig-canonical-ubuntu-16.04-lts-baseline/
+  requirements_path: requirements.yml
+  playbook: default.yml
+
+verifier:
+  name: inspec
+  sudo: true
+  reporter:
+    - cli
+    - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}.json
+  inspec_tests:
+    - path: ./
+
+platforms:
+  - name: ubuntu-16.04
+
+suites:
+  - name: default
+    #run_list:
+    #- recipe[os-hardening::default]
