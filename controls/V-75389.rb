@@ -1,3 +1,7 @@
+platform_name = attribute('platform_name')
+platform_release = attribute('platform_release')
+supported_until = attribute('supported_until')
+
 control "V-75389" do
   title "The Ubuntu operating system must be a vendor supported release."
   desc  "An Ubuntu operating system release is considered \"supported\" if the
@@ -38,25 +42,17 @@ Current End of Life for Ubuntu 16.04 LTS is April 2021.
 If the release is not supported by the vendor, this is a finding."
   desc "fix", "Upgrade to a supported version of the Ubuntu operating system."
 
-  os_release = "16.04"
-  supported_until = Date.new(2021,4,1)
-  today = Date.today
-
-  describe os.release do
-    it { should eq os_release }
+  describe platform.name do
+    it { should cmp platform_name }
   end
 
-  describe file('/etc/lsb-release') do
-    its('content') { should match 'xenial' }
+  describe platform.release do
+    it { should cmp platform_release }
   end
 
-  describe file('/etc/lsb-release') do
-    its('content') { should match /Ubuntu 16.04\.\d LTS/ }
-  end
-
-  describe "The current #{os.name.capitalize} #{os.release} release is supported until #{supported_until}" do
-    subject { supported_until }
-    it { should be > today }
+  describe "The current system is still within its End of Life of #{supported_until}" do
+    subject { Date.today <= Date.parse(supported_until) }
+    it { should be true }
   end
 end
 

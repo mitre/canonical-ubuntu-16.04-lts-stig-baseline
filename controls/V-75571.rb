@@ -1,3 +1,6 @@
+exempt_home_users = attribute('exempt_home_users')
+non_interactive_shells = attribute('non_interactive_shells')
+
 control "V-75571" do
   title "All local interactive user initialization files executable search
 paths must contain only paths that resolve to the system default or the users
@@ -52,5 +55,47 @@ any PATH variable statements for executables that reference directories other
 than their home directory or the system default. If a local interactive user
 requires path variables to reference a directory owned by the application, it
 must be documented with the Information System Security Officer (ISSO)."
+
+  ignore_shells = non_interactive_shells.join('|')
+
+  findings = Set[]
+  users.where{ !shell.match(ignore_shells) && (uid >= 1000 || uid == 0)}.entries.each do |user_info|
+    next if exempt_home_users.include?("#{user_info.username}")
+    grep_results =  command("grep -i path --exclude=\".bash_history\" #{user_info.home}/.*").stdout.split("\\n")
+    grep_results.each do |result|
+      result.slice! "PATH="
+      # Case when last value in exec search path is :
+      if result[-1] == ":" then
+        result = result + " "
+      end
+      result.slice! "$PATH:"
+      result.slice! "$PATH\"\n"
+      result.gsub! '$HOME', "#{user_info.home}"
+      result.gsub! '~', "#{user_info.home}"
+      line_arr = result.split(":")
+      line_arr.delete_at(0)
+      line_arr.each do |line|
+        line.slice! "\""
+        # Don't run test on line that exports PATH and is not commented out
+        if !line.start_with?('export') && !line.start_with?('#') then
+          # Case when :: found in exec search path or : found at beginning
+          if line.strip.empty? then
+            curr_work_dir = command("pwd").stdout.gsub("\n", "")
+            if curr_work_dir.start_with?("#{user_info.home}") then
+              line = curr_work_dir
+            end
+          end          
+          # This will fail if non-home directory found in path
+          if !line.start_with?(user_info.home)
+            findings.add(line)
+          end
+        end
+      end
+    end
+  end
+  describe "Initialization files that include executable search paths that include directories outside their home directories" do
+    subject { findings.to_a } 
+    it { should be_empty }
+  end
 end
 
