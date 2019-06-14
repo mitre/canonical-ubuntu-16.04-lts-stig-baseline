@@ -20,7 +20,7 @@ cache: bundler
 addons:
   apt:
     sources:
-      - chef-stable-xenial
+      - chef-current-xenial
     packages:
       - chefdk
   #artifacts: true
@@ -32,20 +32,23 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=default-ubuntu-1604
+    - INSTANCE=default-ubuntu-1604
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
+  - gem update inspec-bin
+  - gem update inspec
   - gem install inspec_tools
   - bundle update --bundler
   - bundle install
   - chef --version
   - cookstyle --version
   - foodcritic --version
+  - inspec --version
 
-script: 
-  - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE} || true
+script:
+  - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.ansible.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE} || true
   - export RESULTS=$(ls results/*.json)
   - inspec_tools compliance -j $RESULTS -f threshold.yml
