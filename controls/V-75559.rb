@@ -1,3 +1,6 @@
+exempt_home_users = attribute('exempt_home_users')
+non_interactive_shells = attribute('non_interactive_shells')
+
 control "V-75559" do
   title "All local interactive users must have a home directory assigned in the
 /etc/passwd file."
@@ -44,5 +47,14 @@ If any interactive users do not have a home directory assigned, this is a
 finding."
   desc "fix", "Assign home directories to all local interactive users on the
 Ubuntu operating system that currently do not have a home directory assigned."
+
+  ignore_shells = non_interactive_shells.join('|')
+
+  users.where{ !shell.match(ignore_shells) && (uid >= 1000 || uid == 0)}.entries.each do |user_info|
+    next if exempt_home_users.include?("#{user_info.username}")
+    describe directory(user_info.home) do
+      it { should exist }
+    end
+  end
 end
 

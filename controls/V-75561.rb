@@ -37,5 +37,9 @@ to all new local interactive users by setting the \"CREATE_HOME\" parameter in
 \"/etc/login.defs\" to \"yes\" as follows.
 
 CREATE_HOME yes"
+
+describe login_defs do
+  its('CREATE_HOME') { should match %r{yes} }
+end
 end
 

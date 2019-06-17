@@ -1,3 +1,6 @@
+exempt_home_users = attribute('exempt_home_users')
+non_interactive_shells = attribute('non_interactive_shells')
+
 control "V-75555" do
   title "All files and directories must have a valid owner."
   desc  "Unowned files and directories may be unintentionally inherited if a
@@ -34,5 +37,18 @@ not have a valid user, or assign a valid user to all unowned files and
 directories on the Ubuntu operating system with the \"chown\" command:
 
 # sudo chown <user> <file>"
+
+  ignore_shells = non_interactive_shells.join('|')
+
+  findings = Set[]
+  users.where{ !shell.match(ignore_shells) }.entries.each do |user_info|
+    next if exempt_home_users.include?("#{user_info.username}")
+    findings = findings + command("find / -nouser").stdout.split("\n")
+  end
+
+  describe "Files and Directories on the Ubuntu operating system have a valid owner" do
+    subject { findings.to_a }
+    it { should be_empty }
+  end
 end
 

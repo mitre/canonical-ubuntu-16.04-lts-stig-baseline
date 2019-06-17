@@ -1,3 +1,6 @@
+exempt_home_users = attribute('exempt_home_users')
+non_interactive_shells = attribute('non_interactive_shells')
+
 control "V-75565" do
   title "All local interactive user home directories must have mode 0750 or
 less permissive."
@@ -44,5 +47,17 @@ the following command:
 Note: The example will be for the user \"smithj\".
 
 # chmod 0750 /home/smithj"
+
+  ignore_shells = non_interactive_shells.join('|')
+
+  findings = Set[]
+  users.where{ !shell.match(ignore_shells) && (uid >= 1000 || uid == 0)}.entries.each do |user_info|
+    next if exempt_home_users.include?("#{user_info.username}")
+    findings = findings + command("find #{user_info.home} -maxdepth 0 -perm /027").stdout.split("\n")
+  end
+  describe "Home directories with excessive permissions" do
+    subject { findings.to_a }
+    it { should be_empty }
+  end
 end
 

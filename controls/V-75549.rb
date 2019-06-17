@@ -38,5 +38,10 @@ root, that has a UID of \"0\".
 If the account is associated with system commands or applications, the UID
 should be changed to one greater than \"0\" but less than \"1000\". Otherwise,
 assign a UID of greater than \"1000\" that has not already been assigned."
+
+  describe passwd.uids(0) do
+    its('users') { should cmp 'root' }
+    its('count') { should eq 1 }
+  end
 end
 

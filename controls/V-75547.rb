@@ -1,3 +1,6 @@
+exempt_home_users = attribute('exempt_home_users')
+non_interactive_shells = attribute('non_interactive_shells')
+
 control "V-75547" do
   title "Duplicate User IDs (UIDs) must not exist for interactive users."
   desc  "To assure accountability and prevent unauthenticated access,
@@ -52,5 +55,19 @@ If output is produced, and the accounts listed are interactive user accounts,
 this is a finding."
   desc "fix", "Edit the file \"/etc/passwd\" and provide each interactive user
 account that has a duplicate User ID (UID) with a unique UID."
+
+  ignore_shells = non_interactive_shells.join('|')
+  user_list = command("awk -F \":\" 'list[$3]++{print $1}' /etc/passwd").stdout.split("\n")
+  findings = Set[]
+  
+  user_list.each do |user_name|
+    user_shell = user(user_name).shell || ""
+    next if (exempt_home_users.include?(user_name) && (!ignore_shells.include?(user_shell)))
+    findings = findings << user_name
+  end
+  describe "Duplicate User IDs (UIDs) must not exist for interactive users" do
+    subject { findings.to_a }
+    it { should be_empty }
+  end
 end
 
