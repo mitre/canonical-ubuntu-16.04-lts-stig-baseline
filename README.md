@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.com/mitre/stig-canonical-ubuntu-16.04-lts-baseline.svg?branch=development)](https://travis-ci.com/mitre/stig-canonical-ubuntu-16.04-lts-baseline)
+
+[Travis CI Build History](https://travis-ci.com/mitre/stig-canonical-ubuntu-16.04-lts-baseline/builds)
+
 # stig_canonical_ubuntu_16.04_lts_baseline
 
 An InSpec profile of the DISA Canonical Ubuntu 16.04 LTS STIG baseline
