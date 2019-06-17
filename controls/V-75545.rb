@@ -1,6 +1,6 @@
-known_system_accounts = attribute('known_system_accounts')
-disallowed_accounts = attribute('disallowed_accounts')
-user_accounts = attribute('user_accounts')
+known_system_accounts = input('known_system_accounts')
+disallowed_accounts = input('disallowed_accounts')
+user_accounts = input('user_accounts')
 
 control "V-75545" do
   title "The Ubuntu operating system must not have unnecessary accounts."

@@ -62,7 +62,7 @@ Add the following line to the top of the /etc/security/limits.conf:
 
   # Using limits_conf resource - same as in stig-disa-rhel6-baseline
   describe limits_conf do
-    its('*') { should include ['hard', 'maxlogins', attribute('maxlogins').to_s] }
+    its('*') { should include ['hard', 'maxlogins', input('maxlogins').to_s] }
   end
 end
 

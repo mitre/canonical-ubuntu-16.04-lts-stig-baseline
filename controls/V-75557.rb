@@ -1,5 +1,5 @@
-exempt_home_users = attribute('exempt_home_users')
-non_interactive_shells = attribute('non_interactive_shells')
+exempt_home_users = input('exempt_home_users')
+non_interactive_shells = input('non_interactive_shells')
 
 control "V-75557" do
   title "All files and directories must have a valid group owner."

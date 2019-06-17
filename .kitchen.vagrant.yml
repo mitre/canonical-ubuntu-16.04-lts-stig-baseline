@@ -13,7 +13,7 @@ verifier:
   inspec_tests:
     - path: ./
   attrs:
-    - attributes.yml
+    - inspec.yml
 
 platforms:
 - name: ubuntu-16.04

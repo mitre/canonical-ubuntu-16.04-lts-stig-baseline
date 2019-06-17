@@ -1,6 +1,6 @@
-platform_name = attribute('platform_name')
-platform_release = attribute('platform_release')
-supported_until = attribute('supported_until')
+platform_name = input('platform_name')
+platform_release = input('platform_release')
+supported_until = input('supported_until')
 
 control "V-75389" do
   title "The Ubuntu operating system must be a vendor supported release."

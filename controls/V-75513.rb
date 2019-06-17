@@ -48,7 +48,7 @@ bin, or an application group with the following command, replacing
 
 # sudo chgrp root [world-writable Directory]"
 
-  user_groups = attribute('user_groups')
+  user_groups = input('user_groups')
 
   command("sudo find / -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").each do |entry|
     describe directory(entry) do

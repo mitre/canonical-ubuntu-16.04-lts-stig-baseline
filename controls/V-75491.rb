@@ -54,7 +54,7 @@ account to be created.
 
 # sudo chage -E `date -d \"+3 days\" +%Y-%m-%d` system_account_name"
 
-  temporary_accounts = attribute('temporary_accounts')
+  temporary_accounts = input('temporary_accounts')
 
   if temporary_accounts.empty?
     describe "Temporary accounts" do

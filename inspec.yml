@@ -6,3 +6,90 @@ copyright_email: you@example.com
 license: Apache-2.0
 summary: "This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil."
 version: 0.1.0
+
+# OS details and support end date
+platform_name: 'ubuntu'
+platform_release: 16.04
+supported_until: '2021-04-30'
+
+# System accounts that support approved system activities.
+known_system_accounts: [
+  'root',
+  'bin',
+  'daemon',
+  'adm',
+  'lp',
+  'sync',
+  'shutdown',
+  'halt',
+  'mail',
+  'operator',
+  'nobody',
+  'systemd-bus-proxy',
+  'systemd-network',
+  'dbus',
+  'polkitd',
+  'tss',
+  'postfix',
+  'chrony',
+  'sshd',
+  'sssd',
+  'rpc',
+  'ntp',
+  'vboxadd',
+  'nfsnobody',
+  'vagrant',
+  'rpcuser',
+  'sys',
+  'man',
+  'news',
+  'uucp',
+  'proxy',
+  'www-data',
+  'backup',
+  'list',
+  'irc',
+  'gnats',
+  'systemd-timesync',
+  'systemd-resolve',
+  'syslog',
+  '_apt',
+  'lxd',
+  'messagebus',
+  'uuidd',
+  'dnsmasq',
+  'statd',
+]
+
+# Accounts that are not allowed on the system
+disallowed_accounts: [
+  'games',
+  'gopher',
+  'ftp',
+]
+
+# Accounts of known managed users
+user_accounts: []
+
+# These are `home dir` exempt interactive accounts
+exempt_home_users: []
+
+# These shells do not allow a user to login
+non_interactive_shells: [
+  '/sbin/nologin',
+  '/sbin/halt',
+  '/sbin/shutdown',
+  '/bin/false',
+  '/bin/sync',
+  '/bin/true'
+]
+
+# This attribute disables controls that consistently take a long time to complete
+disable_slow_controls: false
+
+# Known System Mount Points
+known_system_mount_points: [
+  '/',
+  '/boot',
+  'none'
+]
