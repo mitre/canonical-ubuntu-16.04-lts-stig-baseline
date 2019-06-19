@@ -46,5 +46,19 @@ Run the following command, replacing \"[FILE]\" with any library file not
 group-owned by root.
 
 # sudo chgrp root [FILE]"
+
+  library_files = command('find /lib /usr/lib /lib64 ! \-group root').stdout.strip.split("\n").entries
+
+  if library_files.count > 0
+    library_files.each do |lib_file|
+      describe file(lib_file) do
+        its('group') { should cmp 'root' }
+      end
+    end
+  else
+    describe "No Files Found" do
+      skip "No system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT group-owned by root"
+    end
+  end
 end
 

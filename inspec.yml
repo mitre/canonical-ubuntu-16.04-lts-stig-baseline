@@ -12,6 +12,10 @@ platform_name: 'ubuntu'
 platform_release: 16.04
 supported_until: '2021-04-30'
 
+#V-75513, V-75583
+#Known Application Groups
+application_groups: []
+
 # System accounts that support approved system activities.
 known_system_accounts: [
   'root',
@@ -92,4 +96,30 @@ known_system_mount_points: [
   '/',
   '/boot',
   'none'
+]
+
+#V-75585
+#check with SA if kdump service is required and documented with ISSO
+is_kdump_required: true
+
+#V-75591
+#System Audit Log Data Path
+audit_log_path: '/var/log/audit'
+
+#V-75625
+#Security Personnel account
+security_accounts: [
+  'root'
+]
+
+#V-75653
+#Audit tools
+audit_tools: [
+  '/sbin/auditctl',
+  '/sbin/aureport',
+  '/sbin/ausearch',
+  '/sbin/autrace',
+  '/sbin/auditd',
+  '/sbin/audispd',
+  '/sbin/augenrules'
 ]

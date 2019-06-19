@@ -51,5 +51,19 @@ access. Run the following command, replacing \"[file]\" with any library file
 with a mode more permissive than 0755.
 
 # sudo chmod 0755 [file]"
+
+  library_files = command('find /lib /lib64 /usr/lib -perm /022 -type f').stdout.strip.split("\n").entries
+
+  if library_files.count > 0
+    library_files.each do |lib_file|
+      describe file(lib_file) do
+        its('group') { should cmp 'root' }
+      end
+    end
+  else
+    describe "No Files Found" do
+      skip "No system-wide shared library files found in /lib, /lib64, or /usr/lib, that are less permissive than 0755"
+    end
+  end
 end
 

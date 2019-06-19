@@ -42,5 +42,12 @@ file to have a mode of 0640 with the following command:
 
 # sudo chmod 0640 /etc/audit/audit.rule
 # sudo chmod 0640 /etc/audit/audit.conf"
+
+  describe file('/etc/audit/audit.rules') do
+    it { should_not be_more_permissive_than('0640') }
+  end
+  describe file('/etc/audit/auditd.conf') do
+    it { should_not be_more_permissive_than('0640') }
+  end
 end
 

@@ -47,5 +47,28 @@ Run the following command, replacing \"[FILE]\" with any system command file
 not owned by \"root\".
 
 # sudo chown root [FILE]"
+
+  system_commands = command('find /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -user root').stdout.strip.split("\n").entries
+  valid_system_commands = Set[]
+
+  if system_commands.count > 0
+    system_commands.each do |sys_cmd|
+      if file(sys_cmd).exist?
+        valid_system_commands = valid_system_commands << sys_cmd
+      end
+    end
+  end
+
+  if valid_system_commands.count > 0
+    valid_system_commands.each do |val_sys_cmd|
+      describe file(val_sys_cmd) do
+        its('owner') { should cmp 'root' }
+      end
+    end
+  else
+    describe "No Files Found" do
+      skip "No system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are NOT owned by root"
+    end
+  end
 end
 

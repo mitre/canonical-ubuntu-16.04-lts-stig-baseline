@@ -40,5 +40,18 @@ If a file system found in \"/etc/fstab\" refers to NFS and it does not have the
 \"nosuid\" option set, this is a finding."
   desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that are being imported via Network File System (NFS)."
+
+  device_rules = etc_fstab.where{ file_system_type == 'nfs' }.entries
+  if device_rules.count > 0
+    device_rules.each do |device_rule|
+      describe device_rule do
+        its ('mount_options') { should include 'nosuid' }
+      end
+    end
+  else
+    describe "No NFS mounts found" do
+      skip "No NFS mounts found on the system"
+    end
+  end
 end
 

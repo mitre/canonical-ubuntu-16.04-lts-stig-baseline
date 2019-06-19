@@ -45,5 +45,20 @@ application group associated with the directory, this is a finding."
 the following command:
 
 # chgrp root <directory>"
+
+  application_groups = input('application_groups')
+
+  directories = command("sudo find / -perm -2 -type d ! -group sys ! -group root ! -group bin -exec ls -lLd {} \\;").stdout.strip.split("\n").entries
+  if directories.count > 0
+    directories.each do |entry|
+      describe directory(entry) do
+        its('group') { should be_in ['root','sys', 'bin'] + application_groups}
+      end
+    end
+  else
+    describe "No world-writable directories found" do
+      skip "No world-writable directories found on the system"
+    end
+  end
 end
 

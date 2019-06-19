@@ -45,5 +45,10 @@ Add, edit or uncomment the \"disk_full_action\" option in
 \"halt\" like the below example:
 
 disk_full_action = single"
+
+  describe auditd_conf('/etc/audisp/audisp-remote.conf') do
+    its('disk_full_action') { should_not be_empty }
+    its('disk_full_action') { should cmp %r((?:SYSLOG|SINGLE|HALT))i }
+  end
 end
 

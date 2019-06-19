@@ -43,5 +43,10 @@ Uncomment the \"enable_krb5\" option in \"/etc/audisp/audisp-remote.conf\" and
 set it to \"yes\". See the example below.
 
 enable_krb5 = yes"
+
+  describe auditd_conf('/etc/audisp/audisp-remote.conf') do
+    its('enable_krb5') { should_not be_empty }
+    its('enable_krb5') { should cmp 'yes' }
+  end
 end
 

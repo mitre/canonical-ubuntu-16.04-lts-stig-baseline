@@ -48,5 +48,28 @@ Run the following command, replacing \"[FILE]\" with any system command with a
 mode more permissive than \"0755\".
 
 # sudo chmod 0755 [FILE]"
+
+  system_commands = command('find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -perm /022').stdout.strip.split("\n").entries
+  valid_system_commands = Set[]
+
+  if system_commands.count > 0
+    system_commands.each do |sys_cmd|
+      if file(sys_cmd).exist?
+        valid_system_commands = valid_system_commands << sys_cmd
+      end
+    end
+  end
+
+  if valid_system_commands.count > 0
+    valid_system_commands.each do |val_sys_cmd|
+      describe file(val_sys_cmd) do
+        it { should_not be_more_permissive_than('0755') }
+      end
+    end
+  else
+    describe "No Files Found" do
+      skip "No system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are less permissive than 0755"
+    end
+  end
 end
 

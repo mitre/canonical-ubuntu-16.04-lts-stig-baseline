@@ -46,5 +46,19 @@ Run the following command, replacing \"[FILE]\" with any library file not owned
 by \"root\".
 
 # sudo chown root [FILE]"
+
+  library_files = command('find /lib /usr/lib /lib64 ! \-user root').stdout.strip.split("\n").entries
+
+  if library_files.count > 0
+    library_files.each do |lib_file|
+      describe file(lib_file) do
+        its('owner') { should cmp 'root' }
+      end
+    end
+  else
+    describe "No Files Found" do
+      skip "No system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT owned by root"
+    end
+  end
 end
 

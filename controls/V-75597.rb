@@ -44,5 +44,9 @@ If a value of \"0770\" or less permissive is not returned, this is a finding."
 by running the following command:
 
 # sudo chmod 0770 /var/log"
+
+  describe directory('/var/log') do
+    it { should_not be_more_permissive_than('0770') }
+  end
 end
 

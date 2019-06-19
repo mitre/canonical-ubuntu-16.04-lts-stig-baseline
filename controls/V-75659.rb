@@ -50,5 +50,9 @@ In order for the changes to take effect, the audit daemon must be restarted.
 The audit daemon can be restarted with the following command:
 
 # sudo systemctl restart auditd.service"
+
+  describe parse_config_file('/etc/audisp/plugins.d/au-remote.conf') do
+    its('active') { should cmp 'yes' }
+  end
 end
 

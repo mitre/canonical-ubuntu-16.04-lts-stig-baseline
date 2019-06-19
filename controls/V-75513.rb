@@ -48,12 +48,18 @@ bin, or an application group with the following command, replacing
 
 # sudo chgrp root [world-writable Directory]"
 
-  user_groups = input('user_groups')
+  application_groups = input('application_groups')
 
-  command("sudo find / -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").each do |entry|
-    describe directory(entry) do
-      its('group') { should be_in ['root','sys', 'bin'] }
-      its('group') { should_not be_in user_groups }
+  directories = command("sudo find / -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").entries
+  if directories.count > 0
+    directories.each do |entry|
+      describe directory(entry) do
+        its('group') { should be_in ['root','sys', 'bin'] + application_groups}
+      end
+    end
+  else
+    describe "No world-writable directories found" do
+      skip "No world-writable directories found on the system"
     end
   end
 end

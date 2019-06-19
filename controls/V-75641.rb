@@ -51,5 +51,11 @@ command:
 
 Replace \"[audit_log_file]\" to the correct audit log path, by default this
 location is \"/var/log/audit/audit.log\"."
+
+  log_file_path = auditd_conf.log_file
+
+  describe file(log_file_path) do
+    its('group') { should cmp 'root' }
+  end
 end
 

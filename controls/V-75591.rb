@@ -39,5 +39,11 @@ system/partition on the system, then grep for that file system/partition.
 If a separate file system/partition does not exist for the system audit data
 path, this is a finding."
   desc "fix", "Migrate the system audit data path onto a separate file system."
+
+  audit_log_path = input('audit_log_path')
+
+  describe mount(audit_log_path) do
+    it {should be_mounted}
+  end
 end
 
