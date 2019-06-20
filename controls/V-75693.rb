@@ -58,5 +58,24 @@ The audit daemon must be restarted for the changes to take effect. To restart
 the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
+
+  @audit_file = '/usr/bin/chfn'
+
+  describe auditd.file(@audit_file) do
+    its('permissions') { should_not cmp [] }
+    its('action') { should_not include 'never' }
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
+  end
+
+  # Resource creates data structure including all usages of file
+  @perms = auditd.file(@audit_file).permissions
+
+  @perms.each do |perm|
+    describe perm do
+      it { should include 'x' }
+    end
+  end
+  only_if { file(@audit_file).exist? }
 end
 

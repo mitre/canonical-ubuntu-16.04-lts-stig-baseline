@@ -61,5 +61,28 @@ The audit daemon must be restarted for the changes to take effect. To restart
 the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
+
+  file_name = '/etc/shadow'
+
+  @audit_file = inspec.command('find /etc -type f -name "#{file_name}"').stdout.strip
+
+  describe auditd.file(@audit_file) do
+    its('permissions') { should_not cmp [] }
+    its('action') { should_not include 'never' }
+  end if file(@audit_file).exist?
+
+  # Resource creates data structure including all usages of file
+  @perms = auditd.file(@audit_file).permissions
+
+  @perms.each do |perm|
+    describe perm do
+      it { should include 'w' }
+      it { should include 'a' }
+    end
+  end if file(@audit_file).exist?
+
+  describe "The #{file_name} file does not exist" do
+    skip "The #{file_name} file does not exist, this requirement is Not Applicable."
+  end if !file(@audit_file).exist?
 end
 

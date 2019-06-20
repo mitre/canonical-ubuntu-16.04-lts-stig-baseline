@@ -50,5 +50,9 @@ If the package is installed, this is a finding."
 running the following command:
 
 # sudo apt-get remove telnetd"
+
+  describe package('telnet') do
+    it { should_not be_installed }
+  end
 end
 

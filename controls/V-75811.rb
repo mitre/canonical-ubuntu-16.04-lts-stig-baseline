@@ -57,5 +57,19 @@ Set the sticky bit on all world writable directories using the command, replace
 \"[World-Writable Directory]\" with any directory path missing the sticky bit:
 
 # sudo chmod 1777 [World-Writable Directory]"
+
+  lines = command('find / -type d  \( -perm -0002 -a ! -perm -1000 \) -print 2>/dev/null').stdout.lines
+  if (lines.count > 0)
+    lines.each do |line|
+      dir = line.strip
+      describe directory(dir) do
+        it { should be_sticky }
+      end
+    end
+  else
+    describe "Sticky bit has been set on all world writable directories" do
+      skip ('Skipping tests as a sticky bit has been set on all world writable directories')
+    end
+  end
 end
 

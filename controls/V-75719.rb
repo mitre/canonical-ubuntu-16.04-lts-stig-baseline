@@ -82,5 +82,10 @@ The audit daemon must be restarted for the changes to take effect. To restart
 the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
+
+  describe auditd.syscall("lsetxattr").where {arch == "b64"} do
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
+  end
 end
 

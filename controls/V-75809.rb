@@ -55,5 +55,16 @@ with the organization, this is a finding."
   desc "fix", "Add/Modify the Ubuntu operating system's firewall settings and/or
 running services to comply with the Ports, Protocols, and Services Management
 (PPSM) Category Assignments List (CAL)."
+
+  ufw_status = command('ufw status').stdout.strip.lines.first
+  key, value = ufw_status.split ": ",2
+
+  describe "UFW status" do
+    subject { value }
+    it { should cmp 'active' }
+  end
+  describe "Status listings for any allowed services, ports, or applications must be documented with the organization" do
+    skip "Status listings checks must be preformed manually"
+  end
 end
 

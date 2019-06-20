@@ -123,3 +123,7 @@ audit_tools: [
   '/sbin/audispd',
   '/sbin/augenrules'
 ]
+
+#V-75813
+#Flag to set if the system is networked for NTP check
+is_system_networked: true

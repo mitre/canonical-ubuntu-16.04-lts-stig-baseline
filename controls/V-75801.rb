@@ -49,5 +49,9 @@ capabilities by removing the rsh-server package from the system with the
 following command:
 
 # sudo apt-get remove rsh-server"
+
+  describe package('rsh-server') do
+    it { should_not be_installed }
+  end
 end
 

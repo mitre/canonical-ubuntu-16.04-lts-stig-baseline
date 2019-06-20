@@ -50,5 +50,15 @@ If the option \"-q\" is present, this is a finding."
   desc "fix", "The Network Time Protocol (NTP) will run in continuous mode by
 default. If the query only option (-q) has been added to the ntpdate command in
 /etc/init.d/ntpd it must be removed."
+
+  ntpd_exists = file('/etc/init.d/ntpd').exist?
+
+  describe "The file /etc/init.d/ntpd should exist" do
+    subject { ntpd_exists }
+    it { should be true }
+  end if !ntpd_exists
+  describe command('grep ntpdate /etc/init.d/ntpd').stdout.strip do
+    it { should_not match %r(.+(-q).+) }
+  end if ntpd_exists
 end
 

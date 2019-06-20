@@ -55,5 +55,16 @@ the following commands:
 
 Note: UFW’s defaults are to deny all incoming connections and allow all
 outgoing connections."
+
+  ufw_status = command('ufw status').stdout.strip.lines.first
+  key, value = ufw_status.split ": ",2
+
+  describe "UFW status" do
+    subject { value }
+    it { should cmp 'active' }
+  end
+  describe "Status listings for any allowed services, ports, or applications must be documented with the organization" do
+    skip "Status listings checks must be preformed manually"
+  end
 end
 

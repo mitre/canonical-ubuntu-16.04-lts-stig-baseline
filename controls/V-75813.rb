@@ -73,5 +73,19 @@ was updated then the service must be restarted using the following command:
 # sudo systemctl restart ntp.service
 
 If the \"NTP\" service was not running then it must be started."
+
+  is_system_networked = input('is_system_networked')
+  if is_system_networked
+    describe ntp_conf do
+      it { should exist }
+      its('maxpoll') { should cmp 17 }
+      its('server') { should_not be empty }
+      its('server') { should_not eq nil }
+    end
+  else
+    describe "System is not networked" do
+      skip "NTP checks skipped as the system is not networked"
+    end
+  end
 end
 
