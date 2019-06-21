@@ -52,5 +52,11 @@ Set the system to the required kernel parameter by adding the following line to
 \"/etc/sysctl.conf\" (or modify the line to have the required value):
 
 kernel.randomize_va_space=2"
+
+  aslr_config = command('sysctl kernel.randomize_va_space').stdout
+
+  describe parse_config(aslr_config).params['kernel.randomize_va_space'] do
+    it { should cmp 2 }
+  end
 end
 

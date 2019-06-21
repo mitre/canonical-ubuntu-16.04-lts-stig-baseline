@@ -61,5 +61,15 @@ The SSH daemon must be restarted for the changes to take effect. To restart the
 SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service"
+
+  @macs_array = inspec.sshd_config.params['macs']
+
+  unless @macs_array.nil?
+    @macs_array = @macs_array.first.split(",")
+  end
+
+  describe @macs_array do
+    it { should be_in ['hmac-sha2-256','hmac-sha2-512'] }
+  end
 end
 

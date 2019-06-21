@@ -60,5 +60,15 @@ The SSH daemon must be restarted for the changes to take effect. To restart the
 SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service"
+
+  @ciphers_array = inspec.sshd_config.params['ciphers']
+
+  unless @ciphers_array.nil?
+    @ciphers_array = @ciphers_array.first.split(",")
+  end
+
+  describe @ciphers_array do
+    it { should be_in ['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] }
+  end
 end
 

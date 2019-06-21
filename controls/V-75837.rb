@@ -73,5 +73,10 @@ ClientAliveCountMax  1
 In order for the changes to take effect, the SSH daemon must be restarted.
 
 # sudo systemctl restart sshd.service"
+
+  describe sshd_config do
+    its('ClientAliveInterval') { should be <= 600 }
+    its('ClientAliveCountMax') { should be >= 1 }
+  end
 end
 

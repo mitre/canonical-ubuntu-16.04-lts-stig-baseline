@@ -44,5 +44,14 @@ flags       : fpu vme de pse tsc ms nx rdtscp lm constant_tsc
 
 If \"flags\" does not contain the \"nx\" flag, this is a finding."
   desc "fix", "The NX bit execute protection must be enabled in the system BIOS."
+
+  describe.one do
+    describe command('dmesg | grep NX').stdout.strip do
+      it { should match %r(.+(NX \(Execute Disable\) protection: active)) }
+    end
+    describe command('less /proc/cpuinfo | grep -i flags').stdout.strip do
+      it { should match %r( nx ) }
+    end
+  end
 end
 

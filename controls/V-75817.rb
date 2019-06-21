@@ -40,5 +40,11 @@ Time (UTC) or Greenwich Mean Time (GMT), run the following command replacing
 [ZONE] with UTC or GMT.
 
 # sudo timedatectl set-timezone [ZONE]"
+
+  time_zone = command('timedatectl status | grep -i "time zone"').stdout.strip
+
+  describe time_zone do
+    it { should match 'UTC' }
+  end
 end
 
