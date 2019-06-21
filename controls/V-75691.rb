@@ -69,6 +69,10 @@ the audit daemon, run the following command:
 
   @audit_file = '/bin/su'
 
+  only_if('Audit line(s) for '+ @audit_file + ' do not exist') do
+    !auditd.lines.index{|line| line.include?(@audit_file)}.nil?
+  end
+  
   describe auditd.file(@audit_file) do
     its('permissions') { should_not cmp [] }
     its('action') { should_not include 'never' }
@@ -84,6 +88,5 @@ the audit daemon, run the following command:
       it { should include 'x' }
     end
   end
-  only_if { file(@audit_file).exist? }
 end
 
