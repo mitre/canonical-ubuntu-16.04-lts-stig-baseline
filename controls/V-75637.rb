@@ -54,5 +54,16 @@ following command:
 
 Replace \"[audit_log_directory]\" to the correct audit log directory path, by
 default this location is \"/var/log/audit\"."
+
+  log_file = auditd_conf.log_file
+  log_dir = File.dirname(log_file)
+
+  only_if('Audit log file:'+ log_file + ' and/or audit directory:' + log_dir + ' do not exist') do
+    !log_file.nil? && !log_dir.nil?
+  end
+
+  describe directory(log_dir) do
+    it { should_not be_more_permissive_than('0750') }
+  end
 end
 
