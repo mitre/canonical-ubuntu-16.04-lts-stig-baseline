@@ -44,5 +44,14 @@ The SSH daemon must be restarted for the changes to take effect. To restart the
 SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service"
+
+  describe.one do
+    describe sshd_config do
+      its('Compression') { should cmp 'delayed' }
+    end
+    describe sshd_config do
+      its('Compression') { should cmp 'no' }
+    end
+  end
 end
 
