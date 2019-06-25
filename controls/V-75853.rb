@@ -40,5 +40,9 @@ The SSH daemon must be restarted for the changes to take effect. To restart the
 SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service"
+
+  describe sshd_config do
+    its('x11forwarding') { should cmp 'yes' }
+  end
 end
 

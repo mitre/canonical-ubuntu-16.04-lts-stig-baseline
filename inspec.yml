@@ -7,137 +7,183 @@ license: Apache-2.0
 summary: "This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil."
 version: 0.1.0
 
-# OS details and support end date
-platform_name: 'ubuntu'
-platform_release: 16.04
-supported_until: '2021-04-30'
+inputs:
+  - name: platform_name
+    description: Name of the OS/Platform
+    type: String
+    value: 'ubuntu'
+
+  - name: platform_release
+    description: Release number of the OS/Platform
+    type: Numeric
+    value: 16.04
+
+  - name: supported_until
+    description: Support end date for OS/Platform security updates
+    type: String
+    value: '2021-04-30'
+
+#V-75491
+  - name: temporary_accounts
+    description: Temporary user accounts
+    type: Array
+    value: []
 
 #V-75513, V-75583
-#Known Application Groups
-application_groups: []
+  - name: application_groups
+    description: Known Application Groups
+    type: Array
+    value: []
 
-# System accounts that support approved system activities.
-known_system_accounts: [
-  'root',
-  'bin',
-  'daemon',
-  'adm',
-  'lp',
-  'sync',
-  'shutdown',
-  'halt',
-  'mail',
-  'operator',
-  'nobody',
-  'systemd-bus-proxy',
-  'systemd-network',
-  'dbus',
-  'polkitd',
-  'tss',
-  'postfix',
-  'chrony',
-  'sshd',
-  'sssd',
-  'rpc',
-  'ntp',
-  'vboxadd',
-  'nfsnobody',
-  'vagrant',
-  'rpcuser',
-  'sys',
-  'man',
-  'news',
-  'uucp',
-  'proxy',
-  'www-data',
-  'backup',
-  'list',
-  'irc',
-  'gnats',
-  'systemd-timesync',
-  'systemd-resolve',
-  'syslog',
-  '_apt',
-  'lxd',
-  'messagebus',
-  'uuidd',
-  'dnsmasq',
-  'statd',
-]
+  - name: known_system_accounts
+    description: System accounts that support approved system activities
+    type: Array
+    value: [
+      'root',
+      'bin',
+      'daemon',
+      'adm',
+      'lp',
+      'sync',
+      'shutdown',
+      'halt',
+      'mail',
+      'operator',
+      'nobody',
+      'systemd-bus-proxy',
+      'systemd-network',
+      'dbus',
+      'polkitd',
+      'tss',
+      'postfix',
+      'chrony',
+      'sshd',
+      'sssd',
+      'rpc',
+      'ntp',
+      'vboxadd',
+      'nfsnobody',
+      'vagrant',
+      'rpcuser',
+      'sys',
+      'man',
+      'news',
+      'uucp',
+      'proxy',
+      'www-data',
+      'backup',
+      'list',
+      'irc',
+      'gnats',
+      'systemd-timesync',
+      'systemd-resolve',
+      'syslog',
+      '_apt',
+      'lxd',
+      'messagebus',
+      'uuidd',
+      'dnsmasq',
+      'statd',
+    ]
 
-# Accounts that are not allowed on the system
-disallowed_accounts: [
-  'games',
-  'gopher',
-  'ftp',
-]
+  - name: disallowed_accounts
+    description: Accounts that are not allowed on the system
+    type: Array
+    value: [
+      'games',
+      'gopher',
+      'ftp',
+    ]
 
-# Accounts of known managed users
-user_accounts: []
+  - name: user_accounts
+    description: Accounts of known managed users
+    type: Array
+    value: []
 
-# These are `home dir` exempt interactive accounts
-exempt_home_users: []
+  - name: exempt_home_users
+    description: These are `home dir` exempt interactive accounts
+    type: Array
+    value: []
 
-# These shells do not allow a user to login
-non_interactive_shells: [
-  '/sbin/nologin',
-  '/sbin/halt',
-  '/sbin/shutdown',
-  '/bin/false',
-  '/bin/sync',
-  '/bin/true'
-]
+  - name: non_interactive_shells
+    description: These shells do not allow a user to login
+    type: Array
+    value: [
+      '/sbin/nologin',
+      '/sbin/halt',
+      '/sbin/shutdown',
+      '/bin/false',
+      '/bin/sync',
+      '/bin/true'
+    ]
 
-# This attribute disables controls that consistently take a long time to complete
-disable_slow_controls: false
+  - name: disable_slow_controls
+    description: This attribute disables controls that consistently take a long time to complete
+    type: Boolean
+    value: false
 
-# Known System Mount Points
-known_system_mount_points: [
-  '/',
-  '/boot',
-  'none'
-]
+  - name: known_system_mount_points
+    description: Known System Mount Points
+    type: Array
+    value: [
+      '/',
+      '/boot',
+      'none'
+    ]
 
 #V-75585
-#check with SA if kdump service is required and documented with ISSO
-is_kdump_required: true
+  - name: is_kdump_required
+    description: Is kdump service required? (check with SA and documented with ISSO)
+    type: Boolean
+    value: true
 
 #V-75591
-#System Audit Log Data Path
-audit_log_path: '/var/log/audit'
+  - name: audit_log_path
+    description: System Audit Log Data Path
+    type: String
+    value: '/var/log/audit'
 
 #V-75625
-#Security Personnel account
-security_accounts: [
-  'root'
-]
+  - name: security_accounts
+    description: Security Personnel accounts
+    type: Array
+    value: [
+      'root'
+    ]
 
 #V-75653
-#Audit tools
-audit_tools: [
-  '/sbin/auditctl',
-  '/sbin/aureport',
-  '/sbin/ausearch',
-  '/sbin/autrace',
-  '/sbin/auditd',
-  '/sbin/audispd',
-  '/sbin/augenrules'
-]
+  - name: audit_tools
+    description: Audit tools
+    type: Array
+    value: [
+      '/sbin/auditctl',
+      '/sbin/aureport',
+      '/sbin/ausearch',
+      '/sbin/autrace',
+      '/sbin/auditd',
+      '/sbin/audispd',
+      '/sbin/augenrules'
+    ]
 
 #V-75813
-#Flag to set if the system is networked for NTP check
-is_system_networked: true
+  - name: is_system_networked
+    description: Set to true if the system is networked for NTP check
+    type: Boolean
+    value: true
 
-banner_text: 'You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+  - name: banner_text
+    description: Standard Mandatory DoD Notice and Consent Banner
+    type: String
+    value: 'You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
 
-By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+    By using this IS (which includes any device attached to this IS), you consent to the following conditions:
 
--The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+    -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
 
--At any time, the USG may inspect and seize data stored on this IS.
+    -At any time, the USG may inspect and seize data stored on this IS.
 
--Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+    -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
 
--This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+    -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
 
--Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.'
+    -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.'

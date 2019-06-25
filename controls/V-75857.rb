@@ -76,5 +76,15 @@ Enable the \"ssh\" service to start automatically on reboot with the following
 command:
 
 # sudo systemctl enable sshd.service"
+
+  describe package('openssh-server') do
+    it { should be_installed }
+  end
+
+  describe service('sshd') do
+    it { should be_enabled }
+    it { should be_installed }
+    it { should be_running }
+  end
 end
 
