@@ -1,17 +1,20 @@
 driver:
-  name: dokken
+  name: docker
+  use_sudo: false
   privileged: true
 
 transport:
-  name: dokken
+  max_ssh_sessions: 5
 
 provisioner:
   name: ansible_playbook
   hosts: all
   require_ansible_repo: false
+  require_pip: true
   require_ansible_omnibus: true
   require_chef_for_busser: false
   require_ruby_for_busser: false
+  ansible_version: 2.7.7
   ansible_verbose: true
   roles_path: ../stig-canonical-ubuntu-16.04-lts-baseline/
   requirements_path: requirements.yml
@@ -27,7 +30,7 @@ verifier:
     - path: ./
 
 platforms:
-  name: ubuntu-16.04
+  - name: ubuntu-16.04
 
 suites:
-  name: default
+  - name: default
