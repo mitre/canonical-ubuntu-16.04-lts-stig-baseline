@@ -1,6 +1,3 @@
-exempt_home_users = input('exempt_home_users')
-non_interactive_shells = input('non_interactive_shells')
-
 control "V-75555" do
   title "All files and directories must have a valid owner."
   desc  "Unowned files and directories may be unintentionally inherited if a
@@ -38,6 +35,8 @@ directories on the Ubuntu operating system with the \"chown\" command:
 
 # sudo chown <user> <file>"
 
+  exempt_home_users = input('exempt_home_users')
+  non_interactive_shells = input('non_interactive_shells')
   ignore_shells = non_interactive_shells.join('|')
 
   findings = Set[]
