@@ -19,7 +19,7 @@ verifier:
   inspec_tests:
     - path: ./
   input_files:
-  - ./inspec.yml
+  - inspec.yml
 
 platforms:
 - name: ubuntu-16.04
