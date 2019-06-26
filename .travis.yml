@@ -39,6 +39,7 @@ before_script:
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
   - gem install inspec_tools
+  - gem update inspec-bin
   - bundle update --bundler
   - bundle install
   - chef --version
