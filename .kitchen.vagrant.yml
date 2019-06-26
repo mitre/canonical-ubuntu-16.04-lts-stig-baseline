@@ -12,6 +12,8 @@ verifier:
     - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}.json
   inspec_tests:
     - path: ./
+  input_files:
+    - ./inspec.yml
 
 platforms:
 - name: ubuntu-16.04
