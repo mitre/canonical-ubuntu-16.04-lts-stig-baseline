@@ -22,7 +22,7 @@ addons:
     sources:
       - chef-stable-xenial
     packages:
-      - chefdk
+      - chef-workstation
   #artifacts: true
 
 # Don't `bundle install` which takes about 1.5 mins
