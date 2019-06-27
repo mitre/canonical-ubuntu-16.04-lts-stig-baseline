@@ -40,7 +40,7 @@ before_script:
   - gem install bundler:2.0.1
   - gem install inspec_tools
   - inspec --version
-  - chef gem update inspec
+  - gem update inspec
   - chef gem update inspec-bin
   - inspec --version
   - bundle update --bundler
