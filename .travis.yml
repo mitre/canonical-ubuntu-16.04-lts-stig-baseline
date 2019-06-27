@@ -42,6 +42,8 @@ before_script:
   - inspec --version
   - CHEF_LICENSE=accept chef gem update inspec
   - CHEF_LICENSE=accept chef gem update inspec-bin
+  - /opt/chef-workstation/embedded/bin/gem update inspec
+  - /opt/chef-workstation/embedded/bin/gem update inspec-bin
   - inspec --version
   - bundle update --bundler
   - bundle install
