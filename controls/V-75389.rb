@@ -1,4 +1,3 @@
-platform_name = input('platform_name')
 control "V-75389" do
   title "The Ubuntu operating system must be a vendor supported release."
   desc  "An Ubuntu operating system release is considered \"supported\" if the
@@ -39,7 +38,7 @@ Current End of Life for Ubuntu 16.04 LTS is April 2021.
 If the release is not supported by the vendor, this is a finding."
   desc "fix", "Upgrade to a supported version of the Ubuntu operating system."
 
-  # platform_name = input('platform_name')
+  platform_name = input('platform_name')
   platform_release = input('platform_release')
   supported_until = input('supported_until')
     describe platform.name do
