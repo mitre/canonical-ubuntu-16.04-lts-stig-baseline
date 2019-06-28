@@ -66,8 +66,9 @@ not owned by \"root\".
       end
     end
   else
-    describe "No Files Found" do
-      skip "No system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are NOT owned by root"
+    describe "No system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are NOT owned by root" do
+      subject { valid_system_commands }
+      its('count') { should eq 0 }
     end
   end
 end

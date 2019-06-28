@@ -46,15 +46,16 @@ System Security Officer (ISSO)."
 is_kdump_required = input('is_kdump_required')
   if is_kdump_required
     describe service('kdump') do
+      it { should be_enabled }
+      it { should be_installed }
+      it { should be_running }
+    end
+  else
+    describe service('kdump') do
       it { should_not be_enabled }
       it { should_not be_installed }
       it { should_not be_running }
     end
-  else
-    describe "kdump service is required and documented with ISSO" do
-      skip ("kdump service is required and documented with ISSO")
-    end
   end
-  
 end
 

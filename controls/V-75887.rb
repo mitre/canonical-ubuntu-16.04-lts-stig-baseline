@@ -44,8 +44,8 @@ line in \"/etc/sysctl.conf\" or in the appropriate file under \"/etc/sysctl.d\":
 
 net.ipv4.ip_forward=0"
 
-  describe command('sysctl net.ipv4.ip_forward') do
-    its('stdout') { should match %r((net\.ipv4\.ip_forward) *= *(0)) }
+  describe kernel_parameter('net.ipv4.ip_forward') do
+    its('value') { should eq 0 }
   end
 end
 

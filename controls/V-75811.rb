@@ -68,7 +68,8 @@ Set the sticky bit on all world writable directories using the command, replace
     end
   else
     describe "Sticky bit has been set on all world writable directories" do
-      skip ('Skipping tests as a sticky bit has been set on all world writable directories')
+      subject { lines }
+      its('count') { should eq 0 }
     end
   end
 end

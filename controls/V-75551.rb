@@ -46,5 +46,9 @@ to change their password upon their next login.
 or
 
 # passwd -e [UserName]"
+
+  describe "Manual verification required" do
+    skip "Manually verify if a policy exists to ensure that a method exists to force temporary users to change their password upon next login"
+  end
 end
 

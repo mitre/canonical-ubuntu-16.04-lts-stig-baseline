@@ -54,7 +54,6 @@ systems that contain user home directories for interactive users."
   known_system_mount_points = input('known_system_mount_points')
   fstab_mount_points = etc_fstab.entries.map(&:mount_point)
   other_mount_points = fstab_mount_points - known_system_mount_points
-  # other_mount_points = fstab_mount_points - input('known_system_mount_points')
 
   if other_mount_points.count > 0
     other_mount_points.each do |mount_point|
@@ -63,10 +62,10 @@ systems that contain user home directories for interactive users."
       end
     end
   else
-    describe "No other mount points found" do
-      skip "Separate file system has not been detected for the user home directories"
+    describe "Separate file system has not been detected for the user home directories" do
+      subject { other_mount_points }
+      its('count') { should eq 0 }
     end
   end
-
 end
 

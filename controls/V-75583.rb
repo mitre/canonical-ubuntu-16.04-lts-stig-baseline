@@ -56,8 +56,9 @@ the following command:
       end
     end
   else
-    describe "No world-writable directories found" do
-      skip "No world-writable directories found on the system"
+    describe "No world-writable directories found on the system" do
+      subject { directories }
+      its('count') { should eq 0 }
     end
   end
 end

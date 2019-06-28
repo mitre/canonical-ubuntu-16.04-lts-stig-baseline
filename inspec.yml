@@ -130,12 +130,17 @@ inputs:
       '/boot',
       'none'
     ]
+#V-75577
+  - name: removable_media_mount_points
+    description: Mount points for removable
+    type: Array
+    value: []
 
 #V-75585
   - name: is_kdump_required
     description: Is kdump service required? (check with SA and documented with ISSO)
     type: Boolean
-    value: true
+    value: false
 
 #V-75591
   - name: audit_log_path
@@ -205,3 +210,10 @@ inputs:
     description: Set audit log size in bytes (default:1073741824 per control specification)
     type: Numeric
     value: 1073741824
+
+
+#V-75623
+  - name: action_mail_acct
+    description: Email address of the SA and ISSO to be notified in case of audit record storage issues
+    type: String
+    value: ''

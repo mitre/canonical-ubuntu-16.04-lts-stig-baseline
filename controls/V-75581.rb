@@ -50,8 +50,9 @@ systems that are being imported via Network File System (NFS)."
       end
     end
   else
-    describe "No NFS mounts found" do
-      skip "No NFS mounts found on the system"
+    describe "No NFS mounts found on the system" do
+      subject { device_rules }
+      its('count') { should eq 0 }
     end
   end
 end

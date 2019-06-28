@@ -67,8 +67,9 @@ mode more permissive than \"0755\".
       end
     end
   else
-    describe "No Files Found" do
-      skip "No system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are less permissive than 0755"
+    describe "No system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are less permissive than 0755" do
+      subject { valid_system_commands }
+      its('count') { should eq 0 }
     end
   end
 end

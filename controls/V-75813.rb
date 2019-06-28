@@ -84,7 +84,7 @@ If the \"NTP\" service was not running then it must be started."
     end
   else
     describe "System is not networked" do
-      skip "NTP checks skipped as the system is not networked"
+      skip "This control is Not Applicable as the system is not networked"
     end
   end
 end

@@ -56,8 +56,9 @@ group-owned by root.
       end
     end
   else
-    describe "No Files Found" do
-      skip "No system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT group-owned by root"
+    describe "No system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT group-owned by root" do
+      subject { library_files }
+      its('count') { should eq 0 }
     end
   end
 end
