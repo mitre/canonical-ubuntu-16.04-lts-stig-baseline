@@ -40,5 +40,15 @@ If \"--secure\" is not listed in the TFTP_OPTIONS, this is a finding."
   desc "fix", "Configure the Trivial File Transfer Protocol (TFTP) daemon to
 operate in the secure mode by adding the \"--secure\" option to TFTP_OPTIONS in
 /etc/default/tftpd-hpa and restart the tftpd daemon."
+
+  is_installed = package('tftpd-hpa').installed?
+  if is_installed
+    
+  else
+    tftp_options = command('grep TFTP_OPTIONS /etc/default/tftpd-hpa').stdout.strip
+    describe tftp_options do
+      it { should_not match %r((--secure)) }
+    end
+  end
 end
 

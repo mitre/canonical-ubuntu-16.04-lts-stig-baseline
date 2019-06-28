@@ -38,5 +38,9 @@ Add or edit the following line in the \"/etc/gdm3/custom.conf\" file directly
 below the \"[daemon]\" tag:
 
 AutomaticLoginEnable=false"
+
+  describe parse_config(command('grep -i automaticloginenable /etc/gdm3/custom.conf').stdout) do
+    its('AutomaticLoginEnable') { should cmp 'false' }
+  end
 end
 

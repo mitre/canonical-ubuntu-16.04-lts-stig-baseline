@@ -47,5 +47,9 @@ If \"0\" is not the system's default value then add or update the following
 line in \"/etc/sysctl.conf\" or in the appropriate file under \"/etc/sysctl.d\":
 
 net.ipv4.conf.default.accept_redirects=0"
+
+  describe command('sysctl net.ipv4.conf.default.accept_redirects') do
+    its('stdout') { should match %r((net\.ipv4\.conf\.default\.accept_redirects) *= *(0)) }
+  end
 end
 

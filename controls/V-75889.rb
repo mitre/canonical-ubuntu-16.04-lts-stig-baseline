@@ -42,5 +42,9 @@ approved by the Information System Security Officer (ISSO) and documented.
 Set the promiscuous mode of an interface to \"off\" with the following command:
 
 # sudo ip link set dev <devicename> promisc off"
+
+  describe command('ip link | grep -i promisc').stdout.strip do
+    it { should be_empty }
+  end
 end
 

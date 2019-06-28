@@ -68,5 +68,20 @@ one week's worth of audit records.
 If audit records are not stored on a partition made specifically for audit
 records, a new partition with sufficient amount of space will need be to be
 created."
+
+  log_file_path = auditd_conf.log_file
+  log_file_dir = File.dirname(log_file_path)
+  available_storage = command('df --output=avail ' + log_file_dir ).stdout.strip.split("\n")[1]
+  log_file_size = command('du -s ' + log_file_path + ' | cut -f 1').stdout.strip
+  standard_audit_log_size = input('standard_audit_log_size')
+  
+  describe ('Current audit log file size is less than the specified standard of ' + standard_audit_log_size.to_s) do
+    subject { log_file_size.to_i }
+    it { should be <= standard_audit_log_size }
+  end
+  describe ('Available storage for audit log should be more than the defined standard of ' + standard_audit_log_size.to_s) do
+    subject { available_storage.to_i }
+    it { should be > standard_audit_log_size}
+  end
 end
 

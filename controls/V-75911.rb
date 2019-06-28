@@ -68,5 +68,14 @@ Add or update \"pam_pkcs11.so\" in \"/etc/pam.d/common-auth\" to match the
 following line:
 
 auth [success=2 default=ignore] pam_pkcs11.so"
+
+  is_smart_card_enabled = input('is_smart_card_enabled')
+  only_if "The system is not using Smartcards / PIVs to fulfil the MFA requirement, this control is Not Applicable." do
+    is_smart_card_enabled
+  end
+
+  describe command('grep pam_pkcs11.so /etc/pam.d/common-auth') do
+    its('stdout') { should_not be_empty }
+  end
 end
 
