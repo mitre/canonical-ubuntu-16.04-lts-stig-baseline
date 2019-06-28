@@ -65,8 +65,8 @@ end
 
  log_file_path = auditd_conf.log_file
 
-  only_if('Audit log file '+ log_file + ' does not exist') do
-    !log_file.nil?
+  only_if('Audit log file '+ log_file_path + ' does not exist') do
+    !log_file_path.nil?
   end
 
 describe file(log_file_path) do

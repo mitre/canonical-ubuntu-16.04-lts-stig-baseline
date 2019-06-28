@@ -55,11 +55,11 @@ following command:
 Replace \"[audit_log_directory]\" to the correct audit log directory path, by
 default this location is \"/var/log/audit\"."
 
-  log_file = auditd_conf.log_file
+  log_file_path = auditd_conf.log_file
   log_dir = File.dirname(log_file)
 
-  only_if('Audit log file:'+ log_file + ' and/or audit directory:' + log_dir + ' do not exist') do
-    !log_file.nil? && !log_dir.nil?
+  only_if('Audit log file:'+ log_file_path + ' and/or audit directory:' + log_dir + ' do not exist') do
+    !log_file_path.nil? && !log_dir.nil?
   end
 
   describe directory(log_dir) do
