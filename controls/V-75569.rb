@@ -1,6 +1,3 @@
-exempt_home_users = input('exempt_home_users')
-non_interactive_shells = input('non_interactive_shells')
-
 control "V-75569" do
   title "All local initialization files must have mode 0740 or less permissive."
   desc  "Local initialization files are used to configure the user's shell
@@ -47,6 +44,8 @@ Note: The example will be for the smithj user, who has a home directory of
 
 # chmod 0740 /home/smithj/.<INIT_FILE>"
 
+  exempt_home_users = input('exempt_home_users')
+  non_interactive_shells = input('non_interactive_shells')
   ignore_shells = non_interactive_shells.join('|')
 
   findings = Set[]

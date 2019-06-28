@@ -9,6 +9,7 @@ transport:
 provisioner:
   name: dokken
   deprecations_as_errors: true
+  chef_license: accept
 
 verifier:
   name: inspec
@@ -18,6 +19,8 @@ verifier:
     - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}.json
   inspec_tests:
     - path: ./
+  inputs:
+    disable_slow_controls: true
 
 platforms:
 - name: ubuntu-16.04

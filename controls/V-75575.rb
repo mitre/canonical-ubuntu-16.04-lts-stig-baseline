@@ -1,5 +1,3 @@
-known_system_mount_points = input('known_system_mount_points')
-
 control "V-75575" do
   title "File systems that contain user home directories must be mounted to
 prevent files with the setuid and setguid bit set from being executed."
@@ -53,6 +51,7 @@ system and it does not have the \"nosuid\" option set, this is a finding."
   desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that contain user home directories for interactive users."
 
+  known_system_mount_points = input('known_system_mount_points')
   fstab_mount_points = etc_fstab.entries.map(&:mount_point)
   other_mount_points = fstab_mount_points - known_system_mount_points
   # other_mount_points = fstab_mount_points - input('known_system_mount_points')

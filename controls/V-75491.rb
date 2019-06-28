@@ -58,7 +58,7 @@ account to be created.
 
   if temporary_accounts.empty?
     describe "Temporary accounts" do
-      it { should_be empty }
+      it { should be_empty }
     end
   else
     temporary_accounts.each do |acct|

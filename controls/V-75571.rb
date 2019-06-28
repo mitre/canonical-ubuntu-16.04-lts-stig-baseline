@@ -1,6 +1,3 @@
-exempt_home_users = input('exempt_home_users')
-non_interactive_shells = input('non_interactive_shells')
-
 control "V-75571" do
   title "All local interactive user initialization files executable search
 paths must contain only paths that resolve to the system default or the users
@@ -56,6 +53,8 @@ than their home directory or the system default. If a local interactive user
 requires path variables to reference a directory owned by the application, it
 must be documented with the Information System Security Officer (ISSO)."
 
+  exempt_home_users = input('exempt_home_users')
+  non_interactive_shells = input('non_interactive_shells')
   ignore_shells = non_interactive_shells.join('|')
 
   findings = Set[]

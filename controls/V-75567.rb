@@ -1,6 +1,3 @@
-exempt_home_users = input('exempt_home_users')
-non_interactive_shells = input('non_interactive_shells')
-
 control "V-75567" do
   title "All local interactive user home directories must be group-owned by the
 home directory owners primary group."
@@ -57,6 +54,8 @@ Note: The example will be for the user \"smithj\", who has a home directory of
 
 # chgrp users /home/smithj"
 
+  exempt_home_users = input('exempt_home_users')
+  non_interactive_shells = input('non_interactive_shells')
   ignore_shells = non_interactive_shells.join('|')
 
   findings = Set[]

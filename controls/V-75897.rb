@@ -38,5 +38,9 @@ Information System Security Officer (ISSO), this is a finding."
 system with the following command:
 
 # sudo apt-get remove tftpd-hpa"
+
+  describe package('tftpd-hpa') do
+    it { should_not be_installed }
+  end
 end
 

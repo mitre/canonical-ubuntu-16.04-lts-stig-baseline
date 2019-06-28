@@ -53,5 +53,17 @@ Note: The line must be added before the following entry if it exists in
 \"/etc/rsyslog.d/50-default.conf\":
 
 *.* ~ # discards everything"
+
+  describe.one do
+    default_conf_output = command('grep ''^cron.*'' /etc/rsyslog.d/50-default.conf')
+    describe default_conf_output do
+      its('stdout') { should_not be_empty }
+    end
+  
+    messages_output = command('grep ''^*.*'' /etc/rsyslog.conf')
+    describe messages_output do
+      its('stdout') { should_not be_empty }
+    end
+  end
 end
 

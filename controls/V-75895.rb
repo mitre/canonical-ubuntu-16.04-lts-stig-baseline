@@ -39,5 +39,9 @@ Security Officer (ISSO) as an operational requirement or remove it from the
 system with the following command:
 
 # sudo apt-get remove vsftpd"
+
+  describe package('vsftpd') do
+    it { should_not be_installed }
+  end
 end
 

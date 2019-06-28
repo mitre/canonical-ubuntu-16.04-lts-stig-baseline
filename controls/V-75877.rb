@@ -44,5 +44,9 @@ If \"1\" is not the system's default value then add or update the following
 line in \"/etc/sysctl.conf\" or in the appropriate file under \"/etc/sysctl.d\":
 
 net.ipv4.icmp_echo_ignore_broadcasts=1"
+
+  describe command('sysctl net.ipv4.icmp_echo_ignore_broadcasts') do
+    its('stdout') { should match %r((net\.ipv4\.icmp_echo_ignore_broadcasts) *= *(1)) }
+  end
 end
 

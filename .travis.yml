@@ -22,7 +22,7 @@ addons:
     sources:
       - chef-stable-xenial
     packages:
-      - chefdk
+      - chef-workstation
   #artifacts: true
 
 # Don't `bundle install` which takes about 1.5 mins
@@ -39,6 +39,12 @@ before_script:
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
   - gem install inspec_tools
+  - inspec --version
+  - CHEF_LICENSE=accept chef gem update inspec
+  - CHEF_LICENSE=accept chef gem update inspec-bin
+  - /opt/chef-workstation/embedded/bin/gem update inspec
+  - /opt/chef-workstation/embedded/bin/gem update inspec-bin
+  - inspec --version
   - bundle update --bundler
   - bundle install
   - chef --version

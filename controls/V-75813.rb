@@ -79,7 +79,7 @@ If the \"NTP\" service was not running then it must be started."
     describe ntp_conf do
       it { should exist }
       its('maxpoll') { should cmp 17 }
-      its('server') { should_not be empty }
+      its('server') { should_not be_empty }
       its('server') { should_not eq nil }
     end
   else

@@ -1,7 +1,3 @@
-disable_slow_controls = input('disable_slow_controls')
-exempt_home_users = input('exempt_home_users')
-non_interactive_shells = input('non_interactive_shells')
-
 control "V-75573" do
   title "Local initialization files must not execute world-writable programs."
   if disable_slow_controls
@@ -54,6 +50,9 @@ files with the following command:
 
 # chmod 0755 <file>"
 
+  disable_slow_controls = input('disable_slow_controls')
+  exempt_home_users = input('exempt_home_users')
+  non_interactive_shells = input('non_interactive_shells')
   if disable_slow_controls
     describe "This control consistently takes a long to run and has been disabled
   using the DISABLE_SLOW_CONTROLS attribute." do
