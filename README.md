@@ -1,5 +1,4 @@
-### This is a ***Work in Progress*** we will release the final version in the ***MASTER*** Branch
-
+### This is a ***Work in Progress***. We will release the final version in the ***MASTER*** Branch
 ### This baseline will continue to change until we do a final release
 
 [![Build Status](https://travis-ci.com/mitre/stig-canonical-ubuntu-16.04-lts-baseline.svg?branch=development)](https://travis-ci.com/mitre/stig-canonical-ubuntu-16.04-lts-baseline)
