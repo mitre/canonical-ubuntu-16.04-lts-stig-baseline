@@ -51,3 +51,24 @@ Then update the dconf settings:
 # dconf update"
 end
 
+# #first check if GNOME is installed
+# only_if('GNOME is not installed') do
+#   package('ubuntu-gnome-desktop').installed?
+# end
+
+# #if GNOME is installed then verify that ctrl-alt-delete is disabled
+# logout_conf = command('find /etc/dconf/db/local.d/ -type f').stdout.strip.split('\n')
+# if logout_conf 
+#     describe "GNOME conf files do not contain the logout key bound. This is a finding." do
+#       # Fail this
+#       it { should_not be_empty }
+#     end
+#   else
+#     logout_conf.each do |file|
+#       describe parse_config_file(file, options) do
+#         its('logout') { should cmp '' }
+#       end do
+#       end
+#     end
+#   end
+# end
