@@ -217,3 +217,12 @@ inputs:
     description: Email address of the SA and ISSO to be notified in case of audit record storage issues
     type: String
     value: ''
+
+#V-75867
+  - name: allowed_network_interfaces
+    description: Array of allowed network interfaces (wired & wireless)
+    type: Array
+    value: [
+      'lo',
+      'eth0'
+    ]

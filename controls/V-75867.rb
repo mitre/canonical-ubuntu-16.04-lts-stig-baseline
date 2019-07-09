@@ -78,5 +78,26 @@ by the Information System Security Officer (ISSO), this is a finding."
 with the following command:
 
 # sudo ifdown [ADAPTER_NAME]"
+
+  allowed_network_interfaces = input('allowed_network_interfaces')
+  ifconfig_output = command('ifconfig -s | cut -d " " -f 1').stdout.split("\n")
+  system_network_interfaces = ifconfig_output.drop(1)
+
+  other_network_interfaces = system_network_interfaces - allowed_network_interfaces
+
+  if other_network_interfaces.count > 0
+    other_network_interfaces.each do |net_int|
+      describe ("Interface: " + net_int + " not permitted") do
+        subject { net_int }
+        it { should be_empty }
+      end
+    end
+  else
+    describe "No other wireless network interfaces found" do
+      subject { other_network_interfaces }
+      its('count') { should eq 0 }
+    end
+  end
+
 end
 
