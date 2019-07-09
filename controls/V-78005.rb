@@ -71,15 +71,15 @@ system.
 If no antivirus scan program is active on the system, this is a finding."
   desc "fix", "Install an approved DoD antivirus solution on the system."
 
-  describe.one do
-    describe command('systemctl status nails') do
-      its('stdout') { should match %r((Loaded).+:.+(loaded)) }
-      its('stdout') { should match %r((Active).+:.+(active)) }
-    end
-    describe command('systemctl status clamav-daemon.socket') do
-      its('stdout') { should match %r((Loaded).+:.+(loaded)) }
-      its('stdout') { should match %r((Active).+:.+(active)) }
-    end
-  end
+  # describe.one do
+  #   describe command('systemctl status nails') do
+  #     its('stdout') { should match %r((Loaded).+:.+(loaded)) }
+  #     its('stdout') { should match %r((Active).+:.+(active)) }
+  #   end
+  #   describe command('systemctl status clamav-daemon.socket') do
+  #     its('stdout') { should match %r((Loaded).+:.+(loaded)) }
+  #     its('stdout') { should match %r((Active).+:.+(active)) }
+  #   end
+  # end
 end
 
