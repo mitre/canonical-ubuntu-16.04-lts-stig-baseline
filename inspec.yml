@@ -226,3 +226,9 @@ inputs:
       'lo',
       'eth0'
     ]
+
+#V-78005
+  - name: other_antivirus_loaded_active
+    description: System Administrator and/or DoD approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities
+    type: Boolean
+    value: false

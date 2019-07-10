@@ -71,15 +71,22 @@ system.
 If no antivirus scan program is active on the system, this is a finding."
   desc "fix", "Install an approved DoD antivirus solution on the system."
 
-  # describe.one do
-  #   describe command('systemctl status nails') do
-  #     its('stdout') { should match %r((Loaded).+:.+(loaded)) }
-  #     its('stdout') { should match %r((Active).+:.+(active)) }
-  #   end
-  #   describe command('systemctl status clamav-daemon.socket') do
-  #     its('stdout') { should match %r((Loaded).+:.+(loaded)) }
-  #     its('stdout') { should match %r((Active).+:.+(active)) }
-  #   end
-  # end
+  other_antivirus_loaded_active = input('other_antivirus_loaded_active')
+  describe.one do
+    describe service('nails') do
+      it { should be_installed }
+      it { should be_enabled }
+      it { should be_running }
+    end
+    describe service('clamav-daemon.service') do
+      it { should be_installed }
+      it { should be_enabled }
+      it { should be_running }
+    end
+    describe "System Administrator and/or DoD approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities" do
+      subject { other_antivirus_loaded_active }
+      it { should be true }
+    end
+  end
 end
 

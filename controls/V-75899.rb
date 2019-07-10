@@ -43,11 +43,13 @@ operate in the secure mode by adding the \"--secure\" option to TFTP_OPTIONS in
 
   is_installed = package('tftpd-hpa').installed?
   if is_installed
-    
-  else
     tftp_options = command('grep TFTP_OPTIONS /etc/default/tftpd-hpa').stdout.strip
     describe tftp_options do
-      it { should_not match %r((--secure)) }
+      it { should match %r((--secure)) }
+    end
+  else
+    describe "No TFTP server is installed" do
+      skip "This control is Not Applicable as a TFTP server has not been installed on this server."
     end
   end
 end
