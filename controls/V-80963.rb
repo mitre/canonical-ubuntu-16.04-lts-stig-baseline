@@ -63,12 +63,15 @@ following command:
 # sudo chmod 0640 [log_path]"
 
   log_file_path = auditd_conf.log_file
-
-  only_if('Audit log file does not exist') do
-    !log_file_path.nil?
-  end
-
-  describe file(log_file_path) do
-    it { should_not be_more_permissive_than('0640') }
+  if log_file_path.nil?
+    describe "auditd.conf's log_file specification" do
+      subject { log_file_path }
+      it { should_not be_nil }
+    end
+  else
+    describe file(log_file_path) do
+      it { should exist }
+      it { should_not be_more_permissive_than('0640') }
+    end
   end
 end
