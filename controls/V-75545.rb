@@ -59,9 +59,5 @@ Document all authorized accounts on the system."
     its('users') { should be_in allowed_accounts }
     its('users') { should_not be_in disallowed_accounts }
   end
-  # describe "System" do
-  #   subject { passwd }
-    
-  # end
 end
 
