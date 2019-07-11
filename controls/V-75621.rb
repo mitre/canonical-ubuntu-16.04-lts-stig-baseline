@@ -69,8 +69,8 @@ If audit records are not stored on a partition made specifically for audit
 records, a new partition with sufficient amount of space will need be to be
 created."
 
-  log_file_path = auditd_conf.log_file
-  log_file_dir = File.dirname(log_file_path)
+  log_file_path = input('log_file_path')
+  log_file_dir = input('log_file_dir')
   available_storage = command('df --output=avail ' + log_file_dir ).stdout.strip.split("\n")[1]
   log_file_size = command('du -s ' + log_file_path + ' | cut -f 1').stdout.strip
   standard_audit_log_size = input('standard_audit_log_size')

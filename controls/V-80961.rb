@@ -74,7 +74,7 @@ example being \"/var/log/audit/\"):
 Set the value of the \"space_left\" keyword in \"/etc/audit/auditd.conf\" to
 25% of the partition size."
 
-  audit_log_path = File.dirname(auditd_conf.log_file)
+  audit_log_path = input('log_file_dir')
   
   describe filesystem(audit_log_path) do
     its('percent_free') { should be >= 25 }

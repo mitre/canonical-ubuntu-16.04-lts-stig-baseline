@@ -23,6 +23,16 @@ inputs:
     type: String
     value: '2021-04-30'
 
+  - name: log_file_path
+    description: Audit log file path (SHOULD BE REPLACED/REMOVED WHEN auditd.conf_path FUNCTIONALITY BECOMES AVAILABLE IN INSPEC)
+    type: String
+    value: '/var/log/audit/audit.log'
+
+  - name: log_file_dir
+    description: Audit log file directory (SHOULD BE REPLACED/REMOVED WHEN auditd.conf_path FUNCTIONALITY BECOMES AVAILABLE IN INSPEC)
+    type: String
+    value: '/var/log/audit/'
+
 #V-75491
   - name: temporary_accounts
     description: Temporary user accounts
