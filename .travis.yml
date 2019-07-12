@@ -20,9 +20,9 @@ cache: bundler
 addons:
   apt:
     sources:
-      - chef-stable-xenial
-    packages:
-      - chef-workstation
+      - chef-current-xenial
+    # packages:
+    #   - chef-workstation
   #artifacts: true
 
 # Don't `bundle install` which takes about 1.5 mins
@@ -35,6 +35,7 @@ env:
   - INSTANCE=default-ubuntu-1604
 
 before_script:
+  - sudo apt-get install -y https://packages.chef.io/files/stable/chef-workstation/0.5.1/ubuntu/16.04/chef-workstation_0.5.1-1_amd64.deb
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
