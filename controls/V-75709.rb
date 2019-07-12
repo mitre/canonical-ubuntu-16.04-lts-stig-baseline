@@ -77,23 +77,27 @@ the audit daemon, run the following command:
 # sudo systemctl restart auditd.service"
 
   @audit_file = '/sbin/insmod'
-
-  only_if('Audit line(s) for '+ @audit_file + ' do not exist') do
-    !auditd.lines.index{|line| line.include?(@audit_file)}.nil?
-  end
   
-  describe auditd.file(@audit_file) do
-  its('permissions') { should_not cmp [] }
-  its('action') { should_not include 'never' }
-  end
-
-  # Resource creates data structure including all usages of file
-  @perms = auditd.file(@audit_file).permissions
-
-  @perms.each do |perm|
-  describe perm do
-    it { should include 'x' }
-  end
+  audit_lines_exist = !auditd.lines.index{|line| line.include?(@audit_file)}.nil?
+  if audit_lines_exist
+    describe auditd.file(@audit_file) do
+      its('permissions') { should_not cmp [] }
+      its('action') { should_not include 'never' }
+      end
+    
+      # Resource creates data structure including all usages of file
+      @perms = auditd.file(@audit_file).permissions
+    
+      @perms.each do |perm|
+        describe perm do
+          it { should include 'x' }
+        end
+      end
+  else
+    describe ('Audit line(s) for '+ @audit_file + ' exist') do
+      subject { audit_lines_exist }
+      it { should be true }
+    end
   end
 end
 

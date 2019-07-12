@@ -58,12 +58,16 @@ default this location is \"/var/log/audit\"."
   log_file_path = input('log_file_path')
   log_dir = input('log_file_dir')
 
-  only_if('Audit log file:'+ log_file_path + ' and/or audit directory:' + log_dir + ' do not exist') do
-    !log_file_path.nil? && !log_dir.nil?
-  end
-
-  describe directory(log_dir) do
-    it { should_not be_more_permissive_than('0750') }
+  log_file_and_dir_exist = !log_file_path.nil? && !log_dir.nil?
+  if log_file_and_dir_exist
+    describe directory(log_dir) do
+      it { should_not be_more_permissive_than('0750') }
+    end
+  else
+    describe ('Audit log file:'+ log_file_path + ' and/or audit directory:' + log_dir + ' exist') do
+      subject { log_file_and_dir_exist }
+      it { should be true }
+    end
   end
 end
 

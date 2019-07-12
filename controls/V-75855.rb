@@ -69,12 +69,15 @@ on the eth0 interface:
   ufw_status_output = command('ufw status').stdout.strip
   is_ufw_active = !ufw_status_output.lines.first.include?('inactive')
 
-  only_if('UFW is not active') do
-    is_ufw_active
-  end
-
-  describe ufw_status_output do
-    it { should match %r((LIMIT)) }
+  if is_ufw_active
+    describe ufw_status_output do
+      it { should match %r((LIMIT)) }
+    end
+  else
+    describe "UFW status is active" do
+      subject { is_ufw_active }
+      it { should be true }
+    end
   end
 end
 
