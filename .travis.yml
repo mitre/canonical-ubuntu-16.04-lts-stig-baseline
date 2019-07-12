@@ -35,7 +35,9 @@ env:
   - INSTANCE=default-ubuntu-1604
 
 before_script:
-  - sudo apt-get install -y https://packages.chef.io/files/stable/chef-workstation/0.5.1/ubuntu/16.04/chef-workstation_0.5.1-1_amd64.deb
+  - wget https://packages.chef.io/files/stable/chef-workstation/0.5.1/ubuntu/16.04/chef-workstation_0.5.1-1_amd64.deb
+  - sudo dpkg -i chef-workstation_*.deb
+  - rm chef-workstation_*.deb
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
