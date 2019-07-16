@@ -46,11 +46,17 @@ Add, edit or uncomment the \"network_failure_action\" option in
 
 network_failure_action = single"
 
-  describe file('/etc/audisp/audisp-remote.conf') do
-    it { should exist }
-  end
-  describe parse_config_file('/etc/audisp/audisp-remote.conf') do
-    its('network_failure_action.strip') { should match(/^(syslog|single|halt)$/) }
+  config_file_exists = file('/etc/audisp/audisp-remote.conf').exist?
+
+  if config_file_exists
+    describe parse_config_file('/etc/audisp/audisp-remote.conf') do
+      its('network_failure_action.strip') { should match(/^(syslog|single|halt)$/) }
+    end
+  else
+    describe "/etc/audisp/audisp-remote.conf exists" do
+      subject { config_file_exists }
+      it { should be true }
+    end
   end
 end
 

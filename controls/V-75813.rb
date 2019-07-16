@@ -76,11 +76,19 @@ If the \"NTP\" service was not running then it must be started."
 
   is_system_networked = input('is_system_networked')
   if is_system_networked
-    describe ntp_conf do
-      it { should exist }
-      its('maxpoll') { should cmp 17 }
-      its('server') { should_not be_empty }
-      its('server') { should_not eq nil }
+    ntp_conf_exists = file('/etc/ntp.conf').exist?
+    if ntp_conf_exists
+      describe ntp_conf do
+        it { should exist }
+        its('maxpoll') { should cmp 17 }
+        its('server') { should_not be_empty }
+        its('server') { should_not eq nil }
+      end
+    else
+      describe "/etc/ntp.conf exists" do
+        subject { ntp_conf_exists }
+        it { should be true }
+      end
     end
   else
     describe "System is not networked" do

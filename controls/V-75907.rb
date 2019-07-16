@@ -67,9 +67,17 @@ checking for multifactor authentication.
 Modify all of the cert_policy lines in \"/etc/pam_pkcs11/pam_pkcs11.conf\" to
 include \"ocsp_on\"."
 
-  describe parse_config_file('/etc/pam_pkcs11/pam_pkcs11.conf') do
-    its('cert_policy') { should include 'ocsp_on' }
-  end
+  config_file_exists = file('/etc/pam_pkcs11/pam_pkcs11.conf').exist?
 
+  if config_file_exists
+    describe parse_config_file('/etc/pam_pkcs11/pam_pkcs11.conf') do
+      its('cert_policy') { should include 'ocsp_on' }
+    end
+  else
+    describe "/etc/pam_pkcs11/pam_pkcs11.conf exists" do
+      subject { config_file_exists }
+      it { should be true }
+    end
+  end
 end
 

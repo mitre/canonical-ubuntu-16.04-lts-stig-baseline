@@ -62,27 +62,28 @@ the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
 
-  file_name = '/etc/shadow'
-
-  @audit_file = inspec.command('find /etc -type f -name "#{file_name}"').stdout.strip
-
-  describe auditd.file(@audit_file) do
-    its('permissions') { should_not cmp [] }
-    its('action') { should_not include 'never' }
-  end if file(@audit_file).exist?
-
-  # Resource creates data structure including all usages of file
-  @perms = auditd.file(@audit_file).permissions
-
-  @perms.each do |perm|
-    describe perm do
-      it { should include 'w' }
-      it { should include 'a' }
+  @audit_file = '/etc/shadow'
+  audit_lines_exist = !auditd.lines.index{|line| line.include?(@audit_file)}.nil?
+  if audit_lines_exist
+    describe auditd.file(@audit_file) do
+      its('permissions') { should_not cmp [] }
+      its('action') { should_not include 'never' }
     end
-  end if file(@audit_file).exist?
-
-  describe "The #{file_name} file does not exist" do
-    skip "The #{file_name} file does not exist, this requirement is Not Applicable."
-  end if !file(@audit_file).exist?
+  
+    # Resource creates data structure including all usages of file
+    @perms = auditd.file(@audit_file).permissions
+  
+    @perms.each do |perm|
+      describe perm do
+        it { should include 'w' }
+        it { should include 'a' }
+      end
+    end
+  else
+    describe ('Audit line(s) for '+ @audit_file + ' exist') do
+      subject { audit_lines_exist }
+      it { should be true }
+    end
+  end
 end
 

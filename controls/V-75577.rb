@@ -48,8 +48,9 @@ systems that are associated with removable media."
       end
     end
   else
-    describe "No removable media mount points found" do
-      skip "No removable media mount points found"
+    describe "Removable media mount points" do
+      subject { removable_media_mount_points }
+      its('count') { should cmp 0 }
     end
   end
 end
