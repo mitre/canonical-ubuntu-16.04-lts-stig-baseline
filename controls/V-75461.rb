@@ -50,19 +50,27 @@ passwords with a strong cryptographic hash.
 Lock all interactive user accounts not using SHA-512 hashing until the
 passwords can be regenerated."
 
-  describe file("/etc/shadow") do
-    it { should exist }
-  end
+  non_interactive_shells = input('non_interactive_shells')
+  ignore_shells = non_interactive_shells.join('|')
+  counter = 0
 
-  describe command("sudo cut -d: -f2 /etc/shadow") do
-    its('exit_status') { should eq 0 }
-    its('stdout') { should match /^(\s*\$6|\s*!|\s*\*).*$/ }
+  users.where{ !shell.match(ignore_shells) }.entries.each do |user_info|
+    shadow.where( user: user_info.username ).passwords.each do |user_pwd|
+      pwd_should_be_evaluated = !( user_pwd.casecmp?('!') || user_pwd.casecmp?('*') )
+      if pwd_should_be_evaluated
+        describe (user_info.username + ' - user\'s password hash') do
+          subject { user_pwd }
+          it { should start_with '$6' }
+        end
+        counter = counter + 1
+      end
+    end
   end
-
-  # Using the shadow resource
-  describe shadow do
-    its('passwords') { should match /^(\s*\$6|\s*!|\s*\*).*$/ }
+  if ( counter == 0 )
+    describe "Number of interactive users on the system" do
+      subject { counter }
+      it { should be 0 }
+    end
   end
-
 end
 

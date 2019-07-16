@@ -39,6 +39,12 @@ inputs:
     type: Boolean
     value: true
 
+#V-75443
+  - name: maxlogins
+    description: Maximum number of concurrent sessions
+    type: Numeric
+    value: 10
+
 #V-75491
   - name: temporary_accounts
     description: Temporary user accounts

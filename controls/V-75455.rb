@@ -49,17 +49,18 @@ to contain the \"ocredit\" parameter:
 
 ocredit=-1"
 
-  describe package('libpam-pwquality') do
-    it { should be_installed }
-  end
+  config_file = '/etc/security/pwquality.conf'
+  config_file_exists = file(config_file).exist?
 
-  describe file("/etc/security/pwquality.conf") do
-    it { should exist }
-  end
-
-  describe command('grep -i ocredit /etc/security/pwquality.conf') do
-    its('exit_status') { should eq 0 }
-    its('stdout') { should match /^\s*ocredit\s*=\s*-[1-9][\d]*\s*$/ }
+  if config_file_exists
+    describe parse_config_file(config_file) do
+      its('ocredit') { should cmp '-1' }
+    end
+  else
+    describe (config_file + ' exists') do
+      subject { config_file_exists }
+      it { should be true }
+    end
   end
 end
 
