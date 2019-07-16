@@ -74,5 +74,19 @@ user interface (GUI).
   #    # gnome shell is installed. Check whether gsettings is installed.
   #    gsettings_installed = command('apt list libglib2.0-bin')
   # end
+
+  is_gnome_installed = input('is_gnome_installed')
+
+  if is_gnome_installed
+    lock_enabled = command('gsettings get org.gnome.desktop.screensaver lock-enabled')
+    describe lock_enabled do
+      its('stdout') { should cmp 'true' }
+    end
+  else
+    describe "Control Not Applicable as GNOME dekstop environment is not installed" do
+      subject { is_gnome_installed }
+      it { should be false }
+    end
+  end
 end
 

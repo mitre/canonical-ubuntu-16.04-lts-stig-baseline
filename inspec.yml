@@ -33,6 +33,12 @@ inputs:
     type: String
     value: '/var/log/audit/'
 
+#V-75437
+  - name: is_gnome_installed
+    description: Is GNOME desktop environment installed? (Might need to be replaced with a more robust check)
+    type: Boolean
+    value: true
+
 #V-75491
   - name: temporary_accounts
     description: Temporary user accounts
