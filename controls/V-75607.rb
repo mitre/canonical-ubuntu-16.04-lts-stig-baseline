@@ -56,7 +56,7 @@ by \"root\".
       end
     end
   else
-    describe "No system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT owned by root" do
+    describe "Number of system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT owned by root" do
       subject { library_files }
       its('count') { should eq 0 }
     end

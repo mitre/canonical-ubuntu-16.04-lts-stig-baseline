@@ -53,7 +53,6 @@ this is a finding."
   desc "fix", "Edit the file \"/etc/passwd\" and provide each interactive user
 account that has a duplicate User ID (UID) with a unique UID."
   
-  exempt_home_users = input('exempt_home_users')
   non_interactive_shells = input('non_interactive_shells')
 
   ignore_shells = non_interactive_shells.join('|')
@@ -61,8 +60,6 @@ account that has a duplicate User ID (UID) with a unique UID."
   findings = Set[]
   
   user_list.each do |user_name|
-    user_shell = user(user_name).shell || ""
-    next if (exempt_home_users.include?(user_name) && (!ignore_shells.include?(user_shell)))
     findings = findings << user_name
   end
   describe "Duplicate User IDs (UIDs) must not exist for interactive users" do

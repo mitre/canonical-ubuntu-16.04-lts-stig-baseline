@@ -71,8 +71,8 @@ created."
 
   log_file_path = input('log_file_path')
   log_file_dir = input('log_file_dir')
-  available_storage = command('df --output=avail ' + log_file_dir ).stdout.strip.split("\n")[1]
-  log_file_size = command('du -s ' + log_file_path + ' | cut -f 1').stdout.strip
+  available_storage = filesystem(log_file_dir).free_kb
+  log_file_size = file(log_file_path).size
   standard_audit_log_size = input('standard_audit_log_size')
   
   describe ('Current audit log file size is less than the specified standard of ' + standard_audit_log_size.to_s) do

@@ -47,8 +47,8 @@ line in \"/etc/sysctl.conf\" or in the appropriate file under \"/etc/sysctl.d\":
 
 net.ipv4.tcp_syncookies = 1"
 
-  describe command('sysctl net.ipv4.tcp_syncookies') do
-    its('stdout') { should match %r((net\.ipv4\.tcp_syncookies) *= *(1)) }
+  describe kernel_parameter('net.ipv4.tcp_syncookies') do
+    its('value') { should cmp 1 }
   end
 end
 

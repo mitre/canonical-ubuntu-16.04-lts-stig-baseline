@@ -44,17 +44,18 @@ Add, or modify the \"minlen\" parameter value to the following line in
 
 minlen=15"
 
-  describe package('libpam-pwquality') do
-    it { should be_installed }
-  end
+  config_file = '/etc/security/pwquality.conf'
+  config_file_exists = file(config_file).exist?
 
-  describe file("/etc/security/pwquality.conf") do
-    it { should exist }
-  end
-
-  describe command('grep -i minlen /etc/security/pwquality.conf') do
-    its('exit_status') { should eq 0 }
-    its('stdout.strip') { should match /^minlen\s*=\s*([1][5-9]|[2-9][\d]+|[1-9][\d][\d]+)$/ }
+  if config_file_exists
+    describe parse_config_file(config_file) do
+      its('minlen') { should cmp >= '15' }
+    end
+  else
+    describe (config_file + ' exists') do
+      subject { config_file_exists }
+      it { should be true }
+    end
   end
 end
 

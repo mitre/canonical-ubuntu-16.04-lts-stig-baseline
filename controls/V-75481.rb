@@ -41,16 +41,18 @@ Edit the file \"/etc/security/pwquality.conf\" by adding a line such as:
 
 dictcheck=1"
 
-  describe package('libpam-pwquality') do
-    it { should be_installed }
-  end
+  config_file = '/etc/security/pwquality.conf'
+  config_file_exists = file(config_file).exist?
 
-  describe file("/etc/security/pwquality.conf") do
-    it { should exist }
-  end
-
-  describe command('grep dictcheck /etc/security/pwquality.conf') do
-    its('stdout.strip') { should match /^dictceck\s*=\s*1$/ }
+  if config_file_exists
+    describe parse_config_file(config_file) do
+      its('dictcheck') { should cmp '1' }
+    end
+  else
+    describe (config_file + ' exists') do
+      subject { config_file_exists }
+      it { should be true }
+    end
   end
 end
 

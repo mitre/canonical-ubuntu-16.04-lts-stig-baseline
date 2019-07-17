@@ -50,23 +50,18 @@ DoD recommendation is 35 days, but a lower value is acceptable. The value
 \"-1\" will disable this feature, and \"0\" will disable the account
 immediately after the password expires."
 
-  describe file("/etc/default/useradd") do
-    it { should exist }
-  end
+  config_file = '/etc/default/useradd'
+  config_file_exists = file(config_file).exist?
 
-  describe command("sudo grep -i inactive /etc/default/useradd") do
-    its('exit_status') { should eq 0 }
-    its('stdout.strip') { should match /^INACTIVE\s*=\s*(3[0-5]|[1-2][\d]|[\d])$/ }
-  end
-
-  file("/etc/default/useradd").content.to_s.scan(/^\s*INACTIVE\s*=\s*(\d+)\s*$/).flatten.each do |entry|
-    describe entry do
-      it { should cmp <= 35 }
+  if config_file_exists
+    describe parse_config_file(config_file) do
+      its('INACTIVE') { should cmp > '0' }
+      its('INACTIVE') { should cmp <= '35' }
     end
-  end
-  file("/etc/default/useradd").content.to_s.scan(/^\s*INACTIVE\s*=\s*(\d+)\s*$/).flatten.each do |entry|
-    describe entry do
-      it { should cmp > -1 }
+  else
+    describe (config_file + ' exists') do
+      subject { config_file_exists }
+      it { should be true }
     end
   end
 end

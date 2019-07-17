@@ -39,8 +39,17 @@ below the \"[daemon]\" tag:
 
 AutomaticLoginEnable=false"
 
-  describe parse_config(command('grep -i automaticloginenable /etc/gdm3/custom.conf').stdout) do
-    its('AutomaticLoginEnable') { should cmp 'false' }
+  gnome_installed = package('ubuntu-gnome-desktop').installed?
+
+  if gnome_installed
+    describe parse_config_file('/etc/gdm3/custom.conf') do
+      its('AutomaticLoginEnable') { should cmp 'false' }
+    end
+  else
+    describe "Not Applicable as GNOME dekstop environment is installed" do
+      subject { gnome_installed }
+      it { should be false }
+    end
   end
 end
 

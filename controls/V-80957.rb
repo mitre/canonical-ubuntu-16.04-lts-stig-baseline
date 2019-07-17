@@ -50,39 +50,17 @@ Then update the dconf settings:
 
 # dconf update"
 
-  is_gnome_installed = input('is_gnome_installed')
+gnome_installed = package('ubuntu-gnome-desktop').installed?
 
-  if is_gnome_installed
+  if gnome_installed
     logout_enabled = command('gsettings get org.gnome.settings-daemon.plugins.media-keys logout')
     describe logout_enabled do
       its('stdout') { should cmp '' }
     end
   else
     describe "Control Not Applicable as GNOME dekstop environment is not installed" do
-      subject { is_gnome_installed }
+      subject { gnome_installed }
       it { should be false }
     end
   end
 end
-
-# #first check if GNOME is installed
-# only_if('GNOME is not installed') do
-#   package('ubuntu-gnome-desktop').installed?
-# end
-
-# #if GNOME is installed then verify that ctrl-alt-delete is disabled
-# logout_conf = command('find /etc/dconf/db/local.d/ -type f').stdout.strip.split('\n')
-# if logout_conf 
-#     describe "GNOME conf files do not contain the logout key bound. This is a finding." do
-#       # Fail this
-#       it { should_not be_empty }
-#     end
-#   else
-#     logout_conf.each do |file|
-#       describe parse_config_file(file, options) do
-#         its('logout') { should cmp '' }
-#       end do
-#       end
-#     end
-#   end
-# end

@@ -53,12 +53,15 @@ default. If the query only option (-q) has been added to the ntpdate command in
 
   ntpd_exists = file('/etc/init.d/ntpd').exist?
 
-  describe "The file /etc/init.d/ntpd should exist" do
-    subject { ntpd_exists }
-    it { should be true }
-  end if !ntpd_exists
-  describe command('grep ntpdate /etc/init.d/ntpd').stdout.strip do
-    it { should_not match %r(.+(-q).+) }
-  end if ntpd_exists
+  if ntpd_exists
+    describe command('grep ntpdate /etc/init.d/ntpd').stdout.strip do
+      it { should_not match %r(.+(-q).+) }
+    end
+  else
+    describe "The file /etc/init.d/ntpd exists" do
+      subject { ntpd_exists }
+      it { should be true }
+    end
+  end
 end
 

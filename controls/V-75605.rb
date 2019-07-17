@@ -61,7 +61,7 @@ with a mode more permissive than 0755.
       end
     end
   else
-    describe "No system-wide shared library files found in /lib, /lib64, or /usr/lib, that are less permissive than 0755" do
+    describe "Number of system-wide shared library files found in /lib, /lib64, or /usr/lib, that are less permissive than 0755" do
       subject { library_files }
       its('count') { should eq 0 }
     end

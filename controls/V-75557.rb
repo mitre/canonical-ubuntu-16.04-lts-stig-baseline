@@ -35,19 +35,18 @@ directories on the system with the \"chgrp\" command:
 
 # sudo chgrp <group> <file>"
 
-  exempt_home_users = input('exempt_home_users')
-  non_interactive_shells = input('non_interactive_shells')
-  ignore_shells = non_interactive_shells.join('|')
-
-  findings = Set[]
-  users.where{ !shell.match(ignore_shells) }.entries.each do |user_info|
-    next if exempt_home_users.include?("#{user_info.username}")
-    findings = findings + command("find / -nogroup").stdout.split("\n")
-  end
-
-  describe "Files and Directories on the Ubuntu operating system have a valid group" do
-    subject { findings.to_a }
-    it { should be_empty }
+  dir_list = command("find / -nogroup").stdout.strip.split("\n")
+  if (dir_list.count > 0)
+    dir_list.each do |entry|
+      describe directory(entry) do
+        its('group') { should_not be_empty }
+      end
+    end
+  else
+    describe "The number of files and directories without a valid group" do
+      subject { dir_list }
+      its('count') { should cmp 0 }
+    end
   end
 end
 

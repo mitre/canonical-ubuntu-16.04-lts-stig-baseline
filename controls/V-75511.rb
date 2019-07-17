@@ -55,9 +55,17 @@ Set the owner of all public directories as root using the command, replace
 
 # sudo chown root [Public Directory]"
 
-  command("sudo find / -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n").each do |entry|
-    describe directory(entry) do
-      its('owner') { should eq 'root' }
+  dir_list = command("sudo find / -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n")
+  if (dir_list.count > 0)
+    dir_list.each do |entry|
+      describe directory(entry) do
+        its('owner') { should eq 'root' }
+      end
+    end
+  else
+    describe "The number of public directories not owned by root" do
+      subject { dir_list }
+      its('count') { should cmp 0 }
     end
   end
 end

@@ -53,10 +53,8 @@ Set the system to the required kernel parameter by adding the following line to
 
 kernel.randomize_va_space=2"
 
-  aslr_config = command('sysctl kernel.randomize_va_space').stdout
-
-  describe parse_config(aslr_config).params['kernel.randomize_va_space'] do
-    it { should cmp 2 }
+  describe kernel_parameter('kernel.randomize_va_space') do
+    its('value') { should cmp 2 }
   end
 end
 

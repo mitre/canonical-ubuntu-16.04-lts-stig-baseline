@@ -50,10 +50,7 @@ storage driver by running the following command:
 
   describe kernel_module('usb-storage') do
     it { should_not be_loaded }
+    it { should be_disabled }
   end
-
-  describe command('sudo modprobe -vn usb-storage') do
-    its('stdout') { should match (/install \/bin\/true/) }
- end
 end
 

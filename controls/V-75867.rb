@@ -93,7 +93,7 @@ with the following command:
       end
     end
   else
-    describe "No other wireless network interfaces found" do
+    describe "Number of wireless network interfaces found" do
       subject { other_network_interfaces }
       its('count') { should eq 0 }
     end
