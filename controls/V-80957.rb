@@ -50,7 +50,7 @@ Then update the dconf settings:
 
 # dconf update"
 
-gnome_installed = package('ubuntu-gnome-desktop').installed?
+gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu-desktop').installed?)
 
   if gnome_installed
     logout_enabled = command('gsettings get org.gnome.settings-daemon.plugins.media-keys logout')

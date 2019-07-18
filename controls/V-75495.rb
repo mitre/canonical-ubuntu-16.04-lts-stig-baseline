@@ -39,7 +39,7 @@ below the \"[daemon]\" tag:
 
 AutomaticLoginEnable=false"
 
-  gnome_installed = package('ubuntu-gnome-desktop').installed?
+gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu-desktop').installed?)
 
   if gnome_installed
     describe parse_config_file('/etc/gdm3/custom.conf') do

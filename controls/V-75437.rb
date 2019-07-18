@@ -60,7 +60,7 @@ user interface (GUI).
 
 # sudo gsettings set org.gnome.desktop.lock-enabled true"
 
-  gnome_installed = package('ubuntu-gnome-desktop').installed?
+  gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu-desktop').installed?)
 
   if gnome_installed
     lock_enabled = command('gsettings get org.gnome.desktop.screensaver lock-enabled')
