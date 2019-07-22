@@ -52,9 +52,8 @@ Edit/Modify the following line in the \"/etc/login.defs\" file and set
 
 ENCRYPT_METHOD SHA512"
 
-  describe file("/etc/login.defs") do
-    it { should exist }
-    its("content") { should match /^\s*ENCRYPT_METHOD\s+SHA512\s*$/ }
+  describe login_defs do
+    its('ENCRYPT_METHOD') { should eq 'SHA512' }
   end
 end
 

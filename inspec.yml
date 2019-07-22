@@ -215,12 +215,6 @@ inputs:
     type: Boolean
     value: true
 
-#V-75911
-  - name: is_smart_card_enabled
-    description: Set to true if smart card(CAC/PIV) needs to be enabled for the Information System (default:true)
-    type: Boolean
-    value: true
-
 #V-75621
   - name: standard_audit_log_size
     description: Set audit log size in bytes (default:1073741824 per control specification)
