@@ -49,12 +49,14 @@ to contain the \"ocredit\" parameter:
 
 ocredit=-1"
 
+  min_num_special_char = input('min_num_special_char')
   config_file = '/etc/security/pwquality.conf'
   config_file_exists = file(config_file).exist?
+  
 
   if config_file_exists
     describe parse_config_file(config_file) do
-      its('ocredit') { should cmp '-1' }
+      its('ocredit') { should cmp min_num_special_char }
     end
   else
     describe (config_file + ' exists') do

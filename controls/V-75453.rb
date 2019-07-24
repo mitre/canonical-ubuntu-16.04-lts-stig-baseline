@@ -48,12 +48,14 @@ to contain the \"dcredit\" parameter:
 
 dcredit=-1"
 
+  min_num_numeric_char = input('min_num_numeric_char')
   config_file = '/etc/security/pwquality.conf'
   config_file_exists = file(config_file).exist?
+  
 
   if config_file_exists
     describe parse_config_file(config_file) do
-      its('ucredit') { should cmp '-1' }
+      its('ucredit') { should cmp min_num_numeric_char }
     end
   else
     describe (config_file + ' exists') do

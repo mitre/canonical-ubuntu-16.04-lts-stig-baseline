@@ -52,12 +52,14 @@ to include the \"difok=8\" parameter:
 
 difok=8"
 
+  min_num_characters_to_change = input('min_num_characters_to_change')
   config_file = '/etc/security/pwquality.conf'
   config_file_exists = file(config_file).exist?
+  
 
   if config_file_exists
     describe parse_config_file(config_file) do
-      its('difok') { should cmp '8' }
+      its('difok') { should cmp min_num_characters_to_change }
     end
   else
     describe (config_file + ' exists') do

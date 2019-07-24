@@ -50,13 +50,15 @@ DoD recommendation is 35 days, but a lower value is acceptable. The value
 \"-1\" will disable this feature, and \"0\" will disable the account
 immediately after the password expires."
 
+  max_account_inactive_days = input('max_account_inactive_days')
   config_file = '/etc/default/useradd'
   config_file_exists = file(config_file).exist?
+  
 
   if config_file_exists
     describe parse_config_file(config_file) do
       its('INACTIVE') { should cmp > '0' }
-      its('INACTIVE') { should cmp <= '35' }
+      its('INACTIVE') { should cmp <= max_account_inactive_days }
     end
   else
     describe (config_file + ' exists') do

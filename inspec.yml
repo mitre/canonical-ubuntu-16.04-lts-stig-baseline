@@ -39,6 +39,48 @@ inputs:
     type: Numeric
     value: 10
 
+#V-75449
+  - name: min_num_uppercase_char
+    description: Minimum number of upper case characters needed in a password (Denoted in negative numbers)
+    type: Numeric
+    value: -1
+
+#V-75451
+  - name: min_num_lowercase_char
+    description: Minimum number of lower case characters needed in a password (Denoted in negative numbers)
+    type: Numeric
+    value: -1
+
+#V-75453
+  - name: min_num_numeric_char
+    description: Minimum number of numeric characters needed in a password (Denoted in negative numbers)
+    type: Numeric
+    value: -1
+
+#V-75455
+  - name: min_num_special_char
+    description: Minimum number of special characters needed in a password (Denoted in negative numbers)
+    type: Numeric
+    value: -1
+
+#V-75457
+  - name: min_num_characters_to_change
+    description: Minimum number of characters that need to be changed for password rotation
+    type: Numeric
+    value: 8
+
+#V-75475
+  - name: min_num_password_generations
+    description: Minimum number of passwords to remember
+    type: Numeric
+    value: 5
+
+#V-75485
+  - name: max_account_inactive_days
+    description: Maximum number of days an account can remain inactive
+    type: Numeric
+    value: 35
+
 #V-75491
   - name: temporary_accounts
     description: Temporary user accounts
@@ -228,6 +270,17 @@ inputs:
     type: String
     value: ''
 
+#V-75837
+  - name: client_alive_interval
+    description: Client Alive Interval
+    type: Numeric
+    value: 600
+
+  - name: client_alive_count_max
+    description: Client Alive Interval
+    type: Numeric
+    value: 1
+
 #V-75867
   - name: allowed_network_interfaces
     description: Array of allowed network interfaces (wired & wireless)
@@ -242,3 +295,9 @@ inputs:
     description: System Administrator and/or DoD approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities
     type: Boolean
     value: false
+
+#V-80961
+  - name: space_left_percent
+    description: Audit space storage remaining (percentage)
+    type: Numeric
+    value: 25

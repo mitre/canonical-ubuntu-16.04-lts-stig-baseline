@@ -74,10 +74,11 @@ example being \"/var/log/audit/\"):
 Set the value of the \"space_left\" keyword in \"/etc/audit/auditd.conf\" to
 25% of the partition size."
 
+  space_left_percent = input('space_left_percent')
   audit_log_path = input('log_file_dir')
   
   describe filesystem(audit_log_path) do
-    its('percent_free') { should be >= 25 }
+    its('percent_free') { should be >= space_left_percent }
   end
 
   partition_threshold_mb = (filesystem(audit_log_path).size_kb / 1024 * 0.25).to_i

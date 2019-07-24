@@ -48,12 +48,13 @@ to contain the \"lcredit\" parameter:
 
 lcredit=-1"
 
+  min_num_lowercase_char = input('min_num_lowercase_char')
   config_file = '/etc/security/pwquality.conf'
   config_file_exists = file(config_file).exist?
 
   if config_file_exists
     describe parse_config_file(config_file) do
-      its('lcredit') { should cmp '-1' }
+      its('lcredit') { should cmp min_num_lowercase_char }
     end
   else
     describe (config_file + ' exists') do
