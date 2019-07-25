@@ -56,5 +56,11 @@ Using the audit log path from the command above, replace \"[log_path]\" in the
 following command:
 
 # sudo chown root [log_path]"
+
+  log_file_path = auditd_conf.log_file
+
+  describe file(log_file_path) do
+    its('owner') { should cmp 'root' }
+  end
 end
 

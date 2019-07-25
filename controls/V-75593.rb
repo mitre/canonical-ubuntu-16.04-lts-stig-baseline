@@ -44,5 +44,9 @@ If \"syslog\" is not returned as a result, this is a finding."
 running the following command:
 
 # sudo chgrp syslog /var/log "
+
+  describe directory('/var/log') do
+    its('group') { should cmp 'syslog'}
+  end
 end
 

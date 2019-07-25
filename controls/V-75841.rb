@@ -47,5 +47,9 @@ SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service
 "
+
+  describe sshd_config do
+    its('IgnoreUserKnownHosts') { should cmp 'yes' }
+  end
 end
 

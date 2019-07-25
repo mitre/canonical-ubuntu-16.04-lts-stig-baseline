@@ -48,5 +48,29 @@ Run the following command, replacing \"[FILE]\" with any system command file
 not group-owned by \"root\".
 
 # sudo chgrp root [FILE]"
+
+  system_commands = command('find /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root').stdout.strip.split("\n").entries
+  valid_system_commands = Set[]
+
+  if system_commands.count > 0
+    system_commands.each do |sys_cmd|
+      if file(sys_cmd).exist?
+        valid_system_commands = valid_system_commands << sys_cmd
+      end
+    end
+  end
+
+  if valid_system_commands.count > 0
+    valid_system_commands.each do |val_sys_cmd|
+      describe file(val_sys_cmd) do
+        its('group') { should cmp 'root' }
+      end
+    end
+  else
+    describe "Number of system commands found in /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin or /usr/local/sbin, that are NOT group-owned by root" do
+      subject { valid_system_commands }
+      its('count') { should eq 0 }
+    end
+  end
 end
 

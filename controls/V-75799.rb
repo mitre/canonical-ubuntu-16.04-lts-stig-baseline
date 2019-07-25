@@ -33,5 +33,9 @@ capabilities by removing the Network Information Service (NIS) package from the
 system with the following command:
 
 # sudo apt-get remove nis"
+
+  describe package('nis') do
+    it { should_not be_installed }
+  end
 end
 

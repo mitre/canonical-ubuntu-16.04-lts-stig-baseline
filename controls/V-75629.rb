@@ -60,5 +60,10 @@ Add or update the following line (depending on configuration
 configuration) in \"/etc/audit/auditd.conf\" file:
 
 disk_full_action = HALT"
+
+  describe auditd_conf do
+    its('disk_full_action') { should_not be_empty }
+    its('disk_full_action') { should cmp %r((?:SYSLOG|SINGLE|HALT))i }
+  end
 end
 

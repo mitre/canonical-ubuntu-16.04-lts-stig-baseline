@@ -43,5 +43,19 @@ Uncomment the \"enable_krb5\" option in \"/etc/audisp/audisp-remote.conf\" and
 set it to \"yes\". See the example below.
 
 enable_krb5 = yes"
+
+  config_file_exists = file('/etc/audisp/audisp-remote.conf').exist?
+
+  if config_file_exists
+    describe auditd_conf('/etc/audisp/audisp-remote.conf') do
+      its('enable_krb5') { should_not be_empty }
+      its('enable_krb5') { should cmp 'yes' }
+    end
+  else
+    describe "/etc/audisp/audisp-remote.conf exists" do
+      subject { config_file_exists }
+      it { should be true }
+    end
+  end
 end
 

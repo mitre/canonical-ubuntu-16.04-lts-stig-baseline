@@ -45,5 +45,19 @@ Add, edit or uncomment the \"disk_full_action\" option in
 \"halt\" like the below example:
 
 disk_full_action = single"
+
+  config_file_exists = file('/etc/audisp/audisp-remote.conf').exist?
+
+  if config_file_exists
+    describe auditd_conf('/etc/audisp/audisp-remote.conf') do
+      its('disk_full_action') { should_not be_empty }
+      its('disk_full_action') { should cmp %r((?:SYSLOG|SINGLE|HALT))i }
+    end
+  else
+    describe "/etc/audisp/audisp-remote.conf exists" do
+      subject { config_file_exists }
+      it { should be true }
+    end
+  end
 end
 

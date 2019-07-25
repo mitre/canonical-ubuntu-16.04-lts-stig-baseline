@@ -51,5 +51,18 @@ the event of an audit processing failure.
 Add/update the following line in \"/etc/aliases\":
 
 postmaster: root"
+
+  is_postfix_installed = package('postfix').installed?
+
+  if is_postfix_installed
+    describe command('grep "postmaster: *root$" /etc/aliases') do
+      its('stdout') { should_not be_empty }
+    end
+  else
+    describe "Control Not Applicable as postfix is not installed" do
+      subject { is_postfix_installed }
+      it { should be false }
+    end
+  end
 end
 

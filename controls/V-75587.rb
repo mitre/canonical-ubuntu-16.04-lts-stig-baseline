@@ -52,5 +52,24 @@ non-privileged interactive users' home directories does not exist, this is a
 finding."
   desc "fix", "Migrate the \"/home\" directory onto a separate file
 system/partition."
+
+  non_interactive_shells = input('non_interactive_shells')
+  exempt_home_users = input('exempt_home_users')
+  ignore_shells = non_interactive_shells.join('|')
+
+  # excluding root because its home directory is usually "/root" (mountpoint "/")
+  users.where{ !shell.match(ignore_shells) && (uid >= 1000)}.entries.each do |user_info|
+    next if exempt_home_users.include?("#{user_info.username}")
+
+    home_mount = command(%(df #{user_info.home} --output=target | tail -1)).stdout.strip
+    describe user_info.username do
+      context 'with mountpoint' do
+        context home_mount do
+          it { should_not be_empty }
+          it { should_not match(%r(^/$)) }
+        end
+      end
+    end
+  end
 end
 

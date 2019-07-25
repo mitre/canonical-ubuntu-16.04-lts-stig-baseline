@@ -68,32 +68,43 @@ this is a finding."
 /usr/sbin/audispd p+i+n+u+g+s+b+acl+xattr+sha512
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattr+sha512"
 
-  describe aide_conf.where { selection_line == '/usr/sbin/auditctl' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+  aide_conf_exists = aide_conf.exist?
+
+  if aide_conf_exists
+    describe aide_conf.where { selection_line == '/usr/sbin/auditctl' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  
+    describe aide_conf.where { selection_line == '/usr/sbin/auditd' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  
+    describe aide_conf.where { selection_line == '/usr/sbin/ausearch' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  
+    describe aide_conf.where { selection_line == '/usr/sbin/aureport' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  
+    describe aide_conf.where { selection_line == '/usr/sbin/autrace' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  
+    describe aide_conf.where { selection_line == '/usr/sbin/audispd' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  
+    describe aide_conf.where { selection_line == '/usr/sbin/augenrules' } do
+      its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
+    end
+  else
+    describe "aide.conf file exists" do
+      subject { aide_conf_exists }
+      it { should be true }
+    end
   end
 
-  describe aide_conf.where { selection_line == '/usr/sbin/auditd' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
-  end
-
-  describe aide_conf.where { selection_line == '/usr/sbin/ausearch' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
-  end
-
-  describe aide_conf.where { selection_line == '/usr/sbin/aureport' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
-  end
-
-  describe aide_conf.where { selection_line == '/usr/sbin/autrace' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
-  end
-
-  describe aide_conf.where { selection_line == '/usr/sbin/audispd' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
-  end
-
-  describe aide_conf.where { selection_line == '/usr/sbin/augenrules' } do
-    its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
-  end
+  
 end
 

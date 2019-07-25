@@ -53,5 +53,12 @@ access, by setting the correct owner as \"root\" with the following command:
 
 Replace \"[audit_log_directory]\" with the correct audit log directory path, by
 default this location is usually \"/var/log/audit\"."
+
+  log_file_path = input('log_file_path')
+  log_file_dir = input('log_file_dir')
+
+  describe directory(log_file_dir) do
+    its('owner') { should cmp 'root' }
+  end
 end
 

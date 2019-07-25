@@ -1,6 +1,3 @@
-exempt_home_users = attribute('exempt_home_users')
-non_interactive_shells = attribute('non_interactive_shells')
-
 control "V-75557" do
   title "All files and directories must have a valid group owner."
   desc  "Files without a valid group owner may be unintentionally inherited if
@@ -38,17 +35,18 @@ directories on the system with the \"chgrp\" command:
 
 # sudo chgrp <group> <file>"
 
-ignore_shells = non_interactive_shells.join('|')
-
-findings = Set[]
-users.where{ !shell.match(ignore_shells) }.entries.each do |user_info|
-  next if exempt_home_users.include?("#{user_info.username}")
-  findings = findings + command("find / -nogroup").stdout.split("\n")
-end
-
-describe "Files and Directories on the Ubuntu operating system have a valid group" do
-  subject { findings.to_a }
-  it { should be_empty }
-end
+  dir_list = command("find / -nogroup").stdout.strip.split("\n")
+  if (dir_list.count > 0)
+    dir_list.each do |entry|
+      describe directory(entry) do
+        its('group') { should_not be_empty }
+      end
+    end
+  else
+    describe "The number of files and directories without a valid group" do
+      subject { dir_list }
+      its('count') { should cmp 0 }
+    end
+  end
 end
 

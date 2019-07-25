@@ -49,5 +49,9 @@ Start the audit service.
 
 Enable auditd in the targets of the system.
 # systemctl enable auditd.service"
+  describe service('auditd') do
+    it { should be_installed }
+    it { should be_enabled }
+    it { should be_running }
+  end
 end
-

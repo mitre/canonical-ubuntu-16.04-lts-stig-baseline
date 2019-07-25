@@ -60,5 +60,11 @@ parameter in the \"/etc/audit/auditd.conf\" file with the a value of \"syslog\"
 or \"keep_logs\":
 
 max_log_file_action=syslog"
+
+  describe auditd_conf do
+    its('max_log_file_action') { should_not be_empty }
+    its('max_log_file_action') { should_not cmp %r((?:ignore|rotate|suspend))i }
+    its('max_log_file_action') { should cmp %r((?:syslog|keep_logs))i }
+  end
 end
 

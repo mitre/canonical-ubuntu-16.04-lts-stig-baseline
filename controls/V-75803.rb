@@ -51,5 +51,9 @@ installed this is a finding."
   desc "fix", "Install Uncomplicated Firewall with the following command:
 
 # sudo apt-get install ufw"
+
+  describe package('ufw') do
+    it { should be_installed }
+  end
 end
 

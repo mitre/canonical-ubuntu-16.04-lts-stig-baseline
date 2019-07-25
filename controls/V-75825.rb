@@ -157,5 +157,37 @@ The SSH daemon must be restarted for the changes to take effect. To restart the
 SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service"
+
+  banner_text = input('banner_text')
+  #When Banner is commented, not found, disabled, or the specified file does not exist, this is a finding.
+  banner_files = [sshd_config.banner].flatten
+
+  banner_files.each do |banner_file|
+    
+    #Banner property is commented out.
+    describe "The SSHD Banner is not set" do 
+      subject { banner_file.nil? }
+      it { should be false }
+    end if banner_file.nil?
+    
+    #Banner property is set to "none"
+    describe "The SSHD Banner is disabled" do
+      subject { banner_file.match(/none/i).nil? }
+      it { should be true }
+    end if !banner_file.nil? && !banner_file.match(/none/i).nil?
+    
+    #Banner property provides a path to a file, however, it does not exist.
+    describe "The SSHD Banner is set, but, the file does not exist" do
+      subject { file(banner_file).exist? }
+      it { should be true }
+    end if !banner_file.nil? && banner_file.match(/none/i).nil? && !file(banner_file).exist?
+    
+    #Banner property provides a path to a file and it exists.
+    describe "The SSHD Banner is set to the standard banner and has the correct text" do
+        clean_banner = banner_text.gsub(%r{[\r\n\s]}, '')
+        subject { banner = file(banner_file).content.gsub(%r{[\r\n\s]}, '') } 
+        it { should cmp clean_banner }
+    end if !banner_file.nil? && banner_file.match(/none/i).nil? && file(banner_file).exist?
+  end
 end
 

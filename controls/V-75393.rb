@@ -107,6 +107,15 @@ Add the following line to the \"[org/gnome/login-screen]\" section of the
 
 [org/gnome/login-screen]
 banner-message-enable=true"
-# TODO
+
+  describe command('/usr/lib/update-notifier/apt-check --human-readable') do
+    its('exit_status') { should cmp 0 }
+    its('stdout') { should match '^0 updates are security updates.$' }
+  end
+
+  describe 'banner-message-enable must be set to true' do
+    subject { command('grep banner-message-enable /etc/dconf/db/local.d/*') }
+    its('stdout') { should match %r((banner-message-enable).+=.+(true)) }
+  end
 end
 

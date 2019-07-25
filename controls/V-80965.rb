@@ -50,8 +50,17 @@ The audit daemon can be restarted with the following command:
 
 # sudo systemctl restart auditd.service"
 
-  describe parse_config_file('/etc/audisp/audisp-remote.conf') do
-    its('remote_server') { should match /./ }
-   end
+  config_file_exists = file('/etc/audisp/audisp-remote.conf').exist?
+
+  if config_file_exists
+    describe parse_config_file('/etc/audisp/audisp-remote.conf') do
+      its('remote_server') { should match /./ }
+    end
+  else
+    describe "/etc/audisp/audisp-remote.conf exists" do
+      subject { config_file_exists }
+      it { should be true }
+    end
+  end
 end
 

@@ -20,9 +20,9 @@ cache: bundler
 addons:
   apt:
     sources:
-      - chef-stable-xenial
-    packages:
-      - chef-workstation
+      - chef-current-xenial
+    # packages:
+    #   - chef-workstation
   #artifacts: true
 
 # Don't `bundle install` which takes about 1.5 mins
@@ -35,13 +35,18 @@ env:
   - INSTANCE=default-ubuntu-1604
 
 before_script:
+  - wget https://packages.chef.io/files/stable/chef-workstation/0.5.1/ubuntu/16.04/chef-workstation_0.5.1-1_amd64.deb
+  - sudo dpkg -i chef-workstation_*.deb
+  - rm chef-workstation_*.deb
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
   - gem install inspec_tools
   - inspec --version
-  - gem update inspec
-  - gem update inspec-bin
+  - CHEF_LICENSE=accept chef gem update inspec
+  - CHEF_LICENSE=accept chef gem update inspec-bin
+  - /opt/chef-workstation/embedded/bin/gem update inspec
+  - /opt/chef-workstation/embedded/bin/gem update inspec-bin
   - inspec --version
   - bundle update --bundler
   - bundle install
@@ -50,6 +55,6 @@ before_script:
   - foodcritic --version
 
 script: 
-  - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE} -l debug || true
+  - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE} || true
   - export RESULTS=$(ls results/*.json)
   - inspec_tools compliance -j $RESULTS -f threshold.yml

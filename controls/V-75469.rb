@@ -58,10 +58,8 @@ an administrator:
 
 # sudo chage -I -1 -M 99999 [Emergency_Administrator]"
 
-  describe command('sudo chage -l root') do
-    its('exit_status') { should eq 0 }
-    its('stdout') { should match /^[Pp]assword\s+expires\s+:\s+never/ }
-    its('stdout') { should match /^[Aa]ccount\s+expires\s+:\s+never/ }
+  describe shadow.where(user: 'root') do
+    its('expiry_dates') { should eq [nil] }
   end
 end
 

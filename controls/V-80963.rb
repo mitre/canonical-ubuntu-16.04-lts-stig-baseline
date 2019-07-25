@@ -61,5 +61,17 @@ Using the audit log path from the command above, replace \"[log_path]\" in the
 following command:
 
 # sudo chmod 0640 [log_path]"
-end
 
+  log_file_path = auditd_conf.log_file
+  if log_file_path.nil?
+    describe "auditd.conf's log_file specification" do
+      subject { log_file_path }
+      it { should_not be_nil }
+    end
+  else
+    describe file(log_file_path) do
+      it { should exist }
+      it { should_not be_more_permissive_than('0640') }
+    end
+  end
+end

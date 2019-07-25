@@ -68,5 +68,22 @@ Edit \"/etc/audit/auditd.conf\" and set the \"space_left_action\" parameter to
 set to \"email\" set the \"action_mail_acct\" parameter to an e-mail address
 for the System Administrator (SA) and Information System Security Officer
 (ISSO)."
+
+  space_left_action = auditd_conf.space_left_action
+  if space_left_action.casecmp?('email')
+    action_mail_acct = input('action_mail_acct')
+    describe auditd_conf do
+      its('action_mail_acct') { should cmp action_mail_acct}
+    end
+  else (space_left_action.casecmp?('syslog') || space_left_action.casecmp?('exec') )
+    describe.one do
+      describe auditd_conf do
+        its('space_left_action') { should cmp 'syslog'}
+      end
+      describe auditd_conf do
+        its('space_left_action') { should cmp 'exec'}
+      end
+    end
+  end
 end
 

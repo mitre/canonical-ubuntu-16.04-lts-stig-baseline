@@ -49,5 +49,18 @@ logout=’’
 Then update the dconf settings:
 
 # dconf update"
-end
 
+gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu-desktop').installed?)
+
+  if gnome_installed
+    logout_enabled = command('gsettings get org.gnome.settings-daemon.plugins.media-keys logout')
+    describe logout_enabled do
+      its('stdout') { should cmp '' }
+    end
+  else
+    describe "Control Not Applicable as GNOME dekstop environment is not installed" do
+      subject { gnome_installed }
+      it { should be false }
+    end
+  end
+end

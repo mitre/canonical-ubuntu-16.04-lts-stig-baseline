@@ -60,19 +60,18 @@ user interface (GUI).
 
 # sudo gsettings set org.gnome.desktop.lock-enabled true"
 
-  # TODO
-  # describe package('libgnome2-common') do
-  #   it { should be_installed }
-  # end
-  # describe package('gnome-shell') do
-  #   it { should be_installed }
-  # end
-  # gnmoe_installed = command('apt list libgnome2-common').exit_status
-  # gnmoe_shell_installed = command('apt list gnome-shell').exit_status
+  gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu-desktop').installed?)
 
-  # if gnmoe_installed != 0 || gnmoe_shell_installed != 0
-  #    # gnome shell is installed. Check whether gsettings is installed.
-  #    gsettings_installed = command('apt list libglib2.0-bin')
-  # end
+  if gnome_installed
+    lock_enabled = command('gsettings get org.gnome.desktop.screensaver lock-enabled')
+    describe lock_enabled do
+      its('stdout') { should cmp 'true' }
+    end
+  else
+    describe "Not Applicable as GNOME dekstop environment is installed" do
+      subject { gnome_installed }
+      it { should be false }
+    end
+  end
 end
 

@@ -68,5 +68,20 @@ one week's worth of audit records.
 If audit records are not stored on a partition made specifically for audit
 records, a new partition with sufficient amount of space will need be to be
 created."
+
+  log_file_path = input('log_file_path')
+  log_file_dir = input('log_file_dir')
+  available_storage = filesystem(log_file_dir).free_kb
+  log_file_size = file(log_file_path).size
+  standard_audit_log_size = input('standard_audit_log_size')
+  
+  describe ('Current audit log file size is less than the specified standard of ' + standard_audit_log_size.to_s) do
+    subject { log_file_size.to_i }
+    it { should be <= standard_audit_log_size }
+  end
+  describe ('Available storage for audit log should be more than the defined standard of ' + standard_audit_log_size.to_s) do
+    subject { available_storage.to_i }
+    it { should be > standard_audit_log_size}
+  end
 end
 

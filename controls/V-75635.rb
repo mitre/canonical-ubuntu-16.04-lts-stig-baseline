@@ -54,5 +54,19 @@ access by setting the correct permissive mode with the following command:
 
 Replace \"[audit_log_file]\" to the correct audit log path, by default this
 location is \"/var/log/audit/audit.log\"."
+
+  log_file = auditd_conf.log_file
+
+  log_file_exists = !log_file.nil?
+  if log_file_exists
+    describe file(log_file) do
+      it { should_not be_more_permissive_than('0600') }
+    end
+  else
+    describe ('Audit log file '+ log_file + ' exists') do
+      subject { log_file_exists }
+      it { should be true }
+    end
+  end
 end
 

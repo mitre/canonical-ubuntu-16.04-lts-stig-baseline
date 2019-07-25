@@ -45,13 +45,18 @@ Enabling a FIPS mode on a pre-existing system involves a number of
 modifications to the Ubuntu operating system. Refer to the Ubuntu Server 16.04
 FIPS 140-2 security policy document for instructions."
 
-  describe file("/proc/sys/crypto/fips_enabled") do
-    it { should exist }
-  end
+  config_file = '/proc/sys/crypto/fips_enabled'
+  config_file_exists = file(config_file).exist?
 
-  describe command("grep -i 1 /proc/sys/crypto/fips_enabled") do
-    its('exit_status') { should eq 0 }
-    its('stdout.strip') { should match /^1$/ }
+  if config_file_exists
+    describe parse_config_file(config_file) do
+      it { should cmp '1' }
+    end
+  else
+    describe ('FIPS is enabled') do
+      subject { config_file_exists }
+      it { should be true }
+    end
   end
 end
 

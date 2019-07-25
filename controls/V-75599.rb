@@ -44,5 +44,9 @@ If \"adm\" is not returned as a result, this is a finding."
 running the following command:
 
 # sudo chgrp adm /var/log/syslog"
+
+  describe file('/var/log/syslog') do
+    its('group') { should cmp 'adm' }
+  end
 end
 

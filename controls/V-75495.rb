@@ -38,5 +38,18 @@ Add or edit the following line in the \"/etc/gdm3/custom.conf\" file directly
 below the \"[daemon]\" tag:
 
 AutomaticLoginEnable=false"
+
+gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu-desktop').installed?)
+
+  if gnome_installed
+    describe parse_config_file('/etc/gdm3/custom.conf') do
+      its('AutomaticLoginEnable') { should cmp 'false' }
+    end
+  else
+    describe "Not Applicable as GNOME dekstop environment is installed" do
+      subject { gnome_installed }
+      it { should be false }
+    end
+  end
 end
 

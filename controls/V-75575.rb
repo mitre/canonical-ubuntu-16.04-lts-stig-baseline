@@ -50,5 +50,22 @@ If a file system found in \"/etc/fstab\" refers to the user home directory file
 system and it does not have the \"nosuid\" option set, this is a finding."
   desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that contain user home directories for interactive users."
+
+  known_system_mount_points = input('known_system_mount_points')
+  fstab_mount_points = etc_fstab.entries.map(&:mount_point)
+  other_mount_points = fstab_mount_points - known_system_mount_points
+
+  if other_mount_points.count > 0
+    other_mount_points.each do |mount_point|
+      describe mount(mount_point) do
+        its('options') { should include 'nosuid' }
+      end
+    end
+  else
+    describe "Separate file system has not been detected for the user home directories" do
+      subject { other_mount_points }
+      its('count') { should eq 0 }
+    end
+  end
 end
 

@@ -49,5 +49,20 @@ command:
 
 # sudo postconf -e 'smtpd_relay_restrictions = permit_mynetworks,
 permit_sasl_authenticated, reject'"
+
+  is_postfix_installed = package('postfix').installed?
+
+  if is_postfix_installed
+    postconf_output = command('postconf -n smtpd_client_restrictions').stdout.strip
+    smtpd_relay_restrictions = postconf_output.split(' = ')[1].split(', ')
+    describe smtpd_relay_restrictions do
+      it { should be_in ["permit_mynetworks", "permit_sasl_authenticated", "reject"] }
+    end
+  else
+    describe "Control Not Applicable as postfix is not installed" do
+      subject { is_postfix_installed }
+      it { should be false }
+    end
+  end
 end
 

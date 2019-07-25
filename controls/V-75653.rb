@@ -55,5 +55,13 @@ access by setting the correct permissive mode using the following command:
 
 Replace \"[audit_tool]\" with the audit tool that does not have the correct
 permissive mode."
+
+  audit_tools = input('audit_tools')
+
+  audit_tools.each do |tool|
+    describe file(tool) do
+      it { should_not be_more_permissive_than('0755') }
+    end
+  end
 end
 

@@ -55,5 +55,13 @@ Edit the following line in \"/etc/audit/auditd.conf\" to ensure that
 administrators are notified via email for those situations:
 
 action_mail_acct = root"
+
+  security_accounts = input('security_accounts').join('|')
+  space_left_action = auditd_conf.space_left_action
+
+  describe "System Administrator (SA) and Information System Security Officer (ISSO) are notified in the event of an audit processing failure" do
+    subject { security_accounts.include?(space_left_action) }
+    it { should be true }
+  end
 end
 

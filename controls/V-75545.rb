@@ -1,7 +1,3 @@
-known_system_accounts = attribute('known_system_accounts')
-disallowed_accounts = attribute('disallowed_accounts')
-user_accounts = attribute('user_accounts')
-
 control "V-75545" do
   title "The Ubuntu operating system must not have unnecessary accounts."
   desc  "Accounts providing no operational purpose provide additional
@@ -53,6 +49,9 @@ for a normal user to perform administrative-level actions.
 
 Document all authorized accounts on the system."
 
+  known_system_accounts = input('known_system_accounts')
+  disallowed_accounts = input('disallowed_accounts')
+  user_accounts = input('user_accounts')
   allowed_accounts = (known_system_accounts + user_accounts).uniq
 
   describe "The active system users" do
@@ -60,9 +59,5 @@ Document all authorized accounts on the system."
     its('users') { should be_in allowed_accounts }
     its('users') { should_not be_in disallowed_accounts }
   end
-  # describe "System" do
-  #   subject { passwd }
-    
-  # end
 end
 

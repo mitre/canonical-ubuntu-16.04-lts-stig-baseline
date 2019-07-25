@@ -65,5 +65,16 @@ The audit daemon must be restarted for the changes to take effect. To restart
 the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
+
+  describe auditd.syscall("creat").where{arch == "b64"} do
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
+    its('exit.uniq') { should include '-EPERM' }
+  end
+  describe auditd.syscall("creat").where{arch == "b64"} do
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
+    its('exit.uniq') { should include '-EACCES' }
+  end
 end
 

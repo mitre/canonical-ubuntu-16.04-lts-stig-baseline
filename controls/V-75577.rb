@@ -38,5 +38,20 @@ If a file system found in \"/etc/fstab\" refers to removable media and it does
 not have the \"nosuid\" option set, this is a finding."
   desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that are associated with removable media."
+
+  removable_media_mount_points = input('removable_media_mount_points')
+
+  if removable_media_mount_points.count > 0
+    removable_media_mount_points.each do |mount_point|
+      describe mount(mount_point) do
+        its('options') { should include 'nosuid' }
+      end
+    end
+  else
+    describe "Removable media mount points" do
+      subject { removable_media_mount_points }
+      its('count') { should cmp 0 }
+    end
+  end
 end
 

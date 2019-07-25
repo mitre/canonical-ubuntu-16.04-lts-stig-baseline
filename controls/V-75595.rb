@@ -43,5 +43,9 @@ If \"root\" is not returned as a result, this is a finding."
 following command:
 
 # sudo chown root /var/log"
+
+  describe directory('/var/log') do
+    its('owner') { should cmp 'syslog'}
+  end
 end
 

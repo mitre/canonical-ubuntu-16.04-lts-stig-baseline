@@ -44,5 +44,9 @@ If \"0\" is not the system's default value then add or update the following
 line in \"/etc/sysctl.conf\" or in the appropriate file under \"/etc/sysctl.d\":
 
 net.ipv4.conf.default.accept_source_route=0"
+
+  describe kernel_parameter('net.ipv4.conf.default.accept_source_route') do
+    its('value') { should eq 0 }
+  end
 end
 

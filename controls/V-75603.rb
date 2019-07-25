@@ -45,5 +45,9 @@ If a value of \"640\" or less permissive is not returned, this is a finding."
 \"0640\" by running the following command:
 
 # sudo chmod 0640 /var/log"
+
+  describe file('/var/log/syslog') do
+    it { should_not be_more_permissive_than('0640') }
+  end
 end
 

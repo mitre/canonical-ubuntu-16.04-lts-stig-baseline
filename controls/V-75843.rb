@@ -48,5 +48,23 @@ The SSH daemon must be restarted for the changes to take effect. To restart the
 SSH daemon, run the following command:
 
 # sudo systemctl restart sshd.service"
+
+  pub_files = command("find /etc/ssh -xdev -name '*.pub' -perm /133").stdout.split("\n")
+  if !pub_files.nil? and !pub_files.empty?
+    pub_files.each do |pubfile|
+      describe file(pubfile) do
+        it { should_not be_executable.by('user') }
+        it { should_not be_executable.by('group') }
+        it { should_not be_writable.by('group') }
+        it { should_not be_executable.by('others') }
+        it { should_not be_writable.by('others') }
+      end
+    end
+  else
+    describe "No files have a more permissive mode." do
+      subject { pub_files.nil? or pub_files.empty? }
+      it { should eq true }
+    end
+  end
 end
 

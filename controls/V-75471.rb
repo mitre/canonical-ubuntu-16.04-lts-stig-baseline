@@ -41,13 +41,8 @@ Add, or modify the following line in the \"/etc/login.defs\" file:
 
 PASS_MIN_DAYS    1"
 
-  describe file("/etc/login.defs") do
-    it { should exist }
-  end
-
-  describe command("grep -i pass_min_days /etc/login.defs") do
-    its('exit_status') { should eq 0 }
-    its('stdout') { should match /^\s*PASS_MIN_DAYS\s+[1-9][\d]*/ }
+  describe login_defs do
+    its('PASS_MIN_DAYS') { should >= '1' }
   end
 end
 

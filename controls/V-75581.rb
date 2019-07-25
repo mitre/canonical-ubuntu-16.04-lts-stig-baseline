@@ -41,5 +41,19 @@ the Information System Security Officer (ISSO) as an operational requirement,
 this is a finding."
   desc "fix", "Configure the \"/etc/fstab\" to use the \"noexec\" option on file
 systems that are being imported via Network File System (NFS)."
+
+  device_rules = etc_fstab.where{ file_system_type == 'nfs' }.entries
+  if device_rules.count > 0
+    device_rules.each do |device_rule|
+      describe device_rule do
+        its ('mount_options') { should include 'noexec' }
+      end
+    end
+  else
+    describe "No NFS mounts found on the system" do
+      subject { device_rules }
+      its('count') { should eq 0 }
+    end
+  end
 end
 

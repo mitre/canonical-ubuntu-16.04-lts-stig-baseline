@@ -52,5 +52,13 @@ following command:
 # sudo chown root [audit_tool]
 
 Replace \"[audit_tool]\" with each audit tool not owned by \"root\"."
+
+  audit_tools = input('audit_tools')
+
+  audit_tools.each do |tool|
+    describe file(tool) do
+      its('owner') { should cmp 'root' }
+    end
+  end
 end
 

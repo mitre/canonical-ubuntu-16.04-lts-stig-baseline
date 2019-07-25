@@ -44,5 +44,9 @@ If \"syslog\" is not returned as a result, this is a finding."
 the following command:
 
 # sudo chown syslog /var/log/syslog"
+
+  describe file('/var/log/syslog') do
+    its('owner') { should cmp 'syslog' }
+  end
 end
 

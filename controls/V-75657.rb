@@ -52,5 +52,13 @@ running the following command:
 # sudo chgrp root [audit_tool]
 
 Replace \"[audit_tool]\" with each audit tool not group-owned by \"root\"."
+
+  audit_tools = input('audit_tools')
+
+  audit_tools.each do |tool|
+    describe file(tool) do
+      its('group') { should cmp 'root' }
+    end
+  end
 end
 

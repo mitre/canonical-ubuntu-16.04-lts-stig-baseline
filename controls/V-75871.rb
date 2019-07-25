@@ -58,5 +58,25 @@ file must be empty. An empty \"/etc/resolv.conf\" file can be created as
 follows:
 
 # echo -n > /etc/resolv.conf"
+
+  describe file('/etc/nsswitch.conf') do
+    it { should exist }
+  end
+
+  options = {
+    assignment_regex: /^\s*([^:]*?)\s*:\s*(.*?)\s*$/
+  }
+
+  dns_entry_exists = parse_config_file('/etc/nsswitch.conf',options).params('hosts').match?(%r(dns))
+  if dns_entry_exists
+    describe "DNS entry exists in /etc/nsswitch.conf" do
+      subject { dns_entry_exists }
+      it { should be true }
+    end
+  else
+    describe file('/etc/resolv.conf') do
+      its('content') { should match %r(/^(?!(#.*)).+/m) }
+    end
+  end
 end
 
