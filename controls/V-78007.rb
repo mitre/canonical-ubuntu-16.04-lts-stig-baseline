@@ -86,6 +86,7 @@ this is a finding.
   desc "fix", "Update the approved DoD virus scan software and virus definition
 files."
 
+  org_name = input('org_name')
   is_antivirus_active = false
   seven_days = 604800 # (7 days * 24 hours * 60 minutes * 60 seconds)
   
@@ -126,7 +127,7 @@ files."
   end
 
   if !is_antivirus_active
-    describe "No DoD-approved virus scan program is found to be active on the system" do
+    describe ("No " + org_name + "-approved virus scan program is found to be active on the system") do
       subject { is_antivirus_active }
       it { should be true }
     end

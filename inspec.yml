@@ -33,6 +33,11 @@ inputs:
     type: String
     value: '/var/log/audit/'
 
+  - name: org_name
+    description: Organization Name
+    type: String
+    value: 'DoD'
+
 #V-75443
   - name: maxlogins
     description: Maximum number of concurrent sessions
