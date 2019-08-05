@@ -74,6 +74,12 @@ inputs:
     type: Numeric
     value: 8
 
+#V-75469
+  - name: emergency_accounts
+    description: Emergency user accounts
+    type: Array
+    value: []
+
 #V-75475
   - name: min_num_password_generations
     description: Minimum number of passwords to remember
