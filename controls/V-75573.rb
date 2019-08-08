@@ -1,15 +1,10 @@
 control "V-75573" do
   title "Local initialization files must not execute world-writable programs."
-  if disable_slow_controls
-    desc "This control consistently takes a long to run and has been disabled
-          using the disable_slow_controls attribute."
-  else
   desc  "If user start-up files execute world-writable programs, especially in
 unprotected directories, they could be maliciously modified to destroy user
 files or otherwise compromise the system at the user level. If the system is
 compromised at the user level, it is easier to elevate privileges to eventually
 compromise the system at the root and network level."
-  end
   impact 0.5
   tag "gtitle": "SRG-OS-000480-GPOS-00227"
   tag "gid": "V-75573"
@@ -54,12 +49,11 @@ files with the following command:
   exempt_home_users = input('exempt_home_users')
   non_interactive_shells = input('non_interactive_shells')
   if disable_slow_controls
-    describe "This control consistently takes a long to run and has been disabled
-  using the DISABLE_SLOW_CONTROLS attribute." do
+    describe "This control consistently takes a long to run and has been disabled using the DISABLE_SLOW_CONTROLS attribute." do
       skip "This control consistently takes a long to run and has been disabled
-  using the DISABLE_SLOW_CONTROLS attribute. You must enable this control for a
-  full accredidation for production."
-  end
+      using the DISABLE_SLOW_CONTROLS attribute. You must enable this control for a
+      full accredidation for production."
+    end
   else
     ignore_shells = non_interactive_shells.join('|')
     
@@ -80,7 +74,9 @@ files with the following command:
       ww_files.each do |ww_file|
         ww_file = ww_file.strip
         count = command("grep -c \"#{ww_file}\" \"#{dotfile}\"").stdout.strip.to_i
-        findings << dotfile if count > 0
+        if (count > 0)
+          findings << dotfile
+        end
       end
     end
     describe "Local initialization files that are found to reference world-writable files" do
