@@ -59,6 +59,7 @@ permit_sasl_authenticated, reject'"
       it { should be_in ["permit_mynetworks", "permit_sasl_authenticated", "reject"] }
     end
   else
+    impact 0
     describe "Control Not Applicable as postfix is not installed" do
       subject { is_postfix_installed }
       it { should be false }

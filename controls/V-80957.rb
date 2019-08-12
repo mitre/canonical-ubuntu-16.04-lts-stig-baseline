@@ -58,6 +58,7 @@ gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu
       its('stdout') { should cmp '' }
     end
   else
+    impact 0
     describe "Control Not Applicable as GNOME dekstop environment is not installed" do
       subject { gnome_installed }
       it { should be false }

@@ -59,6 +59,7 @@ postmaster: root"
       its('stdout') { should_not be_empty }
     end
   else
+    impact 0
     describe "Control Not Applicable as postfix is not installed" do
       subject { is_postfix_installed }
       it { should be false }
