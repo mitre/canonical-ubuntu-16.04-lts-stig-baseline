@@ -11,7 +11,7 @@
 | |Consistency across other profile conventions | Mo|08/12/19|[#19](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/19)|
 | |Spelling, grammar,linting (e.g., rubocop, etc.)| Mo|08/09/19|[#18](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/18)|
 | |Removing debugging documentation and code| Mo|08/12/19|[#21](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/21)|
-| Error handling |“Profile Error” containment: “null” responses <br>should only happen if InSpec is run with incorrect privileges (e.g., code fails to reach a describe statement for every control. inspec check can do this. It will say no defined tests)| |||
+| Error handling |“Profile Error” containment: “null” responses <br>should only happen if InSpec is run with incorrect privileges (e.g., code fails to reach a describe statement for every control. inspec check can do this. It will say no defined tests)| Mo|08/12/19|*|
 | |Slowing the target (e.g. filling up disk, CPU spikes)| Mo|08/09/19|*|
 | |Check for risky commands (e.g. rm, del, purge, etc.)| Mo|08/09/19|*|
 | |Check for “stuck” situations (e.g., profile goes on forever due to infinite loop, very large data sets, etc.)| Mo|08/09/19|*|
