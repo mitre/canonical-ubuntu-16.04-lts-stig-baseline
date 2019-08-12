@@ -90,7 +90,6 @@ files."
   is_antivirus_active = false
   seven_days = 604800 # (7 days * 24 hours * 60 minutes * 60 seconds)
   
-  # McAfee VirusScan Enterprise for Linux
   def_files = command("find /opt/NAI/LinuxShield/engine/dat -type f -name *.dat").stdout.split("\n")
   if ( service('nails').installed? && service('nails').enabled? && service('nails').running? )
     if !def_files.nil? and !def_files.empty?
@@ -107,8 +106,7 @@ files."
     end
     is_antivirus_active = true
   end
-  
-  # ClamAV
+
   def_files = command("find /var/lib/clamav -type f -name *.cvd").stdout.split("\n")
   if ( service('clamav-daemon.service').installed? && service('clamav-daemon.service').enabled? && service('clamav-daemon.service').running? )
     if !def_files.nil? and !def_files.empty?

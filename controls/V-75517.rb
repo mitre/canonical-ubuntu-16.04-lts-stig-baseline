@@ -58,7 +58,6 @@ the following command:
 
 # sudo apt-get install aide"
 
-  # Checking if a cron file for aide exists
   describe file('/etc/cron.daily/aide') do
     it { should exist }
   end

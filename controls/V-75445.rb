@@ -63,7 +63,6 @@ Run the following command to lock the root account:
 
 # passwd -l root"
 
-  # Using the shadow resource
   describe.one do
     describe shadow.where(user: 'root') do
       its('passwords') { should include '!' }

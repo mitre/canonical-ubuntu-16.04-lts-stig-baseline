@@ -108,7 +108,6 @@ will be based on the actual system setup and organization. See the
 
   describe 'AppArmor Profiles' do
     it 'loaded and enforced' do
-     # Remove `nil`s from the list and count remaining
       expect(num_loaded_profiles).to eq(num_enforced_profiles)
     end
   end

@@ -70,7 +70,6 @@ the audit daemon, run the following command:
       its('list.uniq') { should eq ['exit'] }
     end
   
-    # Resource creates data structure including all usages of file
     @perms = auditd.file(@audit_file).permissions
   
     @perms.each do |perm|
