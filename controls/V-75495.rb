@@ -50,6 +50,7 @@ gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu
       subject { gnome_installed }
       it { should be false }
     end
+    impact 0
   end
 end
 

@@ -72,6 +72,7 @@ user interface (GUI).
       subject { gnome_installed }
       it { should be false }
     end
+    impact 0
   end
 end
 
