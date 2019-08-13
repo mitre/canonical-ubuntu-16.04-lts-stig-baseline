@@ -60,9 +60,16 @@ the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
 
-  describe auditd.syscall("init_module").where {arch == "b64"} do
-    its('action.uniq') { should eq ['always'] }
-    its('list.uniq') { should eq ['exit'] }
+  if os.arch == 'x86_64'
+    describe auditd.syscall("init_module").where {arch == "b64"} do
+      its('action.uniq') { should eq ['always'] }
+      its('list.uniq') { should eq ['exit'] }
+    end
+  else
+    describe auditd.syscall("init_module").where {arch == "b32"} do
+      its('action.uniq') { should eq ['always'] }
+      its('list.uniq') { should eq ['exit'] }
+    end
   end
 end
 

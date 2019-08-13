@@ -47,7 +47,11 @@ by \"root\".
 
 # sudo chown root [FILE]"
 
-  library_files = command('find /lib /usr/lib /lib64 ! \-user root').stdout.strip.split("\n").entries
+  if os.arch == "x86_64"
+    library_files = command('find /lib /usr/lib /lib64 ! \-user root').stdout.strip.split("\n").entries
+  else
+    library_files = command('find /lib /usr/lib /usr/lib32 /lib32 /lib64 ! \-user root').stdout.strip.split("\n").entries
+  end
 
   if library_files.count > 0
     library_files.each do |lib_file|
