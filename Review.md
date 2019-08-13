@@ -6,7 +6,7 @@
 | |Local commands focused on target not the runner [2]| Mo|08/09/19|*|
 |Quality checks|Alignment (including tagging) to original<br> standard (i.e. STIG, CIS Benchmark, NIST Tags)| Mo|08/09/19|*|
 | |Control robustness (can the control be improved to make it less brittle - not necessarily a blocker on initial releases)| Mo| |[#20](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/20) [#23](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/23)|
-| |Descriptive output for findings details (review JSON for findings information that may be confusing to SCA like NilCLass, etc.)| |||
+| |Descriptive output for findings details (review JSON for findings information that may be confusing to SCA like NilCLass, etc.)| Mo|08/13/19|*|
 | |Documentation quality (i.e. README)<br> novice level instructions including prerequisites| Mo|08/09/19|*|
 | |Consistency across other profile conventions | Mo| |[#19](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/19)|
 | |Spelling, grammar,linting (e.g., rubocop, etc.)| Mo| |[#18](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/18)|
