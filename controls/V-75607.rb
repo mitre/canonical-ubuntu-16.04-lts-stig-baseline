@@ -48,7 +48,7 @@ by \"root\".
 # sudo chown root [FILE]"
 
   if os.arch == "x86_64"
-    library_files = command('find /lib /usr/lib /lib64 ! \-user root').stdout.strip.split("\n").entries
+    library_files = command('find /lib /usr/lib /usr/lib32 /lib32 /lib64 ! \-user root').stdout.strip.split("\n").entries
   else
     library_files = command('find /lib /usr/lib /usr/lib32 /lib32 ! \-user root').stdout.strip.split("\n").entries
   end

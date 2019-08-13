@@ -77,17 +77,16 @@ the audit daemon, run the following command:
       its('list.uniq') { should eq ['exit'] }
       its('exit.uniq') { should include '-EACCES' }
     end
-  else
-    describe auditd.syscall("ftruncate").where{arch == "b32"} do
-      its('action.uniq') { should eq ['always'] }
-      its('list.uniq') { should eq ['exit'] }
-      its('exit.uniq') { should include '-EPERM' }
-    end
-    describe auditd.syscall("ftruncate").where{arch == "b32"} do
-      its('action.uniq') { should eq ['always'] }
-      its('list.uniq') { should eq ['exit'] }
-      its('exit.uniq') { should include '-EACCES' }
-    end
+  end
+  describe auditd.syscall("ftruncate").where{arch == "b32"} do
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
+    its('exit.uniq') { should include '-EPERM' }
+  end
+  describe auditd.syscall("ftruncate").where{arch == "b32"} do
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
+    its('exit.uniq') { should include '-EACCES' }
   end
 end
 

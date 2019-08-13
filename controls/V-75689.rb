@@ -61,11 +61,10 @@ the audit daemon, run the following command:
       its('action.uniq') { should eq ['always'] }
       its('list.uniq') { should eq ['exit'] }
     end
-  else
-    describe auditd.syscall("execve").where {arch == "b32"} do
-      its('action.uniq') { should eq ['always'] }
-      its('list.uniq') { should eq ['exit'] }
-    end
+  end
+  describe auditd.syscall("execve").where {arch == "b32"} do
+    its('action.uniq') { should eq ['always'] }
+    its('list.uniq') { should eq ['exit'] }
   end
 end
 
