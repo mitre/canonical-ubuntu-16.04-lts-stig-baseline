@@ -56,7 +56,13 @@ the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
 
-  describe auditd.syscall("execve").where {arch == "b64"} do
+  if os.arch == 'x86_64'
+    describe auditd.syscall("execve").where {arch == "b64"} do
+      its('action.uniq') { should eq ['always'] }
+      its('list.uniq') { should eq ['exit'] }
+    end
+  end
+  describe auditd.syscall("execve").where {arch == "b32"} do
     its('action.uniq') { should eq ['always'] }
     its('list.uniq') { should eq ['exit'] }
   end

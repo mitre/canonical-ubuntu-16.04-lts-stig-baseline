@@ -46,6 +46,7 @@ gnome_installed = (package('ubuntu-gnome-desktop').installed? || package('ubuntu
       its('AutomaticLoginEnable') { should cmp 'false' }
     end
   else
+    impact 0
     describe "Not Applicable as GNOME dekstop environment is installed" do
       subject { gnome_installed }
       it { should be false }

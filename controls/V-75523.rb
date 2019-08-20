@@ -69,7 +69,6 @@ file with a value \"no\" of if it does not already exist:
 SILENTREPORTS=no
 "
 
-  # Checking if a cron file for aide exists
   describe file('/etc/cron.daily/aide') do
     it { should exist }
   end

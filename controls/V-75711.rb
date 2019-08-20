@@ -85,7 +85,6 @@ the audit daemon, run the following command:
       its('action') { should_not include 'never' }
     end
   
-    # Resource creates data structure including all usages of file
     @perms = auditd.file(@audit_file).permissions
   
     @perms.each do |perm|

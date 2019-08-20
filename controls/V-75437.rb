@@ -68,6 +68,7 @@ user interface (GUI).
       its('stdout') { should cmp 'true' }
     end
   else
+    impact 0
     describe "Not Applicable as GNOME dekstop environment is installed" do
       subject { gnome_installed }
       it { should be false }

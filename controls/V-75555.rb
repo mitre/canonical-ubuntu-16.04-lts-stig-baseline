@@ -35,21 +35,6 @@ directories on the Ubuntu operating system with the \"chown\" command:
 
 # sudo chown <user> <file>"
 
-  # non_interactive_shells = input('non_interactive_shells')
-  # ignore_shells = non_interactive_shells.join('|')
-
-  # findings = Set[]
-  # users.where{ !shell.match(ignore_shells) }.entries.each do |user_info|
-  #   findings = findings + command("find / -nouser").stdout.split("\n")
-  # end
-
-  # describe "The set of Files and Directories on the Ubuntu operating system without a valid owner" do
-  #   subject { findings.to_a }
-  #   it { should be_empty }
-  # end
-
-
-
   dir_list = command("find / -nouser").stdout.strip.split("\n")
   if (dir_list.count > 0)
     dir_list.each do |entry|

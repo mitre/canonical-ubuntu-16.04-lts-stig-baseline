@@ -57,7 +57,6 @@ system/partition."
   exempt_home_users = input('exempt_home_users')
   ignore_shells = non_interactive_shells.join('|')
 
-  # excluding root because its home directory is usually "/root" (mountpoint "/")
   users.where{ !shell.match(ignore_shells) && (uid >= 1000)}.entries.each do |user_info|
     next if exempt_home_users.include?("#{user_info.username}")
 

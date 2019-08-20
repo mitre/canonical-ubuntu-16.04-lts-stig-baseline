@@ -47,7 +47,11 @@ group-owned by root.
 
 # sudo chgrp root [FILE]"
 
-  library_files = command('find /lib /usr/lib /lib64 ! \-group root').stdout.strip.split("\n").entries
+  if os.arch == "x86_64"
+    library_files = command('find /lib /usr/lib /usr/lib32 /lib32 /lib64 ! \-group root').stdout.strip.split("\n").entries
+  else
+    library_files = command('find /lib /usr/lib /usr/lib32 /lib32 ! \-group root').stdout.strip.split("\n").entries
+  end
 
   if library_files.count > 0
     library_files.each do |lib_file|
@@ -56,7 +60,7 @@ group-owned by root.
       end
     end
   else
-    describe "Number of system-wide shared library files found found in /lib, /lib64, or /usr/lib, that are NOT group-owned by root" do
+    describe "Number of system-wide shared library files found that are NOT group-owned by root" do
       subject { library_files }
       its('count') { should eq 0 }
     end

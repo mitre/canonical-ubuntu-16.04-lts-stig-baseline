@@ -58,8 +58,21 @@ an administrator:
 
 # sudo chage -I -1 -M 99999 [Emergency_Administrator]"
 
-  describe shadow.where(user: 'root') do
-    its('expiry_dates') { should eq [nil] }
+  emergency_accounts = input('emergency_accounts')  
+
+  if emergency_accounts.empty?
+    describe "Emergency accounts" do
+      it { should be_empty }
+    end
+    describe shadow.where(user: 'root') do
+      its('expiry_dates') { should eq [nil] }
+    end
+  else
+    emergency_accounts.each do |acct|
+      describe command("sudo chage -l #{acct} | grep 'Account expires'") do
+        its('stdout.strip') { should_not match %r{:\s*never} }
+      end
+    end
   end
 end
 

@@ -9,6 +9,51 @@
 
 An InSpec profile of the DISA Canonical Ubuntu 16.04 LTS STIG baseline
 
+## Getting Started
+The following inputs must be configured in inspec.yml for the profile to run correctly. More information about InSpec inpputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
+
+```
+  - name: emergency_accounts
+    description: Emergency user accounts
+    type: Array
+    value: []
+
+  - name: temporary_accounts
+    description: Temporary user accounts
+    type: Array
+    value: []
+
+  - name: application_groups
+    description: Known Application Groups
+    type: Array
+    value: []
+
+  - name: known_system_accounts
+    description: System accounts that support approved system activities
+    type: Array
+    value: []
+
+  - name: disallowed_accounts
+    description: Accounts that are not allowed on the system
+    type: Array
+    value: []
+
+  - name: user_accounts
+    description: Accounts of known managed users
+    type: Array
+    value: []
+
+  - name: exempt_home_users
+    description: These are `home dir` exempt interactive accounts
+    type: Array
+    value: []
+
+  - name: security_accounts
+    description: Security Personnel accounts
+    type: Array
+    value: []
+```
+
 ## TESTING
 You can run the inspec profile against the vagrant vm provided. 
 
@@ -31,6 +76,7 @@ inspec exec $PROFILENAME/ \
         -t ssh://$TARGET_USER@$TARGET_HOST \
         -p $TARGET_PORT \
         -i $TARGET_IDENTITYFILE
+        --sudo
 ```
 
 ### Optional

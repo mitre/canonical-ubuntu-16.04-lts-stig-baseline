@@ -33,6 +33,11 @@ inputs:
     type: String
     value: '/var/log/audit/'
 
+  - name: org_name
+    description: Organization Name
+    type: String
+    value: 'DoD'
+
 #V-75443
   - name: maxlogins
     description: Maximum number of concurrent sessions
@@ -68,6 +73,12 @@ inputs:
     description: Minimum number of characters that need to be changed for password rotation
     type: Numeric
     value: 8
+
+#V-75469
+  - name: emergency_accounts
+    description: Emergency user accounts
+    type: Array
+    value: []
 
 #V-75475
   - name: min_num_password_generations

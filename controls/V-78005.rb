@@ -72,6 +72,7 @@ If no antivirus scan program is active on the system, this is a finding."
   desc "fix", "Install an approved DoD antivirus solution on the system."
 
   other_antivirus_loaded_active = input('other_antivirus_loaded_active')
+  org_name = input('org_name')
   describe.one do
     describe service('nails') do
       it { should be_installed }
@@ -83,7 +84,7 @@ If no antivirus scan program is active on the system, this is a finding."
       it { should be_enabled }
       it { should be_running }
     end
-    describe "System Administrator and/or DoD approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities" do
+    describe ("System Administrator and/or " + org_name + " approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities") do
       subject { other_antivirus_loaded_active }
       it { should be true }
     end

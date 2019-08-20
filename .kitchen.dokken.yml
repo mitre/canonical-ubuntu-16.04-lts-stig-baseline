@@ -16,7 +16,7 @@ verifier:
   sudo: true
   reporter:
     - cli
-    - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}.json
+    - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}_<%= ENV['TRAVIS_BUILD_ID'] %>.json
   inspec_tests:
     - path: ./
   inputs:

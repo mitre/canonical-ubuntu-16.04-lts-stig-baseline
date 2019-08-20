@@ -63,7 +63,6 @@ must be documented with the Information System Security Officer (ISSO)."
     grep_results =  command("grep -i path --exclude=\".bash_history\" #{user_info.home}/.*").stdout.split("\\n")
     grep_results.each do |result|
       result.slice! "PATH="
-      # Case when last value in exec search path is :
       if result[-1] == ":" then
         result = result + " "
       end
@@ -75,16 +74,13 @@ must be documented with the Information System Security Officer (ISSO)."
       line_arr.delete_at(0)
       line_arr.each do |line|
         line.slice! "\""
-        # Don't run test on line that exports PATH and is not commented out
         if !line.start_with?('export') && !line.start_with?('#') then
-          # Case when :: found in exec search path or : found at beginning
           if line.strip.empty? then
             curr_work_dir = command("pwd").stdout.gsub("\n", "")
             if curr_work_dir.start_with?("#{user_info.home}") then
               line = curr_work_dir
             end
           end          
-          # This will fail if non-home directory found in path
           if !line.start_with?(user_info.home)
             findings.add(line)
           end

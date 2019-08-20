@@ -48,6 +48,7 @@ operate in the secure mode by adding the \"--secure\" option to TFTP_OPTIONS in
       it { should match %r((--secure)) }
     end
   else
+    impact 0
     describe "No TFTP server is installed" do
       skip "This control is Not Applicable as a TFTP server has not been installed on this server."
     end

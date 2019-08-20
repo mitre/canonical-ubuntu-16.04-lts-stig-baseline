@@ -66,12 +66,24 @@ the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
 
-  describe auditd.syscall("openat").where{arch == "b64"} do
+  if os.arch == 'x86_64'
+    describe auditd.syscall("openat").where{arch == "b64"} do
+      its('action.uniq') { should eq ['always'] }
+      its('list.uniq') { should eq ['exit'] }
+      its('exit.uniq') { should include '-EPERM' }
+    end
+    describe auditd.syscall("openat").where{arch == "b64"} do
+      its('action.uniq') { should eq ['always'] }
+      its('list.uniq') { should eq ['exit'] }
+      its('exit.uniq') { should include '-EACCES' }
+    end
+  end
+  describe auditd.syscall("openat").where{arch == "b32"} do
     its('action.uniq') { should eq ['always'] }
     its('list.uniq') { should eq ['exit'] }
     its('exit.uniq') { should include '-EPERM' }
   end
-  describe auditd.syscall("openat").where{arch == "b64"} do
+  describe auditd.syscall("openat").where{arch == "b32"} do
     its('action.uniq') { should eq ['always'] }
     its('list.uniq') { should eq ['exit'] }
     its('exit.uniq') { should include '-EACCES' }
