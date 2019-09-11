@@ -24,7 +24,7 @@ storage) that may be assessed on specific information system components.
   tag "rid": "SV-90191r1_rule"
   tag "stig_id": "UBTU-16-010410"
   tag "fix_id": "F-82139r1_fix"
-  tag "cci": ["cd"]
+  tag "cci": ["CCI-001090"]
   tag "nist": ["SC-4", "Rev_4"]
   tag "false_negatives": nil
   tag "false_positives": nil
