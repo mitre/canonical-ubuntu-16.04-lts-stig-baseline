@@ -50,7 +50,7 @@ bin, or an application group with the following command, replacing
 
   application_groups = input('application_groups')
 
-  directories = command("sudo find / -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").entries
+  directories = command("sudo find / -maxdepth 1 -xdev -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").entries
   if directories.count > 0
     directories.each do |entry|
       describe directory(entry) do

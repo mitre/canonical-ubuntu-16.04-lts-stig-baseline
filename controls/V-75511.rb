@@ -24,7 +24,7 @@ storage) that may be assessed on specific information system components.
   tag "rid": "SV-90191r1_rule"
   tag "stig_id": "UBTU-16-010410"
   tag "fix_id": "F-82139r1_fix"
-  tag "cci": ["CCI-001090"]
+  tag "cci": ["cd"]
   tag "nist": ["SC-4", "Rev_4"]
   tag "false_negatives": nil
   tag "false_positives": nil
@@ -55,7 +55,7 @@ Set the owner of all public directories as root using the command, replace
 
 # sudo chown root [Public Directory]"
 
-  dir_list = command("sudo find / -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n")
+  dir_list = command("sudo find / -maxdepth 1 -xdev -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n")
   if (dir_list.count > 0)
     dir_list.each do |entry|
       describe directory(entry) do
