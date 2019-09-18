@@ -1,4 +1,6 @@
-control "V-75439" do
+# frozen_string_literal: true
+
+control 'V-75439' do
   title "All users must be able to directly initiate a session lock for all
 connection types."
   desc  "A session lock is a temporary action taken when a user stops work and
@@ -15,15 +17,15 @@ physical vicinity.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000028-GPOS-00009"
-  tag "satisfies": ["SRG-OS-000028-GPOS-00009", "SRG-OS-000030-GPOS-00011",
-"SRG-OS-000031-GPOS-00012"]
-  tag "gid": "V-75439"
-  tag "rid": "SV-90119r2_rule"
-  tag "stig_id": "UBTU-16-010050"
-  tag "fix_id": "F-82067r1_fix"
-  tag "cci": ["CCI-000056", "CCI-000058", "CCI-000060"]
-  tag "nist": ["AC-11 b", "AC-11 a", "AC-11 (1)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000028-GPOS-00009'
+  tag "satisfies": %w[SRG-OS-000028-GPOS-00009 SRG-OS-000030-GPOS-00011
+                      SRG-OS-000031-GPOS-00012]
+  tag "gid": 'V-75439'
+  tag "rid": 'SV-90119r2_rule'
+  tag "stig_id": 'UBTU-16-010050'
+  tag "fix_id": 'F-82067r1_fix'
+  tag "cci": %w[CCI-000056 CCI-000058 CCI-000060]
+  tag "nist": ['AC-11 b', 'AC-11 a', 'AC-11 (1)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -34,7 +36,7 @@ physical vicinity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system has the 'vlock' package
+  desc 'check', "Verify the Ubuntu operating system has the 'vlock' package
 installed, by running the following command:
 
 # dpkg -l | grep vlock
@@ -42,7 +44,7 @@ installed, by running the following command:
 vlock_2.2.2-7
 
 If \"vlock\" is not installed, this is a finding."
-  desc "fix", "Install the \"vlock\" (if it is not already installed) package by
+  desc 'fix', "Install the \"vlock\" (if it is not already installed) package by
 running the following command:
 
 # sudo apt-get install vlock"
@@ -51,4 +53,3 @@ running the following command:
     it { should be_installed }
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-75551" do
+# frozen_string_literal: true
+
+control 'V-75551' do
   title "User accounts with temporary passwords, must require an immediate
 change to a permanent password after login."
   desc  "Without providing this capability, an account may be created without a
@@ -12,13 +14,13 @@ on, yet force them to change the password once they have successfully
 authenticated.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000380-GPOS-00165"
-  tag "gid": "V-75551"
-  tag "rid": "SV-90231r1_rule"
-  tag "stig_id": "UBTU-16-010680"
-  tag "fix_id": "F-82179r1_fix"
-  tag "cci": ["CCI-002041"]
-  tag "nist": ["IA-5 (1) (f)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000380-GPOS-00165'
+  tag "gid": 'V-75551'
+  tag "rid": 'SV-90231r1_rule'
+  tag "stig_id": 'UBTU-16-010680'
+  tag "fix_id": 'F-82179r1_fix'
+  tag "cci": ['CCI-002041']
+  tag "nist": ['IA-5 (1) (f)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -29,12 +31,12 @@ authenticated.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify a policy exists that ensures when a user account is
+  desc 'check', "Verify a policy exists that ensures when a user account is
 created, it is created using a method that forces a user to change their
 password upon their next login.
 
 If a policy does not exist, this is a finding."
-  desc "fix", "Create a policy that ensures when a user is created, it is
+  desc 'fix', "Create a policy that ensures when a user is created, it is
 created using a method that forces a user to change their password upon their
 next login.
 
@@ -47,8 +49,7 @@ or
 
 # passwd -e [UserName]"
 
-  describe "Manual verification required" do
-    skip "Manually verify if a policy exists to ensure that a method exists to force temporary users to change their password upon next login"
+  describe 'Manual verification required' do
+    skip 'Manually verify if a policy exists to ensure that a method exists to force temporary users to change their password upon next login'
   end
 end
-

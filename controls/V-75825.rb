@@ -1,4 +1,6 @@
-control "V-75825" do
+# frozen_string_literal: true
+
+control 'V-75825' do
   title "The Ubuntu operating system must display the Standard Mandatory DoD
 Notice and Consent Banner before granting local or remote access to the system
 via a ssh logon and the user must acknowledge the usage conditions and take
@@ -48,13 +50,13 @@ limitations on the number of characters that can be displayed in the banner:
     \"I've read and consent to terms in IS user agreem't.\"
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000023-GPOS-00006"
-  tag "gid": "V-75825"
-  tag "rid": "SV-90505r3_rule"
-  tag "stig_id": "UBTU-16-030210"
-  tag "fix_id": "F-82455r2_fix"
-  tag "cci": ["CCI-000048"]
-  tag "nist": ["AC-8 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000023-GPOS-00006'
+  tag "gid": 'V-75825'
+  tag "rid": 'SV-90505r3_rule'
+  tag "stig_id": 'UBTU-16-030210'
+  tag "fix_id": 'F-82455r2_fix'
+  tag "cci": ['CCI-000048']
+  tag "nist": ['AC-8 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -65,7 +67,7 @@ limitations on the number of characters that can be displayed in the banner:
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system displays the Standard
+  desc 'check', "Verify the Ubuntu operating system displays the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the Ubuntu
 operating system via a ssh logon.
 
@@ -112,7 +114,7 @@ Agreement for details.”
 
 If the banner text does not match the Standard Mandatory DoD Notice and Consent
 Banner exactly, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to display the Standard
+  desc 'fix', "Configure the Ubuntu operating system to display the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the system
 via SSH logon.
 
@@ -162,23 +164,30 @@ SSH daemon, run the following command:
   banner_files = [sshd_config.banner].flatten
 
   banner_files.each do |banner_file|
-    describe "The SSHD Banner is not set" do 
-      subject { banner_file.nil? }
-      it { should be false }
-    end if banner_file.nil?
-    describe "The SSHD Banner is disabled" do
-      subject { banner_file.match(/none/i).nil? }
-      it { should be true }
-    end if !banner_file.nil? && !banner_file.match(/none/i).nil?
-    describe "The SSHD Banner is set, but, the file does not exist" do
-      subject { file(banner_file).exist? }
-      it { should be true }
-    end if !banner_file.nil? && banner_file.match(/none/i).nil? && !file(banner_file).exist?
-    describe "The SSHD Banner is set to the standard banner and has the correct text" do
-        clean_banner = banner_text.gsub(%r{[\r\n\s]}, '')
-        subject { banner = file(banner_file).content.gsub(%r{[\r\n\s]}, '') } 
-        it { should cmp clean_banner }
-    end if !banner_file.nil? && banner_file.match(/none/i).nil? && file(banner_file).exist?
+    if banner_file.nil?
+      describe 'The SSHD Banner is not set' do
+        subject { banner_file.nil? }
+        it { should be false }
+      end
+    end
+    if !banner_file.nil? && !banner_file.match(/none/i).nil?
+      describe 'The SSHD Banner is disabled' do
+        subject { banner_file.match(/none/i).nil? }
+        it { should be true }
+      end
+    end
+    if !banner_file.nil? && banner_file.match(/none/i).nil? && !file(banner_file).exist?
+      describe 'The SSHD Banner is set, but, the file does not exist' do
+        subject { file(banner_file).exist? }
+        it { should be true }
+      end
+    end
+    next unless !banner_file.nil? && banner_file.match(/none/i).nil? && file(banner_file).exist?
+
+    describe 'The SSHD Banner is set to the standard banner and has the correct text' do
+      clean_banner = banner_text.gsub(/[\r\n\s]/, '')
+      subject { file(banner_file).content.gsub(/[\r\n\s]/, '') }
+      it { should cmp clean_banner }
+    end
   end
 end
-

@@ -1,5 +1,7 @@
-control "V-78005" do
-  title "The system must use a DoD-approved virus scan program."
+# frozen_string_literal: true
+
+control 'V-78005' do
+  title 'The system must use a DoD-approved virus scan program.'
   desc  "Virus scanning software can be used to protect a system from
 penetration from computer viruses and to limit their spread through
 intermediate systems.
@@ -13,13 +15,13 @@ daily basis.
 configured to scan all received mail.
   "
   impact 0.7
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-78005"
-  tag "rid": "SV-92701r1_rule"
-  tag "stig_id": "UBTU-16-030900"
-  tag "fix_id": "F-84715r1_fix"
-  tag "cci": ["CCI-001668"]
-  tag "nist": ["SI-3 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-78005'
+  tag "rid": 'SV-92701r1_rule'
+  tag "stig_id": 'UBTU-16-030900'
+  tag "fix_id": 'F-84715r1_fix'
+  tag "cci": ['CCI-001668']
+  tag "nist": ['SI-3 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ configured to scan all received mail.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the system is using a DoD-approved virus scan program.
+  desc 'check', "Verify the system is using a DoD-approved virus scan program.
 
 
 Check for the presence of \"McAfee VirusScan Enterprise for Linux\" with the
@@ -69,7 +71,7 @@ system.
 
 
 If no antivirus scan program is active on the system, this is a finding."
-  desc "fix", "Install an approved DoD antivirus solution on the system."
+  desc 'fix', 'Install an approved DoD antivirus solution on the system.'
 
   other_antivirus_loaded_active = input('other_antivirus_loaded_active')
   org_name = input('org_name')
@@ -84,10 +86,9 @@ If no antivirus scan program is active on the system, this is a finding."
       it { should be_enabled }
       it { should be_running }
     end
-    describe ("System Administrator and/or " + org_name + " approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities") do
+    describe ('System Administrator and/or ' + org_name + ' approved antivirus program loaded, other than McAfee VirusScan Enterprise for Linux or Clam AntiVirus is loaded and activities') do
       subject { other_antivirus_loaded_active }
       it { should be true }
     end
   end
 end
-

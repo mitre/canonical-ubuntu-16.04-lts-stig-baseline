@@ -1,4 +1,6 @@
-control "V-75627" do
+# frozen_string_literal: true
+
+control 'V-75627' do
   title "The System Administrator (SA) and Information System Security Officer
 (ISSO) (at a minimum) must be alerted when the audit storage volume is full."
   desc  "It is critical that when the Ubuntu operating system is at risk of
@@ -23,13 +25,13 @@ the connection to the centralized collection server, action should be taken to
 synchronize the local audit data with the collection server.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000047-GPOS-00023"
-  tag "gid": "V-75627"
-  tag "rid": "SV-90307r1_rule"
-  tag "stig_id": "UBTU-16-020050"
-  tag "fix_id": "F-82255r1_fix"
-  tag "cci": ["CCI-000140"]
-  tag "nist": ["AU-5 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000047-GPOS-00023'
+  tag "gid": 'V-75627'
+  tag "rid": 'SV-90307r1_rule'
+  tag "stig_id": 'UBTU-16-020050'
+  tag "fix_id": 'F-82255r1_fix'
+  tag "cci": ['CCI-000140']
+  tag "nist": ['AU-5 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -40,7 +42,7 @@ synchronize the local audit data with the collection server.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the System Administrator (SA) and Information
+  desc 'check', "Verify that the System Administrator (SA) and Information
 System Security Officer (ISSO) (at a minimum) are notified when the audit
 storage volume is full.
 
@@ -53,7 +55,7 @@ max_log_file_action=syslog
 
 If the value of the \"max_log_file_action\" option is set to \"ignore\",
 \"rotate\", or \"suspend\", or the line is commented out, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to notify the System
+  desc 'fix', "Configure the Ubuntu operating system to notify the System
 Administrator (SA) and Information System Security Officer (ISSO) when the
 audit storage volume is full by configuring the \"max_log_file_action\"
 parameter in the \"/etc/audit/auditd.conf\" file with the a value of \"syslog\"
@@ -63,8 +65,7 @@ max_log_file_action=syslog"
 
   describe auditd_conf do
     its('max_log_file_action') { should_not be_empty }
-    its('max_log_file_action') { should_not cmp %r((?:ignore|rotate|suspend))i }
-    its('max_log_file_action') { should cmp %r((?:syslog|keep_logs))i }
+    its('max_log_file_action') { should_not cmp /(?:ignore|rotate|suspend)/i }
+    its('max_log_file_action') { should cmp /(?:syslog|keep_logs)/i }
   end
 end
-

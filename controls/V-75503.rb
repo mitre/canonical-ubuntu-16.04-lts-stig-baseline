@@ -1,4 +1,6 @@
-control "V-75503" do
+# frozen_string_literal: true
+
+control 'V-75503' do
   title "The Ubuntu operating system must implement NSA-approved cryptography
 to protect classified information in accordance with applicable federal laws,
 Executive Orders, directives, policies, regulations, and standards."
@@ -11,14 +13,14 @@ validated.
 
   "
   impact 0.7
-  tag "gtitle": "SRG-OS-000396-GPOS-00176"
-  tag "satisfies": ["SRG-OS-000396-GPOS-00176", "SRG-OS-000478-GPOS-00223"]
-  tag "gid": "V-75503"
-  tag "rid": "SV-90183r1_rule"
-  tag "stig_id": "UBTU-16-010370"
-  tag "fix_id": "F-82131r1_fix"
-  tag "cci": ["CCI-002450"]
-  tag "nist": ["SC-13", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000396-GPOS-00176'
+  tag "satisfies": %w[SRG-OS-000396-GPOS-00176 SRG-OS-000478-GPOS-00223]
+  tag "gid": 'V-75503'
+  tag "rid": 'SV-90183r1_rule'
+  tag "stig_id": 'UBTU-16-010370'
+  tag "fix_id": 'F-82131r1_fix'
+  tag "cci": ['CCI-002450']
+  tag "nist": %w[SC-13 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -29,7 +31,7 @@ validated.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the system is configured to run in FIPS mode.
+  desc 'check', "Verify the system is configured to run in FIPS mode.
 
 Check that the system is configured to run in FIPS mode with the following
 command:
@@ -38,7 +40,7 @@ command:
 1
 
 If a value of \"1\" is not returned, this is a finding."
-  desc "fix", "Configure the system to run in FIPS mode. Add \"fips=1\" to the
+  desc 'fix', "Configure the system to run in FIPS mode. Add \"fips=1\" to the
 kernel parameter during the Ubuntu operating systems install.
 
 Enabling a FIPS mode on a pre-existing system involves a number of
@@ -59,4 +61,3 @@ FIPS 140-2 security policy document for instructions."
     end
   end
 end
-

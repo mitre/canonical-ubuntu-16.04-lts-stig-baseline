@@ -1,4 +1,6 @@
-control "V-75485" do
+# frozen_string_literal: true
+
+control 'V-75485' do
   title "Account identifiers (individuals, groups, roles, and devices) must
 disabled after 35 days of inactivity."
   desc  "Inactive identifiers pose a risk to systems and applications because
@@ -10,13 +12,13 @@ unauthorized access to their user account has been obtained.
 application identifiers after 35 days of inactivity.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000118-GPOS-00060"
-  tag "gid": "V-75485"
-  tag "rid": "SV-90165r3_rule"
-  tag "stig_id": "UBTU-16-010280"
-  tag "fix_id": "F-82113r1_fix"
-  tag "cci": ["CCI-000795"]
-  tag "nist": ["IA-4 e", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000118-GPOS-00060'
+  tag "gid": 'V-75485'
+  tag "rid": 'SV-90165r3_rule'
+  tag "stig_id": 'UBTU-16-010280'
+  tag "fix_id": 'F-82113r1_fix'
+  tag "cci": ['CCI-000795']
+  tag "nist": ['IA-4 e', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -27,7 +29,7 @@ application identifiers after 35 days of inactivity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the account identifiers (individuals, groups, roles, and
+  desc 'check', "Verify the account identifiers (individuals, groups, roles, and
 devices) are disabled after \"35\" days of inactivity with the following
 command:
 
@@ -39,7 +41,7 @@ INACTIVE=35
 
 If \"INACTIVE\" is not set to a value \"0<[VALUE]<=35\", or is commented out,
 this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to disable account
+  desc 'fix', "Configure the Ubuntu operating system to disable account
 identifiers after 35 days of inactivity after the password expiration.
 
 Run the following command to change the configuration for useradd:
@@ -53,7 +55,6 @@ immediately after the password expires."
   max_account_inactive_days = input('max_account_inactive_days')
   config_file = '/etc/default/useradd'
   config_file_exists = file(config_file).exist?
-  
 
   if config_file_exists
     describe parse_config_file(config_file) do
@@ -67,4 +68,3 @@ immediately after the password expires."
     end
   end
 end
-

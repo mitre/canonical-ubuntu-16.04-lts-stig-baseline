@@ -1,4 +1,6 @@
-control "V-75513" do
+# frozen_string_literal: true
+
+control 'V-75513' do
   title "All world-writable directories must be group-owned by root, sys, bin,
 or an application group."
   desc  "If a world-writable directory has the sticky bit set and is not
@@ -13,13 +15,13 @@ global read/write access.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000138-GPOS-00069"
-  tag "gid": "V-75513"
-  tag "rid": "SV-90193r3_rule"
-  tag "stig_id": "UBTU-16-010420"
-  tag "fix_id": "F-82141r2_fix"
-  tag "cci": ["CCI-001090"]
-  tag "nist": ["SC-4", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000138-GPOS-00069'
+  tag "gid": 'V-75513'
+  tag "rid": 'SV-90193r3_rule'
+  tag "stig_id": 'UBTU-16-010420'
+  tag "fix_id": 'F-82141r2_fix'
+  tag "cci": ['CCI-001090']
+  tag "nist": %w[SC-4 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ global read/write access.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that all world-writable directories are group-owned by
+  desc 'check', "Verify that all world-writable directories are group-owned by
 root to prevent unauthorized and unintended information transferred via shared
 system resources.
 
@@ -42,7 +44,7 @@ drwxrwxrwxt 7 root root 4096 Jul 26 11:19 /tmp
 
 If any world-writable directories are not owned by root, sys, bin, or an
 application group associated with the directory, this is a finding."
-  desc "fix", "Change the group of the world-writable directories to root, sys,
+  desc 'fix', "Change the group of the world-writable directories to root, sys,
 bin, or an application group with the following command, replacing
 \"[world-writable Directory]\":
 
@@ -50,17 +52,16 @@ bin, or an application group with the following command, replacing
 
   application_groups = input('application_groups')
 
-  directories = command("sudo find / -xdev -type d -perm -0002 -exec ls -Ld {} \\;").stdout.strip.split("\n").entries
+  directories = command('sudo find / -xdev -type d -perm -0002 -exec ls -Ld {} \\;').stdout.strip.split("\n").entries
   if directories.count > 0
     directories.each do |entry|
       describe directory(entry) do
-        its('group') { should be_in ['root','sys', 'bin'] + application_groups}
+        its('group') { should be_in %w[root sys bin] + application_groups }
       end
     end
   else
-    describe "No world-writable directories found" do
-      skip "No world-writable directories found on the system"
+    describe 'No world-writable directories found' do
+      skip 'No world-writable directories found on the system'
     end
   end
 end
-

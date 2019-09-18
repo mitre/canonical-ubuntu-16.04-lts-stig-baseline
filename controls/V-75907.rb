@@ -1,4 +1,6 @@
-control "V-75907" do
+# frozen_string_literal: true
+
+control 'V-75907' do
   title "The Ubuntu operating system must implement certificate status checking
 for multifactor authentication."
   desc  "Using an authentication device, such as a CAC or token that is
@@ -30,15 +32,15 @@ configuring the device itself (management).
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000375-GPOS-00160"
-  tag "satisfies": ["SRG-OS-000375-GPOS-00160", "SRG-OS-000375-GPOS-00161",
-"SRG-OS-000375-GPOS-00162"]
-  tag "gid": "V-75907"
-  tag "rid": "SV-90587r2_rule"
-  tag "stig_id": "UBTU-16-030820"
-  tag "fix_id": "F-82537r2_fix"
-  tag "cci": ["CCI-001948", "CCI-001953", "CCI-001954"]
-  tag "nist": ["IA-2 (11)", "IA-2 (12)", "IA-2 (12)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000375-GPOS-00160'
+  tag "satisfies": %w[SRG-OS-000375-GPOS-00160 SRG-OS-000375-GPOS-00161
+                      SRG-OS-000375-GPOS-00162]
+  tag "gid": 'V-75907'
+  tag "rid": 'SV-90587r2_rule'
+  tag "stig_id": 'UBTU-16-030820'
+  tag "fix_id": 'F-82537r2_fix'
+  tag "cci": %w[CCI-001948 CCI-001953 CCI-001954]
+  tag "nist": ['IA-2 (11)', 'IA-2 (12)', 'IA-2 (12)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -49,7 +51,7 @@ configuring the device itself (management).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system implements certificate
+  desc 'check', "Verify the Ubuntu operating system implements certificate
 status checking for multifactor authentication.
 
 Check that certificate status checking for multifactor authentication is
@@ -61,7 +63,7 @@ cert_policy = ca,signature,ocsp_on;
 
 If \"cert_policy\" is not set to \"ocsp_on\", has a value of \"none\", or the
 line is commented out, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to certificate status
+  desc 'fix', "Configure the Ubuntu operating system to certificate status
 checking for multifactor authentication.
 
 Modify all of the cert_policy lines in \"/etc/pam_pkcs11/pam_pkcs11.conf\" to
@@ -74,10 +76,9 @@ include \"ocsp_on\"."
       its('cert_policy') { should include 'ocsp_on' }
     end
   else
-    describe "/etc/pam_pkcs11/pam_pkcs11.conf exists" do
+    describe '/etc/pam_pkcs11/pam_pkcs11.conf exists' do
       subject { config_file_exists }
       it { should be true }
     end
   end
 end
-

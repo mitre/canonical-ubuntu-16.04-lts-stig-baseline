@@ -1,4 +1,6 @@
-control "V-75393" do
+# frozen_string_literal: true
+
+control 'V-75393' do
   title "The Ubuntu operating system must display the Standard Mandatory DoD
 Notice and Consent Banner before granting local or remote access to the system
 via a graphical user logon."
@@ -49,16 +51,16 @@ limitations on the number of characters that can be displayed in the banner:
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000023-GPOS-00006"
-  tag "satisfies": ["SRG-OS-000023-GPOS-00006", "SRG-OS-000228-GPOS-00088"]
-  tag "gid": "V-75393"
-  tag "rid": "SV-90073r2_rule"
-  tag "stig_id": "UBTU-16-010020"
-  tag "fix_id": "F-82021r1_fix"
-  tag "cci": ["CCI-000048", "CCI-001384", "CCI-001385", "CCI-001386",
-"CCI-001387", "CCI-001388"]
-  tag "nist": ["AC-8 a", "AC-8 c 1", "AC-8 c 2", "AC-8 c 2", "AC-8 c 2", "AC-8
-c 3", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000023-GPOS-00006'
+  tag "satisfies": %w[SRG-OS-000023-GPOS-00006 SRG-OS-000228-GPOS-00088]
+  tag "gid": 'V-75393'
+  tag "rid": 'SV-90073r2_rule'
+  tag "stig_id": 'UBTU-16-010020'
+  tag "fix_id": 'F-82021r1_fix'
+  tag "cci": %w[CCI-000048 CCI-001384 CCI-001385 CCI-001386
+                CCI-001387 CCI-001388]
+  tag "nist": ['AC-8 a', 'AC-8 c 1', 'AC-8 c 2', 'AC-8 c 2', 'AC-8 c 2', "AC-8
+c 3", 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -69,7 +71,7 @@ c 3", "Rev_4"]
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system security patches and updates
+  desc 'check', "Verify the Ubuntu operating system security patches and updates
 are installed and up to date. Updates are required to be applied with a
 frequency determined by the site or Program Management Office (PMO).
 
@@ -94,7 +96,7 @@ Vulnerability Alert (IAVA) notifications from JFHQ-DoDIN.
 
 If the Ubuntu operating system is in non-compliance with the Information
 Assurance Vulnerability Management (IAVM) process, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to display the Standard
+  desc 'fix', "Configure the Ubuntu operating system to display the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the system.
 
 Create a database that will contain the system wide graphical user logon
@@ -115,7 +117,6 @@ banner-message-enable=true"
 
   describe 'banner-message-enable must be set to true' do
     subject { command('grep banner-message-enable /etc/dconf/db/local.d/*') }
-    its('stdout') { should match %r((banner-message-enable).+=.+(true)) }
+    its('stdout') { should match /(banner-message-enable).+=.+(true)/ }
   end
 end
-

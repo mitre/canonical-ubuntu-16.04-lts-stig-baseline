@@ -1,4 +1,6 @@
-control "V-75629" do
+# frozen_string_literal: true
+
+control 'V-75629' do
   title "The audit system must take appropriate action when the audit storage
 volume is full."
   desc  "It is critical that when the Ubuntu operating system is at risk of
@@ -23,13 +25,13 @@ the connection to the centralized collection server, action should be taken to
 synchronize the local audit data with the collection server.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000047-GPOS-00023"
-  tag "gid": "V-75629"
-  tag "rid": "SV-90309r2_rule"
-  tag "stig_id": "UBTU-16-020060"
-  tag "fix_id": "F-82257r2_fix"
-  tag "cci": ["CCI-000140"]
-  tag "nist": ["AU-5 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000047-GPOS-00023'
+  tag "gid": 'V-75629'
+  tag "rid": 'SV-90309r2_rule'
+  tag "stig_id": 'UBTU-16-020060'
+  tag "fix_id": 'F-82257r2_fix'
+  tag "cci": ['CCI-000140']
+  tag "nist": ['AU-5 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -40,7 +42,7 @@ synchronize the local audit data with the collection server.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system takes the appropriate action
+  desc 'check', "Verify the Ubuntu operating system takes the appropriate action
 when the audit storage volume is full.
 
 Check that the Ubuntu operating system takes the appropriate action when the
@@ -52,7 +54,7 @@ disk_full_action = HALT
 
 If the value of the \"disk_full_action\" option is not \"SYSLOG\", \"SINGLE\",
 or \"HALT\", or the line is commented out, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to shut down by default
+  desc 'fix', "Configure the Ubuntu operating system to shut down by default
 upon audit failure (unless availability is an overriding concern).
 
 Add or update the following line (depending on configuration
@@ -63,7 +65,6 @@ disk_full_action = HALT"
 
   describe auditd_conf do
     its('disk_full_action') { should_not be_empty }
-    its('disk_full_action') { should cmp %r((?:SYSLOG|SINGLE|HALT))i }
+    its('disk_full_action') { should cmp /(?:SYSLOG|SINGLE|HALT)/i }
   end
 end
-

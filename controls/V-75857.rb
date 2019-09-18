@@ -1,4 +1,6 @@
-control "V-75857" do
+# frozen_string_literal: true
+
+control 'V-75857' do
   title "All networked systems must have and implement SSH to protect the
 confidentiality and integrity of transmitted and received information, as well
 as information during preparation for transmission."
@@ -22,15 +24,15 @@ have to be employed, and vice versa.
 
   "
   impact 0.7
-  tag "gtitle": "SRG-OS-000423-GPOS-00187"
-  tag "satisfies": ["SRG-OS-000423-GPOS-00187", "SRG-OS-000424-GPOS-00188",
-"SRG-OS-000425-GPOS-00189", "SRG-OS-000426-GPOS-00190"]
-  tag "gid": "V-75857"
-  tag "rid": "SV-90537r1_rule"
-  tag "stig_id": "UBTU-16-030420"
-  tag "fix_id": "F-82487r1_fix"
-  tag "cci": ["CCI-002418", "CCI-002420", "CCI-002421", "CCI-002422"]
-  tag "nist": ["SC-8", "SC-8 (2)", "SC-8 (1)", "SC-8 (2)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000423-GPOS-00187'
+  tag "satisfies": %w[SRG-OS-000423-GPOS-00187 SRG-OS-000424-GPOS-00188
+                      SRG-OS-000425-GPOS-00189 SRG-OS-000426-GPOS-00190]
+  tag "gid": 'V-75857'
+  tag "rid": 'SV-90537r1_rule'
+  tag "stig_id": 'UBTU-16-030420'
+  tag "fix_id": 'F-82487r1_fix'
+  tag "cci": %w[CCI-002418 CCI-002420 CCI-002421 CCI-002422]
+  tag "nist": ['SC-8', 'SC-8 (2)', 'SC-8 (1)', 'SC-8 (2)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -41,7 +43,7 @@ have to be employed, and vice versa.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the \"ssh\" meta-package is installed.
+  desc 'check', "Verify the \"ssh\" meta-package is installed.
 
 Check that the ssh package is installed with the following command:
 
@@ -67,7 +69,7 @@ Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled)
 Active: active (running) since Sun 2016-06-05 23:46:29 CDT; 1h 4min ago
 
 If \"sshd.service\" is not active or loaded, this is a finding."
-  desc "fix", "Install the \"ssh\" meta-package on the system with the following
+  desc 'fix', "Install the \"ssh\" meta-package on the system with the following
 command:
 
 # sudo apt install ssh
@@ -87,4 +89,3 @@ command:
     it { should be_running }
   end
 end
-

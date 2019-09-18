@@ -1,4 +1,6 @@
-control "V-75883" do
+# frozen_string_literal: true
+
+control 'V-75883' do
   title "The Ubuntu operating system must not allow interfaces to perform
 Internet Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP)
 redirects by default."
@@ -7,13 +9,13 @@ routers to inform hosts that a more direct route exists for a particular
 destination. These messages contain information from the system's route table,
 possibly revealing portions of the network topology."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75883"
-  tag "rid": "SV-90563r2_rule"
-  tag "stig_id": "UBTU-16-030580"
-  tag "fix_id": "F-82513r2_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75883'
+  tag "rid": 'SV-90563r2_rule'
+  tag "stig_id": 'UBTU-16-030580'
+  tag "fix_id": 'F-82513r2_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -24,7 +26,7 @@ possibly revealing portions of the network topology."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system does not allow interfaces to
+  desc 'check', "Verify the Ubuntu operating system does not allow interfaces to
 perform Internet Protocol version 4 (IPv4) Internet Control Message Protocol
 (ICMP) redirects by default.
 
@@ -37,7 +39,7 @@ net.ipv4.conf.default.send_redirects=0
 
 If the returned line does not have a value of \"0\", or a line is not returned,
 this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to not allow interfaces to
+  desc 'fix', "Configure the Ubuntu operating system to not allow interfaces to
 perform Internet Protocol version 4 (IPv4) Internet Control Message Protocol
 (ICMP) redirects by default with the following command:
 
@@ -52,4 +54,3 @@ net.ipv4.conf.default.send_redirects=0"
     its('value') { should eq 0 }
   end
 end
-

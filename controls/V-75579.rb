@@ -1,4 +1,6 @@
-control "V-75579" do
+# frozen_string_literal: true
+
+control 'V-75579' do
   title "File systems that are being imported via Network File System (NFS)
 must be mounted to prevent files with the setuid and setguid bit set from being
 executed."
@@ -8,13 +10,13 @@ for mounting any file system not containing approved \"setuid\" and \"setguid\"
 files. Executing files from untrusted file systems increases the opportunity
 for unprivileged users to attain unauthorized administrative access."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75579"
-  tag "rid": "SV-90259r3_rule"
-  tag "stig_id": "UBTU-16-010820"
-  tag "fix_id": "F-82207r2_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75579'
+  tag "rid": 'SV-90259r3_rule'
+  tag "stig_id": 'UBTU-16-010820'
+  tag "fix_id": 'F-82207r2_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -25,7 +27,7 @@ for unprivileged users to attain unauthorized administrative access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify file systems that are being Network File System (NFS)
+  desc 'check', "Verify file systems that are being Network File System (NFS)
 imported are mounted with the \"nosuid\" option.
 
 Find the file system(s) that contain the directories being exported with the
@@ -38,10 +40,10 @@ rw,nosuid                                                    0 0
 
 If a file system found in \"/etc/fstab\" refers to NFS and it does not have the
 \"nosuid\" option set, this is a finding."
-  desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
+  desc 'fix', "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that are being imported via Network File System (NFS)."
 
-  device_rules = etc_fstab.where{ file_system_type == 'nfs' }.entries
+  device_rules = etc_fstab.where { file_system_type == 'nfs' }.entries
   if device_rules.count > 0
     device_rules.each do |device_rule|
       describe device_rule do
@@ -49,10 +51,9 @@ systems that are being imported via Network File System (NFS)."
       end
     end
   else
-    describe "No NFS mounts found on the system" do
+    describe 'No NFS mounts found on the system' do
       subject { device_rules }
       its('count') { should eq 0 }
     end
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-75459" do
+# frozen_string_literal: true
+
+control 'V-75459' do
   title "The Ubuntu operating system must encrypt all stored passwords with a
 FIPS 140-2 approved cryptographic hashing algorithm."
   desc  "Passwords need to be protected at all times, and encryption is the
@@ -15,14 +17,14 @@ access cryptographic modules utilize authentication that meets DoD requirements.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000073-GPOS-00041"
-  tag "satisfies": ["SRG-OS-000073-GPOS-00041", "SRG-OS-000120-GPOS-00061"]
-  tag "gid": "V-75459"
-  tag "rid": "SV-90139r1_rule"
-  tag "stig_id": "UBTU-16-010150"
-  tag "fix_id": "F-82087r1_fix"
-  tag "cci": ["CCI-000196", "CCI-000803"]
-  tag "nist": ["IA-5 (1) (c)", "IA-7", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000073-GPOS-00041'
+  tag "satisfies": %w[SRG-OS-000073-GPOS-00041 SRG-OS-000120-GPOS-00061]
+  tag "gid": 'V-75459'
+  tag "rid": 'SV-90139r1_rule'
+  tag "stig_id": 'UBTU-16-010150'
+  tag "fix_id": 'F-82087r1_fix'
+  tag "cci": %w[CCI-000196 CCI-000803]
+  tag "nist": ['IA-5 (1) (c)', 'IA-7', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -33,7 +35,7 @@ access cryptographic modules utilize authentication that meets DoD requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the shadow password suite configuration is set to
+  desc 'check', "Verify that the shadow password suite configuration is set to
 encrypt password with a FIPS 140-2 approved cryptographic hashing algorithm.
 
 Check the hashing algorithm that is being used to hash passwords with the
@@ -44,7 +46,7 @@ following command:
 ENCRYPT_METHOD SHA512
 
 If \"ENCRYPT_METHOD\" does not equal SHA512 or greater, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to encrypt all stored
+  desc 'fix', "Configure the Ubuntu operating system to encrypt all stored
 passwords.
 
 Edit/Modify the following line in the \"/etc/login.defs\" file and set
@@ -56,4 +58,3 @@ ENCRYPT_METHOD SHA512"
     its('ENCRYPT_METHOD') { should eq 'SHA512' }
   end
 end
-

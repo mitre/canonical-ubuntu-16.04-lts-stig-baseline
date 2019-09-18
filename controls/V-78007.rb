@@ -1,4 +1,6 @@
-control "V-78007" do
+# frozen_string_literal: true
+
+control 'V-78007' do
   title "The system must update the DoD-approved virus scan program every seven
 days or more frequently."
   desc  "Virus scanning software can be used to protect a system from
@@ -11,13 +13,13 @@ manual process is required to update the virus scan software or definitions, it
 must be documented with the Information System Security Officer (ISSO).
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-78007"
-  tag "rid": "SV-92703r1_rule"
-  tag "stig_id": "UBTU-16-030910"
-  tag "fix_id": "F-84717r1_fix"
-  tag "cci": ["CCI-001668"]
-  tag "nist": ["SI-3 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-78007'
+  tag "rid": 'SV-92703r1_rule'
+  tag "stig_id": 'UBTU-16-030910'
+  tag "fix_id": 'F-84717r1_fix'
+  tag "cci": ['CCI-001668']
+  tag "nist": ['SI-3 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -28,7 +30,7 @@ must be documented with the Information System Security Officer (ISSO).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the system is using a DoD-approved virus scan program
+  desc 'check', "Verify the system is using a DoD-approved virus scan program
 and the virus definition file is less than seven days old.
 
 Check for the presence of \"McAfee VirusScan Enterprise for Linux\" with the
@@ -83,52 +85,51 @@ DatabaseDirectory /var/lib/clamav
 If the database file has a date older than seven days from the current date,
 this is a finding.
 "
-  desc "fix", "Update the approved DoD virus scan software and virus definition
+  desc 'fix', "Update the approved DoD virus scan software and virus definition
 files."
 
   org_name = input('org_name')
   is_antivirus_active = false
-  seven_days = 604800 # (7 days * 24 hours * 60 minutes * 60 seconds)
-  
-  def_files = command("find /opt/NAI/LinuxShield/engine/dat -type f -name *.dat").stdout.split("\n")
-  if ( service('nails').installed? && service('nails').enabled? && service('nails').running? )
-    if !def_files.nil? and !def_files.empty?
+  seven_days = 604_800 # (7 days * 24 hours * 60 minutes * 60 seconds)
+
+  def_files = command('find /opt/NAI/LinuxShield/engine/dat -type f -name *.dat').stdout.split("\n")
+  if service('nails').installed? && service('nails').enabled? && service('nails').running?
+    if !def_files.nil? && !def_files.empty?
       def_files.each do |deffile|
         describe file(deffile) do
           its('mtime') { should >= Time.now.to_i - seven_days }
         end
       end
     else
-      describe "No McAfee VirusScan Enterprise for Linux definition files have been found" do
-        subject { def_files.nil? or def_files.empty? }
+      describe 'No McAfee VirusScan Enterprise for Linux definition files have been found' do
+        subject { def_files.nil? || def_files.empty? }
         it { should eq false }
       end
     end
     is_antivirus_active = true
   end
 
-  def_files = command("find /var/lib/clamav -type f -name *.cvd").stdout.split("\n")
-  if ( service('clamav-daemon.service').installed? && service('clamav-daemon.service').enabled? && service('clamav-daemon.service').running? )
-    if !def_files.nil? and !def_files.empty?
+  def_files = command('find /var/lib/clamav -type f -name *.cvd').stdout.split("\n")
+  if service('clamav-daemon.service').installed? && service('clamav-daemon.service').enabled? && service('clamav-daemon.service').running?
+    if !def_files.nil? && !def_files.empty?
       def_files.each do |deffile|
         describe file(deffile) do
           its('mtime') { should >= Time.now.to_i - seven_days }
         end
       end
     else
-      describe "No ClamAV definition files have been found" do
-        subject { def_files.nil? or def_files.empty? }
+      describe 'No ClamAV definition files have been found' do
+        subject { def_files.nil? || def_files.empty? }
         it { should eq false }
       end
     end
     is_antivirus_active = true
   end
 
-  if !is_antivirus_active
-    describe ("No " + org_name + "-approved virus scan program is found to be active on the system") do
+  unless is_antivirus_active
+    describe ('No ' + org_name + '-approved virus scan program is found to be active on the system') do
       subject { is_antivirus_active }
       it { should be true }
     end
   end
 end
-

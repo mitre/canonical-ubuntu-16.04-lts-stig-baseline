@@ -1,4 +1,6 @@
-control "V-75635" do
+# frozen_string_literal: true
+
+control 'V-75635' do
   title "Audit logs must have a mode of 0600 or less permissive to prevent
 unauthorized read access."
   desc  "Unauthorized disclosure of audit records can reveal system and
@@ -11,15 +13,15 @@ activity.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000057-GPOS-00027"
-  tag "satisfies": ["SRG-OS-000057-GPOS-00027", "SRG-OS-000058-GPOS-00028",
-"SRG-OS-000059-GPOS-00029"]
-  tag "gid": "V-75635"
-  tag "rid": "SV-90315r2_rule"
-  tag "stig_id": "UBTU-16-020090"
-  tag "fix_id": "F-82263r1_fix"
-  tag "cci": ["CCI-000162", "CCI-000163", "CCI-000164"]
-  tag "nist": ["AU-9", "AU-9", "AU-9", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000057-GPOS-00027'
+  tag "satisfies": %w[SRG-OS-000057-GPOS-00027 SRG-OS-000058-GPOS-00028
+                      SRG-OS-000059-GPOS-00029]
+  tag "gid": 'V-75635'
+  tag "rid": 'SV-90315r2_rule'
+  tag "stig_id": 'UBTU-16-020090'
+  tag "fix_id": 'F-82263r1_fix'
+  tag "cci": %w[CCI-000162 CCI-000163 CCI-000164]
+  tag "nist": %w[AU-9 AU-9 AU-9 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the audit logs have a mode of \"0600\" or less
+  desc 'check', "Verify the audit logs have a mode of \"0600\" or less
 permissive.
 
 First determine where the audit logs are stored with the following command:
@@ -47,7 +49,7 @@ Using the location of the audit log file, check if the audit log has a mode of
 600 /var/log/audit/audit.log
 
 If the audit log has a mode more permissive than \"0600\", this is a finding."
-  desc "fix", "Configure the audit log to be protected from unauthorized read
+  desc 'fix', "Configure the audit log to be protected from unauthorized read
 access by setting the correct permissive mode with the following command:
 
 # sudo chmod 0600 [audit_log_file]
@@ -63,10 +65,9 @@ location is \"/var/log/audit/audit.log\"."
       it { should_not be_more_permissive_than('0600') }
     end
   else
-    describe ('Audit log file '+ log_file + ' exists') do
+    describe ('Audit log file ' + log_file + ' exists') do
       subject { log_file_exists }
       it { should be true }
     end
   end
 end
-

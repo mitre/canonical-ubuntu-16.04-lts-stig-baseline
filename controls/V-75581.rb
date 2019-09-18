@@ -1,4 +1,6 @@
-control "V-75581" do
+# frozen_string_literal: true
+
+control 'V-75581' do
   title "File systems that are being imported via Network File System (NFS)
 must be mounted to prevent binary files from being executed."
   desc  "The \"noexec\" mount option causes the system to not execute binary
@@ -7,13 +9,13 @@ approved binary files as they may be incompatible. Executing files from
 untrusted file systems increases the opportunity for unprivileged users to
 attain unauthorized administrative access."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75581"
-  tag "rid": "SV-90261r2_rule"
-  tag "stig_id": "UBTU-16-010830"
-  tag "fix_id": "F-82209r2_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75581'
+  tag "rid": 'SV-90261r2_rule'
+  tag "stig_id": 'UBTU-16-010830'
+  tag "fix_id": 'F-82209r2_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -24,7 +26,7 @@ attain unauthorized administrative access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify file systems that are being Network File System (NFS)
+  desc 'check', "Verify file systems that are being Network File System (NFS)
 imported are mounted with the \"noexec\" option.
 
 Find the file system(s) that contain the directories being exported with the
@@ -39,10 +41,10 @@ If a file system found in \"/etc/fstab\" refers to NFS and it does not have the
 \"noexec\" option set, and use of NFS exported binaries is not documented with
 the Information System Security Officer (ISSO) as an operational requirement,
 this is a finding."
-  desc "fix", "Configure the \"/etc/fstab\" to use the \"noexec\" option on file
+  desc 'fix', "Configure the \"/etc/fstab\" to use the \"noexec\" option on file
 systems that are being imported via Network File System (NFS)."
 
-  device_rules = etc_fstab.where{ file_system_type == 'nfs' }.entries
+  device_rules = etc_fstab.where { file_system_type == 'nfs' }.entries
   if device_rules.count > 0
     device_rules.each do |device_rule|
       describe device_rule do
@@ -50,10 +52,9 @@ systems that are being imported via Network File System (NFS)."
       end
     end
   else
-    describe "No NFS mounts found on the system" do
+    describe 'No NFS mounts found on the system' do
       subject { device_rules }
       its('count') { should eq 0 }
     end
   end
 end
-

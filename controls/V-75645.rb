@@ -1,4 +1,6 @@
-control "V-75645" do
+# frozen_string_literal: true
+
+control 'V-75645' do
   title "Audit log directory must be group-owned by root to prevent
 unauthorized read access."
   desc  "Unauthorized disclosure of audit records can reveal system and
@@ -11,15 +13,15 @@ activity.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000057-GPOS-00027"
-  tag "satisfies": ["SRG-OS-000057-GPOS-00027", "SRG-OS-000058-GPOS-00028",
-"SRG-OS-000059-GPOS-00029"]
-  tag "gid": "V-75645"
-  tag "rid": "SV-90325r2_rule"
-  tag "stig_id": "UBTU-16-020140"
-  tag "fix_id": "F-82273r2_fix"
-  tag "cci": ["CCI-000162", "CCI-000163", "CCI-000164"]
-  tag "nist": ["AU-9", "AU-9", "AU-9", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000057-GPOS-00027'
+  tag "satisfies": %w[SRG-OS-000057-GPOS-00027 SRG-OS-000058-GPOS-00028
+                      SRG-OS-000059-GPOS-00029]
+  tag "gid": 'V-75645'
+  tag "rid": 'SV-90325r2_rule'
+  tag "stig_id": 'UBTU-16-020140'
+  tag "fix_id": 'F-82273r2_fix'
+  tag "cci": %w[CCI-000162 CCI-000163 CCI-000164]
+  tag "nist": %w[AU-9 AU-9 AU-9 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the audit log directory is group-owned by \"root\" to
+  desc 'check', "Verify the audit log directory is group-owned by \"root\" to
 prevent unauthorized read access.
 
 Determine where the audit logs are stored with the following command:
@@ -46,7 +48,7 @@ directory path:
 drwxr-x--- 2 root root 8096 Jun 26 11:56 /var/log/audit
 
 If the audit log directory is not group-owned by \"root\", this is a finding."
-  desc "fix", "Configure the audit log to be protected from unauthorized read
+  desc 'fix', "Configure the audit log to be protected from unauthorized read
 access, by setting the correct group-owner as \"root\" with the following
 command:
 
@@ -55,11 +57,9 @@ command:
 Replace \"[audit_log_directory]\" with the correct audit log directory path, by
 default this location is usually \"/var/log/audit\"."
 
-  log_file_path = input('log_file_path')
   log_file_dir = input('log_file_dir')
 
   describe directory(log_file_dir) do
     its('group') { should cmp 'root' }
   end
 end
-

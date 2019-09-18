@@ -1,5 +1,7 @@
-control "V-75867" do
-  title "Wireless network adapters must be disabled."
+# frozen_string_literal: true
+
+control 'V-75867' do
+  title 'Wireless network adapters must be disabled.'
   desc  "Without protection of communications with wireless peripherals,
 confidentiality and integrity may be compromised because unprotected
 communications can be intercepted and either read, altered, or used to
@@ -29,15 +31,15 @@ encryption of the data may not be required.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000299-GPOS-00117"
-  tag "satisfies": ["SRG-OS-000299-GPOS-00117", "SRG-OS-000300-GPOS-00118",
-"SRG-OS-000481-GPOS-000481"]
-  tag "gid": "V-75867"
-  tag "rid": "SV-90547r1_rule"
-  tag "stig_id": "UBTU-16-030500"
-  tag "fix_id": "F-82497r1_fix"
-  tag "cci": ["CCI-001443", "CCI-001444", "CCI-002418"]
-  tag "nist": ["AC-18 (1)", "AC-18 (1)", "SC-8", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000299-GPOS-00117'
+  tag "satisfies": %w[SRG-OS-000299-GPOS-00117 SRG-OS-000300-GPOS-00118
+                      SRG-OS-000481-GPOS-000481]
+  tag "gid": 'V-75867'
+  tag "rid": 'SV-90547r1_rule'
+  tag "stig_id": 'UBTU-16-030500'
+  tag "fix_id": 'F-82497r1_fix'
+  tag "cci": %w[CCI-001443 CCI-001444 CCI-002418]
+  tag "nist": ['AC-18 (1)', 'AC-18 (1)', 'SC-8', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -48,7 +50,7 @@ encryption of the data may not be required.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that there are no wireless interfaces configured on the
+  desc 'check', "Verify that there are no wireless interfaces configured on the
 system.
 
 Check that the system does not have active wireless interfaces with the
@@ -74,7 +76,7 @@ inet6 addr: ::1/128 Scope:Host
 
 If a wireless interface is configured and has not been documented and approved
 by the Information System Security Officer (ISSO), this is a finding."
-  desc "fix", "Configure the system to disable all wireless network interfaces
+  desc 'fix', "Configure the system to disable all wireless network interfaces
 with the following command:
 
 # sudo ifdown [ADAPTER_NAME]"
@@ -87,17 +89,15 @@ with the following command:
 
   if other_network_interfaces.count > 0
     other_network_interfaces.each do |net_int|
-      describe ("Interface: " + net_int + " not permitted") do
+      describe ('Interface: ' + net_int + ' not permitted') do
         subject { net_int }
         it { should be_empty }
       end
     end
   else
-    describe "Number of wireless network interfaces found" do
+    describe 'Number of wireless network interfaces found' do
       subject { other_network_interfaces }
       its('count') { should eq 0 }
     end
   end
-
 end
-

@@ -1,4 +1,6 @@
-control "V-75753" do
+# frozen_string_literal: true
+
+control 'V-75753' do
   title "Successful/unsuccessful uses of the open_by_handle_at command must
 generate an audit record."
   desc  "Without generating audit records that are specific to the security and
@@ -12,18 +14,18 @@ information system (e.g., module or policy filter).
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000037-GPOS-00015"
-  tag "satisfies": ["SRG-OS-000037-GPOS-00015", "SRG-OS-000042-GPOS-00020",
-"SRG-OS-000062-GPOS-00031", "SRG-OS-000392-GPOS-00172",
-"SRG-OS-000462-GPOS-00206", "SRG-OS-000471-GPOS-00215"]
-  tag "gid": "V-75753"
-  tag "rid": "SV-90433r3_rule"
-  tag "stig_id": "UBTU-16-020640"
-  tag "fix_id": "F-82381r2_fix"
-  tag "cci": ["CCI-000130", "CCI-000135", "CCI-000169", "CCI-000172",
-"CCI-002884"]
-  tag "nist": ["AU-3", "AU-3 (1)", "AU-12 a", "AU-12 c", "MA-4 (1) (a)",
-"Rev_4"]
+  tag "gtitle": 'SRG-OS-000037-GPOS-00015'
+  tag "satisfies": %w[SRG-OS-000037-GPOS-00015 SRG-OS-000042-GPOS-00020
+                      SRG-OS-000062-GPOS-00031 SRG-OS-000392-GPOS-00172
+                      SRG-OS-000462-GPOS-00206 SRG-OS-000471-GPOS-00215]
+  tag "gid": 'V-75753'
+  tag "rid": 'SV-90433r3_rule'
+  tag "stig_id": 'UBTU-16-020640'
+  tag "fix_id": 'F-82381r2_fix'
+  tag "cci": %w[CCI-000130 CCI-000135 CCI-000169 CCI-000172
+                CCI-002884]
+  tag "nist": ['AU-3', 'AU-3 (1)', 'AU-12 a', 'AU-12 c', 'MA-4 (1) (a)',
+               'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -34,7 +36,7 @@ information system (e.g., module or policy filter).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system generates an audit record
+  desc 'check', "Verify the Ubuntu operating system generates an audit record
 when successful/unsuccessful attempts to use the \"open_by_handle_at\" command
 occur.
 
@@ -51,7 +53,7 @@ auid!=4294967295 -k perm_access
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  desc "fix", "Configure the audit system to generate an audit event for any
+  desc 'fix', "Configure the audit system to generate an audit event for any
 successful/unsuccessful use of the \"open_by_handle_at\" command.
 
 Add or update the following rules in the \"/etc/audit/audit.rules\" file:
@@ -68,26 +70,25 @@ the audit daemon, run the following command:
 # sudo systemctl restart auditd.service"
 
   if os.arch == 'x86_64'
-    describe auditd.syscall("open_by_handle_at").where{arch == "b64"} do
+    describe auditd.syscall('open_by_handle_at').where { arch == 'b64' } do
       its('action.uniq') { should eq ['always'] }
       its('list.uniq') { should eq ['exit'] }
       its('exit.uniq') { should include '-EPERM' }
     end
-    describe auditd.syscall("open_by_handle_at").where{arch == "b64"} do
+    describe auditd.syscall('open_by_handle_at').where { arch == 'b64' } do
       its('action.uniq') { should eq ['always'] }
       its('list.uniq') { should eq ['exit'] }
       its('exit.uniq') { should include '-EACCES' }
     end
   end
-  describe auditd.syscall("open_by_handle_at").where{arch == "b32"} do
+  describe auditd.syscall('open_by_handle_at').where { arch == 'b32' } do
     its('action.uniq') { should eq ['always'] }
     its('list.uniq') { should eq ['exit'] }
     its('exit.uniq') { should include '-EPERM' }
   end
-  describe auditd.syscall("open_by_handle_at").where{arch == "b32"} do
+  describe auditd.syscall('open_by_handle_at').where { arch == 'b32' } do
     its('action.uniq') { should eq ['always'] }
     its('list.uniq') { should eq ['exit'] }
     its('exit.uniq') { should include '-EACCES' }
   end
 end
-

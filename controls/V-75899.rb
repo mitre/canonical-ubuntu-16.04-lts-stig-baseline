@@ -1,16 +1,18 @@
-control "V-75899" do
+# frozen_string_literal: true
+
+control 'V-75899' do
   title "If the Trivial File Transfer Protocol (TFTP) server is required, the
 TFTP daemon must be configured to operate in secure mode."
   desc  "Restricting TFTP to a specific directory prevents remote users from
 copying, transferring, or overwriting system files."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75899"
-  tag "rid": "SV-90579r1_rule"
-  tag "stig_id": "UBTU-16-030730"
-  tag "fix_id": "F-82529r1_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75899'
+  tag "rid": 'SV-90579r1_rule'
+  tag "stig_id": 'UBTU-16-030730'
+  tag "fix_id": 'F-82529r1_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -21,7 +23,7 @@ copying, transferring, or overwriting system files."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Trivial File Transfer Protocol (TFTP) daemon is
+  desc 'check', "Verify the Trivial File Transfer Protocol (TFTP) daemon is
 configured to operate in secure mode.
 
 Check to see if a TFTP server has been installed with the following commands:
@@ -37,7 +39,7 @@ following command:
 TFTP_OPTIONS=\"--secure\"
 
 If \"--secure\" is not listed in the TFTP_OPTIONS, this is a finding."
-  desc "fix", "Configure the Trivial File Transfer Protocol (TFTP) daemon to
+  desc 'fix', "Configure the Trivial File Transfer Protocol (TFTP) daemon to
 operate in the secure mode by adding the \"--secure\" option to TFTP_OPTIONS in
 /etc/default/tftpd-hpa and restart the tftpd daemon."
 
@@ -45,13 +47,12 @@ operate in the secure mode by adding the \"--secure\" option to TFTP_OPTIONS in
   if is_installed
     tftp_options = command('grep TFTP_OPTIONS /etc/default/tftpd-hpa').stdout.strip
     describe tftp_options do
-      it { should match %r((--secure)) }
+      it { should match /(--secure)/ }
     end
   else
     impact 0
-    describe "No TFTP server is installed" do
-      skip "This control is Not Applicable as a TFTP server has not been installed on this server."
+    describe 'No TFTP server is installed' do
+      skip 'This control is Not Applicable as a TFTP server has not been installed on this server.'
     end
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-75523" do
+# frozen_string_literal: true
+
+control 'V-75523' do
   title "The file integrity tool must notify the system administrator when
 changes to the baseline configuration or anomalies in the operation of any
 security functions are discovered."
@@ -31,14 +33,14 @@ detection.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000363-GPOS-00150"
-  tag "satisfies": ["SRG-OS-000363-GPOS-00150", "SRG-OS-000447-GPOS-00201"]
-  tag "gid": "V-75523"
-  tag "rid": "SV-90203r3_rule"
-  tag "stig_id": "UBTU-16-010540"
-  tag "fix_id": "F-82151r2_fix"
-  tag "cci": ["CCI-001744", "CCI-002702"]
-  tag "nist": ["CM-3 (5)", "SI-6 d", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000363-GPOS-00150'
+  tag "satisfies": %w[SRG-OS-000363-GPOS-00150 SRG-OS-000447-GPOS-00201]
+  tag "gid": 'V-75523'
+  tag "rid": 'SV-90203r3_rule'
+  tag "stig_id": 'UBTU-16-010540'
+  tag "fix_id": 'F-82151r2_fix'
+  tag "cci": %w[CCI-001744 CCI-002702]
+  tag "nist": ['CM-3 (5)', 'SI-6 d', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -49,7 +51,7 @@ detection.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE)
+  desc 'check', "Verify that Advanced Intrusion Detection Environment (AIDE)
 notifies the system administrator when anomalies in the operation of any
 security functions are discovered.
 
@@ -63,7 +65,7 @@ SILENTREPORTS=no
 If the \"/etc/cron.daily/aide\" file does not exist, the cron job is configured
 with the \"SILENTREPORTS=yes\" option, or the line is commented out, this is a
 finding."
-  desc "fix", "Modify the \"SILENTREPORTS\" parameter in \"/etc/default/aide\"
+  desc 'fix', "Modify the \"SILENTREPORTS\" parameter in \"/etc/default/aide\"
 file with a value \"no\" of if it does not already exist:
 
 SILENTREPORTS=no
@@ -74,7 +76,6 @@ SILENTREPORTS=no
   end
 
   describe parse_config_file('/etc/default/aide').params['SILENTREPORTS'] do
-    it { should eq "yes" }
+    it { should eq 'yes' }
   end
 end
-

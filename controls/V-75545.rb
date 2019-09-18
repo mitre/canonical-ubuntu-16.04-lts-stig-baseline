@@ -1,17 +1,19 @@
-control "V-75545" do
-  title "The Ubuntu operating system must not have unnecessary accounts."
+# frozen_string_literal: true
+
+control 'V-75545' do
+  title 'The Ubuntu operating system must not have unnecessary accounts.'
   desc  "Accounts providing no operational purpose provide additional
 opportunities for system compromise. Unnecessary accounts include user accounts
 for individuals not requiring access to the system and application accounts for
 applications not installed on the system."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75545"
-  tag "rid": "SV-90225r2_rule"
-  tag "stig_id": "UBTU-16-010650"
-  tag "fix_id": "F-82173r1_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75545'
+  tag "rid": 'SV-90225r2_rule'
+  tag "stig_id": 'UBTU-16-010650'
+  tag "fix_id": 'F-82173r1_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -22,7 +24,7 @@ applications not installed on the system."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify all accounts on the system are assigned to an active
+  desc 'check', "Verify all accounts on the system are assigned to an active
 system, application, or user account.
 
 Obtain the list of authorized system accounts from the Information System
@@ -41,7 +43,7 @@ do not support authorized system functions.
 If the accounts on the system do not match the provided documentation, or
 accounts that do not support an authorized system function are present, this is
 a finding."
-  desc "fix", "Configure the system so all accounts on the system are assigned
+  desc 'fix', "Configure the system so all accounts on the system are assigned
 to an active system, application, or user account.
 
 Remove accounts that do not support approved system activities or that allow
@@ -54,10 +56,9 @@ Document all authorized accounts on the system."
   user_accounts = input('user_accounts')
   allowed_accounts = (known_system_accounts + user_accounts).uniq
 
-  describe "The active system users" do
+  describe 'The active system users' do
     subject { passwd }
     its('users') { should be_in allowed_accounts }
     its('users') { should_not be_in disallowed_accounts }
   end
 end
-

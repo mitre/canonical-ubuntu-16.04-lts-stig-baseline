@@ -1,4 +1,6 @@
-control "V-75517" do
+# frozen_string_literal: true
+
+control 'V-75517' do
   title "The file integrity tool must perform verification of the correct
 operation of security functions: upon system start-up and/or restart; upon
 command by a user with privileged access; and/or every 30 days."
@@ -20,13 +22,13 @@ function verification/testing and/or systems and environments that require this
 functionality.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000446-GPOS-00200"
-  tag "gid": "V-75517"
-  tag "rid": "SV-90197r2_rule"
-  tag "stig_id": "UBTU-16-010510"
-  tag "fix_id": "F-82145r1_fix"
-  tag "cci": ["CCI-002699"]
-  tag "nist": ["SI-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000446-GPOS-00200'
+  tag "gid": 'V-75517'
+  tag "rid": 'SV-90197r2_rule'
+  tag "stig_id": 'UBTU-16-010510'
+  tag "fix_id": 'F-82145r1_fix'
+  tag "cci": ['CCI-002699']
+  tag "nist": ['SI-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -37,7 +39,7 @@ functionality.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE)
+  desc 'check', "Verify that Advanced Intrusion Detection Environment (AIDE)
 performs a verification of the operation of security functions every 30 days.
 
 Note: A file integrity tool other than AIDE may be used, but the tool must be
@@ -52,7 +54,7 @@ command:
 
 If the \"/etc/cron.daily/aide\" file does not exist or the cron job is not
 configured to run at least every 30 days, this is a finding."
-  desc "fix", "The cron file for AIDE is fairly complex as it creates the
+  desc 'fix', "The cron file for AIDE is fairly complex as it creates the
 report. The easiest way to create the file is to update the AIDE package with
 the following command:
 
@@ -62,4 +64,3 @@ the following command:
     it { should exist }
   end
 end
-

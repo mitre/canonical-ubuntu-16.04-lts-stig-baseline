@@ -1,17 +1,19 @@
-control "V-75891" do
+# frozen_string_literal: true
+
+control 'V-75891' do
   title "The Ubuntu operating system must be configured to prevent unrestricted
 mail relaying."
   desc  "If unrestricted mail relaying is permitted, unauthorized senders could
 use this host as a mail relay for the purpose of sending spam or other
 unauthorized activity."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75891"
-  tag "rid": "SV-90571r2_rule"
-  tag "stig_id": "UBTU-16-030620"
-  tag "fix_id": "F-82521r2_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75891'
+  tag "rid": 'SV-90571r2_rule'
+  tag "stig_id": 'UBTU-16-030620'
+  tag "fix_id": 'F-82521r2_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -22,7 +24,7 @@ unauthorized activity."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Determine if \"postfix\" is installed with the following
+  desc 'check', "Determine if \"postfix\" is installed with the following
 commands:
 
 Note: If postfix is not installed, this is Not Applicable.
@@ -43,7 +45,7 @@ smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject
 If the \"smtpd_relay_restrictions\" parameter contains any entries other than
 \"permit_mynetworks\", \"permit_sasl_authenticated\" and \"reject\", is
 missing, or is commented out, this is a finding."
-  desc "fix", "If \"postfix\" is installed, modify the \"/etc/postfix/main.cf\"
+  desc 'fix', "If \"postfix\" is installed, modify the \"/etc/postfix/main.cf\"
 file to restrict client connections to the local network with the following
 command:
 
@@ -56,14 +58,13 @@ permit_sasl_authenticated, reject'"
     postconf_output = command('postconf -n smtpd_client_restrictions').stdout.strip
     smtpd_relay_restrictions = postconf_output.split(' = ')[1].split(', ')
     describe smtpd_relay_restrictions do
-      it { should be_in ["permit_mynetworks", "permit_sasl_authenticated", "reject"] }
+      it { should be_in %w[permit_mynetworks permit_sasl_authenticated reject] }
     end
   else
     impact 0
-    describe "Control Not Applicable as postfix is not installed" do
+    describe 'Control Not Applicable as postfix is not installed' do
       subject { is_postfix_installed }
       it { should be false }
     end
   end
 end
-

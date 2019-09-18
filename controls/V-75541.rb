@@ -1,5 +1,7 @@
-control "V-75541" do
-  title "The x86 Ctrl-Alt-Delete key sequence must be disabled."
+# frozen_string_literal: true
+
+control 'V-75541' do
+  title 'The x86 Ctrl-Alt-Delete key sequence must be disabled.'
   desc  "A locally logged-on user who presses Ctrl-Alt-Delete, when at the
 console, can reboot the system. If accidentally pressed, as could happen in the
 case of a mixed OS environment, this can create the risk of short-term loss of
@@ -7,13 +9,13 @@ availability of systems due to unintentional reboot. In the GNOME graphical
 environment, risk of unintentional reboot from the Ctrl-Alt-Delete sequence is
 reduced because the user will be prompted before any action is taken."
   impact 0.7
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75541"
-  tag "rid": "SV-90221r2_rule"
-  tag "stig_id": "UBTU-16-010630"
-  tag "fix_id": "F-82169r2_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75541'
+  tag "rid": 'SV-90221r2_rule'
+  tag "stig_id": 'UBTU-16-010630'
+  tag "fix_id": 'F-82169r2_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -24,7 +26,7 @@ reduced because the user will be prompted before any action is taken."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system is not configured to reboot
+  desc 'check', "Verify the Ubuntu operating system is not configured to reboot
 the system when Ctrl-Alt-Delete is pressed.
 
 Check that the \"ctrl-alt-del.target\" (otherwise also known as reboot.target)
@@ -37,7 +39,7 @@ reboot.target - Reboot
      Docs: man:systemd.special(7)
 
 If the \"ctrl-alt-del.target\" is active, this is a finding."
-  desc "fix", "Configure the system to disable the Ctrl-Alt-Delete sequence for
+  desc 'fix', "Configure the system to disable the Ctrl-Alt-Delete sequence for
 the command line with the following command:
 
 # sudo systemctl mask ctrl-alt-del.target
@@ -61,4 +63,3 @@ logout=’’"
     it { should_not be_enabled }
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-75525" do
+# frozen_string_literal: true
+
+control 'V-75525' do
   title "The Ubuntu operating system must use cryptographic mechanisms to
 protect the integrity of audit tools."
   desc  "Protecting the integrity of the tools used for auditing purposes is a
@@ -20,13 +22,13 @@ to provide the capability to identify when the audit tools have been modified,
 manipulated, or replaced. An example is a checksum hash of the file or files.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000278-GPOS-00108"
-  tag "gid": "V-75525"
-  tag "rid": "SV-90205r2_rule"
-  tag "stig_id": "UBTU-16-010550"
-  tag "fix_id": "F-82153r1_fix"
-  tag "cci": ["CCI-001496"]
-  tag "nist": ["AU-9 (3)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000278-GPOS-00108'
+  tag "gid": 'V-75525'
+  tag "rid": 'SV-90205r2_rule'
+  tag "stig_id": 'UBTU-16-010550'
+  tag "fix_id": 'F-82153r1_fix'
+  tag "cci": ['CCI-001496']
+  tag "nist": ['AU-9 (3)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -37,7 +39,7 @@ manipulated, or replaced. An example is a checksum hash of the file or files.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE) to
+  desc 'check', "Verify that Advanced Intrusion Detection Environment (AIDE) to
 properly configured to use cryptographic mechanisms to protect the integrity of
 audit tools.
 
@@ -56,7 +58,7 @@ following command:
 
 If any of the seven audit tools does not have an appropriate selection line,
 this is a finding."
-  desc "fix", "Add or update the following selection lines to
+  desc 'fix', "Add or update the following selection lines to
 \"/etc/aide/aide.conf\", in order to protect the integrity of the audit tools.
 
 # Audit Tools
@@ -74,37 +76,34 @@ this is a finding."
     describe aide_conf.where { selection_line == '/usr/sbin/auditctl' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
-  
+
     describe aide_conf.where { selection_line == '/usr/sbin/auditd' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
-  
+
     describe aide_conf.where { selection_line == '/usr/sbin/ausearch' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
-  
+
     describe aide_conf.where { selection_line == '/usr/sbin/aureport' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
-  
+
     describe aide_conf.where { selection_line == '/usr/sbin/autrace' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
-  
+
     describe aide_conf.where { selection_line == '/usr/sbin/audispd' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
-  
+
     describe aide_conf.where { selection_line == '/usr/sbin/augenrules' } do
       its('rules') { should include ['p', 'i', 'n', 'u', 'g', 's', 'b', 'acl', 'xattr' 'sha512'] }
     end
   else
-    describe "aide.conf file exists" do
+    describe 'aide.conf file exists' do
       subject { aide_conf_exists }
       it { should be true }
     end
   end
-
-  
 end
-

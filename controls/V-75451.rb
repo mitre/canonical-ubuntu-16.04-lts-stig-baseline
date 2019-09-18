@@ -1,4 +1,6 @@
-control "V-75451" do
+# frozen_string_literal: true
+
+control 'V-75451' do
   title "The Ubuntu operating system must enforce password complexity by
 requiring that at least one lower-case character be used."
   desc  "Use of a complex password helps to increase the time and resources
@@ -12,13 +14,13 @@ number of possible combinations that need to be tested before the password is
 compromised.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000070-GPOS-00038"
-  tag "gid": "V-75451"
-  tag "rid": "SV-90131r2_rule"
-  tag "stig_id": "UBTU-16-010110"
-  tag "fix_id": "F-82079r1_fix"
-  tag "cci": ["CCI-000193"]
-  tag "nist": ["IA-5 (1) (a)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000070-GPOS-00038'
+  tag "gid": 'V-75451'
+  tag "rid": 'SV-90131r2_rule'
+  tag "stig_id": 'UBTU-16-010110'
+  tag "fix_id": 'F-82079r1_fix'
+  tag "cci": ['CCI-000193']
+  tag "nist": ['IA-5 (1) (a)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -29,7 +31,7 @@ compromised.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system enforces password complexity
+  desc 'check', "Verify the Ubuntu operating system enforces password complexity
 by requiring that at least one lower-case character be used.
 
 Determine if the field \"lcredit\" is set in the
@@ -40,7 +42,7 @@ lcredit=-1
 
 If the \"lcredit\" parameter is not equal to \"-1\", or is commented out, this
 is a finding."
-  desc "fix", "Configure the Ubuntu operating system to enforce password
+  desc 'fix', "Configure the Ubuntu operating system to enforce password
 complexity by requiring that at least one lower-case character be used.
 
 Add or update the following line in the \"/etc/security/pwquality.conf\" file
@@ -63,4 +65,3 @@ lcredit=-1"
     end
   end
 end
-

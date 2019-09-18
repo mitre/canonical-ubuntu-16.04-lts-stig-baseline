@@ -1,4 +1,6 @@
-control "V-75469" do
+# frozen_string_literal: true
+
+control 'V-75469' do
   title "Emergency administrator accounts must never be automatically removed
 or disabled."
   desc  "Emergency accounts are privileged accounts that are established in
@@ -23,13 +25,13 @@ integrated with enterprise-level authentication/access mechanisms that meet or
 exceed access control policy requirements.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000123-GPOS-00064"
-  tag "gid": "V-75469"
-  tag "rid": "SV-90149r1_rule"
-  tag "stig_id": "UBTU-16-010200"
-  tag "fix_id": "F-82097r1_fix"
-  tag "cci": ["CCI-001682"]
-  tag "nist": ["AC-2 (2)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000123-GPOS-00064'
+  tag "gid": 'V-75469'
+  tag "rid": 'SV-90149r1_rule'
+  tag "stig_id": 'UBTU-16-010200'
+  tag "fix_id": 'F-82097r1_fix'
+  tag "cci": ['CCI-001682']
+  tag "nist": ['AC-2 (2)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -40,7 +42,7 @@ exceed access control policy requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system is configured such that the
+  desc 'check', "Verify the Ubuntu operating system is configured such that the
 emergency administrator account is never automatically removed or disabled.
 
 Check to see if the root account password or account expires with the following
@@ -52,16 +54,16 @@ Password expires :never
 
 If \"Password expires\" or \"Account expires\" is set to anything other than
 \"never\", this is a finding."
-  desc "fix", "Replace \"[Emergency_Administrator]\" in the following command
+  desc 'fix', "Replace \"[Emergency_Administrator]\" in the following command
 with the correct emergency administrator account. Run the following command as
 an administrator:
 
 # sudo chage -I -1 -M 99999 [Emergency_Administrator]"
 
-  emergency_accounts = input('emergency_accounts')  
+  emergency_accounts = input('emergency_accounts')
 
   if emergency_accounts.empty?
-    describe "Emergency accounts" do
+    describe 'Emergency accounts' do
       it { should be_empty }
     end
     describe shadow.where(user: 'root') do
@@ -70,9 +72,8 @@ an administrator:
   else
     emergency_accounts.each do |acct|
       describe command("sudo chage -l #{acct} | grep 'Account expires'") do
-        its('stdout.strip') { should_not match %r{:\s*never} }
+        its('stdout.strip') { should_not match /:\s*never/ }
       end
     end
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-75777" do
+# frozen_string_literal: true
+
+control 'V-75777' do
   title "Successful/unsuccessful uses of the passwd command must generate an
 audit record."
   desc  "Reconstruction of harmful events or forensic analysis is not possible
@@ -11,18 +13,18 @@ detail to reconstruct events to determine the cause and impact of compromise.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000037-GPOS-00015"
-  tag "satisfies": ["SRG-OS-000037-GPOS-00015", "SRG-OS-000042-GPOS-00020",
-"SRG-OS-000062-GPOS-00031", "SRG-OS-000392-GPOS-00172",
-"SRG-OS-000462-GPOS-00206", "SRG-OS-000471-GPOS-00215"]
-  tag "gid": "V-75777"
-  tag "rid": "SV-90457r3_rule"
-  tag "stig_id": "UBTU-16-020760"
-  tag "fix_id": "F-82407r4_fix"
-  tag "cci": ["CCI-000130", "CCI-000135", "CCI-000169", "CCI-000172",
-"CCI-002884"]
-  tag "nist": ["AU-3", "AU-3 (1)", "AU-12 a", "AU-12 c", "MA-4 (1) (a)",
-"Rev_4"]
+  tag "gtitle": 'SRG-OS-000037-GPOS-00015'
+  tag "satisfies": %w[SRG-OS-000037-GPOS-00015 SRG-OS-000042-GPOS-00020
+                      SRG-OS-000062-GPOS-00031 SRG-OS-000392-GPOS-00172
+                      SRG-OS-000462-GPOS-00206 SRG-OS-000471-GPOS-00215]
+  tag "gid": 'V-75777'
+  tag "rid": 'SV-90457r3_rule'
+  tag "stig_id": 'UBTU-16-020760'
+  tag "fix_id": 'F-82407r4_fix'
+  tag "cci": %w[CCI-000130 CCI-000135 CCI-000169 CCI-000172
+                CCI-002884]
+  tag "nist": ['AU-3', 'AU-3 (1)', 'AU-12 a', 'AU-12 c', 'MA-4 (1) (a)',
+               'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -33,7 +35,7 @@ detail to reconstruct events to determine the cause and impact of compromise.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that an audit event is generated for any
+  desc 'check', "Verify that an audit event is generated for any
 successful/unsuccessful use of the \"passwd\" command.
 
 Check for the following system call being audited by performing the following
@@ -46,7 +48,7 @@ auid!=4294967295 -k privileged-passwd
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  desc "fix", "Configure the audit system to generate an audit event for any
+  desc 'fix', "Configure the audit system to generate an audit event for any
 successful/unsuccessful uses of the \"passwd\" command. Add or update the
 following rule in the \"/etc/audit/audit.rules\" file:
 
@@ -60,25 +62,24 @@ the audit daemon, run the following command:
 
   @audit_file = '/usr/bin/passwd'
 
-  audit_lines_exist = !auditd.lines.index{|line| line.include?(@audit_file)}.nil?
+  audit_lines_exist = !auditd.lines.index { |line| line.include?(@audit_file) }.nil?
   if audit_lines_exist
     describe auditd.file(@audit_file) do
       its('permissions') { should_not cmp [] }
       its('action') { should_not include 'never' }
     end
-  
+
     @perms = auditd.file(@audit_file).permissions
-  
+
     @perms.each do |perm|
       describe perm do
         it { should include 'x' }
       end
     end
   else
-    describe ('Audit line(s) for '+ @audit_file + ' exist') do
+    describe ('Audit line(s) for ' + @audit_file + ' exist') do
       subject { audit_lines_exist }
       it { should be true }
     end
   end
 end
-

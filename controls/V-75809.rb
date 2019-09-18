@@ -1,4 +1,6 @@
-control "V-75809" do
+# frozen_string_literal: true
+
+control 'V-75809' do
   title "The Ubuntu operating system must be configured to prohibit or restrict
 the use of functions, ports, protocols, and/or services, as defined in the
 Ports, Protocols, and Services Management (PPSM) Category Assignments List
@@ -22,13 +24,13 @@ services to only those required, authorized, and approved to conduct official
 business or to address authorized quality of life issues.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000096-GPOS-00050"
-  tag "gid": "V-75809"
-  tag "rid": "SV-90489r2_rule"
-  tag "stig_id": "UBTU-16-030060"
-  tag "fix_id": "F-82439r1_fix"
-  tag "cci": ["CCI-000382"]
-  tag "nist": ["CM-7 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000096-GPOS-00050'
+  tag "gid": 'V-75809'
+  tag "rid": 'SV-90489r2_rule'
+  tag "stig_id": 'UBTU-16-030060'
+  tag "fix_id": 'F-82439r1_fix'
+  tag "cci": ['CCI-000382']
+  tag "nist": ['CM-7 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -39,7 +41,7 @@ business or to address authorized quality of life issues.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Uncomplicated Firewall is configured to employ a
+  desc 'check', "Verify the Uncomplicated Firewall is configured to employ a
 deny-all, allow-by-exception policy for allowing connections to other systems.
 
 Check the Uncomplicated Firewall configuration with the following command:
@@ -52,19 +54,18 @@ Status: active
 
 If any services, ports, or applications are \"allowed\" and are not documented
 with the organization, this is a finding."
-  desc "fix", "Add/Modify the Ubuntu operating system's firewall settings and/or
+  desc 'fix', "Add/Modify the Ubuntu operating system's firewall settings and/or
 running services to comply with the Ports, Protocols, and Services Management
 (PPSM) Category Assignments List (CAL)."
 
   ufw_status = command('ufw status').stdout.strip.lines.first
-  key, value = ufw_status.split ": ",2
+  value = ufw_status.split(':')[1].strip
 
-  describe "UFW status" do
+  describe 'UFW status' do
     subject { value }
     it { should cmp 'active' }
   end
-  describe "Status listings for any allowed services, ports, or applications must be documented with the organization" do
-    skip "Status listings checks must be preformed manually"
+  describe 'Status listings for any allowed services, ports, or applications must be documented with the organization' do
+    skip 'Status listings checks must be preformed manually'
   end
 end
-
