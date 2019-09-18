@@ -55,7 +55,7 @@ Set the owner of all public directories as root using the command, replace
 
 # sudo chown root [Public Directory]"
 
-  dir_list = command("sudo find / -maxdepth 1 -xdev -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n")
+  dir_list = command("sudo find / -xdev -type d -perm -0002 -exec ls -dL {} \\;").stdout.strip.split("\n")
   if (dir_list.count > 0)
     dir_list.each do |entry|
       describe directory(entry) do

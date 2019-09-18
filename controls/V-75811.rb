@@ -58,7 +58,7 @@ Set the sticky bit on all world writable directories using the command, replace
 
 # sudo chmod 1777 [World-Writable Directory]"
 
-  lines = command('find / -type d  \( -perm -0002 -a ! -perm -1000 \) -print 2>/dev/null').stdout.lines
+  lines = command('find / -xdev -type d  \( -perm -0002 -a ! -perm -1000 \) -print 2>/dev/null').stdout.lines
   if (lines.count > 0)
     lines.each do |line|
       dir = line.strip

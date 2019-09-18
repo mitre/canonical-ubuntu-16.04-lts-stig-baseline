@@ -48,7 +48,7 @@ the following command:
 
   application_groups = input('application_groups')
 
-  directories = command("sudo find / -perm -2 -type d ! -group sys ! -group root ! -group bin -exec ls -lLd {} \\;").stdout.strip.split("\n").entries
+  directories = command("sudo find / -xdev -perm -2 -type d ! -group sys ! -group root ! -group bin -exec ls -lLd {} \\;").stdout.strip.split("\n").entries
   if directories.count > 0
     directories.each do |entry|
       describe directory(entry) do
