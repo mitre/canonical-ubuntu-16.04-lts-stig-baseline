@@ -71,14 +71,14 @@ APT::Get::AllowUnauthenticated \"false\";"
     it { should exist }
   end
 
-  apt_allowuanuth = command('grep -i allowunauth /etc/apt/apt.conf.d/*').stdout.strip.split("\n")
-  if apt_allowuanuth.empty?
+  apt_allowunauth = command('grep -i allowunauth /etc/apt/apt.conf.d/*').stdout.strip.split("\n")
+  if apt_allowunauth.empty?
     describe 'apt conf files do not contain AllowUnauthenticated' do
-      subject { apt_allowuanuth }
-      it { should be empty }
+      subject { apt_allowunauth.empty? }
+      it { should be true }
     end
   else
-    apt_allowuanuth.each do |line|
+    apt_allowunauth.each do |line|
       describe "#{line} contains AllowUnauthenctication" do
         subject { line }
         it { should_not match /.*false.*/ }
