@@ -10,7 +10,7 @@
 An InSpec profile of the DISA Canonical Ubuntu 16.04 LTS STIG baseline
 
 ## Getting Started
-The following inputs must be configured in inspec.yml for the profile to run correctly. More information about InSpec inpputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
+The following inputs must be configured in inspec.yml for the profile to run correctly. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
   - name: emergency_accounts
@@ -53,54 +53,66 @@ The following inputs must be configured in inspec.yml for the profile to run cor
     type: Array
     value: []
 ```
-
-## TESTING
-You can run the inspec profile against the vagrant vm provided. 
-
-### Step 1
-Browse into the Vagrant folder and run the command
-```
-vagrant up
-```
-
-### Step 2
-Run the following command and make a note of all the values in the output.
-```
-vagrant ssh-config
-```
-
-### Step 3
-Run the following command to run the inspec profile. Fill in all the values using information noted earlier.
-```
-inspec exec $PROFILENAME/ \
-        -t ssh://$TARGET_USER@$TARGET_HOST \
-        -p $TARGET_PORT \
-        -i $TARGET_IDENTITYFILE
-        --sudo
-```
-
-### Optional
-To setup/install inspec on the vagrant vm, run the following commands inside the vm.
+## Running This Profile
+When the __"runner"__ host uses this profile overlay for the first time, follow these steps: 
 
 ```
-sudo apt-get -y install ruby ruby-dev gcc g++ make
-sudo gem install inspec
+mkdir profiles
+cd profiles
+git clone https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline.git
+cd canonical-ubuntu-16.04-lts-stig-baseline
+bundle install
+cd ..
+inspec exec canonical-ubuntu-16.04-lts-stig-baseline [-t ssh://<hostname>:<port> --sudo] --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+```
+For every successive run, follow these steps to always have the latest version of this profile:
+
+```
+cd profiles/canonical-ubuntu-16.04-lts-stig-baseline
+git pull
+cd ..
+inspec exec canonical-ubuntu-16.04-lts-stig-baseline [-t ssh://<hostname>:<port> --sudo] --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
-## NOTICE
+## Viewing the JSON Results
 
-© 2018 The MITRE Corporation.
+The JSON results output file can be loaded into __[heimdall-lite](https://mitre.github.io/heimdall-lite/)__ for a user-interactive, graphical view of the InSpec results. 
 
-Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
+The JSON InSpec results file may also be loaded into a __full heimdall server__, allowing for additional functionality such as to store and compare multiple profile runs.
 
-## NOTICE  
+## Contributing and Getting Help
+To report a bug or feature request, please open an [issue](https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/issues/new).
 
+## Authors
+* Krishna Kola
+* Amol Shah
+
+## Special Thanks
+* Aaron Lippold
+* Eugene Aaron
+
+## License 
+
+This project is licensed under the terms of the Apache 2.0 license excepted as noted in [LICENSE.MD](https://github.com/mitre/project/blob/master/LICENSE.md). 
+
+### NOTICE
+
+© 2019 The MITRE Corporation.  
+
+Approved for Public Release; Distribution Unlimited. Case Number 18-3678.  
+
+### NOTICE
 MITRE hereby grants express written permission to use, reproduce, distribute, modify, and otherwise leverage this software to the extent permitted by the licensed terms provided in the LICENSE.md file included with this project.
 
-## NOTICE
+### NOTICE  
 
-This software was produced for the U. S. Government under Contract Number HHSM-500-2012-00008I, and is subject to Federal Acquisition Regulation Clause 52.227-14, Rights in Data-General.
+This software was produced for the U. S. Government under Contract Number HHSM-500-2012-00008I, and is subject to Federal Acquisition Regulation Clause 52.227-14, Rights in Data-General.  
 
-No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause is authorized without the express written permission of The MITRE Corporation.
+No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause is authorized without the express written permission of The MITRE Corporation. 
 
-For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA  22102-7539, (703) 983-6000.
+For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA  22102-7539, (703) 983-6000.  
+
+### NOTICE
+
+< DISA STIGs | CIS Benchmarks > are published by < DISA IASE | the Center for Internet Security (CIS) >, see: 
+< https://iase.disa.mil/Pages/privacy_policy.aspx | https://www.cisecurity.org/ >.
