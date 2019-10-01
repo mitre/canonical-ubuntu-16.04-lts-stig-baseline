@@ -38,7 +38,7 @@ system.
 
 # rm /[path]/[to]/[file]/.shosts"
 
-  describe command("sudo find / -name '*.shosts'") do
+  describe command("find / -name '*.shosts'") do
     its('exit_status') { should eq 0 }
     its('stdout.strip') { should be_empty }
   end

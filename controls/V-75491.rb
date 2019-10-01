@@ -64,7 +64,7 @@ account to be created.
     end
   else
     temporary_accounts.each do |acct|
-      describe command("sudo chage -l #{acct} | grep 'Account expires'") do
+      describe command("chage -l #{acct} | grep 'Account expires'") do
         its('stdout.strip') { should_not match /:\s*never/ }
       end
     end

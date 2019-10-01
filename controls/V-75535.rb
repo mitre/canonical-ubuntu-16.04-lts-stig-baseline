@@ -105,8 +105,8 @@ will be based on the actual system setup and organization. See the
     it { should be_installed }
   end
 
-  num_loaded_profiles = inspec.command('sudo apparmor_status | grep "profiles are loaded." | cut -f 1 -d " "').stdout
-  num_enforced_profiles = inspec.command('sudo apparmor_status | grep "profiles are in enforce mode." | cut -f 1 -d " "').stdout
+  num_loaded_profiles = inspec.command('apparmor_status | grep "profiles are loaded." | cut -f 1 -d " "').stdout
+  num_enforced_profiles = inspec.command('apparmor_status | grep "profiles are in enforce mode." | cut -f 1 -d " "').stdout
 
   describe 'AppArmor Profiles' do
     it 'loaded and enforced' do
