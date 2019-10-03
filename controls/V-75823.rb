@@ -1,4 +1,6 @@
-control "V-75823" do
+# frozen_string_literal: true
+
+control 'V-75823' do
   title "The Ubuntu operating system must enforce SSHv2 for network access to
 all accounts."
   desc  "A replay attack may enable an unauthorized user to gain access to the
@@ -21,14 +23,14 @@ challenge-response one-time authenticators.
 
   "
   impact 0.7
-  tag "gtitle": "SRG-OS-000112-GPOS-00057"
-  tag "satisfies": ["SRG-OS-000112-GPOS-00057", "SRG-OS-000113-GPOS-00058"]
-  tag "gid": "V-75823"
-  tag "rid": "SV-90503r1_rule"
-  tag "stig_id": "UBTU-16-030200"
-  tag "fix_id": "F-82453r1_fix"
-  tag "cci": ["CCI-001941", "CCI-001942"]
-  tag "nist": ["IA-2 (8)", "IA-2 (9)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000112-GPOS-00057'
+  tag "satisfies": %w[SRG-OS-000112-GPOS-00057 SRG-OS-000113-GPOS-00058]
+  tag "gid": 'V-75823'
+  tag "rid": 'SV-90503r1_rule'
+  tag "stig_id": 'UBTU-16-030200'
+  tag "fix_id": 'F-82453r1_fix'
+  tag "cci": %w[CCI-001941 CCI-001942]
+  tag "nist": ['IA-2 (8)', 'IA-2 (9)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -39,7 +41,7 @@ challenge-response one-time authenticators.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the Ubuntu operating system enforces SSH protocol 2
+  desc 'check', "Verify that the Ubuntu operating system enforces SSH protocol 2
 for network access.
 
 Check the protocol versions that SSH allows with the following command:
@@ -50,7 +52,7 @@ Protocol 2
 
 If the returned line allows for use of protocol \"1\", is commented out, or the
 line is missing, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to enforce SSHv2 for
+  desc 'fix', "Configure the Ubuntu operating system to enforce SSHv2 for
 network access to all accounts.
 
 Add or update the following line in the \"/etc/ssh/sshd_config\" file:
@@ -65,4 +67,3 @@ Restart the ssh service.
     its('Protocol') { should cmp 2 }
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-80961" do
+# frozen_string_literal: true
+
+control 'V-80961' do
   title "The Ubuntu operating system must notify the System Administrator (SA)
 and Information System Security Officer (ISSO) (at a minimum) when allocated
 audit record storage volume reaches 75% of the repository maximum audit record
@@ -7,13 +9,13 @@ storage capacity."
 reaches 75% utilization, they are unable to plan for audit record storage
 capacity expansion."
   impact 0.5
-  tag "gtitle": "SRG-OS-000343-GPOS-00134"
-  tag "gid": "V-80961"
-  tag "rid": "SV-95673r1_rule"
-  tag "stig_id": "UBTU-16-020021"
-  tag "fix_id": "F-87821r1_fix"
-  tag "cci": ["CCI-001855"]
-  tag "nist": ["AU-5 (1)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000343-GPOS-00134'
+  tag "gid": 'V-80961'
+  tag "rid": 'SV-95673r1_rule'
+  tag "stig_id": 'UBTU-16-020021'
+  tag "fix_id": 'F-87821r1_fix'
+  tag "cci": ['CCI-001855']
+  tag "nist": ['AU-5 (1)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -24,7 +26,7 @@ capacity expansion."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system notifies the System
+  desc 'check', "Verify the Ubuntu operating system notifies the System
 Administrator (SA) and Information System Security Officer (ISSO) (at a
 minimum) when allocated audit record storage volume reaches 75% of the
 repository maximum audit record storage capacity.
@@ -57,7 +59,7 @@ space_left = 250
 
 If the value of the \"space_left\" keyword is not set to 25% of the total
 partition size, this is a finding."
-  desc "fix", "Configure the operating system to immediately notify the SA and
+  desc 'fix', "Configure the operating system to immediately notify the SA and
 ISSO (at a minimum) when allocated audit record storage volume reaches 75% of
 the repository maximum audit record storage capacity.
 
@@ -76,7 +78,7 @@ Set the value of the \"space_left\" keyword in \"/etc/audit/auditd.conf\" to
 
   space_left_percent = input('space_left_percent')
   audit_log_path = input('log_file_dir')
-  
+
   describe filesystem(audit_log_path) do
     its('percent_free') { should be >= space_left_percent }
   end
@@ -84,7 +86,7 @@ Set the value of the \"space_left\" keyword in \"/etc/audit/auditd.conf\" to
   partition_threshold_mb = (filesystem(audit_log_path).size_kb / 1024 * 0.25).to_i
   system_alert_configuration_mb = auditd_conf.space_left.to_i
 
-  describe "The space_left configuration" do
+  describe 'The space_left configuration' do
     subject { system_alert_configuration_mb }
     it { should >= partition_threshold_mb }
   end

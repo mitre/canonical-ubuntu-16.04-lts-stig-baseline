@@ -1,5 +1,7 @@
-control "V-75649" do
-  title "The audit log files must be owned by root."
+# frozen_string_literal: true
+
+control 'V-75649' do
+  title 'The audit log files must be owned by root.'
   desc  "Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the Ubuntu operating system or platform. Additionally,
@@ -13,13 +15,13 @@ system is able to identify and handle error conditions is guided by
 organizational policy and operational requirements.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000206-GPOS-00084"
-  tag "gid": "V-75649"
-  tag "rid": "SV-90329r2_rule"
-  tag "stig_id": "UBTU-16-020160"
-  tag "fix_id": "F-82277r2_fix"
-  tag "cci": ["CCI-001314"]
-  tag "nist": ["SI-11 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000206-GPOS-00084'
+  tag "gid": 'V-75649'
+  tag "rid": 'SV-90329r2_rule'
+  tag "stig_id": 'UBTU-16-020160'
+  tag "fix_id": 'F-82277r2_fix'
+  tag "cci": ['CCI-001314']
+  tag "nist": ['SI-11 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the audit log files are owned by \"root\".
+  desc 'check', "Verify the audit log files are owned by \"root\".
 
 Check where the audit logs are stored on the system using the following command:
 
@@ -44,7 +46,7 @@ following command:
 root
 
 If the audit logs are not group-owned by \"root\", this is a finding."
-  desc "fix", "Change the owner of the audit log file by running the following
+  desc 'fix', "Change the owner of the audit log file by running the following
 command:
 
 Use the following command to get the audit log path:
@@ -63,4 +65,3 @@ following command:
     its('owner') { should cmp 'root' }
   end
 end
-

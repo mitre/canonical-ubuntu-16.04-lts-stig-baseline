@@ -1,4 +1,6 @@
-control "V-75871" do
+# frozen_string_literal: true
+
+control 'V-75871' do
   title "For Ubuntu operating systems using Domain Name Servers (DNS)
 resolution, at least two name servers must be configured."
   desc  "To provide availability for name resolution services, multiple
@@ -6,13 +8,13 @@ redundant name servers are mandated. A failure in name resolution could lead to
 the failure of security functions requiring name resolution, which may include
 time synchronization, centralized authentication, and remote system logging."
   impact 0.3
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75871"
-  tag "rid": "SV-90551r2_rule"
-  tag "stig_id": "UBTU-16-030520"
-  tag "fix_id": "F-82501r2_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75871'
+  tag "rid": 'SV-90551r2_rule'
+  tag "stig_id": 'UBTU-16-030520'
+  tag "fix_id": 'F-82501r2_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -23,7 +25,7 @@ time synchronization, centralized authentication, and remote system logging."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Determine whether the Ubuntu operating system is using local or
+  desc 'check', "Determine whether the Ubuntu operating system is using local or
 Domain Name Server (DNS) name resolution with the following command:
 
 # grep hosts /etc/nsswitch.conf
@@ -48,7 +50,7 @@ nameserver 192.168.1.3
 
 If less than two lines are returned that are not commented out, this is a
 finding."
-  desc "fix", "Configure the Ubuntu operating system to use two or more name
+  desc 'fix', "Configure the Ubuntu operating system to use two or more name
 servers for Domain Name Server (DNS) resolution.
 
 Edit the \"/etc/resolv.conf\" file to uncomment or add the two or more
@@ -67,16 +69,15 @@ follows:
     assignment_regex: /^\s*([^:]*?)\s*:\s*(.*?)\s*$/
   }
 
-  dns_entry_exists = parse_config_file('/etc/nsswitch.conf',options).params('hosts').match?(%r(dns))
+  dns_entry_exists = parse_config_file('/etc/nsswitch.conf', options).params('hosts').match?(/dns/)
   if dns_entry_exists
-    describe "DNS entry exists in /etc/nsswitch.conf" do
+    describe 'DNS entry exists in /etc/nsswitch.conf' do
       subject { dns_entry_exists }
       it { should be true }
     end
   else
     describe file('/etc/resolv.conf') do
-      its('content') { should match %r(/^(?!(#.*)).+/m) }
+      its('content') { should match %r{/^(?!(#.*)).+/m} }
     end
   end
 end
-

@@ -1,16 +1,18 @@
-control "V-75521" do
+# frozen_string_literal: true
+
+control 'V-75521' do
   title "The file integrity tool must be configured to verify extended
 attributes."
   desc  "Extended attributes in file systems are used to contain arbitrary data
 and file metadata with security implications."
   impact 0.3
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75521"
-  tag "rid": "SV-90201r1_rule"
-  tag "stig_id": "UBTU-16-010530"
-  tag "fix_id": "F-82149r1_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75521'
+  tag "rid": 'SV-90201r1_rule'
+  tag "stig_id": 'UBTU-16-010530'
+  tag "fix_id": 'F-82149r1_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -21,7 +23,7 @@ and file metadata with security implications."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the file integrity tool is configured to verify extended
+  desc 'check', "Verify the file integrity tool is configured to verify extended
 attributes.
 
 Check to see if Advanced Intrusion Detection Environment (AIDE) is installed
@@ -56,7 +58,7 @@ VarFile = OwnerMode+n+l+X+xattrs
 If the \"xattrs\" rule is not being used on all selection lines in the
 \"/etc/aide.conf\" file, or extended attributes are not being checked by
 another file integrity tool, this is a finding."
-  desc "fix", "Configure the file integrity tool to check file and directory
+  desc 'fix', "Configure the file integrity tool to check file and directory
 extended attributes.
 
 If AIDE is installed, ensure the \"xattrs\" rule is present on all file and
@@ -66,4 +68,3 @@ directory selection lists."
     it { should eq true }
   end
 end
-

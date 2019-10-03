@@ -1,4 +1,6 @@
-control "V-75903" do
+# frozen_string_literal: true
+
+control 'V-75903' do
   title "The Ubuntu operating system must have the packages required for
 multifactor authentication to be installed."
   desc  "Using an authentication device, such as a CAC or token that is
@@ -30,15 +32,15 @@ configuring the device itself (management).
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000375-GPOS-00160"
-  tag "satisfies": ["SRG-OS-000375-GPOS-00160", "SRG-OS-000375-GPOS-00161",
-"SRG-OS-000375-GPOS-00162"]
-  tag "gid": "V-75903"
-  tag "rid": "SV-90583r1_rule"
-  tag "stig_id": "UBTU-16-030800"
-  tag "fix_id": "F-82533r1_fix"
-  tag "cci": ["CCI-001948", "CCI-001953", "CCI-001954"]
-  tag "nist": ["IA-2 (11)", "IA-2 (12)", "IA-2 (12)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000375-GPOS-00160'
+  tag "satisfies": %w[SRG-OS-000375-GPOS-00160 SRG-OS-000375-GPOS-00161
+                      SRG-OS-000375-GPOS-00162]
+  tag "gid": 'V-75903'
+  tag "rid": 'SV-90583r1_rule'
+  tag "stig_id": 'UBTU-16-030800'
+  tag "fix_id": 'F-82533r1_fix'
+  tag "cci": %w[CCI-001948 CCI-001953 CCI-001954]
+  tag "nist": ['IA-2 (11)', 'IA-2 (12)', 'IA-2 (12)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -49,7 +51,7 @@ configuring the device itself (management).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system has the packages required
+  desc 'check', "Verify the Ubuntu operating system has the packages required
 for multifactor authentication installed.
 
 Check for the presence of the packages required to support multifactor
@@ -61,7 +63,7 @@ ii libpam-pkcs11 0.6.8-4 amd64 Fully featured PAM module for using PKCS#11
 smart cards
 
 If the \"libpam-pkcs11\" package is not installed, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to implement multifactor
+  desc 'fix', "Configure the Ubuntu operating system to implement multifactor
 authentication by installing the required packages.
 Install the \"libpam-pkcs11\" package on the system with the following command:
 
@@ -70,6 +72,4 @@ Install the \"libpam-pkcs11\" package on the system with the following command:
   describe package('libpam-pkcs-11') do
     it { should be_installed }
   end
-  
 end
-

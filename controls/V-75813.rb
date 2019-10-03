@@ -1,4 +1,6 @@
-control "V-75813" do
+# frozen_string_literal: true
+
+control 'V-75813' do
   title "The Ubuntu operating system must compare internal information system
 clocks at least every 24 hours with a server which is synchronized to an
 authoritative time source, such as the United States Naval Observatory (USNO)
@@ -19,13 +21,13 @@ the authoritative time server (e.g., mobile, teleworking, and tactical
 endpoints).
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000355-GPOS-00143"
-  tag "gid": "V-75813"
-  tag "rid": "SV-90493r2_rule"
-  tag "stig_id": "UBTU-16-030100"
-  tag "fix_id": "F-82443r2_fix"
-  tag "cci": ["CCI-001891"]
-  tag "nist": ["AU-8 (1) (a)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000355-GPOS-00143'
+  tag "gid": 'V-75813'
+  tag "rid": 'SV-90493r2_rule'
+  tag "stig_id": 'UBTU-16-030100'
+  tag "fix_id": 'F-82443r2_fix'
+  tag "cci": ['CCI-001891']
+  tag "nist": ['AU-8 (1) (a)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -36,7 +38,7 @@ endpoints).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "The system clock must be configured to compare the system clock
+  desc 'check', "The system clock must be configured to compare the system clock
 at least every 24 hours to the authoritative time source.
 
 Note: If the system is not networked this item is Not Applicable.
@@ -57,7 +59,7 @@ server 0.us.pool.ntp.org iburst
 
 If the parameter \"server\" is not set, is not set to an authoritative DoD time
 source, or is commented out, this is a finding."
-  desc "fix", "Note: If the system is not networked this item is Not Applicable.
+  desc 'fix', "Note: If the system is not networked this item is Not Applicable.
 
 To configure the system clock to compare the system clock at least every 24
 hours to the authoritative time source, edit the \"/etc/ntp.conf\" file. Add or
@@ -85,15 +87,14 @@ If the \"NTP\" service was not running then it must be started."
         its('server') { should_not eq nil }
       end
     else
-      describe "/etc/ntp.conf exists" do
+      describe '/etc/ntp.conf exists' do
         subject { ntp_conf_exists }
         it { should be true }
       end
     end
   else
-    describe "System is not networked" do
-      skip "This control is Not Applicable as the system is not networked"
+    describe 'System is not networked' do
+      skip 'This control is Not Applicable as the system is not networked'
     end
   end
 end
-

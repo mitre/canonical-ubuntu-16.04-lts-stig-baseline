@@ -1,4 +1,6 @@
-control "V-75837" do
+# frozen_string_literal: true
+
+control 'V-75837' do
   title "The Ubuntu operating system for all network connections associated
 with SSH traffic must immediately terminate at the end of the session or after
 10 minutes of inactivity."
@@ -24,13 +26,13 @@ functionality where the system owner, data owner, or organization requires
 additional assurance.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000163-GPOS-00072"
-  tag "gid": "V-75837"
-  tag "rid": "SV-90517r2_rule"
-  tag "stig_id": "UBTU-16-030270"
-  tag "fix_id": "F-82467r2_fix"
-  tag "cci": ["CCI-000879", "CCI-001133", "CCI-002361"]
-  tag "nist": ["MA-4 e", "SC-10", "AC-12", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000163-GPOS-00072'
+  tag "gid": 'V-75837'
+  tag "rid": 'SV-90517r2_rule'
+  tag "stig_id": 'UBTU-16-030270'
+  tag "fix_id": 'F-82467r2_fix'
+  tag "cci": %w[CCI-000879 CCI-001133 CCI-002361]
+  tag "nist": ['MA-4 e', 'SC-10', 'AC-12', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -41,7 +43,7 @@ additional assurance.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that all network connections associated with SSH traffic
+  desc 'check', "Verify that all network connections associated with SSH traffic
 are automatically terminated at the end of the session or after \"10\" minutes
 of inactivity.
 
@@ -58,7 +60,7 @@ If \"ClientAliveInterval\" or \"ClientAliveCountMax\" does not exist,
 \"ClientAliveInterval\" is not set to a value of \"600\" or less and
 \"ClientAliveCountMax\" is not set to a value of \"1\" or greater in
 \"/etc/ssh/sshd_config\", or either line is commented out, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to automatically terminate
+  desc 'fix', "Configure the Ubuntu operating system to automatically terminate
 all network connections associated with SSH traffic at the end of a session or
 after a \"10\" minute period of inactivity.
 
@@ -82,4 +84,3 @@ In order for the changes to take effect, the SSH daemon must be restarted.
     its('ClientAliveCountMax') { should be >= client_alive_count_max }
   end
 end
-

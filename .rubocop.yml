@@ -1,0 +1,30 @@
+
+Metrics/BlockLength:
+  Max: 200
+
+Metrics/LineLength:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Lint/ImplicitStringConcatenation:
+  Enabled: false

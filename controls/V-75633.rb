@@ -1,5 +1,7 @@
-control "V-75633" do
-  title "Off-loading audit records to another system must be authenticated."
+# frozen_string_literal: true
+
+control 'V-75633' do
+  title 'Off-loading audit records to another system must be authenticated.'
   desc  "Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7,13 +9,13 @@ incidental deletion or alteration.
 storage capacity.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000479-GPOS-00224"
-  tag "gid": "V-75633"
-  tag "rid": "SV-90313r1_rule"
-  tag "stig_id": "UBTU-16-020080"
-  tag "fix_id": "F-82261r1_fix"
-  tag "cci": ["CCI-001851"]
-  tag "nist": ["AU-4 (1)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000479-GPOS-00224'
+  tag "gid": 'V-75633'
+  tag "rid": 'SV-90313r1_rule'
+  tag "stig_id": 'UBTU-16-020080'
+  tag "fix_id": 'F-82261r1_fix'
+  tag "cci": ['CCI-001851']
+  tag "nist": ['AU-4 (1)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -24,7 +26,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the audit system authenticates off-loading audit records
+  desc 'check', "Verify the audit system authenticates off-loading audit records
 to a different system.
 
 Check that the off-loading of audit records to a different system is
@@ -36,7 +38,7 @@ enable_krb5 = yes
 
 If “enable_krb5” option is not set to \"yes\" or the line is commented out,
 this is a finding."
-  desc "fix", "Configure the audit system to authenticate off-loading audit
+  desc 'fix', "Configure the audit system to authenticate off-loading audit
 records to a different system.
 
 Uncomment the \"enable_krb5\" option in \"/etc/audisp/audisp-remote.conf\" and
@@ -52,10 +54,9 @@ enable_krb5 = yes"
       its('enable_krb5') { should cmp 'yes' }
     end
   else
-    describe "/etc/audisp/audisp-remote.conf exists" do
+    describe '/etc/audisp/audisp-remote.conf exists' do
       subject { config_file_exists }
       it { should be true }
     end
   end
 end
-

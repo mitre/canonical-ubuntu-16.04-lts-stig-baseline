@@ -1,4 +1,6 @@
-control "V-75535" do
+# frozen_string_literal: true
+
+control 'V-75535' do
   title "Pam_Apparmor must be configured to allow system administrators to pass
 information to any other Ubuntu operating system administrator or user, change
 security attributes, and to confine all non-privileged users from executing
@@ -32,15 +34,15 @@ limitation is not required for this use of discretionary access control.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000312-GPOS-00122"
-  tag "satisfies": ["SRG-OS-000312-GPOS-00122", "SRG-OS-000312-GPOS-00123",
-"SRG-OS-000312-GPOS-00124", "SRG-OS-000324-GPOS-00125"]
-  tag "gid": "V-75535"
-  tag "rid": "SV-90215r2_rule"
-  tag "stig_id": "UBTU-16-010600"
-  tag "fix_id": "F-82163r1_fix"
-  tag "cci": ["CCI-002165", "CCI-002235"]
-  tag "nist": ["AC-3 (4)", "AC-6 (10)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000312-GPOS-00122'
+  tag "satisfies": %w[SRG-OS-000312-GPOS-00122 SRG-OS-000312-GPOS-00123
+                      SRG-OS-000312-GPOS-00124 SRG-OS-000324-GPOS-00125]
+  tag "gid": 'V-75535'
+  tag "rid": 'SV-90215r2_rule'
+  tag "stig_id": 'UBTU-16-010600'
+  tag "fix_id": 'F-82163r1_fix'
+  tag "cci": %w[CCI-002165 CCI-002235]
+  tag "nist": ['AC-3 (4)', 'AC-6 (10)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -51,7 +53,7 @@ limitation is not required for this use of discretionary access control.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system is configured to allow
+  desc 'check', "Verify the Ubuntu operating system is configured to allow
 system administrators to pass information to any other Ubuntu operating system
 administrator or user.
 
@@ -78,7 +80,7 @@ apparmor module is loaded.
 
 If all loaded profiles are not in \"enforce\" mode, or there are any profiles
 in \"complain\" mode, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to allow system
+  desc 'fix', "Configure the Ubuntu operating system to allow system
 administrators to pass information to any other Ubuntu operating system
 administrator or user.
 
@@ -103,8 +105,8 @@ will be based on the actual system setup and organization. See the
     it { should be_installed }
   end
 
-  num_loaded_profiles = inspec.command('sudo apparmor_status | grep "profiles are loaded." | cut -f 1 -d " "').stdout
-  num_enforced_profiles = inspec.command('sudo apparmor_status | grep "profiles are in enforce mode." | cut -f 1 -d " "').stdout
+  num_loaded_profiles = inspec.command('apparmor_status | grep "profiles are loaded." | cut -f 1 -d " "').stdout
+  num_enforced_profiles = inspec.command('apparmor_status | grep "profiles are in enforce mode." | cut -f 1 -d " "').stdout
 
   describe 'AppArmor Profiles' do
     it 'loaded and enforced' do
@@ -112,4 +114,3 @@ will be based on the actual system setup and organization. See the
     end
   end
 end
-

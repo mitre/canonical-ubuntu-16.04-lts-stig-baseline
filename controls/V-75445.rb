@@ -1,4 +1,6 @@
-control "V-75445" do
+# frozen_string_literal: true
+
+control 'V-75445' do
   title "The Ubuntu operating system must prevent direct login into the root
 account."
   desc  "To assure individual accountability and prevent unauthorized access,
@@ -27,13 +29,13 @@ well as adding an additional level of protection of the actions that can be
 taken with group account knowledge.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000109-GPOS-00056"
-  tag "gid": "V-75445"
-  tag "rid": "SV-90125r3_rule"
-  tag "stig_id": "UBTU-16-010080"
-  tag "fix_id": "F-82073r3_fix"
-  tag "cci": ["CCI-000770"]
-  tag "nist": ["IA-2 (5)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000109-GPOS-00056'
+  tag "gid": 'V-75445'
+  tag "rid": 'SV-90125r3_rule'
+  tag "stig_id": 'UBTU-16-010080'
+  tag "fix_id": 'F-82073r3_fix'
+  tag "cci": ['CCI-000770']
+  tag "nist": ['IA-2 (5)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -44,7 +46,7 @@ taken with group account knowledge.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system prevents direct logins to
+  desc 'check', "Verify the Ubuntu operating system prevents direct logins to
 the root account.
 
 Check that the Ubuntu operating system prevents direct logins to the root
@@ -56,7 +58,7 @@ root L 11/11/2017 0 99999 7 -1
 
 If any output is returned and the second field is not an \"L\", this is a
 finding."
-  desc "fix", "Configure the Ubuntu operating system to prevent direct logins to
+  desc 'fix', "Configure the Ubuntu operating system to prevent direct logins to
 the root account.
 
 Run the following command to lock the root account:
@@ -72,4 +74,3 @@ Run the following command to lock the root account:
     end
   end
 end
-

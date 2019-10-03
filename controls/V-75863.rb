@@ -1,5 +1,7 @@
-control "V-75863" do
-  title "All remote access methods must be monitored."
+# frozen_string_literal: true
+
+control 'V-75863' do
+  title 'All remote access methods must be monitored.'
   desc  "Remote access services, such as those providing remote access to
 network devices and information systems, which lack automated monitoring
 capabilities, increase risk and make remote user access management difficult at
@@ -17,13 +19,13 @@ as Remote Desktop Protocol (RDP), on a variety of information system components
 (e.g., servers, workstations, notebook computers, smartphones, and tablets).
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000032-GPOS-00013"
-  tag "gid": "V-75863"
-  tag "rid": "SV-90543r2_rule"
-  tag "stig_id": "UBTU-16-030450"
-  tag "fix_id": "F-82493r2_fix"
-  tag "cci": ["CCI-000067"]
-  tag "nist": ["AC-17 (1)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000032-GPOS-00013'
+  tag "gid": 'V-75863'
+  tag "rid": 'SV-90543r2_rule'
+  tag "stig_id": 'UBTU-16-030450'
+  tag "fix_id": 'F-82493r2_fix'
+  tag "cci": ['CCI-000067']
+  tag "nist": ['AC-17 (1)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -34,7 +36,7 @@ as Remote Desktop Protocol (RDP), on a variety of information system components
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the Ubuntu operating system monitors all remote
+  desc 'check', "Verify that the Ubuntu operating system monitors all remote
 access methods.
 
 Check that remote access methods are being logged by running the following
@@ -47,7 +49,7 @@ daemon.notice /var/log/messages
 
 If \"auth.*\", \"authpriv.*\" or \"daemon.*\" are not configured to be logged,
 this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to monitor all remote
+  desc 'fix', "Configure the Ubuntu operating system to monitor all remote
 access methods by adding the following lines to the
 \"/etc/rsyslog.d/50-default.conf\" file:
 
@@ -67,12 +69,10 @@ restart the \"rsyslog\" service, run the following command:
   daemon_setting = parse_config_file(config_file, options).params['daemon.notice']
   describe auth_setting do
     it { should_not be_nil }
-    it { should_not be_empty  }
+    it { should_not be_empty }
   end
   describe daemon_setting do
     it { should_not be_nil }
-    it { should_not be_empty  }
+    it { should_not be_empty }
   end
-
 end
-

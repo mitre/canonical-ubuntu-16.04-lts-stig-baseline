@@ -1,16 +1,18 @@
-control "V-75543" do
+# frozen_string_literal: true
+
+control 'V-75543' do
   title "Default permissions must be defined in such a way that all
 authenticated users can only read and modify their own files."
   desc  "Setting the most restrictive default permissions ensures that when new
 accounts are created they do not have unnecessary access."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00228"
-  tag "gid": "V-75543"
-  tag "rid": "SV-90223r2_rule"
-  tag "stig_id": "UBTU-16-010640"
-  tag "fix_id": "F-82171r1_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00228'
+  tag "gid": 'V-75543'
+  tag "rid": 'SV-90223r2_rule'
+  tag "stig_id": 'UBTU-16-010640'
+  tag "fix_id": 'F-82171r1_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -21,7 +23,7 @@ accounts are created they do not have unnecessary access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system defines default permissions
+  desc 'check', "Verify the Ubuntu operating system defines default permissions
 for all authenticated users in such a way that the user can only read and
 modify their own files.
 
@@ -37,7 +39,7 @@ severity raised to a CAT I.
 
 If the value of \"UMASK\" is not set to \"077\", \"UMASK\" is commented out or
 \"UMASK\" is missing completely, this is a finding."
-  desc "fix", "Configure the system to define the default permissions for all
+  desc 'fix', "Configure the system to define the default permissions for all
 authenticated users in such a way that the user can only read and modify their
 own files.
 
@@ -50,4 +52,3 @@ UMASK 077"
     its('UMASK') { should eq '077' }
   end
 end
-

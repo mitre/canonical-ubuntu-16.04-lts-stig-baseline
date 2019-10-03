@@ -1,4 +1,6 @@
-control "V-75575" do
+# frozen_string_literal: true
+
+control 'V-75575' do
   title "File systems that contain user home directories must be mounted to
 prevent files with the setuid and setguid bit set from being executed."
   desc  "The \"nosuid\" mount option causes the system to not execute setuid
@@ -7,13 +9,13 @@ any file system not containing approved setuid and setguid files. Executing
 files from untrusted file systems increases the opportunity for unprivileged
 users to attain unauthorized administrative access."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75575"
-  tag "rid": "SV-90255r2_rule"
-  tag "stig_id": "UBTU-16-010800"
-  tag "fix_id": "F-82203r1_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75575'
+  tag "rid": 'SV-90255r2_rule'
+  tag "stig_id": 'UBTU-16-010800'
+  tag "fix_id": 'F-82203r1_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -24,7 +26,7 @@ users to attain unauthorized administrative access."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify file systems that contain user home directories are
+  desc 'check', "Verify file systems that contain user home directories are
 mounted with the \"nosuid\" option.
 
 Note: If a separate file system has not been created for the user home
@@ -48,7 +50,7 @@ rw,relatime,discard,data=ordered,nosuid 0 2
 
 If a file system found in \"/etc/fstab\" refers to the user home directory file
 system and it does not have the \"nosuid\" option set, this is a finding."
-  desc "fix", "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
+  desc 'fix', "Configure the \"/etc/fstab\" to use the \"nosuid\" option on file
 systems that contain user home directories for interactive users."
 
   known_system_mount_points = input('known_system_mount_points')
@@ -62,10 +64,9 @@ systems that contain user home directories for interactive users."
       end
     end
   else
-    describe "Separate file system has not been detected for the user home directories" do
+    describe 'Separate file system has not been detected for the user home directories' do
       subject { other_mount_points }
       its('count') { should eq 0 }
     end
   end
 end
-

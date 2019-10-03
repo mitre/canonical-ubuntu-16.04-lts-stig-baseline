@@ -1,4 +1,6 @@
-control "V-75909" do
+# frozen_string_literal: true
+
+control 'V-75909' do
   title "The Ubuntu operating system, for PKI-based authentication, must
 validate certificates by constructing a certification path (which includes
 status information) to an accepted trust anchor."
@@ -28,14 +30,14 @@ requirement.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000066-GPOS-00034"
-  tag "satisfies": ["SRG-OS-000066-GPOS-00034", "SRG-OS-000384-GPOS-00167"]
-  tag "gid": "V-75909"
-  tag "rid": "SV-90589r2_rule"
-  tag "stig_id": "UBTU-16-030830"
-  tag "fix_id": "F-82539r2_fix"
-  tag "cci": ["CCI-000185", "CCI-001991"]
-  tag "nist": ["IA-5 (2) (a)", "IA-5 (2) (d)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000066-GPOS-00034'
+  tag "satisfies": %w[SRG-OS-000066-GPOS-00034 SRG-OS-000384-GPOS-00167]
+  tag "gid": 'V-75909'
+  tag "rid": 'SV-90589r2_rule'
+  tag "stig_id": 'UBTU-16-030830'
+  tag "fix_id": 'F-82539r2_fix'
+  tag "cci": %w[CCI-000185 CCI-001991]
+  tag "nist": ['IA-5 (2) (a)', 'IA-5 (2) (d)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -46,7 +48,7 @@ requirement.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system, for PKI-based
+  desc 'check', "Verify the Ubuntu operating system, for PKI-based
 authentication, had valid certificates by constructing a certification path
 (which includes status information) to an accepted trust anchor.
 
@@ -60,7 +62,7 @@ cert_policy = ca,signature,ocsp_on;
 
 If \"cert_policy\" is not set to \"ca\",  has a value of \"none\", or the line
 is commented out, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system, for PKI-based
+  desc 'fix', "Configure the Ubuntu operating system, for PKI-based
 authentication, to validate certificates by constructing a certification path
 (which includes status information) to an accepted trust anchor.
 
@@ -77,13 +79,12 @@ cert_policy = ca,signature,ocsp_on;"
   if config_file_exists
     describe parse_config_file('/etc/pam_pkcs11/pam_pkcs11.conf') do
       its('use_pkcs11_module') { should_not be_nil }
-    its('cert_policy') { should include 'ca' }
+      its('cert_policy') { should include 'ca' }
     end
   else
-    describe "/etc/pam_pkcs11/pam_pkcs11.conf exists" do
+    describe '/etc/pam_pkcs11/pam_pkcs11.conf exists' do
       subject { config_file_exists }
       it { should be true }
     end
   end
 end
-

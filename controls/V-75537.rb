@@ -1,4 +1,6 @@
-control "V-75537" do
+# frozen_string_literal: true
+
+control 'V-75537' do
   title "The Apparmor module must be configured to employ a deny-all,
 permit-by-exception policy to allow the execution of authorized software
 programs and limit the ability of non-privileged users to grant other users
@@ -21,14 +23,14 @@ an SA through shared resources.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000368-GPOS-00154"
-  tag "satisfies": ["SRG-OS-000368-GPOS-00154", "SRG-OS-000370-GPOS-00155"]
-  tag "gid": "V-75537"
-  tag "rid": "SV-90217r2_rule"
-  tag "stig_id": "UBTU-16-010610"
-  tag "fix_id": "F-82165r1_fix"
-  tag "cci": ["CCI-001764", "CCI-001774"]
-  tag "nist": ["CM-7 (2)", "CM-7 (5) (b)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000368-GPOS-00154'
+  tag "satisfies": %w[SRG-OS-000368-GPOS-00154 SRG-OS-000370-GPOS-00155]
+  tag "gid": 'V-75537'
+  tag "rid": 'SV-90217r2_rule'
+  tag "stig_id": 'UBTU-16-010610'
+  tag "fix_id": 'F-82165r1_fix'
+  tag "cci": %w[CCI-001764 CCI-001774]
+  tag "nist": ['CM-7 (2)', 'CM-7 (5) (b)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -39,7 +41,7 @@ an SA through shared resources.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system is configured to employ a
+  desc 'check', "Verify the Ubuntu operating system is configured to employ a
 deny-all, permit-by-exception policy to allow the execution of authorized
 software programs and access to user home directories.
 
@@ -58,7 +60,7 @@ apparmor module is loaded.
 
 If the defined profiles do not match the organization’s list of authorized
 software, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to employ a deny-all,
+  desc 'fix', "Configure the Ubuntu operating system to employ a deny-all,
 permit-by-exception policy to allow the execution of authorized software
 programs.
 
@@ -80,8 +82,7 @@ directories. All configurations will be based on the actual system setup and
 organization and normally are on a per role basis. See the \"Apparmor\"
 documentation for more information on configuring profiles."
 
-  describe "Manual test" do
-    skip "This control must be reviewed manually"
+  describe 'Manual test' do
+    skip 'This control must be reviewed manually'
   end
 end
-

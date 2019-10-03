@@ -1,4 +1,6 @@
-control "V-75631" do
+# frozen_string_literal: true
+
+control 'V-75631' do
   title "The audit system must take appropriate action when audit storage is
 full."
   desc  "Information stored in one location is vulnerable to accidental or
@@ -8,13 +10,13 @@ incidental deletion or alteration.
 storage capacity.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000479-GPOS-00224"
-  tag "gid": "V-75631"
-  tag "rid": "SV-90311r1_rule"
-  tag "stig_id": "UBTU-16-020070"
-  tag "fix_id": "F-82259r1_fix"
-  tag "cci": ["CCI-001851"]
-  tag "nist": ["AU-4 (1)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000479-GPOS-00224'
+  tag "gid": 'V-75631'
+  tag "rid": 'SV-90311r1_rule'
+  tag "stig_id": 'UBTU-16-020070'
+  tag "fix_id": 'F-82259r1_fix'
+  tag "cci": ['CCI-001851']
+  tag "nist": ['AU-4 (1)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -25,7 +27,7 @@ storage capacity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the action that the audit system takes when the storage
+  desc 'check', "Verify the action that the audit system takes when the storage
 volume becomes full.
 
 Check the action that the audit system takes when the storage volume becomes
@@ -37,7 +39,7 @@ disk_full_action = single
 
 If the value of the \"disk_full_action\" option is not \"syslog\", \"single\",
 or \"halt\", or the line is commented out, this is a finding."
-  desc "fix", "Configure the audit system to take an appropriate action when the
+  desc 'fix', "Configure the audit system to take an appropriate action when the
 audit storage is full.
 
 Add, edit or uncomment the \"disk_full_action\" option in
@@ -51,13 +53,12 @@ disk_full_action = single"
   if config_file_exists
     describe auditd_conf('/etc/audisp/audisp-remote.conf') do
       its('disk_full_action') { should_not be_empty }
-      its('disk_full_action') { should cmp %r((?:SYSLOG|SINGLE|HALT))i }
+      its('disk_full_action') { should cmp /(?:SYSLOG|SINGLE|HALT)/i }
     end
   else
-    describe "/etc/audisp/audisp-remote.conf exists" do
+    describe '/etc/audisp/audisp-remote.conf exists' do
       subject { config_file_exists }
       it { should be true }
     end
   end
 end
-

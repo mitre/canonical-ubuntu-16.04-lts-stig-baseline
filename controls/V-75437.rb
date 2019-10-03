@@ -1,4 +1,6 @@
-control "V-75437" do
+# frozen_string_literal: true
+
+control 'V-75437' do
   title "The Ubuntu operating system must enable a user session lock until that
 user re-establishes access using established identification and authentication
 procedures."
@@ -15,13 +17,13 @@ re-authenticates. No other activity aside from re-authentication shall unlock
 the system.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000028-GPOS-00009"
-  tag "gid": "V-75437"
-  tag "rid": "SV-90117r3_rule"
-  tag "stig_id": "UBTU-16-010040"
-  tag "fix_id": "F-82065r2_fix"
-  tag "cci": ["CCI-000056"]
-  tag "nist": ["AC-11 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000028-GPOS-00009'
+  tag "gid": 'V-75437'
+  tag "rid": 'SV-90117r3_rule'
+  tag "stig_id": 'UBTU-16-010040'
+  tag "fix_id": 'F-82065r2_fix'
+  tag "cci": ['CCI-000056']
+  tag "nist": ['AC-11 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -32,7 +34,7 @@ the system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the operating system allows a user to lock the current
+  desc 'check', "Verify the operating system allows a user to lock the current
 graphical user interface (GUI) session.
 
 Note: If the Ubuntu operating system does not have GNOME installed, this
@@ -46,7 +48,7 @@ GUI session with the following command:
 true
 
 If \"lock-enabled\" is not set to \"true\", this is a finding."
-  desc "fix", "Configure the Ubuntu operating system so that it allows a user to
+  desc 'fix', "Configure the Ubuntu operating system so that it allows a user to
 lock the current GUI session.
 
 Note: If the Ubuntu operating system does not have GNOME installed, this
@@ -69,10 +71,9 @@ user interface (GUI).
     end
   else
     impact 0
-    describe "Not Applicable as GNOME dekstop environment is installed" do
+    describe 'Not Applicable as GNOME dekstop environment is installed' do
       subject { gnome_installed }
       it { should be false }
     end
   end
 end
-

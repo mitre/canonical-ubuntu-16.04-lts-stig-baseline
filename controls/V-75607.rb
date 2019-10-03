@@ -1,5 +1,7 @@
-control "V-75607" do
-  title "Library files must be owned by root."
+# frozen_string_literal: true
+
+control 'V-75607' do
+  title 'Library files must be owned by root.'
   desc  "If the Ubuntu operating system were to allow any user to make changes
 to software libraries, then those changes might be implemented without
 undergoing the appropriate testing and approvals that are part of a robust
@@ -13,13 +15,13 @@ allowed to obtain access to information system components for purposes of
 initiating changes, including upgrades and modifications.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000259-GPOS-00100"
-  tag "gid": "V-75607"
-  tag "rid": "SV-90287r2_rule"
-  tag "stig_id": "UBTU-16-011010"
-  tag "fix_id": "F-82235r2_fix"
-  tag "cci": ["CCI-001499"]
-  tag "nist": ["CM-5 (6)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000259-GPOS-00100'
+  tag "gid": 'V-75607'
+  tag "rid": 'SV-90287r2_rule'
+  tag "stig_id": 'UBTU-16-011010'
+  tag "fix_id": 'F-82235r2_fix'
+  tag "cci": ['CCI-001499']
+  tag "nist": ['CM-5 (6)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ initiating changes, including upgrades and modifications.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the system-wide shared library files are owned by
+  desc 'check', "Verify the system-wide shared library files are owned by
 \"root\".
 
 Check that the system-wide shared library files are owned by \"root\" with the
@@ -39,7 +41,7 @@ following command:
 # sudo find /lib /usr/lib /lib64 ! -user root | xargs ls -la
 
 If any system wide shared library file is returned, this is a finding."
-  desc "fix", "Configure the system-wide shared library files (/lib, /usr/lib,
+  desc 'fix', "Configure the system-wide shared library files (/lib, /usr/lib,
 /lib64) to be protected from unauthorized access.
 
 Run the following command, replacing \"[FILE]\" with any library file not owned
@@ -47,7 +49,7 @@ by \"root\".
 
 # sudo chown root [FILE]"
 
-  if os.arch == "x86_64"
+  if os.arch == 'x86_64'
     library_files = command('find /lib /usr/lib /usr/lib32 /lib32 /lib64 ! \-user root').stdout.strip.split("\n").entries
   else
     library_files = command('find /lib /usr/lib /usr/lib32 /lib32 ! \-user root').stdout.strip.split("\n").entries
@@ -60,10 +62,9 @@ by \"root\".
       end
     end
   else
-    describe "Number of system-wide shared library files found that are NOT owned by root" do
+    describe 'Number of system-wide shared library files found that are NOT owned by root' do
       subject { library_files }
       its('count') { should eq 0 }
     end
   end
 end
-

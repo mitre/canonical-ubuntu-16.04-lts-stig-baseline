@@ -1,4 +1,6 @@
-control "V-75637" do
+# frozen_string_literal: true
+
+control 'V-75637' do
   title "Audit log directories must have a mode of 0750 or less permissive to
 prevent unauthorized read access."
   desc  "Unauthorized disclosure of audit records can reveal system and
@@ -11,15 +13,15 @@ activity.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000057-GPOS-00027"
-  tag "satisfies": ["SRG-OS-000057-GPOS-00027", "SRG-OS-000058-GPOS-00028",
-"SRG-OS-000059-GPOS-00029"]
-  tag "gid": "V-75637"
-  tag "rid": "SV-90317r2_rule"
-  tag "stig_id": "UBTU-16-020100"
-  tag "fix_id": "F-82265r1_fix"
-  tag "cci": ["CCI-000162", "CCI-000163", "CCI-000164"]
-  tag "nist": ["AU-9", "AU-9", "AU-9", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000057-GPOS-00027'
+  tag "satisfies": %w[SRG-OS-000057-GPOS-00027 SRG-OS-000058-GPOS-00028
+                      SRG-OS-000059-GPOS-00029]
+  tag "gid": 'V-75637'
+  tag "rid": 'SV-90317r2_rule'
+  tag "stig_id": 'UBTU-16-020100'
+  tag "fix_id": 'F-82265r1_fix'
+  tag "cci": %w[CCI-000162 CCI-000163 CCI-000164]
+  tag "nist": %w[AU-9 AU-9 AU-9 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ activity.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the audit log directories have a mode of \"0750\" or
+  desc 'check', "Verify the audit log directories have a mode of \"0750\" or
 less permissive by first determining where the audit logs are stored with the
 following command:
 
@@ -46,7 +48,7 @@ determine the permissions for the audit log folder:
 
 If the audit log directory has a mode more permissive than \"0750\", this is a
 finding."
-  desc "fix", "Configure the audit log directory to be protected from
+  desc 'fix', "Configure the audit log directory to be protected from
 unauthorized read access by setting the correct permissive mode with the
 following command:
 
@@ -64,10 +66,9 @@ default this location is \"/var/log/audit\"."
       it { should_not be_more_permissive_than('0750') }
     end
   else
-    describe ('Audit log file:'+ log_file_path + ' and/or audit directory:' + log_dir + ' exist') do
+    describe ('Audit log file:' + log_file_path + ' and/or audit directory:' + log_dir + ' exist') do
       subject { log_file_and_dir_exist }
       it { should be true }
     end
   end
 end
-

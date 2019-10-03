@@ -1,4 +1,6 @@
-control "V-75855" do
+# frozen_string_literal: true
+
+control 'V-75855' do
   title "An application firewall must protect against or limit the effects of
 Denial of Service (DoS) attacks by ensuring the Ubuntu operating system is
 implementing rate-limiting measures on impacted network interfaces."
@@ -16,13 +18,13 @@ capacity and bandwidth, combined with service redundancy, may reduce the
 susceptibility to some DoS attacks.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000420-GPOS-00186"
-  tag "gid": "V-75855"
-  tag "rid": "SV-90535r1_rule"
-  tag "stig_id": "UBTU-16-030410"
-  tag "fix_id": "F-82485r1_fix"
-  tag "cci": ["CCI-002385"]
-  tag "nist": ["SC-5", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000420-GPOS-00186'
+  tag "gid": 'V-75855'
+  tag "rid": 'SV-90535r1_rule'
+  tag "stig_id": 'UBTU-16-030410'
+  tag "fix_id": 'F-82485r1_fix'
+  tag "cci": ['CCI-002385']
+  tag "nist": %w[SC-5 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -33,7 +35,7 @@ susceptibility to some DoS attacks.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify an application firewall is configured to rate limit any
+  desc 'check', "Verify an application firewall is configured to rate limit any
 connection to the system.
 
 Check that the Uncomplicated Firewall is configured to rate limit any
@@ -52,7 +54,7 @@ source mask: 255.255.255.255
 
 If any service is not rate limited by the Uncomplicated Firewall, this is a
 finding."
-  desc "fix", "Configure the application firewall to protect against or limit
+  desc 'fix', "Configure the application firewall to protect against or limit
 the effects of Denial of Service (DoS) attacks by ensuring the Ubuntu operating
 system is implementing rate-limiting measures on impacted network interfaces.
 
@@ -71,13 +73,12 @@ on the eth0 interface:
 
   if is_ufw_active
     describe ufw_status_output do
-      it { should match %r((LIMIT)) }
+      it { should match /(LIMIT)/ }
     end
   else
-    describe "UFW status is active" do
+    describe 'UFW status is active' do
       subject { is_ufw_active }
       it { should be true }
     end
   end
 end
-

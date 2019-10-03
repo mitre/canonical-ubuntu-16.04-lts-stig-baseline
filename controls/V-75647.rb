@@ -1,4 +1,6 @@
-control "V-75647" do
+# frozen_string_literal: true
+
+control 'V-75647' do
   title "The Ubuntu operating system must allow only the Information System
 Security Manager (ISSM) (or individuals or roles appointed by the ISSM) to
 select which auditable events are to be audited."
@@ -9,13 +11,13 @@ performance by overwhelming the audit log. Misconfigured audits may also make
 it more difficult to establish, correlate, and investigate the events relating
 to an incident or identify those responsible for one."
   impact 0.5
-  tag "gtitle": "SRG-OS-000063-GPOS-00032"
-  tag "gid": "V-75647"
-  tag "rid": "SV-90327r1_rule"
-  tag "stig_id": "UBTU-16-020150"
-  tag "fix_id": "F-82275r1_fix"
-  tag "cci": ["CCI-000171"]
-  tag "nist": ["AU-12 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000063-GPOS-00032'
+  tag "gid": 'V-75647'
+  tag "rid": 'SV-90327r1_rule'
+  tag "stig_id": 'UBTU-16-020150'
+  tag "fix_id": 'F-82275r1_fix'
+  tag "cci": ['CCI-000171']
+  tag "nist": ['AU-12 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -26,7 +28,7 @@ to an incident or identify those responsible for one."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the /etc/audit/audit.rule and
+  desc 'check', "Verify that the /etc/audit/audit.rule and
 /etc/audit/auditd.conf file have a mode of 0640 or less permissive by using the
 following command:
 
@@ -37,7 +39,7 @@ following command:
 
 If the \"/etc/audit/audit.rule\" or \"/etc/audit/auditd.conf\" file have a mode
 more permissive than \"0640\", this is a finding."
-  desc "fix", "Configure the /etc/audit/audit.rule and /etc/audit/auditd.conf
+  desc 'fix', "Configure the /etc/audit/audit.rule and /etc/audit/auditd.conf
 file to have a mode of 0640 with the following command:
 
 # sudo chmod 0640 /etc/audit/audit.rule
@@ -50,4 +52,3 @@ file to have a mode of 0640 with the following command:
     it { should_not be_more_permissive_than('0640') }
   end
 end
-

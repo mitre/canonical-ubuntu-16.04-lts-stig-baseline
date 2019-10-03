@@ -1,5 +1,7 @@
-control "V-75597" do
-  title "The /var/log directory must have mode 0770 or less permissive."
+# frozen_string_literal: true
+
+control 'V-75597' do
+  title 'The /var/log directory must have mode 0770 or less permissive.'
   desc  "Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the Ubuntu operating system or platform. Additionally,
@@ -13,13 +15,13 @@ system is able to identify and handle error conditions is guided by
 organizational policy and operational requirements.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000206-GPOS-00084"
-  tag "gid": "V-75597"
-  tag "rid": "SV-90277r3_rule"
-  tag "stig_id": "UBTU-16-010960"
-  tag "fix_id": "F-82225r2_fix"
-  tag "cci": ["CCI-001314"]
-  tag "nist": ["SI-11 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000206-GPOS-00084'
+  tag "gid": 'V-75597'
+  tag "rid": 'SV-90277r3_rule'
+  tag "stig_id": 'UBTU-16-010960'
+  tag "fix_id": 'F-82225r2_fix'
+  tag "cci": ['CCI-001314']
+  tag "nist": ['SI-11 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ organizational policy and operational requirements.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the \"/var/log\" directory has a mode of \"0770\"
+  desc 'check', "Verify that the \"/var/log\" directory has a mode of \"0770\"
 or less.
 
 Check the mode of the \"/var/log\" directory with the following command:
@@ -40,7 +42,7 @@ Check the mode of the \"/var/log\" directory with the following command:
 770
 
 If a value of \"0770\" or less permissive is not returned, this is a finding."
-  desc "fix", "Change the permissions of the directory \"/var/log\" to \"0770\"
+  desc 'fix', "Change the permissions of the directory \"/var/log\" to \"0770\"
 by running the following command:
 
 # sudo chmod 0770 /var/log"
@@ -49,4 +51,3 @@ by running the following command:
     it { should_not be_more_permissive_than('0770') }
   end
 end
-

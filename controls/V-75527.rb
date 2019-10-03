@@ -1,4 +1,6 @@
-control "V-75527" do
+# frozen_string_literal: true
+
+control 'V-75527' do
   title "Advance package Tool (APT) must be configured to prevent the
 installation of patches, service packs, device drivers, or Ubuntu operating
 system components without verification they have been digitally signed using a
@@ -23,13 +25,13 @@ does not mandate DoD certificates for this purpose; however, the certificate
 used to verify the software must be from an approved CA.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000366-GPOS-00153"
-  tag "gid": "V-75527"
-  tag "rid": "SV-90207r2_rule"
-  tag "stig_id": "UBTU-16-010560"
-  tag "fix_id": "F-82155r1_fix"
-  tag "cci": ["CCI-001749"]
-  tag "nist": ["CM-5 (3)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000366-GPOS-00153'
+  tag "gid": 'V-75527'
+  tag "rid": 'SV-90207r2_rule'
+  tag "stig_id": 'UBTU-16-010560'
+  tag "fix_id": 'F-82155r1_fix'
+  tag "cci": ['CCI-001749']
+  tag "nist": ['CM-5 (3)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -40,7 +42,7 @@ used to verify the software must be from an approved CA.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that Advance package Tool (APT) is configured to prevent
+  desc 'check', "Verify that Advance package Tool (APT) is configured to prevent
 the installation of patches, service packs, device drivers, or Ubuntu operating
 system components without verification they have been digitally signed using a
 certificate that is recognized and approved by the organization.
@@ -53,7 +55,7 @@ Check that the \"AllowUnauthenticated\" variable is not set at all or set to
 
 If any of the files returned from the command with \"AllowUnauthenticated\" set
 to \"true\", this is a finding."
-  desc "fix", "Configure Advance package Tool (APT) to prevent the installation
+  desc 'fix', "Configure Advance package Tool (APT) to prevent the installation
 of patches, service packs, device drivers, or Ubuntu operating system
 components without verification they have been digitally signed using a
 certificate that is recognized and approved by the organization.
@@ -69,19 +71,18 @@ APT::Get::AllowUnauthenticated \"false\";"
     it { should exist }
   end
 
-  apt_allowuanuth = command('grep -i allowunauth /etc/apt/apt.conf.d/*').stdout.strip.split("\n") 
-  if apt_allowuanuth.empty? 
-    describe "apt conf files do not contain AllowUnauthenticated" do
-      subject {apt_allowuanuth}
-      it { should be empty }
+  apt_allowunauth = command('grep -i allowunauth /etc/apt/apt.conf.d/*').stdout.strip.split("\n")
+  if apt_allowunauth.empty?
+    describe 'apt conf files do not contain AllowUnauthenticated' do
+      subject { apt_allowunauth.empty? }
+      it { should be true }
     end
   else
-    apt_allowuanuth.each do |line|
+    apt_allowunauth.each do |line|
       describe "#{line} contains AllowUnauthenctication" do
-        subject {line}
-        it {should_not match /.*false.*/ }
+        subject { line }
+        it { should_not match /.*false.*/ }
       end
     end
   end
 end
-

@@ -1,4 +1,6 @@
-control "V-75821" do
+# frozen_string_literal: true
+
+control 'V-75821' do
   title "The Ubuntu operating system must implement address space layout
 randomization to protect its memory from unauthorized code execution."
   desc  "Some adversaries launch attacks with the intent of executing code in
@@ -11,13 +13,13 @@ hardware providing the greater strength of mechanism.
     Examples of attacks are buffer overflow attacks.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000433-GPOS-00193"
-  tag "gid": "V-75821"
-  tag "rid": "SV-90501r2_rule"
-  tag "stig_id": "UBTU-16-030140"
-  tag "fix_id": "F-82451r2_fix"
-  tag "cci": ["CCI-002824"]
-  tag "nist": ["SI-16", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000433-GPOS-00193'
+  tag "gid": 'V-75821'
+  tag "rid": 'SV-90501r2_rule'
+  tag "stig_id": 'UBTU-16-030140'
+  tag "fix_id": 'F-82451r2_fix'
+  tag "cci": ['CCI-002824']
+  tag "nist": %w[SI-16 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -28,7 +30,7 @@ hardware providing the greater strength of mechanism.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system implements address space
+  desc 'check', "Verify the Ubuntu operating system implements address space
 layout randomization (ASLR).
 
 Check that ASLR is configured on the system with the following command:
@@ -45,7 +47,7 @@ If nothing is returned; we must verify the kernel parameter
 kernel.randomize_va_space = 2
 
 If \"kernel.randomize_va_space\" is not set to \"2\", this is a finding."
-  desc "fix", "Configure the operating system implement virtual address space
+  desc 'fix', "Configure the operating system implement virtual address space
 randomization.
 
 Set the system to the required kernel parameter by adding the following line to
@@ -57,4 +59,3 @@ kernel.randomize_va_space=2"
     its('value') { should cmp 2 }
   end
 end
-

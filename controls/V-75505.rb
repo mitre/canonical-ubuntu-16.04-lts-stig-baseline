@@ -1,4 +1,6 @@
-control "V-75505" do
+# frozen_string_literal: true
+
+control 'V-75505' do
   title "Ubuntu operating systems booted with a BIOS must require
 authentication upon booting into single-user and maintenance modes."
   desc  "To mitigate the risk of unauthorized access to sensitive information
@@ -21,13 +23,13 @@ users (or processes acting on behalf of users) and objects (e.g., devices,
 files, records, processes, programs, and domains) in the information system.
   "
   impact 0.7
-  tag "gtitle": "SRG-OS-000080-GPOS-00048"
-  tag "gid": "V-75505"
-  tag "rid": "SV-90185r2_rule"
-  tag "stig_id": "UBTU-16-010380"
-  tag "fix_id": "F-82133r1_fix"
-  tag "cci": ["CCI-000213"]
-  tag "nist": ["AC-3", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000080-GPOS-00048'
+  tag "gid": 'V-75505'
+  tag "rid": 'SV-90185r2_rule'
+  tag "stig_id": 'UBTU-16-010380'
+  tag "fix_id": 'F-82133r1_fix'
+  tag "cci": ['CCI-000213']
+  tag "nist": %w[AC-3 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -38,7 +40,7 @@ files, records, processes, programs, and domains) in the information system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that an encrypted root password is set. This is only
+  desc 'check', "Verify that an encrypted root password is set. This is only
 applicable on systems that use a basic Input/Output System BIOS.
 
 Run the following command to verify the encrypted password is set:
@@ -49,7 +51,7 @@ password_pbkdf2 root grub.pbkdf2.sha512.10000.MFU48934NJA87HF8NSD34493GDHF84NG
 
 If the root password entry does not begin with “password_pbkdf2”, this is a
 finding."
-  desc "fix", "Configure the system to require a password for authentication
+  desc 'fix', "Configure the system to require a password for authentication
 upon booting into single-user and maintenance modes.
 
 Generate an encrypted (grub) password for root with the following command:
@@ -73,7 +75,6 @@ following commands:
 # mv /tmp/grub2.cfg /boot/grub2/grub.cfg"
 
   describe file('/boot/grub/grub.cfg') do
-    its('content') { should match "^password_pbkdf2" }
+    its('content') { should match '^password_pbkdf2' }
   end
 end
-

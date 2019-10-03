@@ -1,4 +1,6 @@
-control "V-75817" do
+# frozen_string_literal: true
+
+control 'V-75817' do
   title "The Ubuntu operating system must record time stamps for audit records
 that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time
 (GMT)."
@@ -11,13 +13,13 @@ continuation of Greenwich Mean Time (GMT), or local time with an offset from
 UTC.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000359-GPOS-00146"
-  tag "gid": "V-75817"
-  tag "rid": "SV-90497r2_rule"
-  tag "stig_id": "UBTU-16-030120"
-  tag "fix_id": "F-82447r1_fix"
-  tag "cci": ["CCI-001890"]
-  tag "nist": ["AU-8 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000359-GPOS-00146'
+  tag "gid": 'V-75817'
+  tag "rid": 'SV-90497r2_rule'
+  tag "stig_id": 'UBTU-16-030120'
+  tag "fix_id": 'F-82447r1_fix'
+  tag "cci": ['CCI-001890']
+  tag "nist": ['AU-8 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -28,14 +30,14 @@ UTC.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "The time zone must be configured to use Coordinated Universal
+  desc 'check', "The time zone must be configured to use Coordinated Universal
 Time (UTC) or Greenwich Mean Time (GMT). To verify run the following command.
 
 # sudo timedatectl status | grep -i \"time zone\"
 Time zone: UTC (UTC, +0000)
 
 If \"Time zone\" is not set to UTC or GMT, this is a finding."
-  desc "fix", "To configure the system time zone to use Coordinated Universal
+  desc 'fix', "To configure the system time zone to use Coordinated Universal
 Time (UTC) or Greenwich Mean Time (GMT), run the following command replacing
 [ZONE] with UTC or GMT.
 
@@ -47,4 +49,3 @@ Time (UTC) or Greenwich Mean Time (GMT), run the following command replacing
     it { should match 'UTC' }
   end
 end
-

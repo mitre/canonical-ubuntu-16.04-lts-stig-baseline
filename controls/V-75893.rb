@@ -1,4 +1,6 @@
-control "V-75893" do
+# frozen_string_literal: true
+
+control 'V-75893' do
   title "The Information System Security Officer (ISSO) and System
 Administrator (SA) (at a minimum) must have mail aliases to be notified of an
 audit processing failure."
@@ -17,13 +19,13 @@ centralized audit storage capacity of organizations (i.e., all audit data
 storage repositories combined), or both.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000046-GPOS-00022"
-  tag "gid": "V-75893"
-  tag "rid": "SV-90573r2_rule"
-  tag "stig_id": "UBTU-16-030700"
-  tag "fix_id": "F-82523r1_fix"
-  tag "cci": ["CCI-000139"]
-  tag "nist": ["AU-5 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000046-GPOS-00022'
+  tag "gid": 'V-75893'
+  tag "rid": 'SV-90573r2_rule'
+  tag "stig_id": 'UBTU-16-030700'
+  tag "fix_id": 'F-82523r1_fix'
+  tag "cci": ['CCI-000139']
+  tag "nist": ['AU-5 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -34,7 +36,7 @@ storage repositories combined), or both.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the administrators are notified in the event of an
+  desc 'check', "Verify that the administrators are notified in the event of an
 audit processing failure.
 
 Note: If postfix is not installed, this is Not Applicable.
@@ -45,7 +47,7 @@ Check that the \"/etc/aliases\" file has a defined value for \"root\".
 
 If the command does not return a line, or the line is commented out, this is a
 finding."
-  desc "fix", "Configure the Ubuntu operating system to notify administrators in
+  desc 'fix', "Configure the Ubuntu operating system to notify administrators in
 the event of an audit processing failure.
 
 Add/update the following line in \"/etc/aliases\":
@@ -60,10 +62,9 @@ postmaster: root"
     end
   else
     impact 0
-    describe "Control Not Applicable as postfix is not installed" do
+    describe 'Control Not Applicable as postfix is not installed' do
       subject { is_postfix_installed }
       it { should be false }
     end
   end
 end
-

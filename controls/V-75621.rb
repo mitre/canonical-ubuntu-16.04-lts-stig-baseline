@@ -1,4 +1,6 @@
-control "V-75621" do
+# frozen_string_literal: true
+
+control 'V-75621' do
   title "The Ubuntu operating system must allocate audit record storage
 capacity to store at least one weeks worth of audit records, when audit records
 are not immediately sent to a central audit record storage facility."
@@ -10,13 +12,13 @@ able to allocate audit record storage capacity.
 during initial installation of the Ubuntu operating system.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000341-GPOS-00132"
-  tag "gid": "V-75621"
-  tag "rid": "SV-90301r2_rule"
-  tag "stig_id": "UBTU-16-020020"
-  tag "fix_id": "F-82249r1_fix"
-  tag "cci": ["CCI-001849"]
-  tag "nist": ["AU-4", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000341-GPOS-00132'
+  tag "gid": 'V-75621'
+  tag "rid": 'SV-90301r2_rule'
+  tag "stig_id": 'UBTU-16-020020'
+  tag "fix_id": 'F-82249r1_fix'
+  tag "cci": ['CCI-001849']
+  tag "nist": %w[AU-4 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -27,7 +29,7 @@ during initial installation of the Ubuntu operating system.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system allocates audit record
+  desc 'check', "Verify the Ubuntu operating system allocates audit record
 storage capacity to store at least one week's worth of audit records when audit
 records are not immediately sent to a central audit record storage facility.
 
@@ -57,7 +59,7 @@ will be sufficient.
 
 If the audit record partition is not allocated for sufficient storage capacity,
 this is a finding."
-  desc "fix", "Allocate enough storage capacity for at least one week's worth of
+  desc 'fix', "Allocate enough storage capacity for at least one week's worth of
 audit records when audit records are not immediately sent to a central audit
 record storage facility.
 
@@ -74,14 +76,13 @@ created."
   available_storage = filesystem(log_file_dir).free_kb
   log_file_size = file(log_file_path).size
   standard_audit_log_size = input('standard_audit_log_size')
-  
+
   describe ('Current audit log file size is less than the specified standard of ' + standard_audit_log_size.to_s) do
     subject { log_file_size.to_i }
     it { should be <= standard_audit_log_size }
   end
   describe ('Available storage for audit log should be more than the defined standard of ' + standard_audit_log_size.to_s) do
     subject { available_storage.to_i }
-    it { should be > standard_audit_log_size}
+    it { should be > standard_audit_log_size }
   end
 end
-

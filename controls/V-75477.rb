@@ -1,5 +1,7 @@
-control "V-75477" do
-  title "Passwords must have a minimum of 15-characters."
+# frozen_string_literal: true
+
+control 'V-75477' do
+  title 'Passwords must have a minimum of 15-characters.'
   desc  "The shorter the password, the lower the number of possible
 combinations that need to be tested before the password is compromised.
 
@@ -11,13 +13,13 @@ exponentially increase the time and/or resources required to compromise the
 password.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000078-GPOS-00046"
-  tag "gid": "V-75477"
-  tag "rid": "SV-90157r2_rule"
-  tag "stig_id": "UBTU-16-010240"
-  tag "fix_id": "F-82105r1_fix"
-  tag "cci": ["CCI-000205"]
-  tag "nist": ["IA-5 (1) (a)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000078-GPOS-00046'
+  tag "gid": 'V-75477'
+  tag "rid": 'SV-90157r2_rule'
+  tag "stig_id": 'UBTU-16-010240'
+  tag "fix_id": 'F-82105r1_fix'
+  tag "cci": ['CCI-000205']
+  tag "nist": ['IA-5 (1) (a)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -28,7 +30,7 @@ password.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the Ubuntu operating system enforces a minimum
+  desc 'check', "Verify that the Ubuntu operating system enforces a minimum
 \"15\" character password length, by running the following command:
 
 # grep -i minlen /etc/security/pwquality.conf
@@ -36,7 +38,7 @@ password.
 
 If \"minlen\" parameter value is not \"15\" or higher, or is commented out,
 this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to enforce a minimum
+  desc 'fix', "Configure the Ubuntu operating system to enforce a minimum
 15-character password length.
 
 Add, or modify the \"minlen\" parameter value to the following line in
@@ -58,4 +60,3 @@ minlen=15"
     end
   end
 end
-

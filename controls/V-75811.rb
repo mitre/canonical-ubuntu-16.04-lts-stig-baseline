@@ -1,4 +1,6 @@
-control "V-75811" do
+# frozen_string_literal: true
+
+control 'V-75811' do
   title "A sticky bit must be set on all public directories to prevent
 unauthorized and unintended information transferred via shared system
 resources."
@@ -20,13 +22,13 @@ verified by acceptance/validation processes in DoD or other government agencies.
 storage) that may be assessed on specific information system components.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000138-GPOS-00069"
-  tag "gid": "V-75811"
-  tag "rid": "SV-90491r4_rule"
-  tag "stig_id": "UBTU-16-030070"
-  tag "fix_id": "F-82441r2_fix"
-  tag "cci": ["CCI-001090"]
-  tag "nist": ["SC-4", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000138-GPOS-00069'
+  tag "gid": 'V-75811'
+  tag "rid": 'SV-90491r4_rule'
+  tag "stig_id": 'UBTU-16-030070'
+  tag "fix_id": 'F-82441r2_fix'
+  tag "cci": ['CCI-001090']
+  tag "nist": %w[SC-4 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -37,7 +39,7 @@ storage) that may be assessed on specific information system components.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that all world writable directories have the sticky bit
+  desc 'check', "Verify that all world writable directories have the sticky bit
 set.
 
 Check to see that all world writable directories have the sticky bit set by
@@ -49,7 +51,7 @@ drwxrwxrwxt 7 root root 4096 Jul 26 11:19 /tmp
 
 If any of the returned directories are world writable and do not have the
 sticky bit set, this is a finding."
-  desc "fix", "Configure all world writable directories have the sticky bit set
+  desc 'fix', "Configure all world writable directories have the sticky bit set
 to prevent unauthorized and unintended information transferred via shared
 system resources.
 
@@ -58,8 +60,8 @@ Set the sticky bit on all world writable directories using the command, replace
 
 # sudo chmod 1777 [World-Writable Directory]"
 
-  lines = command('find / -type d  \( -perm -0002 -a ! -perm -1000 \) -print 2>/dev/null').stdout.lines
-  if (lines.count > 0)
+  lines = command('find / -xdev -type d  \( -perm -0002 -a ! -perm -1000 \) -print 2>/dev/null').stdout.lines
+  if lines.count > 0
     lines.each do |line|
       dir = line.strip
       describe directory(dir) do
@@ -67,10 +69,9 @@ Set the sticky bit on all world writable directories using the command, replace
       end
     end
   else
-    describe "Sticky bit has been set on all world writable directories" do
+    describe 'Sticky bit has been set on all world writable directories' do
       subject { lines }
       its('count') { should eq 0 }
     end
   end
 end
-

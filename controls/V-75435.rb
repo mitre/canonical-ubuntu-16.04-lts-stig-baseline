@@ -1,4 +1,6 @@
-control "V-75435" do
+# frozen_string_literal: true
+
+control 'V-75435' do
   title "The Ubuntu operating system must display the Standard Mandatory DoD
 Notice and Consent Banner before granting local or remote access to the system
 via a command line user logon."
@@ -49,16 +51,16 @@ limitations on the number of characters that can be displayed in the banner:
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000023-GPOS-00006"
-  tag "satisfies": ["SRG-OS-000023-GPOS-00006", "SRG-OS-000228-GPOS-00088"]
-  tag "gid": "V-75435"
-  tag "rid": "SV-90115r2_rule"
-  tag "stig_id": "UBTU-16-010030"
-  tag "fix_id": "F-82063r2_fix"
-  tag "cci": ["CCI-000048", "CCI-001384", "CCI-001385", "CCI-001386",
-"CCI-001387", "CCI-001388"]
-  tag "nist": ["AC-8 a", "AC-8 c 1", "AC-8 c 2", "AC-8 c 2", "AC-8 c 2", "AC-8
-c 3", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000023-GPOS-00006'
+  tag "satisfies": %w[SRG-OS-000023-GPOS-00006 SRG-OS-000228-GPOS-00088]
+  tag "gid": 'V-75435'
+  tag "rid": 'SV-90115r2_rule'
+  tag "stig_id": 'UBTU-16-010030'
+  tag "fix_id": 'F-82063r2_fix'
+  tag "cci": %w[CCI-000048 CCI-001384 CCI-001385 CCI-001386
+                CCI-001387 CCI-001388]
+  tag "nist": ['AC-8 a', 'AC-8 c 1', 'AC-8 c 2', 'AC-8 c 2', 'AC-8 c 2', "AC-8
+c 3", 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -69,7 +71,7 @@ c 3", "Rev_4"]
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system displays the Standard
+  desc 'check', "Verify the Ubuntu operating system displays the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the Ubuntu
 operating system via a command line user logon.
 
@@ -109,7 +111,7 @@ Agreement for details.”
 
 If the banner text does not match the Standard Mandatory DoD Notice and Consent
 Banner exactly, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to display the Standard
+  desc 'fix', "Configure the Ubuntu operating system to display the Standard
 Mandatory DoD Notice and Consent Banner before granting access to the system
 via command line logon.
 
@@ -143,11 +145,10 @@ by attorneys, psychotherapists, or clergy, and their assistants. Such
 communications and work product are private and confidential. See User
 Agreement for details.\""
 
-    banner_text = file('/etc/issue').content.gsub(%r{[\r\n\s]}, '')
+  banner_text = file('/etc/issue').content.gsub(/[\r\n\s]/, '')
 
-    describe "Banner text" do
-      subject { banner_text }
-      it { should eq input('banner_text').gsub(%r{[\r\n\s]}, '') }
-    end
+  describe 'Banner text' do
+    subject { banner_text }
+    it { should eq input('banner_text').gsub(/[\r\n\s]/, '') }
+  end
 end
-

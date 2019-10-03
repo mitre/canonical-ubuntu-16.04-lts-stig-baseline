@@ -1,17 +1,19 @@
-control "V-75901" do
-  title "An X Windows display manager must not be installed unless approved."
+# frozen_string_literal: true
+
+control 'V-75901' do
+  title 'An X Windows display manager must not be installed unless approved.'
   desc  "Internet services that are not required for system or application
 processes must not be active to decrease the attack surface of the system. X
 Windows has a long history of security vulnerabilities and will not be used
 unless approved and documented."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75901"
-  tag "rid": "SV-90581r1_rule"
-  tag "stig_id": "UBTU-16-030740"
-  tag "fix_id": "F-82531r1_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75901'
+  tag "rid": 'SV-90581r1_rule'
+  tag "stig_id": 'UBTU-16-030740'
+  tag "fix_id": 'F-82531r1_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -22,7 +24,7 @@ unless approved and documented."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that if X Windows is installed it is authorized.
+  desc 'check', "Verify that if X Windows is installed it is authorized.
 
 Check for the X11 package with the following command:
 
@@ -33,7 +35,7 @@ requirement.
 
 If the use of X Windows on the system is not documented with the Information
 System Security Officer (ISSO), this is a finding."
-  desc "fix", "Document the requirement for an X Windows server with the
+  desc 'fix', "Document the requirement for an X Windows server with the
 Information System Security Officer (ISSO) or remove the related packages with
 the following commands:
 
@@ -42,6 +44,4 @@ the following commands:
   describe package('lightdm') do
     it { should_not be_installed }
   end
-
 end
-

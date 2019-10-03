@@ -1,4 +1,6 @@
-control "V-75515" do
+# frozen_string_literal: true
+
+control 'V-75515' do
   title "A file integrity tool must be installed to verify correct operation of
 all security functions in the Ubuntu operating system."
   desc  "Without verification of the security functions, security functions may
@@ -15,13 +17,13 @@ function verification/testing and/or systems and environments that require this
 functionality.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000445-GPOS-00199"
-  tag "gid": "V-75515"
-  tag "rid": "SV-90195r3_rule"
-  tag "stig_id": "UBTU-16-010500"
-  tag "fix_id": "F-82143r1_fix"
-  tag "cci": ["CCI-002696"]
-  tag "nist": ["SI-6 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000445-GPOS-00199'
+  tag "gid": 'V-75515'
+  tag "rid": 'SV-90195r3_rule'
+  tag "stig_id": 'UBTU-16-010500'
+  tag "fix_id": 'F-82143r1_fix'
+  tag "cci": ['CCI-002696']
+  tag "nist": ['SI-6 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -32,7 +34,7 @@ functionality.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that Advanced Intrusion Detection Environment (AIDE) is
+  desc 'check', "Verify that Advanced Intrusion Detection Environment (AIDE) is
 installed and verifies the correct operation of all security functions.
 
 Check that the AIDE package is installed with the following command:
@@ -46,7 +48,7 @@ checks are performed on the system.
 
 If there is no application installed to perform integrity checks, this is a
 finding."
-  desc "fix", "Install the AIDE package by running the following command:
+  desc 'fix', "Install the AIDE package by running the following command:
 
 # sudo apt-get install aide"
 
@@ -54,4 +56,3 @@ finding."
     it { should be_installed }
   end
 end
-

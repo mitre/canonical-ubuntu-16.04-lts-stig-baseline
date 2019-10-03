@@ -1,4 +1,6 @@
-control "V-75391" do
+# frozen_string_literal: true
+
+control 'V-75391' do
   title "Ubuntu vendor packaged system security patches and updates must be
 installed and up to date."
   desc  "Timely patching is critical for maintaining the operational
@@ -13,13 +15,13 @@ are not installed, unauthorized users may take advantage of weaknesses in the
 unpatched software. The lack of prompt attention to patching could result in a
 system compromise."
   impact 0.5
-  tag "gtitle": "SRG-OS-000480-GPOS-00227"
-  tag "gid": "V-75391"
-  tag "rid": "SV-90071r4_rule"
-  tag "stig_id": "UBTU-16-010010"
-  tag "fix_id": "F-82019r4_fix"
-  tag "cci": ["CCI-000366"]
-  tag "nist": ["CM-6 b", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000480-GPOS-00227'
+  tag "gid": 'V-75391'
+  tag "rid": 'SV-90071r4_rule'
+  tag "stig_id": 'UBTU-16-010010'
+  tag "fix_id": 'F-82019r4_fix'
+  tag "cci": ['CCI-000366']
+  tag "nist": ['CM-6 b', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ system compromise."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system security patches and updates
+  desc 'check', "Verify the Ubuntu operating system security patches and updates
 are installed and up to date. Updates are required to be applied with a
 frequency determined by the site or Program Management Office (PMO).
 
@@ -55,7 +57,7 @@ Vulnerability Alert (IAVA) notifications from JFHQ-DoDIN.
 
 If the Ubuntu operating system is in non-compliance with the Information
 Assurance Vulnerability Management (IAVM) process, this is a finding."
-  desc "fix", "Install the Ubuntu operating system patches or updated packages
+  desc 'fix', "Install the Ubuntu operating system patches or updated packages
 available from Canonical within 30 days or sooner as local policy dictates."
 
   describe command('/usr/lib/update-notifier/apt-check --human-readable') do
@@ -63,4 +65,3 @@ available from Canonical within 30 days or sooner as local policy dictates."
     its('stdout') { should match '^0 updates are security updates.$' }
   end
 end
-

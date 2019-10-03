@@ -1,15 +1,17 @@
-control "V-75799" do
-  title "The Network Information Service (NIS) package must not be installed."
+# frozen_string_literal: true
+
+control 'V-75799' do
+  title 'The Network Information Service (NIS) package must not be installed.'
   desc  "Removing the Network Information Service (NIS) package decreases the
 risk of the accidental (or intentional) activation of NIS or NIS+ services."
   impact 0.7
-  tag "gtitle": "SRG-OS-000095-GPOS-00049"
-  tag "gid": "V-75799"
-  tag "rid": "SV-90479r2_rule"
-  tag "stig_id": "UBTU-16-030010"
-  tag "fix_id": "F-82429r1_fix"
-  tag "cci": ["CCI-000381"]
-  tag "nist": ["CM-7 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000095-GPOS-00049'
+  tag "gid": 'V-75799'
+  tag "rid": 'SV-90479r2_rule'
+  tag "stig_id": 'UBTU-16-030010'
+  tag "fix_id": 'F-82429r1_fix'
+  tag "cci": ['CCI-000381']
+  tag "nist": ['CM-7 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -20,7 +22,7 @@ risk of the accidental (or intentional) activation of NIS or NIS+ services."
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the Network Information Service (NIS) package is
+  desc 'check', "Verify that the Network Information Service (NIS) package is
 not installed on the Ubuntu operating system.
 
 Check to see if the NIS package is installed with the following command:
@@ -28,7 +30,7 @@ Check to see if the NIS package is installed with the following command:
 #  sudo apt list nis
 
 If the NIS package is installed, this is a finding."
-  desc "fix", "Configure the Ubuntu operating system to disable non-essential
+  desc 'fix', "Configure the Ubuntu operating system to disable non-essential
 capabilities by removing the Network Information Service (NIS) package from the
 system with the following command:
 
@@ -38,4 +40,3 @@ system with the following command:
     it { should_not be_installed }
   end
 end
-

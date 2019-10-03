@@ -1,4 +1,6 @@
-control "V-75625" do
+# frozen_string_literal: true
+
+control 'V-75625' do
   title "The System Administrator (SA) and Information System Security Officer
 (ISSO) (at a minimum) must be alerted of an audit processing failure event."
   desc  "It is critical for the appropriate personnel to be aware if a system
@@ -16,13 +18,13 @@ centralized audit storage capacity of organizations (i.e., all audit data
 storage repositories combined), or both.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000046-GPOS-00022"
-  tag "gid": "V-75625"
-  tag "rid": "SV-90305r2_rule"
-  tag "stig_id": "UBTU-16-020040"
-  tag "fix_id": "F-82253r1_fix"
-  tag "cci": ["CCI-000139"]
-  tag "nist": ["AU-5 a", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000046-GPOS-00022'
+  tag "gid": 'V-75625'
+  tag "rid": 'SV-90305r2_rule'
+  tag "stig_id": 'UBTU-16-020040'
+  tag "fix_id": 'F-82253r1_fix'
+  tag "cci": ['CCI-000139']
+  tag "nist": ['AU-5 a', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -33,7 +35,7 @@ storage repositories combined), or both.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the System Administrator (SA) and Information
+  desc 'check', "Verify that the System Administrator (SA) and Information
 System Security Officer (ISSO) (at a minimum) are notified in the event of an
 audit processing failure.
 
@@ -47,7 +49,7 @@ action_mail_acct = root
 If the value of the \"action_mail_acct\" keyword is not set to \"root\" and/or
 other accounts for security personnel, the \"action_mail_acct\" keyword is
 missing, or the retuned line is commented out, this is a finding."
-  desc "fix", "Configure \"auditd\" service to notify the System Administrator
+  desc 'fix', "Configure \"auditd\" service to notify the System Administrator
 (SA) and Information System Security Officer (ISSO) in the event of an audit
 processing failure.
 
@@ -59,9 +61,8 @@ action_mail_acct = root"
   security_accounts = input('security_accounts').join('|')
   space_left_action = auditd_conf.space_left_action
 
-  describe "System Administrator (SA) and Information System Security Officer (ISSO) are notified in the event of an audit processing failure" do
+  describe 'System Administrator (SA) and Information System Security Officer (ISSO) are notified in the event of an audit processing failure' do
     subject { security_accounts.include?(space_left_action) }
     it { should be true }
   end
 end
-

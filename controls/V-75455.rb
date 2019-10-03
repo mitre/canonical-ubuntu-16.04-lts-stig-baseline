@@ -1,5 +1,7 @@
-control "V-75455" do
-  title "All passwords must contain at least one special character."
+# frozen_string_literal: true
+
+control 'V-75455' do
+  title 'All passwords must contain at least one special character.'
   desc  "Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity or strength is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -13,13 +15,13 @@ combinations that need to be tested before the password is compromised.
 include: ~ ! @ # $ % ^ *.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000266-GPOS-00101"
-  tag "gid": "V-75455"
-  tag "rid": "SV-90135r2_rule"
-  tag "stig_id": "UBTU-16-010130"
-  tag "fix_id": "F-82083r2_fix"
-  tag "cci": ["CCI-001619"]
-  tag "nist": ["IA-5 (1) (a)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000266-GPOS-00101'
+  tag "gid": 'V-75455'
+  tag "rid": 'SV-90135r2_rule'
+  tag "stig_id": 'UBTU-16-010130'
+  tag "fix_id": 'F-82083r2_fix'
+  tag "cci": ['CCI-001619']
+  tag "nist": ['IA-5 (1) (a)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -30,7 +32,7 @@ include: ~ ! @ # $ % ^ *.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system enforces password complexity
+  desc 'check', "Verify the Ubuntu operating system enforces password complexity
 by requiring that at least one special character be used.
 
 Determine if the field \"ocredit\" is set in the
@@ -41,7 +43,7 @@ ocredit=-1
 
 If the \"ocredit\" parameter is not equal to \"-1\", or is commented out, this
 is a finding."
-  desc "fix", "Configure the Ubuntu operating system to enforce password
+  desc 'fix', "Configure the Ubuntu operating system to enforce password
 complexity by requiring that at least one special character be used.
 
 Add or update the following line in the \"/etc/security/pwquality.conf\" file
@@ -52,7 +54,6 @@ ocredit=-1"
   min_num_special_char = input('min_num_special_char')
   config_file = '/etc/security/pwquality.conf'
   config_file_exists = file(config_file).exist?
-  
 
   if config_file_exists
     describe parse_config_file(config_file) do
@@ -65,4 +66,3 @@ ocredit=-1"
     end
   end
 end
-

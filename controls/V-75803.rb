@@ -1,5 +1,7 @@
-control "V-75803" do
-  title "An application firewall must be installed."
+# frozen_string_literal: true
+
+control 'V-75803' do
+  title 'An application firewall must be installed.'
   desc  "Uncomplicated Firewall provides a easy and effective way to
 block/limit remote access to the system, via ports, services and protocols.
 
@@ -20,13 +22,13 @@ access applications on a variety of information system components (e.g.,
 servers, workstations, notebook computers, smartphones, and tablets).
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000297-GPOS-00115"
-  tag "gid": "V-75803"
-  tag "rid": "SV-90483r2_rule"
-  tag "stig_id": "UBTU-16-030030"
-  tag "fix_id": "F-82433r1_fix"
-  tag "cci": ["CCI-002314"]
-  tag "nist": ["AC-17 (1)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000297-GPOS-00115'
+  tag "gid": 'V-75803'
+  tag "rid": 'SV-90483r2_rule'
+  tag "stig_id": 'UBTU-16-030030'
+  tag "fix_id": 'F-82433r1_fix'
+  tag "cci": ['CCI-002314']
+  tag "nist": ['AC-17 (1)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -37,7 +39,7 @@ servers, workstations, notebook computers, smartphones, and tablets).
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify that the Uncomplicated Firewall is installed.
+  desc 'check', "Verify that the Uncomplicated Firewall is installed.
 
 Check that the Uncomplicated Firewall is installed with the following command:
 
@@ -48,7 +50,7 @@ ii  ufw         0.35-0Ubuntu2 [installed]
 If the \"ufw\" package is not installed, ask the System Administrator if
 another application firewall is installed. If no application firewall is
 installed this is a finding."
-  desc "fix", "Install Uncomplicated Firewall with the following command:
+  desc 'fix', "Install Uncomplicated Firewall with the following command:
 
 # sudo apt-get install ufw"
 
@@ -56,4 +58,3 @@ installed this is a finding."
     it { should be_installed }
   end
 end
-

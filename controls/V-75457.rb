@@ -1,4 +1,6 @@
-control "V-75457" do
+# frozen_string_literal: true
+
+control 'V-75457' do
   title "The Ubuntu operating system must require the change of at least 8
 characters when passwords are changed."
   desc  "If the Ubuntu operating system allows the user to consecutively reuse
@@ -16,13 +18,13 @@ must be rounded up. For example, a password length of 15 characters must
 require the change of at least 8 characters.
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000072-GPOS-00040"
-  tag "gid": "V-75457"
-  tag "rid": "SV-90137r2_rule"
-  tag "stig_id": "UBTU-16-010140"
-  tag "fix_id": "F-82085r2_fix"
-  tag "cci": ["CCI-000195"]
-  tag "nist": ["IA-5 (1) (b)", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000072-GPOS-00040'
+  tag "gid": 'V-75457'
+  tag "rid": 'SV-90137r2_rule'
+  tag "stig_id": 'UBTU-16-010140'
+  tag "fix_id": 'F-82085r2_fix'
+  tag "cci": ['CCI-000195']
+  tag "nist": ['IA-5 (1) (b)', 'Rev_4']
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -33,7 +35,7 @@ require the change of at least 8 characters.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the Ubuntu operating system requires the change of at
+  desc 'check', "Verify the Ubuntu operating system requires the change of at
 least \"8\" characters when passwords are changed.
 
 Determine if the field \"difok\" is set in the \"/etc/security/pwquality.conf\"
@@ -44,7 +46,7 @@ difok=8
 
 If the \"difok\" parameter is less than \"8\", or is commented out, this is a
 finding."
-  desc "fix", "Configure the Ubuntu operating system to require the change of at
+  desc 'fix', "Configure the Ubuntu operating system to require the change of at
 least \"8\" characters when passwords are changed.
 
 Add or update the following line in the \"/etc/security/pwquality.conf\" file
@@ -55,7 +57,6 @@ difok=8"
   min_num_characters_to_change = input('min_num_characters_to_change')
   config_file = '/etc/security/pwquality.conf'
   config_file_exists = file(config_file).exist?
-  
 
   if config_file_exists
     describe parse_config_file(config_file) do
@@ -68,4 +69,3 @@ difok=8"
     end
   end
 end
-

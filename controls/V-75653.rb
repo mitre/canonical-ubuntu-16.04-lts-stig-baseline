@@ -1,5 +1,7 @@
-control "V-75653" do
-  title "Audit tools must have a mode of 0755 or less permissive."
+# frozen_string_literal: true
+
+control 'V-75653' do
+  title 'Audit tools must have a mode of 0755 or less permissive.'
   desc  "Protecting audit information also includes identifying and protecting
 the tools used to view and manipulate log data. Therefore, protecting audit
 tools is necessary to prevent unauthorized operation on audit information.
@@ -17,15 +19,15 @@ generators.
 
   "
   impact 0.5
-  tag "gtitle": "SRG-OS-000256-GPOS-00097"
-  tag "satisfies": ["SRG-OS-000256-GPOS-00097", "SRG-OS-000257-GPOS-00098",
-"SRG-OS-000258-GPOS-00099"]
-  tag "gid": "V-75653"
-  tag "rid": "SV-90333r2_rule"
-  tag "stig_id": "UBTU-16-020180"
-  tag "fix_id": "F-82281r1_fix"
-  tag "cci": ["CCI-001493", "CCI-001494", "CCI-001495"]
-  tag "nist": ["AU-9", "AU-9", "AU-9", "Rev_4"]
+  tag "gtitle": 'SRG-OS-000256-GPOS-00097'
+  tag "satisfies": %w[SRG-OS-000256-GPOS-00097 SRG-OS-000257-GPOS-00098
+                      SRG-OS-000258-GPOS-00099]
+  tag "gid": 'V-75653'
+  tag "rid": 'SV-90333r2_rule'
+  tag "stig_id": 'UBTU-16-020180'
+  tag "fix_id": 'F-82281r1_fix'
+  tag "cci": %w[CCI-001493 CCI-001494 CCI-001495]
+  tag "nist": %w[AU-9 AU-9 AU-9 Rev_4]
   tag "false_negatives": nil
   tag "false_positives": nil
   tag "documentable": false
@@ -36,7 +38,7 @@ generators.
   tag "mitigation_controls": nil
   tag "responsibility": nil
   tag "ia_controls": nil
-  desc "check", "Verify the audit tools are protected from unauthorized access,
+  desc 'check', "Verify the audit tools are protected from unauthorized access,
 deletion, or modification by checking the permissive mode.
 
 Check the octal permission of each audit tool by running the following command:
@@ -48,7 +50,7 @@ Check the octal permission of each audit tool by running the following command:
 
 If any of the audit tools has a mode more permissive than \"0755\", this is a
 finding."
-  desc "fix", "Configure the audit tools to be protected from unauthorized
+  desc 'fix', "Configure the audit tools to be protected from unauthorized
 access by setting the correct permissive mode using the following command:
 
 # sudo chmod 0755 [audit_tool]
@@ -64,4 +66,3 @@ permissive mode."
     end
   end
 end
-

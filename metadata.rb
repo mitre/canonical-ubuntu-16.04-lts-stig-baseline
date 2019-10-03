@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name             'stig' # ~FC121
 maintainer       'USGS WSI'
 maintainer_email 'isuftin@usgs.gov'
