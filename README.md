@@ -1,6 +1,3 @@
-### This is a ***Work in Progress***. We will release the final version in the ***MASTER*** Branch
-### This baseline will continue to change until we do a final release
-
 [![Build Status](https://travis-ci.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline.svg?branch=development)](https://travis-ci.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline)
 
 [Travis CI Build History](https://travis-ci.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/builds)
@@ -114,5 +111,4 @@ For further information, please contact The MITRE Corporation, Contracts Managem
 
 ### NOTICE
 
-< DISA STIGs | CIS Benchmarks > are published by < DISA IASE | the Center for Internet Security (CIS) >, see: 
-< https://iase.disa.mil/Pages/privacy_policy.aspx | https://www.cisecurity.org/ >.
+DISA STIGs are published by DISA IASE, see: https://iase.disa.mil/Pages/privacy_policy.aspx.
