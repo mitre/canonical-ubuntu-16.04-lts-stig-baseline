@@ -4,7 +4,7 @@
 
 # canonical_ubuntu_16.04_lts_stig_baseline
 
-An InSpec profile of the DISA Canonical Ubuntu 16.04 LTS STIG baseline
+InSpec profile to validate the secure configuration of Canonical Ubuntu 16.04 LTS against [DISA](https://iase.disa.mil/stigs/)'s **Canonical Ubuntu 16.04 LTS Security Technical Implementation Guide (STIG) Version 1 Release 1**.
 
 ## Getting Started  
 It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __winrm__.
