@@ -6,7 +6,13 @@
 
 An InSpec profile of the DISA Canonical Ubuntu 16.04 LTS STIG baseline
 
-## Getting Started
+## Getting Started  
+It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __winrm__.
+
+__For the best security of the runner, always install on the runner the _latest version_ of InSpec and supporting Ruby language components.__ 
+
+Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
+
 The following inputs must be configured in inspec.yml for the profile to run correctly. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
@@ -86,7 +92,7 @@ To report a bug or feature request, please open an [issue](https://github.com/mi
 
 ## Special Thanks
 * Aaron Lippold
-* Eugene Aaron
+* Eugene Aronne
 
 ## License 
 
