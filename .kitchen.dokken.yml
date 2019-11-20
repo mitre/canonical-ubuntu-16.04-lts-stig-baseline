@@ -1,0 +1,35 @@
+driver:
+  name: dokken
+  privileged: true # because Docker and SystemD/Upstart
+  #chef_version: <%= ENV['CHEF_VERSION'] || 'stable' %>
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+  deprecations_as_errors: true
+  chef_license: accept
+
+verifier:
+  name: inspec
+  sudo: true
+  reporter:
+    - cli
+    - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}_<%= ENV['TRAVIS_BUILD_ID'] %>.json
+  inspec_tests:
+    - path: ./
+  inputs:
+    disable_slow_controls: true
+
+platforms:
+- name: ubuntu-16.04
+  driver:
+    image: dokken/ubuntu-16.04
+    pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN /usr/bin/apt-get update
+suites:
+- name: default
+  run_list:
+  - recipe[os-hardening::default]

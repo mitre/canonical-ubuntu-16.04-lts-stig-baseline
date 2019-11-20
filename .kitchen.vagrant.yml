@@ -1,0 +1,25 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  chef_license: accept
+
+verifier:
+  name: inspec
+  sudo: true
+  reporter:
+    - cli
+    - json:./results/<%= Time.now.utc.strftime('%Y%m%d%H%M%S') %>-%{platform}_%{suite}_<%= ENV['TRAVIS_BUILD_ID'] %>.json
+  inspec_tests:
+    - path: ./
+  inputs:
+    disable_slow_controls: true
+
+platforms:
+- name: ubuntu-16.04
+
+suites:
+- name: default
+  run_list:
+  - recipe[os-hardening::default]
