@@ -58,3 +58,5 @@ script:
   - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE} || true
   - export RESULTS=$(ls results/*.json)
   - inspec_tools compliance -j $RESULTS -f threshold.yml
+  - curl -F "file=@$RESULTS" -F "email=$HEIMDALL_EMAIL" -F "api_key=$HEIMDALL_API_KEY" -F circle="$HEIMDALL_CIRCLE" $HEIMDALL_SERVER:$HEIMDALL_PORT/evaluation_upload_api
+
