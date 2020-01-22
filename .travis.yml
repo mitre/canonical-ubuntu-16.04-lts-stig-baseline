@@ -41,12 +41,12 @@ before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - gem install bundler:2.0.1
-  - gem install inspec_tools
+  - gem install inspec_tools --no-document
   - inspec --version
-  - CHEF_LICENSE=accept chef gem update inspec
-  - CHEF_LICENSE=accept chef gem update inspec-bin
-  - /opt/chef-workstation/embedded/bin/gem update inspec
-  - /opt/chef-workstation/embedded/bin/gem update inspec-bin
+  - CHEF_LICENSE=accept chef gem update inspec --no-document
+  - CHEF_LICENSE=accept chef gem update inspec-bin --no-document
+  - /opt/chef-workstation/embedded/bin/gem update inspec --no-document
+  - /opt/chef-workstation/embedded/bin/gem update inspec-bin --no-document
   - inspec --version
   - bundle update --bundler
   - bundle install
@@ -57,7 +57,8 @@ before_script:
 script: 
   - CHEF_LICENSE=accept-no-persist KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE} || true
   - export RESULTS=$(ls results/*.json)
+  - echo $RESULTS
   - inspec_tools compliance -j $RESULTS -f threshold.yml
-  - ping -c 2 http://$HEIMDALL_SERVER
-  - curl -F "file=\@$RESULTS" -F "email=lippold@gmail.com" -F "api_key=$HEIMDALL_API_KEY" -F circle="$HEIMDALL_CIRCLE" http://$HEIMDALL_SERVER:$HEIMDALL_PORT/evaluation_upload_api
+  - ping -c 2 http://$HEIMDALL_SERVER -p $HEIMDALL_PORT
+  - curl -F "file=@$RESULTS" -F "email=lippold@gmail.com" -F "api_key=$HEIMDALL_API_KEY" -F circle="$HEIMDALL_CIRCLE" http://$HEIMDALL_SERVER:$HEIMDALL_PORT/evaluation_upload_api
 
