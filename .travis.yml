@@ -59,6 +59,5 @@ script:
   - export RESULTS=$(ls results/*.json)
   - echo $RESULTS
   - inspec_tools compliance -j $RESULTS -f threshold.yml
-  - ping -c 2 http://$HEIMDALL_SERVER -p $HEIMDALL_PORT
-  - curl -F "file=@$RESULTS" -F "email=lippold@gmail.com" -F "api_key=$HEIMDALL_API_KEY" -F circle="$HEIMDALL_CIRCLE" http://$HEIMDALL_SERVER:$HEIMDALL_PORT/evaluation_upload_api
+  - curl -F "file=@./$RESULTS" -F "email=lippold@gmail.com" -F "api_key=$HEIMDALL_API_KEY" -F circle="$HEIMDALL_CIRCLE" http://$HEIMDALL_SERVER:$HEIMDALL_PORT/evaluation_upload_api
 
