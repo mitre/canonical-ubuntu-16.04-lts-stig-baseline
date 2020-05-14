@@ -80,7 +80,7 @@ In order for the changes to take effect, the SSH daemon must be restarted.
   client_alive_count_max = input('client_alive_count_max')
 
   describe sshd_config do
-    its('ClientAliveInterval') { should be <= client_alive_interval }
-    its('ClientAliveCountMax') { should be >= client_alive_count_max }
+    its('ClientAliveInterval.to_i') { should be <= client_alive_interval }
+    its('ClientAliveCountMax.to_i') { should be >= client_alive_count_max }
   end
 end
