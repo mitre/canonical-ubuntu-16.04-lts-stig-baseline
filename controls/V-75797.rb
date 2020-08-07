@@ -53,7 +53,7 @@ running the following command:
 
 # sudo apt-get remove telnetd"
 
-  describe package('telnet') do
+  describe package('telnetd') do
     it { should_not be_installed }
   end
 end
