@@ -49,6 +49,6 @@ Unattended-Upgrade::Remove-Unused-Dependencies \"true\";"
   end
 
   describe command('grep -i remove-unused /etc/apt/apt.conf.d/50unattended-upgrades').stdout.strip do
-    it { should match /^\s*([^\s]*::Remove-Unused-Dependencies)\s*\\"true\\"\s*;$/ }
+    it { should match /^\s*([^\s]*::Remove-Unused-Dependencies)\s*\"true\"\s*;$/ }
   end
 end

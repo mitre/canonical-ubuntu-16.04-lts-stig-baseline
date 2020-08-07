@@ -67,10 +67,7 @@ Run the following command to lock the root account:
 
   describe.one do
     describe shadow.where(user: 'root') do
-      its('passwords') { should include '!' }
-    end
-    describe shadow.where(user: 'root') do
-      its('passwords') { should include '*' }
+      its('passwords') { should include '!*' }
     end
   end
 end

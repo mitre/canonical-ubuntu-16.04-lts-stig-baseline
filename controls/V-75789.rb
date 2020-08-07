@@ -57,7 +57,7 @@ the audit daemon, run the following command:
 
 # sudo systemctl restart auditd.service"
 
-  @audit_file = '/usr/bin/pam_timestamp_check'
+  @audit_file = '/usr/sbin/pam_timestamp_check'
 
   audit_lines_exist = !auditd.lines.index { |line| line.include?(@audit_file) }.nil?
   if audit_lines_exist
