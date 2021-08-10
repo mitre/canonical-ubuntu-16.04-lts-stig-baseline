@@ -60,6 +60,7 @@ account to be created.
 
   if temporary_accounts.empty?
     describe 'Temporary accounts' do
+      subject { temporary_accounts }
       it { should be_empty }
     end
   else

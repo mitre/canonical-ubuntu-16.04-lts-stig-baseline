@@ -64,6 +64,7 @@ an administrator:
 
   if emergency_accounts.empty?
     describe 'Emergency accounts' do
+      subject { emergency_accounts }
       it { should be_empty }
     end
     describe shadow.where(user: 'root') do
