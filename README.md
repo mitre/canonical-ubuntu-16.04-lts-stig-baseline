@@ -62,7 +62,7 @@ The following inputs must be configured in an inputs ".yml" file for the profile
 
 ```
 # How to run
-inspec exec https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/archive/master.tar.gz -t winrm://<hostname>:<port> --sudo --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline/archive/master.tar.gz -t ssh://TARGET_USERNAME:TARGET_PASSWORD@TARGET_IP:TARGET_PORT --sudo --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 ### Different Run Options
@@ -82,7 +82,7 @@ mkdir profiles
 cd profiles
 git clone https://github.com/mitre/canonical-ubuntu-16.04-lts-stig-baseline
 inspec archive canonical-ubuntu-16.04-lts-stig-baseline
-inspec exec <name of generated archive> -t winrm://<hostname>:<port> --sudo --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec <name of generated archive> -t ssh://TARGET_USERNAME:TARGET_PASSWORD@TARGET_IP:TARGET_PORT --sudo --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 For every successive run, follow these steps to always have the latest version of this baseline:
 
@@ -91,7 +91,7 @@ cd canonical-ubuntu-16.04-lts-stig-baseline
 git pull
 cd ..
 inspec archive canonical-ubuntu-16.04-lts-stig-baseline --overwrite
-inspec exec <name of generated archive> -t winrm://<hostname>:<port> --sudo --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+inspec exec <name of generated archive> -t ssh://TARGET_USERNAME:TARGET_PASSWORD@TARGET_IP:TARGET_PORT --sudo --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 ## Viewing the JSON Results
